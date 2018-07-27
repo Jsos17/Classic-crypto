@@ -20,7 +20,7 @@ Sen sijaan klassiset salausalgoritmit vaikuttavat nopealla yleiskatsauksella ska
 
 * [Vigenere cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher) ja mahdollisesti sen variantit: Käyttää useita siirrettyjä aakkostoja jotka valitaan avaimen avulla ja jokainen kirjain salataan näin ollen mahdollisesti eri aakkostolla
 
-* [VIC cipher](https://en.wikipedia.org/wiki/VIC_cipher): Wikipedian mukaan yksi monimutkaisimmista kynällä ja paperilla operoiduista salauksista ja Neuvostoagenttien käyttämä
+* [VIC cipher](https://en.wikipedia.org/wiki/VIC_cipher): Wikipedian mukaan yksi monimutkaisimmista kynällä ja paperilla operoiduista salauksista
 
 * [One-time-pad](https://en.wikipedia.org/wiki/One-time_pad): Teoriassa ja oikein käytettynä murtamaton menetelmä eli jos salausavaimet tuotetaan aidoista satunnaisluvuista, avaimia ei uudelleenkäytetä, avain on vähintään yhtä pitkä kuin salattava viesti ja avaimet voidaan jakaa turvallisesti osapuolille.
 
@@ -28,7 +28,7 @@ Sen sijaan klassiset salausalgoritmit vaikuttavat nopealla yleiskatsauksella ska
 
 * [Jokin double transposition menetelmä](https://en.wikipedia.org/wiki/Transposition_cipher#Double_transposition)
 
-* Mahdollisesti muita esim Bifid, Trifid
+* Mahdollisesti muita esim Bifid, Trifid jne
 
 ### Salauksen analysointi- ja rikkomismenetelmiä:
 
@@ -61,6 +61,8 @@ Tällä hetkellä ajatus on, että salatessa syöte on tekstimuodossa (String) j
 Näyttää siltä että kaikki klassiset salausmenetelmät toimivat O(n) ajassa (alustava pika-arvio).
 
 Salauksen rikkominen on hyvin vaikea arvioida tässä vaihesssa, mutta mitä suurimmalla todennäköisyydellä ei pysytä enää pelkästään lineaarisessa aikavaativuudessa.
+
+Introduction to Algorithms kirjassa Euclid(a,b) tekee O(beta^2) bitti-operaatiota, jos a ja b ovat beta-bittisiä numeroita. Eritellympiä arvioita: https://en.wikipedia.org/wiki/Euclidean_algorithm#Algorithmic_efficiency
 
 ## Lähteet
 
