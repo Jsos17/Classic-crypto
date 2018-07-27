@@ -2,7 +2,7 @@
 
 ## Mitä olen tehnyt
 
-Keskiviikko ja torstai käytetty lähinnä kryptografiaan tutustumiseen ensin yleisellä tasolla lukemalla [wikipedia: Cryptoraphy](https://en.wikipedia.org/wiki/Cryptography) ja seurailemalla sieltä alisivuja wikipediasta. Lisäksi luin aiheissa linkattua sivustoa ja sen perusteella etsin wikipediasta lisätietoa sivustolla mainituista salausmenetelmistä.
+Keskiviikko ja torstai käytetty lähinnä kryptografiaan tutustumiseen ensin yleisellä tasolla lukemalla [wikipediaa: Cryptoraphy](https://en.wikipedia.org/wiki/Cryptography) ja seurailemalla sieltä alisivuja. Lisäksi luin aiheissa linkattua sivustoa http://rumkin.com/tools/cipher/index.php ja sen perusteella etsin wikipediasta lisätietoa sivustolla mainituista salausmenetelmistä.
 
 Perjantaina laitettu projekti pystyyn GitHubiin ja yritetty tarkentaa mitä toteutetaan. Suunnitelma keskittyä klassisiin salausalgoritmeihin eli ennen 1970-lukua käytettyihin ja niiden salauksen rikkomiseen (cryptanalysis). 
  
@@ -16,7 +16,7 @@ Perusteet kryptografian historiasta ja sen miten selkeä ero klassisten "kynäll
 
 Tutustuin joidenkin menetelmien toimintaperiaatteisiin tarkemmin yrittäen ymmärtää mekanismin (Vigenere, one-time-pad ja muita) ja lisäksi luin modulo-laskennasta ja yleisesti lukuteoriasta koska jo klassisissa algoritmeissa esimerkiksi suurimman yhteisen tekijän löytäminen näytti nousevan esiin. Modulolaskentaan ja lukuteoriaan liittyen lähteinä käytin *Introduction to Algorithms* ja *Johdatus abstraktiin algebraan* -kirjoja soveltuvin osin ja wikipedia/internet.
 
-Lisäksi opin myös perusteita modernista kryptografiasta ja erityisesti RSA-salauksesta. Erityisesti se, että RSA-salauksen koko toimivuus perustuu suhteelliseen helppouteen löytää suuret alkuluvut ja niiden kertomiseen keskenään ja toisaalta siihen että käänteinen toimenpide on huomattavasti vaikeampi/raskaampi (tulon tekijöiden selvittäminen).
+Lisäksi opin myös perusteita modernista kryptografiasta ja erityisesti RSA-salauksesta (suurten alkulukujen löytäminen ja niiden kertomimen suhteellisen helppoa mutta käänteisesti tulon tekijöiden selvittäminen vaikeaa).
 
 Selkeni, että on parempi lähteä liikkeelle klassisista menetelmistä ja toteuttaa useampi niistä. Ja ajatus on, että saatu oppi ja kokemus salausten toteuttamisessa toivottavasti auttaa sitten näiden menetelmien rikkomisessa algoritmisesti. Työtä voi sitten laajentaa lisäämällä lisää salausmenetelmiä ja salauksen rikkomisen parantamisella. RSA-salausta tuskin toteutetaan ellei jää erityisen paljon aikaa.
 
