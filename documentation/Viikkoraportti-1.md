@@ -16,7 +16,7 @@ Perusteet kryptografian historiasta ja sen miten selkeä ero klassisten "kynäll
 
 Tutustuin joidenkin menetelmien toimintaperiaatteisiin tarkemmin yrittäen ymmärtää mekanismin (Vigenere, one-time-pad ja muita) ja lisäksi luin modulo-laskennasta ja yleisesti lukuteoriasta koska jo klassisissa algoritmeissa esimerkiksi suurimman yhteisen tekijän löytäminen näytti nousevan esiin. Modulolaskentaan ja lukuteoriaan liittyen lähteinä käytin *Introduction to Algorithms* ja *Johdatus abstraktiin algebraan* -kirjoja soveltuvin osin ja wikipedia/internet.
 
-Lisäksi opin myös perusteita modernista kryptografiasta ja erityisesti RSA-salauksesta. Erityisesti se, että RSA-salauksen koko toimivuus perustuu suhteelliseen helppouteen löytää suuret alkuluvut ja niiden kertomiseen keskenään ja toisaalta siihen että käänteinen toimenpide on (laskennallisesti) vaikea (tulon tekijöiden selvittäminen).
+Lisäksi opin myös perusteita modernista kryptografiasta ja erityisesti RSA-salauksesta. Erityisesti se, että RSA-salauksen koko toimivuus perustuu suhteelliseen helppouteen löytää suuret alkuluvut ja niiden kertomiseen keskenään ja toisaalta siihen että käänteinen toimenpide on huomattavasti vaikeampi/raskaampi (tulon tekijöiden selvittäminen).
 
 Selkeni, että on parempi lähteä liikkeelle klassisista menetelmistä ja toteuttaa useampi niistä. Ja ajatus on, että saatu oppi ja kokemus salausten toteuttamisessa toivottavasti auttaa sitten näiden menetelmien rikkomisessa algoritmisesti. Työtä voi sitten laajentaa lisäämällä lisää salausmenetelmiä ja salauksen rikkomisen parantamisella. RSA-salausta tuskin toteutetaan ellei jää erityisen paljon aikaa.
 
