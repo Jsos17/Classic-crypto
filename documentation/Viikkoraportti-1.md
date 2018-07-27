@@ -14,7 +14,7 @@ Projekti on luotu, ei muuta edistystä
 
 Perusteet kryptografian historiasta ja sen miten selkeä ero klassisten "kynällä ja paperilla" käytettävien ja toisaalta modernien salausmenetelmien välillä on. 
 
-Tutustuin joidenkin menetelmien toimintaperiaatteisiin tarkemmin yrittäen ymmärtää mekanismin (Vigenere, one-time-pad) ja lisäksi luin modulo-laskennasta ja yleisesti lukuteoriasta koska jo klassisissa algoritmeissa modulo-laskenta ja esimerkiksi suurimman yhteisen tekijän löytäminen näyttivät nousevan esiin. Lähteinä käytin *Introduction to Algorithms* ja *Johdatus abstraktiin algebraan* -kirjoja soveltuvin osin ja wikipediaa/internettiä.
+Tutustuin joidenkin menetelmien toimintaperiaatteisiin tarkemmin yrittäen ymmärtää mekanismin (Vigenere, one-time-pad) ja lisäksi luin modulo-laskennasta ja yleisesti lukuteoriasta koska jo klassisissa algoritmeissa esimerkiksi suurimman yhteisen tekijän löytäminen näyttivät nousevan esiin. Modulolaskentaan ja lukuteoriaan liittyen lähteinä käytin *Introduction to Algorithms* ja *Johdatus abstraktiin algebraan* -kirjoja soveltuvin osin ja wikipedia/internet.
 
 Lisäksi opin myös perusteita modernista kryptografiasta ja erityisesti RSA-salauksesta. Erityisesti se, että RSA-salauksen koko toimivuus perustuu suhteelliseen helppouteen löytää suuret alkuluvut ja niiden kertomiseen keskenään ja toisaalta siihen että käänteinen toimenpide on (laskennallisesti) vaikea (tulon tekijöiden selvittäminen).
 
@@ -28,7 +28,7 @@ Selkeni, että on parempi lähteä liikkeelle klassisista menetelmistä ja toteu
 
 **Käsiteltävien syötteiden koko sekä salausalgoritmeissa että salauksen rikkomisessa.
 
-**Klassiset salaukset käsittelevät käytännössä tekstin salaamista, onko tämä rittävää?
+**Klassiset salaukset käsittelevät käytännössä tekstin salaamista, onko tämä riittävää?
 
 ## Mitä teen seuraavaksi
 
