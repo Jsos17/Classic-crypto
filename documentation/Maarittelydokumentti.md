@@ -62,11 +62,11 @@ Näyttää siltä että kaikki klassiset salausmenetelmät toimivat O(n) ajassa 
 
 Salauksen rikkominen on hyvin vaikea arvioida tässä vaihesssa, mutta mitä suurimmalla todennäköisyydellä ei pysytä enää pelkästään lineaarisessa aikavaativuudessa.
 
-Introduction to Algorithms kirjassa Euclid(a,b) tekee O(beta^2) bitti-operaatiota, jos a ja b ovat beta-bittisiä numeroita. Eritellympiä arvioita: https://en.wikipedia.org/wiki/Euclidean_algorithm#Algorithmic_efficiency
+Introduction to Algorithms kirjassa Euclid(a,b) tekee O(beta^2) bitti-operaatiota, jos a ja b ovat beta-bittisiä numeroita. Eritellympiä arvioita: https://en.wikipedia.org/wiki/Euclidean_algorithm#Algorithmic_efficiency.
 
 ## Lähteet
 
-Yllä olevien linkkien lisäksi:
+Mainittujen linkkien lisäksi:
 
 [Cryptography](https://en.wikipedia.org/wiki/Cryptography)
 
