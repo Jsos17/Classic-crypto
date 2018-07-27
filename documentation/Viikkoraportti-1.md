@@ -22,13 +22,13 @@ Selkeni, että on parempi lähteä liikkeelle klassisista menetelmistä ja toteu
 
 ## Mikä jäi epäselväksi/Vaikeudet/Kysymykset
 
-*Salauksen rikkominen (kryptoanalyysi) algoritmisesti tai lähinnä se, että pitääkö pyrkiä siihen että rikkominen tapahtuu kokonaan automaattisesti vai niin, että käyttäjä ajaa jotain ohjelmaa ja sitten tekee valistuneita päätöksiä välissä? Eli siis algoritmit olisivat enemmän päätöksenteon apuväline kuin suora automaattinen menetelmä.
+* Salauksen rikkominen (kryptoanalyysi) algoritmisesti tai lähinnä se, että pitääkö pyrkiä siihen että rikkominen tapahtuu kokonaan automaattisesti vai niin, että käyttäjä ajaa jotain ohjelmaa ja sitten tekee valistuneita päätöksiä välissä? Eli siis algoritmit olisivat enemmän päätöksenteon apuväline kuin suora automaattinen menetelmä.
 
-*Pitääkö pystyä luomaan algoritmi joka rikkoo esimerkiksi useamman tyyppisen salauksen tietämättä/olettamatta mitä (klassista) salausmenetelmää on käytetty vai voiko vain luoda työkalun useampaa salaustyyppiä varten, joissa sitten tarvitaan ihminen tekemään valistunut päätös mitä työkalua pitää käyttää ja mitä johtopäätöksiä vetää?
+* Pitääkö pystyä luomaan algoritmi joka rikkoo esimerkiksi useamman tyyppisen salauksen tietämättä/olettamatta mitä (klassista) salausmenetelmää on käytetty vai voiko vain luoda työkalun useampaa salaustyyppiä varten, joissa sitten tarvitaan ihminen tekemään valistunut päätös mitä työkalua pitää käyttää ja mitä johtopäätöksiä vetää?
 
-*Käsiteltävien syötteiden koko sekä salausalgoritmeissa että salauksen rikkomisessa.
+* Käsiteltävien syötteiden koko sekä salausalgoritmeissa että salauksen rikkomisessa.
 
-*Klassiset salaukset käsittelevät käytännössä tekstin salaamista, onko tämä riittävää?
+* Klassiset salaukset käsittelevät käytännössä tekstin salaamista, onko tämä riittävää?
 
 ## Mitä teen seuraavaksi
 
