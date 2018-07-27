@@ -6,6 +6,7 @@ Harjoitustyö toteuttaa klassisia (pre-1970-luku) kryptografisia algoritmeja ja 
 
 ## Määrittelydokumentti
 
+[Vaatimusmäärittely](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Vaatimusmaarittely.md)
 
 ## Viikkoraportit
 
