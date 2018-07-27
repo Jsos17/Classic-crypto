@@ -2,4 +2,4 @@
 
 ## Tietorakenteet ja algoritmit aineopintojen harjoitustyö
 
-Harjoitustyö toteuttaa klassisia (ennen 1970-lukua) kryptografisia algoritmeja ja kryptoanalyysiä näihin liittyen.
+Harjoitustyö toteuttaa klassisia (pre-1970-luku) kryptografisia algoritmeja ja kryptoanalyysiä näihin liittyen.
