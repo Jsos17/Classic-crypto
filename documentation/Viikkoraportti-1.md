@@ -38,4 +38,4 @@ Lisätutkimusta salauksen rikkomiseen liittyen ja toivottavasti jotain alustavaa
 
 ## Käytetty tuntimäärä
 
-[Tuntikirjanpito]()
+[Tuntikirjanpito](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/tuntikirjanpito.md)
