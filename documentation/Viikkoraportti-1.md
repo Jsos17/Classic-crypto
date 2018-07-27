@@ -32,7 +32,7 @@ Selkeni, että on parempi lähteä liikkeelle klassisista menetelmistä ja toteu
 
 ## Mitä teen seuraavaksi
 
-Pyrkimys toteuttaa useampi klassinen salausamenetelmä/algoritmi (Vigenere ensimmäisenä, ja sitten joku muu) niin että plaintextin voi muuttaa ciphertextiksi ja toisinpäin sekä lisäksi asiaankuuluvat testit.
+Pyrkimys toteuttaa useampi klassinen salausmenetelmä/algoritmi (Vigenere ensimmäisenä, ja sitten joku muu) niin että plaintextin voi muuttaa ciphertextiksi ja toisinpäin sekä lisäksi asiaankuuluvat testit.
 
 Lisätutkimusta salauksen rikkomiseen liittyen ja toivottavasti jotain alustavaa on saatu aikaan siihen liittyen.
 
