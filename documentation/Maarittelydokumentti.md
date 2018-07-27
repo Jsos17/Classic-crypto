@@ -30,15 +30,17 @@ Sen sijaan klassiset salausalgoritmit vaikuttavat nopealla yleiskatsauksella ska
 
 * Mahdollisesti muita esim Bifid, Trifid
 
-
 ### Salauksen analysointi- ja rikkomismenetelmiä:
 
-* [Kirjainten frekvenssianalyysi](https://en.wikipedia.org/wiki/Frequency_analysis)
+* [Kirjainten frekvenssianalyysi](https://en.wikipedia.org/wiki/Frequency_analysis): Auttaa esimerkiksi rajaamaan käytettyä salausmenetelmää
 
-* [Kasiski examination Vigenere cipherin murtamisessa](https://en.wikipedia.org/wiki/Kasiski_examination)
+* [Kasiski examination Vigenere cipherin murtamisessa](https://en.wikipedia.org/wiki/Kasiski_examination): Auttaa käytetyn avaimen selvittämisessä ja tässä suurimman yhteisen tekijä selvittäminen nousee esille
 
 * [Index of coincidence](https://en.wikipedia.org/wiki/Index_of_coincidence) 
 
+### Spesifisiä algoritmeja
+
+* Suurin yhteinen tekijä: *Euclid(a,b)* (sivu 935) tai *Extended-euclid(a,b)* (sivu 937) kirjasta Introduction to Algorithms.
 
 ### Algoritmien valinta
 
@@ -48,7 +50,7 @@ Varsinkin salauksen rikkomiseen liittyvät algoritmit vaativat todennäköisesti
 
 ## Tietorakenteet 
 
-Minulla ei ole tarkkaa kuvaa tarvittavista tietorakenteista tällä hetkellä varsinkaan salauksen purkamiseen liittyen, mutta salausalgoritmit näyttävät selviävän pelkillä taulukoilla. Monimutkaisempia tietorakenteita tarvittaneen salauksen rikkomisessa, esimerkiksi jonkinlaisia sanakirjojen käytön yhteydessä.
+Minulla ei ole tarkkaa kuvaa tarvittavista tietorakenteista tällä hetkellä varsinkaan salauksen purkamiseen liittyen, mutta salausalgoritmit näyttävät selviävän pelkillä taulukoilla. Monimutkaisempia tietorakenteita tarvittaneen salauksen rikkomisessa, mahdollisesti esimerkiksi jonkinlaisten sanakirjojen käytön yhteydessä (hajautustaulu, hakupuu).
 
 ## Syötteet
 
@@ -58,12 +60,14 @@ Tällä hetkellä ajatus on, että salatessa syöte on tekstimuodossa (String) j
 
 Näyttää siltä että kaikki klassiset salausmenetelmät toimivat O(n) ajassa (alustava pika-arvio).
 
-Salauksen rikkominen on hyvin vaikea arvioida tässä vaihesssa, mutta mitä suurimmalla todennäköisyydellä ei pysytä enää lineaarisissa aikavaativuuksissa.
+Salauksen rikkominen on hyvin vaikea arvioida tässä vaihesssa, mutta mitä suurimmalla todennäköisyydellä ei pysytä enää pelkästään lineaarisessa aikavaativuudessa.
 
 ## Lähteet
 
 Yllä olevien linkkien lisäksi:
 
 [Cryptography](https://en.wikipedia.org/wiki/Cryptography)
+
+Introduction to algorithms, 3rd Edition
 
 
