@@ -22,6 +22,10 @@ public class CryptoUserInterface {
         System.out.println(vigenere.encrypt("LEMON", "ATTACKATDAWN"));
         System.out.println(vigenere.decrypt("LEMON", "LXFOPVEFRNHR"));
         System.out.println(vigenere.encrypt("l", "ATTACKATDAWN"));
+        System.out.println(vigenere.encrypt("LEMON", "ATTöäACKATDAWN"));
+        System.out.println(vigenere.decrypt("LEMON", "lxfonlgwogoeib"));
+        System.out.println(vigenere.decrypt("LEMON", "LXFöOäPVEFRNHR"));
+        System.out.println(vigenere.decrypt("LEMON", "LXFaOaPVEFRNHR"));
     }
     
 }

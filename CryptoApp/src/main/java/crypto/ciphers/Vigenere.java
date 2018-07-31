@@ -61,8 +61,8 @@ public class Vigenere {
         char[] encryptedChars = new char[plaintext.length()];
         
         for (int i = 0; i < plaintextLowerCase.length(); i++) {
-            int keyAlphabetNum = this.abcNumbers.get(encryptKey.charAt(i));
-            int plaintextAlphabetNum = this.abcNumbers.get(plaintextLowerCase.charAt(i));
+            int keyAlphabetNum = this.abcNumbers.getOrDefault(encryptKey.charAt(i), 0);
+            int plaintextAlphabetNum = this.abcNumbers.getOrDefault(plaintextLowerCase.charAt(i), 0);
 
             encryptedChars[i] = this.alphabet[(keyAlphabetNum + plaintextAlphabetNum) % this.modulus];
         }
@@ -80,8 +80,8 @@ public class Vigenere {
         char[] decryptedChars = new char[ciphertext.length()];
         
         for (int i = 0; i < ciphertextLowerCase.length(); i++) {
-           int keyAlphabetNum = this.abcNumbers.get(decryptKey.charAt(i));
-           int ciphertextAlphabetNum = this.abcNumbers.get(ciphertextLowerCase.charAt(i));
+           int keyAlphabetNum = this.abcNumbers.getOrDefault(decryptKey.charAt(i), 0);
+           int ciphertextAlphabetNum = this.abcNumbers.getOrDefault(ciphertextLowerCase.charAt(i), 0);
            
            decryptedChars[i] = this.alphabet[(((ciphertextAlphabetNum - keyAlphabetNum) % this.modulus) + this.modulus) % this.modulus];
         }
