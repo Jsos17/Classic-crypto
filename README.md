@@ -11,3 +11,5 @@ Harjoitustyö toteuttaa Java-kielellä klassisia (pre-1970-luku) kryptografisia 
 ## Viikkoraportit
 
 [Viikkoraportti 1](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Viikkoraportti-1.md)
+
+[Viikkoraportti 2](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Viikkoraportti-2.md)
