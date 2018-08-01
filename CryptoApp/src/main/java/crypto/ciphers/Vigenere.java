@@ -14,14 +14,22 @@ import java.util.HashMap;
 public class Vigenere {
 
     private char[] alphabet;
-    private HashMap<Character, Integer> abcNumbers;
-    private int modulus;
+    protected HashMap<Character, Integer> abcNumbers;
+    protected int modulus;
 
     public Vigenere() {
         this.alphabet = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
             'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
         this.abcNumbers = new HashMap<>();
         this.modulus = this.alphabet.length;
+        hashAlphabet();
+    }
+    
+    protected void setAlphabet(String alphabet) {
+        String abc = alphabet.trim().toLowerCase();
+        this.alphabet = abc.toCharArray();
+        this.modulus = this.alphabet.length;
+        this.abcNumbers.clear();
         hashAlphabet();
     }
 
@@ -58,7 +66,7 @@ public class Vigenere {
         
         String plaintextLowerCase = plaintext.toLowerCase();
         String encryptKey = lengthenKey(key.toLowerCase(), plaintextLowerCase.length());
-        char[] encryptedChars = new char[plaintext.length()];
+        char[] encryptedChars = new char[plaintextLowerCase.length()];
         
         for (int i = 0; i < plaintextLowerCase.length(); i++) {
             int keyAlphabetNum = this.abcNumbers.getOrDefault(encryptKey.charAt(i), 0);
@@ -77,13 +85,13 @@ public class Vigenere {
         
         String ciphertextLowerCase = ciphertext.toLowerCase();
         String decryptKey = lengthenKey(key.toLowerCase(), ciphertextLowerCase.length());
-        char[] decryptedChars = new char[ciphertext.length()];
+        char[] decryptedChars = new char[ciphertextLowerCase.length()];
         
         for (int i = 0; i < ciphertextLowerCase.length(); i++) {
-           int keyAlphabetNum = this.abcNumbers.getOrDefault(decryptKey.charAt(i), 0);
-           int ciphertextAlphabetNum = this.abcNumbers.getOrDefault(ciphertextLowerCase.charAt(i), 0);
+           int keyAlphabetNum = abcNumbers.getOrDefault(decryptKey.charAt(i), 0);
+           int ciphertextAlphabetNum = abcNumbers.getOrDefault(ciphertextLowerCase.charAt(i), 0);
            
-           decryptedChars[i] = this.alphabet[(((ciphertextAlphabetNum - keyAlphabetNum) % this.modulus) + this.modulus) % this.modulus];
+           decryptedChars[i] = alphabet[(((ciphertextAlphabetNum - keyAlphabetNum) % modulus) + modulus) % modulus];
         }
         
         return new String(decryptedChars);
