@@ -14,8 +14,8 @@ import java.util.HashMap;
 public class Vigenere {
 
     private char[] alphabet;
-    protected HashMap<Character, Integer> abcNumbers;
-    protected int modulus;
+    private HashMap<Character, Integer> abcNumbers;
+    private int modulus;
 
     public Vigenere() {
         this.alphabet = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
@@ -25,7 +25,7 @@ public class Vigenere {
         hashAlphabet();
     }
     
-    protected void setAlphabet(String alphabet) {
+    protected void scrambleAlphabet(String alphabet) {
         String abc = alphabet.trim().toLowerCase();
         this.alphabet = abc.toCharArray();
         this.modulus = this.alphabet.length;

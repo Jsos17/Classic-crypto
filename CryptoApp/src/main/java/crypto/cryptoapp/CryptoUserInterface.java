@@ -5,7 +5,7 @@
  */
 package crypto.cryptoapp;
 
-import crypto.ciphers.DoubleTransposition;
+import crypto.ciphers.TranspositionCipher;
 import crypto.ciphers.KeyedVigenere;
 import crypto.ciphers.Vigenere;
 
@@ -50,8 +50,14 @@ public class CryptoUserInterface {
         char[] nothing = new char[10];
         System.out.println(nothing[0] == '\u0000');
         
-        DoubleTransposition dt = new DoubleTransposition();
-        System.out.println(dt.encryptDoubleTransposition("zebras", "stripe", "wearediscoveredfleeatonce"));
+        TranspositionCipher dt = new TranspositionCipher();
+        System.out.println(dt.encryptSingleTransposition("zebras", "wearediscoveredfleeatonce"));
+        System.out.println(dt.decryptSingleTransposition("nsaciakgb", "tämektiiinenmäal"));
+        System.out.println(dt.encryptDoubleTransposition("lorenz", "enigma", "KeinebesonderenEreignisse"));
+        System.out.println(dt.encryptDoubleTransposition("lorenz", "enigma", "Claude Shannon proved, using information theory considerations, that any theoretically unbreakable cipher must have keys which are at least as long as the plaintext, and used only once: one-time pad."));
+        System.out.println(dt.encryptSingleTransposition("", "wearediscoveredfleeatonce"));
+//        System.out.println(dt.encryptDoubleTransposition("zebras", "stripe", "wearediscoveredfleeatonce"));
+//        System.out.println(dt.decryptDoubleTransposition("zebras", "stripe", "caeensoiaedrlefwedreevtoc"));
     }
     
 }

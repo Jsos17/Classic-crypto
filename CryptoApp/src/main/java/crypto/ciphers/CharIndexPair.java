@@ -9,11 +9,11 @@ package crypto.ciphers;
  *
  * @author jpssilve
  */
-public class CharNumberPair implements Comparable<CharNumberPair> {
+public class CharIndexPair implements Comparable<CharIndexPair> {
     private char c;
     private int number;
     
-    public CharNumberPair(char c, int number) {
+    public CharIndexPair(char c, int number) {
         this.c = c;
         this.number = number;
     }
@@ -27,7 +27,7 @@ public class CharNumberPair implements Comparable<CharNumberPair> {
     }
 
     @Override
-    public int compareTo(CharNumberPair other) {
+    public int compareTo(CharIndexPair other) {
         return this.c - other.c;
     }
 }

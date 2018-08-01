@@ -15,9 +15,7 @@ public class KeyedVigenere extends Vigenere {
 
     public KeyedVigenere(String alphabetKey) {
         super();
-        String abc = "abcdefghijklmnopqrstuvwxyz";
-        char[] regularAlphabet = abc.toCharArray();
-        super.setAlphabet(buildAlphabet(alphabetKey.toLowerCase(), hashAlphabet(regularAlphabet)));
+        super.scrambleAlphabet(buildAlphabet(alphabetKey.toLowerCase(), hashAlphabet("abcdefghijklmnopqrstuvwxyz".toCharArray())));
     }
     
     private HashMap<Character, Integer> hashAlphabet(char[] alphabet) {
