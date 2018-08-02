@@ -5,9 +5,10 @@
  */
 package crypto.cryptoapp;
 
+import crypto.ciphers.AutokeyVigenereCipher;
 import crypto.ciphers.TranspositionCipher;
-import crypto.ciphers.KeyedVigenere;
-import crypto.ciphers.Vigenere;
+import crypto.ciphers.KeyedVigenereCipher;
+import crypto.ciphers.VigenereCipher;
 
 /**
  *
@@ -19,22 +20,22 @@ public class CryptoUserInterface {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        KeyedVigenere kvig = new KeyedVigenere("kryptos");
+        KeyedVigenereCipher kvig = new KeyedVigenereCipher("kryptos");
         System.out.println(kvig.decrypt("Palimpsest", "EMUFPHZLRFAXYUSDJKZLDKRNSHGNFIVJYQTQUXQBQVYUVLLTREVJYQTMKYRDMFD"));
-        System.out.println(kvig.decrypt("Abscissa", "VFPJUDEEHZWETZYVGWHKKQETGFQJNCE" +
-                                                    "GGWHKKDQMCPFQZDQMMIAGPFXHQRLG" +
-                                                    "TIMVMZJANQLVKQEDAGDVFRPJUNGEUNA" +
-                                                    "QZGZLECGYUXUEENJTBJLBQCRTBJDFHRR" +
-                                                    "YIZETKZEMVDUFKSJHKFWHKUWQLSZFTI" +
-                                                    "HHDDDUVHDWKBFUFPWNTDFIYCUQZERE" +
-                                                    "EVLDKFEZMOQQJLTTUGSYQPFEUNLAVIDX" +
-                                                    "FLGGTEZFKZBSFDQVGOGIPUFXHHDRKF" +
-                                                    "FHQNTGPUAECNUVPDJMQCLQUMUNEDFQ" +
-                                                    "ELZZVRRGKFFVOEEXBDMVPNFQXEZLGRE" +
-                                                    "DNQFMPNZGLFLPMRJQYALMGNUVPDXVKP" +
-                                                    "DQUMEBEDMHDAFMJGZNUPLGEWJLLAETG"));
-        
-        Vigenere vigenere = new Vigenere();
+        System.out.println(kvig.decrypt("Abscissa", "VFPJUDEEHZWETZYVGWHKKQETGFQJNCE"
+                + "GGWHKKDQMCPFQZDQMMIAGPFXHQRLG"
+                + "TIMVMZJANQLVKQEDAGDVFRPJUNGEUNA"
+                + "QZGZLECGYUXUEENJTBJLBQCRTBJDFHRR"
+                + "YIZETKZEMVDUFKSJHKFWHKUWQLSZFTI"
+                + "HHDDDUVHDWKBFUFPWNTDFIYCUQZERE"
+                + "EVLDKFEZMOQQJLTTUGSYQPFEUNLAVIDX"
+                + "FLGGTEZFKZBSFDQVGOGIPUFXHHDRKF"
+                + "FHQNTGPUAECNUVPDJMQCLQUMUNEDFQ"
+                + "ELZZVRRGKFFVOEEXBDMVPNFQXEZLGRE"
+                + "DNQFMPNZGLFLPMRJQYALMGNUVPDXVKP"
+                + "DQUMEBEDMHDAFMJGZNUPLGEWJLLAETG"));
+
+        VigenereCipher vigenere = new VigenereCipher();
         System.out.println(vigenere.encrypt("LEMON", "ATTACKATDAWN"));
         System.out.println(vigenere.decrypt("LEMON", "LXFOPVEFRNHR"));
         System.out.println(vigenere.encrypt("l", "ATTACKATDAWN"));
@@ -43,13 +44,15 @@ public class CryptoUserInterface {
         System.out.println(vigenere.decrypt("LEMON", "LXFöOäPVEFRNHR"));
         System.out.println(vigenere.decrypt("LEMON", "LXFaOaPVEFRNHR"));
         System.out.println(vigenere.decrypt("Palimpsest", "EMUFPHZLRFAXYUSDJKZLDKRNSHGNFIVJYQTQUXQBQVYUVLLTREVJYQTMKYRDMFD"));
+        System.out.println(vigenere.encrypt("aertyuiopwkjfllsjdsfgs", "ATTACKATDAWN"));
+        System.out.println(vigenere.decrypt("LEMON", "LEMON"));
 //        for (int i = 0; i < 53; i++) {
 //            System.out.println(-i % 26);
 //        }
 
         char[] nothing = new char[10];
         System.out.println(nothing[0] == '\u0000');
-        
+
         TranspositionCipher dt = new TranspositionCipher();
         System.out.println(dt.encryptSingleTransposition("zebras", "wearediscoveredfleeatonce"));
         System.out.println(dt.decryptSingleTransposition("nsaciakgb", "tämektiiinenmäal"));
@@ -58,6 +61,15 @@ public class CryptoUserInterface {
         System.out.println(dt.encryptSingleTransposition("", "wearediscoveredfleeatonce"));
 //        System.out.println(dt.encryptDoubleTransposition("zebras", "stripe", "wearediscoveredfleeatonce"));
 //        System.out.println(dt.decryptDoubleTransposition("zebras", "stripe", "caeensoiaedrlefwedreevtoc"));
+
+        AutokeyVigenereCipher autokey = new AutokeyVigenereCipher();
+        System.out.println(autokey.encrypt("bombe", "akeyweaknessofthesystemhoweveristhattheplaintextispartofthekeythismeansthatthekeywilllikelycontaincommonwordsatvariouspointsthekeycanbeattackedbyusingadictionaryofcommonwordsbigramstrigramsandsoforthandattemptingthedecryptionofthemessagebymovingthatwordthroughthekeyuntilpotentiallyreadabletextappears"));
+        System.out.println(autokey.decrypt("queenly", "qnxepvytwtwp"));
+        System.out.println(autokey.decrypt("queenly", "siqqhygeofuiajtetsrbxemskokwlalhpoakw"));
+        System.out.println(autokey.decrypt("lemon", "lyfc"));
+        System.out.println(autokey.decrypt("x", "xunh"));
+//        System.out.println("abc".substring(1, 1));
+
     }
-    
+
 }

@@ -11,20 +11,20 @@ import java.util.HashMap;
  *
  * @author jpssilve
  */
-public class Vigenere {
+public class VigenereCipher {
 
     private char[] alphabet;
     private HashMap<Character, Integer> abcNumbers;
     private int modulus;
 
-    public Vigenere() {
+    public VigenereCipher() {
         this.alphabet = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
             'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
         this.abcNumbers = new HashMap<>();
         this.modulus = this.alphabet.length;
         hashAlphabet();
     }
-    
+
     protected void scrambleAlphabet(String alphabet) {
         String abc = alphabet.trim().toLowerCase();
         this.alphabet = abc.toCharArray();
@@ -43,7 +43,7 @@ public class Vigenere {
         if (key.length() >= textLen) {
             return key;
         }
-        
+
         String keyMultiple = key;
         int rounds = (int) (textLen / key.length()) - 1;
 
@@ -63,11 +63,11 @@ public class Vigenere {
         if (key.length() == 0) {
             return plaintext.toLowerCase();
         }
-        
+
         String plaintextLowerCase = plaintext.toLowerCase();
         String encryptKey = lengthenKey(key.toLowerCase(), plaintextLowerCase.length());
         char[] encryptedChars = new char[plaintextLowerCase.length()];
-        
+
         for (int i = 0; i < plaintextLowerCase.length(); i++) {
             int keyAlphabetNum = this.abcNumbers.getOrDefault(encryptKey.charAt(i), 0);
             int plaintextAlphabetNum = this.abcNumbers.getOrDefault(plaintextLowerCase.charAt(i), 0);
@@ -82,18 +82,18 @@ public class Vigenere {
         if (key.length() == 0) {
             return ciphertext.toLowerCase();
         }
-        
+
         String ciphertextLowerCase = ciphertext.toLowerCase();
         String decryptKey = lengthenKey(key.toLowerCase(), ciphertextLowerCase.length());
         char[] decryptedChars = new char[ciphertextLowerCase.length()];
-        
+
         for (int i = 0; i < ciphertextLowerCase.length(); i++) {
-           int keyAlphabetNum = abcNumbers.getOrDefault(decryptKey.charAt(i), 0);
-           int ciphertextAlphabetNum = abcNumbers.getOrDefault(ciphertextLowerCase.charAt(i), 0);
-           
-           decryptedChars[i] = alphabet[(((ciphertextAlphabetNum - keyAlphabetNum) % modulus) + modulus) % modulus];
+            int keyAlphabetNum = abcNumbers.getOrDefault(decryptKey.charAt(i), 0);
+            int ciphertextAlphabetNum = abcNumbers.getOrDefault(ciphertextLowerCase.charAt(i), 0);
+
+            decryptedChars[i] = alphabet[(((ciphertextAlphabetNum - keyAlphabetNum) % modulus) + modulus) % modulus];
         }
-        
+
         return new String(decryptedChars);
     }
 }

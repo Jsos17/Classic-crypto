@@ -20,7 +20,7 @@ public class TranspositionCipher {
     private CharIndexPair[] orderOfKey(String key) {
         int[] order = new int[key.length()];
         CharIndexPair[] charIdxPairs = new CharIndexPair[key.length()];
-        
+
         for (int i = 0; i < key.length(); i++) {
             CharIndexPair cnPair = new CharIndexPair(key.charAt(i), i % key.length());
             charIdxPairs[i] = cnPair;
@@ -38,8 +38,8 @@ public class TranspositionCipher {
             for (int j = 0; j < key.length(); j++) {
                 if (k >= message.length()) {
                     break outerLoop;
-                } 
-                
+                }
+
                 matrix[i][j] = message.charAt(k);
                 k++;
             }
@@ -52,7 +52,7 @@ public class TranspositionCipher {
         if (key.length() == 0) {
             return plaintext;
         }
-        
+
         int rows = (int) (plaintext.length() / key.length());
         if (plaintext.length() % key.length() > 0) {
             rows += 1;
@@ -82,7 +82,7 @@ public class TranspositionCipher {
         if (key.length() == 0) {
             return ciphertext;
         }
-        
+
         char[][] matrix = reverseEngineerMatrix(key, ciphertext);
 
         String decryptedMessage = "";
@@ -92,7 +92,7 @@ public class TranspositionCipher {
             for (int j = 0; j < matrix[i].length; j++) {
                 decryptedMessage += Character.toString(matrix[i][j]);
                 k++;
-                
+
                 if (k >= ciphertext.length()) {
                     break outerLoop;
                 }

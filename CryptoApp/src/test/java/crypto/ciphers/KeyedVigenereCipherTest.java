@@ -16,23 +16,23 @@ import static org.junit.Assert.*;
  *
  * @author jpssilve
  */
-public class KeyedVigenereTest {
-    
-    public KeyedVigenereTest() {
+public class KeyedVigenereCipherTest {
+
+    public KeyedVigenereCipherTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }

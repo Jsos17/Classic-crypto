@@ -11,19 +11,19 @@ import java.util.HashMap;
  *
  * @author jpssilve
  */
-public class KeyedVigenere extends Vigenere {
+public class KeyedVigenereCipher extends VigenereCipher {
 
-    public KeyedVigenere(String alphabetKey) {
+    public KeyedVigenereCipher(String alphabetKey) {
         super();
         super.scrambleAlphabet(buildAlphabet(alphabetKey.toLowerCase(), hashAlphabet("abcdefghijklmnopqrstuvwxyz".toCharArray())));
     }
-    
+
     private HashMap<Character, Integer> hashAlphabet(char[] alphabet) {
         HashMap<Character, Integer> abcNums = new HashMap<>();
         for (int i = 0; i < alphabet.length; i++) {
             abcNums.put(alphabet[i], i);
         }
-        
+
         return abcNums;
     }
 
@@ -32,11 +32,11 @@ public class KeyedVigenere extends Vigenere {
         for (int i = 0; i < 26; i++) {
             countingAlphabet[i] = 0;
         }
-        
+
         for (int i = 0; i < alphabetKey.length(); i++) {
             countingAlphabet[regAbcNums.get(alphabetKey.charAt(i))] = 1;
         }
-        
+
         String abc = "abcdefghijklmnopqrstuvwxyz";
         String keyedAbc = alphabetKey;
         for (int i = 0; i < countingAlphabet.length; i++) {
@@ -44,7 +44,7 @@ public class KeyedVigenere extends Vigenere {
                 keyedAbc += abc.substring(i, i + 1);
             }
         }
-        
+
         return keyedAbc;
     }
 }

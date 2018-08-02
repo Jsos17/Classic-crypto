@@ -10,18 +10,19 @@ package crypto.ciphers;
  * @author jpssilve
  */
 public class CharIndexPair implements Comparable<CharIndexPair> {
+
     private char c;
     private int number;
-    
+
     public CharIndexPair(char c, int number) {
         this.c = c;
         this.number = number;
     }
-    
+
     public char getChar() {
         return this.c;
     }
-    
+
     public int getNumber() {
         return this.number;
     }

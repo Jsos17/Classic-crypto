@@ -15,9 +15,9 @@ import static org.junit.Assert.*;
  *
  * @author jpssilve
  */
-public class VigenereTest {
+public class VigenereCipherTest {
 
-    private Vigenere vig;
+    private VigenereCipher vig;
 
     /**
      * Code based on the pseudocode for Randomize-In-Place(A) method found in
@@ -43,7 +43,7 @@ public class VigenereTest {
 
     @Before
     public void setUp() {
-        this.vig = new Vigenere();
+        this.vig = new VigenereCipher();
     }
 
     @After
