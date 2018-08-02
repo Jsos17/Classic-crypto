@@ -6,9 +6,9 @@
 
 Tarkoitus on luoda useita erilaisia työkaluja tekstin salaamiseen ja salauksen purkamiseen avaimen avulla.
 
-### Salauksen rikkominen (kryptoanalyysi)
+### Salauksen murtaminen (kryptoanalyysi)
 
-Tarkoitus on tutkia tiettyjen salausmenetelmien rikkomista ja luoda algoritmeja ainakin rajattujen menetelmien rikkomiseen tiettyjen oletusten vallitessa. Lisäksi jos on mahdollista, niin yleistää näitä algoritmeja yleisemmässäkin tapauksessa toimivaksi menetelmäksi/algoritmiksi.
+Tarkoitus on tutkia tiettyjen salausmenetelmien murtamista ja luoda algoritmeja ainakin rajattujen menetelmien murtamiseen tiettyjen oletusten vallitessa. Lisäksi jos on mahdollista, niin yleistää näitä algoritmeja yleisemmässäkin tapauksessa toimivaksi menetelmäksi/algoritmiksi.
 
 ## Toteutettavat algoritmit/menetelmät
 
@@ -30,7 +30,7 @@ Sen sijaan klassiset salausalgoritmit vaikuttavat nopealla yleiskatsauksella ska
 
 * Mahdollisesti muita esim Bifid, Trifid jne
 
-### Salauksen analysointi- ja rikkomismenetelmiä:
+### Salauksen analysointi- ja murtamismenetelmiä:
 
 * [Kirjainten frekvenssianalyysi](https://en.wikipedia.org/wiki/Frequency_analysis): Auttaa esimerkiksi rajaamaan käytettyä salausmenetelmää
 
