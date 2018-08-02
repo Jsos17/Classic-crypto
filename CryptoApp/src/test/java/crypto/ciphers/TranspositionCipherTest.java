@@ -6,9 +6,7 @@
 package crypto.ciphers;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -56,7 +54,8 @@ public class TranspositionCipherTest {
 
     @Test
     public void decryptSingleTranspositionTest3() {
-        assertEquals("keyswereeasilychangedbychangingtherotordisksandtheplugboardwires", dblTr.decryptSingleTransposition("nsaciakgb", "yidnrtaecchspwennoageslbgdhreaarsurwyytiedrhheklikaggtnbseseiodo"));
+        assertEquals("keyswereeasilychangedbychangingtherotordisksandtheplugboardwires",
+                dblTr.decryptSingleTransposition("nsaciakgb", "yidnrtaecchspwennoageslbgdhreaarsurwyytiedrhheklikaggtnbseseiodo"));
     }
 
     @Test
