@@ -69,4 +69,24 @@ public class AutokeyVigenereCipherTest {
         assertEquals("akeyweaknessofthesystemhoweveristhattheplaintextispartofthekeythismeansthatthekeywilllikelycontaincommonwordsatvariouspointsthekeycanbeattackedbyusingadictionaryofcommonwordsbigramstrigramsandsoforthandattemptingthedecryptionofthemessagebymovingthatwordthroughthekeyuntilpotentiallyreadabletextappears",
                 this.autokey.decrypt("bombe", "byqzaekolawsysxzwgdlaiefgpihlfewolrblalpetpripxbvltxkbgutyxyjralswkxhvkflaglalkxrdmvpjespwjkyreykbphmubpkadrfwhmdjihpsgwwhlhhprdwrjexfcctgbgkxwbaewloeuvqpzirvckgcscfkatpkadrfxwxusnaziisjtdagedegfbulvfbutatrppmbrsiamqkvycsxkfldybvrajlzesitqmuzjlshcigchydmdffxzokvyqlrbrdmjjbmmyiwtpyrzeloyspeweyeeitbtrh"));
     }
+
+    @Test
+    public void encryptCornerCase1() {
+        assertEquals("ccycqamkmaimkamacca", this.autokey.encrypt("", "bombingstartsatnoon"));
+    }
+
+    /* An empty primer makes it impossible to decrypt the message 
+    since no information about the key (which was the original plaintext) 
+    can be gained by using the ciphertext only. 
+    Therefore the ciphertext is returned
+    */
+    @Test
+    public void decryptCornerCase1() {
+        assertEquals("ccycqamkmaimkamacca", this.autokey.decrypt("", "ccycqamkmaimkamacca"));
+    }
+    
+    @Test
+    public void decryptCornerCase2() {
+        assertEquals("turing", this.autokey.decrypt("colossusmachine", "vicwfy"));
+    }
 }

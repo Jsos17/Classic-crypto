@@ -134,9 +134,13 @@ public class VigenereCipherTest {
         assertEquals("codec", vig.lengthenKey("code", 5));
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void encryptCornerCaseTest1() {
+        assertEquals("attackatdawn", vig.encrypt("", "ATTACKATDAWN"));
+    }
+
+    @Test
+    public void decryptCornerCaseTest1() {
+        assertEquals("afegeteheasf", vig.decrypt("", "afegeteheasf"));
+    }
 }

@@ -69,7 +69,7 @@ public class CryptoUserInterface {
         System.out.println(autokey.decrypt("lemon", "lyfc"));
         System.out.println(autokey.decrypt("x", "xunh"));
 //        System.out.println("abc".substring(1, 1));
-
+        System.out.println(vigenere.decrypt("", "ATTACKATDAWN"));
     }
 
 }
