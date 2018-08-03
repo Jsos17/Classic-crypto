@@ -19,13 +19,10 @@ public class VigenereCipherTest {
 
     private VigenereCipher vig;
 
-    /**
-     * Code based on the pseudocode for Randomize-In-Place(A) method found in
-     * the book Introduction to Algorithms, 3rd edition. It is used in this
-     * class to help produce pseudorandom messages for encryption.
-     *
-     * @param alphabet
-     * @return
+    /*
+     Code based on the pseudocode for Randomize-In-Place(A) method found in
+     the book Introduction to Algorithms, 3rd edition. It is used in this
+     class to help produce pseudorandom messages for encryption.
      */
     public char[] randomizeInPlace(char[] alphabet) {
         int n = alphabet.length;
