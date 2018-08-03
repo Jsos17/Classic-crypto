@@ -6,7 +6,7 @@
 
 Vigenere cipherin toteutus standardi latinalaisella aakkostolla ja testejä luokalle. Nyt viestin salaus ja avaus onnistuu salausavaimen avulla. Jos käyttäjä syöttää kirjaimia, jotka eivät kuulu aakkostoon korvataan kirjain a:lla ja näin tietysti myöskään viesti ei säily entisellään koska dekryptauksen jälkeen "vieraskirjaimet" on korvattu a:lla.
 
-Testit tehtiin osittain käsin (yksi tai kaksi) Vigenereen ja loput joko wikipedia esimerkkejä mukaillen tai sitten sivun http://rumkin.com/tools/cipher/vigenere.php avulla. Huomattavaa on, että mikään latinailaiseen aakkostoon kuulumaton kirjain rikkoo salaustoteutuksen.
+Testit tehtiin osittain käsin (yksi tai kaksi) Vigenereen ja loput joko wikipedia esimerkkejä mukaillen tai sitten sivun http://rumkin.com/tools/cipher/vigenere.php avulla. Huomattavaa on, että mikään latinalaiseen aakkostoon kuulumaton kirjain rikkoo salaustoteutuksen.
 
 ### Keskiviikkona:
 
@@ -18,11 +18,11 @@ Lisäksi double transpositionin dekryptauksessa säilytän metodeissa alkuperäi
 
 ### Torstai
 
-Autokey Vigenere cipherin toteutus ja testit. Varsinkin salauksen osalta toteutus VigenereCipher-luokan perinnän kautta oli triviaalia, mutta salauksen avaamista joutui hetken aikaa miettimään.
+Autokey Vigenere cipherin toteutus ja testit (sivun http://rumkin.com/tools/cipher/vigenere-autokey.php avulla). Varsinkin salauksen osalta toteutus VigenereCipher-luokan perinnän kautta oli triviaalia, mutta salauksen avaamista joutui hetken aikaa miettimään.
 
 ### Perjantai
 
-Javadocin ja dokumentaation kirjoittamista, jacocon lisäys. Keyed Vigenere cipheriin testien lisäys.
+Javadocin ja dokumentaation kirjoittamista, jacocon lisäys. Keyed Vigenere cipheriin testien lisäys (sivun http://rumkin.com/tools/cipher/vigenere-keyed.php avulla).
 
 ## Miten ohjelma on edistynyt
 
