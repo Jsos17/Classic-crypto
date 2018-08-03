@@ -22,13 +22,13 @@ Autokey Vigenere cipherin toteutus ja testit (sivun http://rumkin.com/tools/ciph
 
 ### Perjantai
 
-Javadocin ja dokumentaation kirjoittamista, jacocon lisäys. Keyed Vigenere cipheriin testien lisäys (sivun http://rumkin.com/tools/cipher/vigenere-keyed.php avulla).
+Javadocin ja dokumentaation kirjoittamista, jacocon lisäys. Keyed Vigenere cipheriin testien lisäys (sivun http://rumkin.com/tools/cipher/vigenere-keyed.php avulla). Aloitin perehtymisen salauksen murtamiseen.
 
 ## Miten ohjelma on edistynyt
 
 Useita salauksia luotu ja erityisesti Vigenere ja Transposition cipher näistä merkittävimmät sillä, Autokey ja Keyed Vigenere ovat vain Vigeneren laajennoksia. Testit ovat semikattavia, monet rajatapaukset ovat testaamatta tällä hetkellä, mutta sen verran on kattavuutta, että voi olla suhteellisen varma algoritmien toiminnasta.
 
-Salauksen murtamiseen en ehtinyt perehtyä saati aloittaa sitä.
+Salauksen murtamista ei ole aloitettu.
 
 ## Mitä opin tällä viikolla:
 
