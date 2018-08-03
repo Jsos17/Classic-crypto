@@ -22,11 +22,11 @@ Autokey Vigenere cipherin toteutus ja testit. Varsinkin salauksen osalta toteutu
 
 ### Perjantai
 
-Javadocin ja dokumentaation kirjoittamista, jacocon lisäys
+Javadocin ja dokumentaation kirjoittamista, jacocon lisäys. Keyed Vigenere cipheriin testien lisäys.
 
 ## Miten ohjelma on edistynyt
 
-Useita salauksia luotu ja erityisesti Vigenere ja Transposition cipher näistä merkittävimmät sillä, Autokey ja Keyed Vigenere (joka kesken) ovat vain Vigeneren laajennoksia. Testit ovat semikattavia, monet rajatapaukset ovat testaamatta tällä hetkellä, mutta sen verran on kattavuutta, että voi olla suhteellisen varma algoritmien toiminnasta.
+Useita salauksia luotu ja erityisesti Vigenere ja Transposition cipher näistä merkittävimmät sillä, Autokey ja Keyed Vigenere ovat vain Vigeneren laajennoksia. Testit ovat semikattavia, monet rajatapaukset ovat testaamatta tällä hetkellä, mutta sen verran on kattavuutta, että voi olla suhteellisen varma algoritmien toiminnasta.
 
 Salauksen murtamiseen en ehtinyt perehtyä saati aloittaa sitä.
 
@@ -56,4 +56,4 @@ Hajautustaulu korvaamaan Javan HashMap sekä järjestämisalgoritmeja, joista to
 
 Salauksen murtamiseen liittyvien toimintojen rakentamisen aloittaminen: Frekvenssianalyysi, Kasiskin testi jne
 
-Mahdollisesti salausalgoritmien kokoelman laajentaminen ja olemassaolevien mahdollinen refaktorointi. 
+Mahdollisesti salausalgoritmien kokoelman laajentaminen ja olemassaolevien mahdollinen refaktorointi. Vigenere cipherine aakkoston laajentaminen mahdollisesti kattamaan (kaikki) suurin osa merkeistä. 
