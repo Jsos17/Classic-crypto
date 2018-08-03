@@ -26,7 +26,7 @@ Javadocin ja dokumentaation kirjoittamista, jacocon lisäys. Keyed Vigenere ciph
 
 ## Miten ohjelma on edistynyt
 
-Useita salauksia luotu ja erityisesti Vigenere ja Transposition cipher näistä merkittävimmät sillä, Autokey ja Keyed Vigenere ovat vain Vigeneren laajennoksia. Testit ovat nimelliseltä kattavuudeltaan 100% ja laadulliselta kattavuudeltaan sellaisia, että voi olla suhteellisen varma algoritmien toiminnasta. **HUOM** Käyttöliittymäpakkaus jätetty testien ulkopuolelle kuten Ohjelmistotekniikan menetelmät-kurssilla (ja lisäksi käyttöliittymää ei edes ole vielä).
+Useita salauksia luotu ja erityisesti Vigenere ja Transposition cipher näistä merkittävimmät sillä, Autokey ja Keyed Vigenere ovat vain Vigeneren laajennoksia. Testit ovat nimelliseltä kattavuudeltaan 100% ja laadulliselta kattavuudeltaan sellaisia, että voi olla suhteellisen varma algoritmien toiminnasta. **HUOM!** Käyttöliittymäpakkaus jätetty testien ulkopuolelle kuten Ohjelmistotekniikan menetelmät-kurssilla (ja lisäksi käyttöliittymää ei edes ole vielä).
 
 ![Testikattavuus](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/testikattavuus_vko_2.png)
 
