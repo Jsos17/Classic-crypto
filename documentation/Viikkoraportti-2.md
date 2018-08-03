@@ -22,11 +22,13 @@ Autokey Vigenere cipherin toteutus ja testit (sivun http://rumkin.com/tools/ciph
 
 ### Perjantai
 
-Javadocin ja dokumentaation kirjoittamista, jacocon lisäys. Keyed Vigenere cipheriin testien lisäys (sivun http://rumkin.com/tools/cipher/vigenere-keyed.php avulla). Aloitin perehtymisen salauksen murtamiseen.
+Javadocin ja dokumentaation kirjoittamista, jacocon lisäys. Keyed Vigenere cipheriin testien lisäys (sivun http://rumkin.com/tools/cipher/vigenere-keyed.php avulla). Testikattavuuden parantamista ja Autokey Vigenere cipherin tyhjän primer-avaimen tapauksen käsittely (jolloin salauksen dekryptaus ei onnistu). Aloitin perehtymisen salauksen murtamiseen.
 
 ## Miten ohjelma on edistynyt
 
-Useita salauksia luotu ja erityisesti Vigenere ja Transposition cipher näistä merkittävimmät sillä, Autokey ja Keyed Vigenere ovat vain Vigeneren laajennoksia. Testit ovat semikattavia, monet rajatapaukset ovat testaamatta tällä hetkellä, mutta sen verran on kattavuutta, että voi olla suhteellisen varma algoritmien toiminnasta.
+Useita salauksia luotu ja erityisesti Vigenere ja Transposition cipher näistä merkittävimmät sillä, Autokey ja Keyed Vigenere ovat vain Vigeneren laajennoksia. Testit ovat nimelliseltä kattavuudeltaan 100% ja laadulliselta kattavuudeltaan sellaisia, että voi olla suhteellisen varma algoritmien toiminnasta.
+
+![Testikattavuus](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/testikattavuus_vko_2.png)
 
 Salauksen murtamista ei ole aloitettu.
 
@@ -66,7 +68,7 @@ Mahdollisesti salausalgoritmien kokoelman laajentaminen ja olemassaolevien mahdo
 | 31.7. | 8 | Vigenere cipherin toteutus ja sen testit, Keyed Vigenere salauksen aloitus |
 | 1.8. | 6 | Toteutus transposition cipher ja sen testit, ja alustava Keyed Vigenere |
 | 2.8. | 5 | Transposition cipherin jatkamista, Autokey Vigenere cipherin toteutus ja testit, dokumentaation päivittämistä |
-| 3.8. | 3 | Javadocin kirjoittamista luokille, mutaatiotestauksen(?) kokeilu, jacoco- ja javadoc-raporttien luonnin testaus, käyttöliittymä (jota ei vielä edes ole) poistettiin testauskattavuudesta, Keyed Vigenere cipherille testejä  |
+| 3.8. | 5 | Javadocin kirjoittamista luokille, mutaatiotestauksen(?) kokeilu, jacoco- ja javadoc-raporttien luonnin testaus, käyttöliittymä (jota ei vielä edes ole) poistettiin testauskattavuudesta, testikattavuuden parantamista |
 
 
 [Tuntikirjanpito](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/tuntikirjanpito.md)
