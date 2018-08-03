@@ -10,4 +10,4 @@
 | 31.7. | 8 | Vigenere cipherin toteutus ja sen testit, Keyed Vigenere salauksen aloitus |
 | 1.8. | 6 | Toteutus transposition cipher ja sen testit, ja alustava Keyed Vigenere |
 | 2.8. | 5 | Transposition cipherin jatkamista, Autokey Vigenere cipherin toteutus ja testit, dokumentaation päivittämistä |
-| 3.8. | 3 | Javadocin kirjoittamista luokille, mutaatiotestauksen(?) kokeilu, jacoco- ja javadoc-raporttien luonnin testaus, käyttöliittymä (jota ei vielä edes ole) poistettiin testauskattavuudesta, Keyed Vigenere cipherille testejä  |
+| 3.8. | 5 | Javadocin kirjoittamista luokille, mutaatiotestauksen(?) kokeilu, jacoco- ja javadoc-raporttien luonnin testaus, käyttöliittymä (jota ei vielä edes ole) poistettiin testauskattavuudesta, Keyed Vigenere cipherille testejä  |
