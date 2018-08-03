@@ -8,11 +8,22 @@ package crypto.ciphers;
 import java.util.HashMap;
 
 /**
+ * This class implements the variation of Vigenere cipher where the standard
+ * alphabet is disrupted from the beginning by inserting an alphabet key which
+ * contains only the standard 26 Latin alphabet characters and none of them are
+ * repeated in the alphabet key.
  *
  * @author jpssilve
  */
 public class KeyedVigenereCipher extends VigenereCipher {
 
+    /**
+     *
+     * @param alphabetKey The alphabet key should contain only the standard 26
+     * Latin alphabet characters and none of them should be repeated in the
+     * alphabet key because this key is used to break the standard pattern of
+     * the alphabet in the standard Vigenere cipher.
+     */
     public KeyedVigenereCipher(String alphabetKey) {
         super();
         super.scrambleAlphabet(buildAlphabet(alphabetKey.toLowerCase(), hashAlphabet("abcdefghijklmnopqrstuvwxyz".toCharArray())));
@@ -27,6 +38,18 @@ public class KeyedVigenereCipher extends VigenereCipher {
         return abcNums;
     }
 
+    /**
+     * This method simply builds the alphabet order based on the alphabet key.
+     *
+     * @param alphabetKey The alphabet key should contain only the standard 26
+     * Latin alphabet characters and none of them should be repeated in the
+     * alphabet key because this key is used to break the standard pattern of
+     * the alphabet in the standard Vigenere cipher.
+     * @param regAbcNums A HashMap containing the corresponding order number for
+     * each alphabet character when the the alphabet is in regular order
+     * abcdef... etc
+     * @return The newly ordered alphabet
+     */
     private String buildAlphabet(String alphabetKey, HashMap<Character, Integer> regAbcNums) {
         int[] countingAlphabet = new int[26];
         for (int i = 0; i < 26; i++) {
