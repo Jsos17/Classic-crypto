@@ -1,6 +1,6 @@
 # Tuntikirjanpito
 
-| päivä   | aika (h) | toimenpiteet |
+| päivä   | käytetty aika (h) | toimenpiteet |
 | :----:|:--------| :----------|
 | Viikko 1 |   
 | 25.7. | ~ 5 | Aiheeseen perehtyminen |
