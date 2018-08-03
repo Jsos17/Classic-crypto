@@ -6,9 +6,7 @@
 package crypto.ciphers;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,28 +16,64 @@ import static org.junit.Assert.*;
  */
 public class KeyedVigenereCipherTest {
 
-    public KeyedVigenereCipherTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
+    private KeyedVigenereCipher kvig;
+    private KeyedVigenereCipher kvig2;
 
     @Before
     public void setUp() {
+        this.kvig = new KeyedVigenereCipher("kryptos");
+        this.kvig2 = new KeyedVigenereCipher("ciakgb");
     }
 
     @After
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void encryptTest1() {
+        assertEquals("twjshmfhgyzqnujnormjxikavucsjxxndalnlflirzjdmaitesjmubzzxjxnbiqjyzczlfpvkbbzjhdzbvklkaxdzxykkeqysscvtmkhxidjc",
+                kvig.encrypt("whitehouse", "acryptanalystlooksforrepeatedgroupsoflettersandcountsthenumberoflettersbetweenthebeginningofeachrepeatedgroup"));
+    }
+
+    @Test
+    public void encryptTest2() {
+        assertEquals("iairfcllnnfpdqkfeoqbukfksvzgldcsomuxocyeapkfladiezkobhagfzbifacftofbhcithjxajvyntnhpityo",
+                kvig.encrypt("entropy", "thekasiskiexaminationinvolveslookingforstringsofcharactersthatarerepeatedintheciphertext"));
+    }
+
+    @Test
+    public void encryptTest3() {
+        assertEquals("ebbd",
+                kvig2.encrypt("artificialintelligence", "bomb"));
+    }
+
+    @Test
+    public void encryptTest4() {
+        assertEquals("vccdjtiiwkfiipasryoccbggvmdtitkkuiifakugvencvcchzfqvhyileplmqnogtozjgfiuesunotmqsykwzicfgjcbafsthrqyvfygficyecvyjtgatjvufzbvasywfctqhruqrfruhfudahynoacwiudygtptubdstdlcunuieiryhhfpvesuqsacmqscmdfctozj",
+                kvig2.encrypt("artificialintelligence", "thebasicuseoffrequencyanalysisistofirstcountthefrequencyofciphertextlettersandthenassociateguessedplaintextletterswiththemmorexsintheciphertextthananythingelsesuggeststhatxcorrespondstoeintheplaintext"));
+    }
+
+    @Test
+    public void decryptTest1() {
+        assertEquals("modernattacksonpolyalphabeticciphersareessentiallyidenticaltothatdescribedabovewiththeoneimprovementofcoincidencecounting",
+                kvig.decrypt("entropy", "pxhfsvciwedocatvcmadnhaecjalqyntnhplkofjcbvfbjfqngbhfxalqkuodajmwhfefpkriefeaatrjclsztcqjmqhqcwjugtwcghbltynejvevycvxalts"));
+    }
+
+    @Test
+    public void decryptTest2() {
+        assertEquals("modernanalystsusecomputersbutthisdescriptionillustratestheprinciplethatthecomputeralgorithmsimplement",
+                kvig2.decrypt("colossus", "marvhbwbazhdljojeozcemnzrdqfllktsusdshvetpzitkbmseaqlzmlhvcbtbutpzseiunlhvlageolebnzwdlttxxdtghkecsil"));
+    }
+
+    @Test
+    public void decryptTest3() {
+        assertEquals("following",
+                kvig2.decrypt("tabularecta", "iqqbzysug"));
+    }
+
+    @Test
+    public void decryptTest4() {
+        assertEquals("normandy",
+                kvig2.decrypt("operationoverlord", "ikykgdem"));
+    }
 }

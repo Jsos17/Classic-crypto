@@ -43,8 +43,8 @@ public class KeyedVigenereCipher extends VigenereCipher {
      *
      * @param alphabetKey The alphabet key should contain only the standard 26
      * Latin alphabet characters and none of them should be repeated in the
-     * alphabet key because this key is used to break the standard pattern of
-     * the alphabet in the standard Vigenere cipher.
+     * alphabet key because this key is used to break the standard starting
+     * pattern of the alphabet in the standard Vigenere cipher.
      * @param regAbcNums A HashMap containing the corresponding order number for
      * each alphabet character when the the alphabet is in regular order
      * abcdef... etc
