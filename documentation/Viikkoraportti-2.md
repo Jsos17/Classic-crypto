@@ -20,6 +20,10 @@ Lisäksi double transpositionin dekryptauksessa säilytän metodeissa alkuperäi
 
 Autokey Vigenere cipherin toteutus ja testit. Varsinkin salauksen osalta toteutus VigenereCipher-luokan perinnän kautta oli triviaalia, mutta salauksen avaamista joutui hetken aikaa miettimään.
 
+### Perjantai
+
+Javadocin ja dokumentaation kirjoittamista, jacocon lisäys
+
 ## Miten ohjelma on edistynyt
 
 Useita salauksia luotu ja erityisesti Vigenere ja Transposition cipher näistä merkittävimmät sillä, Autokey ja Keyed Vigenere (joka kesken) ovat vain Vigeneren laajennoksia. Testit ovat semikattavia, monet rajatapaukset ovat testaamatta tällä hetkellä, mutta sen verran on kattavuutta, että voi olla suhteellisen varma algoritmien toiminnasta.
@@ -28,18 +32,19 @@ Salauksen murtamiseen en ehtinyt perehtyä saati aloittaa sitä.
 
 ## Mitä opin tällä viikolla:
 
-Perusteita klassisten salausalgoritmien toiminnasta ja sitä kautta varmaan on parempi valmius toteuttaa näitä salauksia lisää suhteellisen nopeasti. Lisäksi huolimatta salausalgoritmien suhteellisen yksinkertaisista toimintaperiaatteista, toteutusta piti usein miettiä vähän pitempään. Eli taas kerran se mikä on yksinkertainen operaatio tehdä itse ei välttämättä ole heti niin yksinkertaista koodata algoritmiksi.
+Perusteita klassisten salausalgoritmien toiminnasta ja sitä kautta varmaan on parempi valmius toteuttaa näitä salauksia lisää suhteellisen nopeasti. Lisäksi huolimatta salausalgoritmien suhteellisen yksinkertaisista toimintaperiaatteista, toteutusta piti usein miettiä vähän pitempään. Eli taas kerran se mikä on yksinkertainen operaatio tehdä itse, ei välttämättä ole heti niin yksinkertaista koodata algoritmiksi.
 
-Lisäksi opin sen, että Java ei lask matemaattista modulo-aritmetiikkaa vaan jakojäännöksiä, koska %-operaattori tuottaa negatiivisia lukuja, jos "jaettava" on negatiivinen.
+Lisäksi opin sen, että Java ei laske matemaattista modulo-aritmetiikkaa/kongruensseja vaan jakojäännöksiä, koska %-operaattori tuottaa negatiivisia lukuja, jos "jaettava" on negatiivinen.
 
 ## Vaikeudet
 
 Varsinaisia vaikeuksia ei ollut tällä viikolla, ne alkavat varmaan vasta sitten kun pitää kräkätä salausta.
 
+## Kysymykset/Mikä jäi epäselväksi
 
-## Mikä jäi epäselväksi/Kysymykset
+Mutaatiotestaus (pitest): Pitäisikö tätä asiaa jotenkin erityisesti/syvällisesti itse ymmärtää vai voiko sen vaan jättää huomiotta?
 
-Pitääkö kaikki Stringeihin liittyvä sii
+Epäselviä asioita varmasti on, mutta ei mitään sellaista josta voisi erityisesti kysyä tai johon saada selvennystä, koska nämä liittyvät nimenomaan tuohon salauksen murtamiseen, johon en ole vielä kunnolla ehtnyt paneutua jotta siitä mitään tarkempaa voisi kysyä.
 
 ## Mitä teen seuraavaksi:
 
