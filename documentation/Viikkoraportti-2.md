@@ -14,7 +14,7 @@ Transposition cipherin toteutus, jossa voi valita yksin- tai kaksinkertaisen tra
 
 Tässä on huomattava se, että jos salausavain sisältää samoja aakkosia niin silloin valinta "Duplicates numbered forwards" tuottaa saman vastauksen johtuen siitä, että (toistaiseksi) käytetty Javan perus Arrays.sort on vakaa järjestysalgoritmi olioille (tämä tuli ihan vahingossa "kaupan päälle", sillä olin suunnitellut sillä ajatuksella että avaimissa ei olisi toistuvia kirjaimia). 
 
-Lisäksi double transpositionin dekryptauksessa säilytän metodeissa alkuperäisten salausavaimien järjestyksen metodin parametreissa (väärinkäsitysten välttämiseksi), kun taas rumkin.com sivusto kääntää ne toisinpäin. Omassa dekryptaus-metodissa toteutus on tietysti sama eli että toinen avain käytetään ensin, ja sitten vasta ensimmäinen.
+Lisäksi double transpositionin dekryptauksessa säilytän metodeissa alkuperäisten salausavaimien järjestyksen metodin parametreissa (väärinkäsitysten välttämiseksi), kun taas rumkin.com sivusto kääntää ne toisinpäin. Omassa dekryptaus-metodissa itse toteutus on tietysti sama eli että toinen avain käytetään ensin, ja sitten vasta ensimmäinen.
 
 ### Torstai
 
@@ -22,7 +22,7 @@ Autokey Vigenere cipherin toteutus ja testit (sivun http://rumkin.com/tools/ciph
 
 ### Perjantai
 
-Javadocin ja dokumentaation kirjoittamista, jacocon lisäys. Keyed Vigenere cipheriin testien lisäys (sivun http://rumkin.com/tools/cipher/vigenere-keyed.php avulla). Testikattavuuden parantamista ja Autokey Vigenere cipherin tyhjän primer-avaimen tapauksen käsittely (jolloin salauksen dekryptaus ei onnistu). Aloitin perehtymisen salauksen murtamiseen.
+Javadocin ja dokumentaation kirjoittamista, jacocon lisäys. Keyed Vigenere cipheriin testien lisäys (sivun http://rumkin.com/tools/cipher/vigenere-keyed.php avulla). Testikattavuuden parantamista ja Autokey Vigenere cipherin tyhjän primer-avaimen tapauksen käsittely (jolloin salauksen suoraviivainen dekryptaus ei onnistu). Aloitin perehtymisen salauksen murtamiseen.
 
 ## Miten ohjelma on edistynyt
 
@@ -44,7 +44,7 @@ Varsinaisia vaikeuksia ei ollut tällä viikolla, ne alkavat varmaan vasta sitte
 
 ## Kysymykset/Mikä jäi epäselväksi
 
-Mutaatiotestaus (pitest): Pitäisikö tätä asiaa jotenkin erityisesti/syvällisesti itse ymmärtää vai voiko sen vaan jättää huomiotta?
+**Mutaatiotestaus (pitest)**: Pitäisikö tätä asiaa jotenkin erityisesti/syvällisesti itse ymmärtää vai voiko sen vaan jättää huomiotta?
 
 Epäselviä asioita varmasti on, mutta ei mitään sellaista josta voisi erityisesti kysyä tai johon saada selvennystä, koska nämä liittyvät nimenomaan tuohon salauksen murtamiseen, johon en ole vielä kunnolla ehtnyt paneutua jotta siitä mitään tarkempaa voisi kysyä.
 
