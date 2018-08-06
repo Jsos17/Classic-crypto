@@ -70,6 +70,7 @@ public class CryptoUserInterface {
         System.out.println(autokey.decrypt("x", "xunh"));
 //        System.out.println("abc".substring(1, 1));
         System.out.println(vigenere.decrypt("", "ATTACKATDAWN"));
+        System.out.println(vigenere.encrypt("fire", "turingtestenigmamachinebabbagekasiski"));
     }
 
 }
