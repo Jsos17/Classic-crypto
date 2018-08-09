@@ -25,7 +25,7 @@ public class FrequencyAnalysis {
             0.00772, 0.04025, 0.02406, 0.06749, 0.07507,
             0.01929, 0.00095, 0.05987, 0.06327, 0.09056,
             0.02758, 0.00978, 0.02360, 0.00150, 0.01974, 0.00074};
-        
+
         AlphabetHelper help = new AlphabetHelper();
         this.alphabetIndexes = help.hashAlphabet(this.alphabet);
     }
@@ -33,7 +33,7 @@ public class FrequencyAnalysis {
     public double[] getExpectedLetterFrequencies() {
         return this.expectedLetterFrequencies;
     }
-    
+
     public String getAlphabet() {
         return this.alphabet;
     }
@@ -43,8 +43,8 @@ public class FrequencyAnalysis {
         this.expectedLetterFrequencies = expectedFrequencies;
     }
 
-    public int[] countOccurrences(String text) {
-        int[] occurrences = new int[this.alphabet.length()];
+    public long[] countOccurrences(String text) {
+        long[] occurrences = new long[this.alphabet.length()];
         for (int i = 0; i < text.length(); i++) {
             if (this.alphabetIndexes.containsKey(text.charAt(i))) {
                 occurrences[this.alphabetIndexes.get(text.charAt(i))] += 1;

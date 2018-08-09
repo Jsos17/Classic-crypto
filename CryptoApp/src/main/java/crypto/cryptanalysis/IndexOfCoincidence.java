@@ -7,6 +7,7 @@ package crypto.cryptanalysis;
 
 import crypto.ciphers.VigenereCipher;
 import crypto.helpers.AlphabetHelper;
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -19,6 +20,7 @@ public class IndexOfCoincidence {
     private int c;
     private double expectedIC;
     private HashMap<Character, Integer> alphabetIndexes;
+    private String keyCandidate;
 
     public IndexOfCoincidence(FrequencyAnalysis freq) {
         this.freq = freq;
@@ -31,6 +33,11 @@ public class IndexOfCoincidence {
         this.expectedIC = c * sum_powers_of_2;
         AlphabetHelper help = new AlphabetHelper();
         this.alphabetIndexes = help.hashAlphabet(this.freq.getAlphabet());
+        this.keyCandidate = "";
+    }
+
+    public String getKeyCandidate() {
+        return keyCandidate;
     }
 
     private String[] subSequences(String ciphertext, int keyLen) {
@@ -48,6 +55,19 @@ public class IndexOfCoincidence {
         return subsequences;
     }
 
+    /**
+     * This method calculates the aggregate Index of coincidence values for
+     * different key lengths.
+     *
+     * If the value is close to 1 (or lower) then it is an indicator of a poor
+     * candidate for the key length. If the key length value is close to 1.7 or
+     * higher then it is a good candidate for key length. Another indicator for
+     * possible key length is when the multiples of the key length also produce
+     * high IC-values.
+     *
+     * @param ciphertext
+     * @return
+     */
     public double[] allDeltaBarICs(String ciphertext) {
         double[] deltaBarICs = new double[ciphertext.length()];
         for (int keyLen = 1; keyLen <= ciphertext.length(); keyLen++) {
@@ -72,12 +92,12 @@ public class IndexOfCoincidence {
         return sum / keyLen;
     }
 
-    public double deltaBarIC(String ciphertext) {
+    private double deltaBarIC(String ciphertext) {
         if (ciphertext.length() <= 1) {
             return 0.0;
         }
 
-        int[] occurrences = this.freq.countOccurrences(ciphertext);
+        long[] occurrences = this.freq.countOccurrences(ciphertext);
         double sum = 0;
         for (int i = 0; i < occurrences.length; i++) {
             sum += occurrences[i] * (occurrences[i] - 1);
@@ -86,7 +106,7 @@ public class IndexOfCoincidence {
         return this.c * sum / (ciphertext.length() * (ciphertext.length() - 1));
     }
 
-    private double chiSquared(int[] occurrences, double[] frequencies, int textLen) {
+    private double chiSquared(long[] occurrences, double[] frequencies, int textLen) {
         double chiSum = 0;
         for (int i = 0; i < occurrences.length; i++) {
             double expected = textLen * frequencies[i];
@@ -96,18 +116,41 @@ public class IndexOfCoincidence {
         return chiSum;
     }
 
-    public String findKey(String ciphertext, int keyLen) {
+    /**
+     * This method most likely finds the key that was used to produce the
+     * ciphertext from the original plaintext, if it is possible.
+     *
+     * Once the cryptanalyst has found the likely length of the key that was
+     * used, then the original ciphertext is divided to blocks of texts based on
+     * the key length, and it is hypothesized that every one of these blocks was
+     * encrypted using the same character. This character is then found by
+     * trying all the 26 different possibilities and then the character
+     * producing the lowest chi-squared value is chosen as the likeliest
+     * character of the key.
+     *
+     * The whole process is repeated keyLen times i.e. if the suspected key
+     * length is 5, then the corresponding 5 subsequences are each checked for
+     * the 26 alphabetical characters by calculating the chi-squared value.
+     *
+     * @param ciphertext The ciphertext which the cryptanalyst wishes to decrypt
+     * @param keyLen The suspected key length
+     * @return
+     */
+    public CharacterValue[][] findKey(String ciphertext, int keyLen) {
         VigenereCipher vig = new VigenereCipher();
         String[] subsequences = subSequences(ciphertext, keyLen);
 
         String alphabet = this.freq.getAlphabet();
         double smallest = Double.POSITIVE_INFINITY;
         int keyIndex = -1;
-        String key = "";
+        this.keyCandidate = "";
+        CharacterValue[][] charValues = new CharacterValue[keyLen][alphabet.length()];
+
         for (int i = 0; i < subsequences.length; i++) {
             for (int j = 0; j < alphabet.length(); j++) {
-                int[] occurrences = this.freq.countOccurrences(vig.decrypt(alphabet.substring(j, j + 1), subsequences[i]));
+                long[] occurrences = this.freq.countOccurrences(vig.decrypt(alphabet.substring(j, j + 1), subsequences[i]));
                 double value = chiSquared(occurrences, this.freq.getExpectedLetterFrequencies(), subsequences[i].length());
+                charValues[i][j] = new CharacterValue(alphabet.charAt(j), value);
 
                 if (value < smallest) {
                     smallest = value;
@@ -115,13 +158,33 @@ public class IndexOfCoincidence {
                 }
             }
 
-            key += alphabet.substring(keyIndex, keyIndex + 1);
+            this.keyCandidate += alphabet.substring(keyIndex, keyIndex + 1);
             smallest = Double.POSITIVE_INFINITY;
         }
 
-        return key;
+        for (CharacterValue[] charValue : charValues) {
+            Arrays.sort(charValue);
+        }
+
+        return charValues;
     }
 
+    /**
+     * Once the likely key is found, this method is used to decrypt the message
+     * using the standard decryption method of the Vigenere class.
+     *
+     * The cryptanalyst must analyze the resulting plaintext to see if the
+     * result makes sense or not.
+     *
+     * @see #findKey(String ciphertext, int keyLen)
+     *
+     * @param keyCandidate The candidate key
+     * @param ciphertext The message that the cryptanalyst wishes to decrypt
+     * @return The suspected plaintext, if the plaintext makes no sense then
+     * either the key candidate was wrong, the plaintext was encrypted using
+     * some method other than the Vigenere cipher or the original plaintext was
+     * just gibberish.
+     */
     public String solve(String keyCandidate, String ciphertext) {
         VigenereCipher vig = new VigenereCipher();
         return vig.decrypt(keyCandidate, ciphertext);
