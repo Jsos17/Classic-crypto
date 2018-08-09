@@ -18,7 +18,7 @@ Koodia ei ole erityisemmin refaktoroitu (vielä). Lisäksi huomataan että metod
     + "shwkzgstfmekvmpkswdgbilvjljmglmjfqwioiivknulvvfemioiemojtywdsajtwmtcgluy"
     + "sdsumfbieugmvalvxkjduetukatymvkqzhvqvgvptytjwwldyeevquhlulwpkt"
 
-antaa salausavaimeksi "ciahers" vaikka oikea olisi "ciphers" (kuten sivulla http://practicalcryptography.com/cryptanalysis/stochastic-searching/cryptanalysis-vigenere-cipher/ kerrotaan). Tämän vuoksi metodin findKey plaauarvo muutettiin kaksiulotteiseksi taulukoksi, jotta kryptoanalyytikko voi valistuneesti päätellä että a kirjain pitää korvata p:llä joka on toisena järjestyksessä a:n jälkeen.
+antaa salausavaimeksi "ciahers" vaikka oikea olisi "ciphers" (kuten sivulla http://practicalcryptography.com/cryptanalysis/stochastic-searching/cryptanalysis-vigenere-cipher/ kerrotaan). Tämän vuoksi metodin findKey palautusarvo muutettiin kaksiulotteiseksi taulukoksi, jotta kryptoanalyytikko voi valistuneesti päätellä että a kirjain pitää korvata p:llä joka on toisena järjestyksessä (chi-squared arvon mukaan) a:n jälkeen.
 
 Frekvenssianalyysiluokkaan on kovakoodattu englannin kielen kirjainten keskimääräinen esiintymisfrekvenssi, ja lähteenä käytetty sivua https://en.wikipedia.org/wiki/Letter_frequency#Relative_frequencies_of_letters_in_the_English_language sekä wikipedian alkuperäislähdettä http://en.algoritmy.net/article/40379/Letter-frequency-English (joka puolestaan ilmoittaa alkuperäislähteekseen LEWAND, Robert. Cryptological mathematics. [s.l.] : The Mathematical Association of America, 2000. 199 p. ISBN 0-88385-719-7). Samat frekvenssit löytyvät myös tiedostosta *letter_frequency_eng.csv*.
 
@@ -45,7 +45,7 @@ Salauksen murtamisesta aika paljon.
 
 ## Vaikeudet
 
-
+Ei erityisiä vaikeuksia.
 
 ## Kysymykset/Mikä jäi epäselväksi
 
