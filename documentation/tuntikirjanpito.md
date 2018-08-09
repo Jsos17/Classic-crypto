@@ -13,4 +13,5 @@
 | 3.8. | 5 | Javadocin kirjoittamista luokille, mutaatiotestauksen(?) kokeilu, jacoco- ja javadoc-raporttien luonnin testaus, käyttöliittymä (jota ei vielä edes ole) poistettiin testauskattavuudesta, Keyed Vigenere cipherille testejä  |
 | Viikko 3 |
 | 6.8. | 1 | Saluksen murtamisen alkutoimia ja tutkimusta |
-| 9.8. | ? |  |
+| 9.8. | 9 | IndexOfCoincidence ja FrequencyAnalysis -luokkien avulla Vigenere cipherin murtaminen eli salausavaimen löytäminen (alustava koodi, ei refaktoroitu), apuluokkia ja -algoritmeja (mm. suurin yhteinen tekijä) |
+| 10.8. | ? | |
