@@ -45,3 +45,10 @@ Tarkoitus on käyttää huomattavasti enemmän aikaa harjoitustyöhön tällä v
 Omien tietorakenteiden toteutusta ja salauksen murtamisen jatkamista.
 
 ## Käytetty tuntimäärä
+
+| päivä   | käytetty aika (h) | toimenpiteet |
+| :----:|:--------| :----------|
+| Viikko 3 |
+| 6.8. | 1 | Saluksen murtamisen alkutoimia ja tutkimusta |
+| 9.8. | 9 | IndexOfCoincidence ja FrequencyAnalysis -luokkien avulla Vigenere cipherin murtaminen eli salausavaimen löytäminen (alustava koodi, ei refaktoroitu), apuluokkia ja -algoritmeja (mm. suurin yhteinen tekijä) |
+| 10.8. | ? | |
