@@ -15,7 +15,7 @@ public class GreatestCommonDivisor {
 
     }
 
-    public long euclid(long a, long b) {
+    public long euclidRecursive(long a, long b) {
         if (b < 0 || a < 0) {
             return -1;
         }
@@ -23,7 +23,23 @@ public class GreatestCommonDivisor {
         if (b == 0) {
             return a;
         } else {
-            return euclid(b, a % b);
+            return euclidRecursive(b, a % b);
         }
     }
+    
+    public long euclidIterative(long a, long b) {
+        if (b < 0 || a < 0) {
+            return -1;
+        }
+        
+        while (b != 0) {
+            long temp = a % b;
+            a = b;
+            b = temp;
+        }
+        
+        return a;
+    }
+    
+    
 }

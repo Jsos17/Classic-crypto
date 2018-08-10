@@ -12,6 +12,7 @@ import crypto.ciphers.VigenereCipher;
 import crypto.cryptanalysis.CharacterValue;
 import crypto.cryptanalysis.FrequencyAnalysis;
 import crypto.cryptanalysis.IndexOfCoincidence;
+import crypto.helpers.GreatestCommonDivisor;
 import java.util.Arrays;
 
 /**
@@ -74,7 +75,18 @@ public class CryptoUserInterface {
         System.out.println(ic.solve(ic.getKeyCandidate(), ciphertext2));
 //        
         System.out.println(ic.solve("ciphers", ciphertext2));
-
+        
+        CharacterValue cv1 = new CharacterValue('a', 3.0);
+        CharacterValue cv2 = new CharacterValue('a', 1.0);
+        CharacterValue cv3 = new CharacterValue('a', 1.0);
+        System.out.println(cv1.compareTo(cv2));
+        System.out.println(cv2.compareTo(cv3));
+        System.out.println(cv2.compareTo(cv1));
+        
+        GreatestCommonDivisor gcd = new GreatestCommonDivisor();
+        System.out.println(gcd.euclidRecursive(5792659652l, 639220529486l));
+        System.out.println(gcd.euclidIterative(5792659652l, 639220529486l));
+        Arrays.sort(new int[10]);
     }
 
 }
