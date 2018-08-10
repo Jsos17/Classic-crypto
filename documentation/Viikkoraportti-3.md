@@ -32,7 +32,7 @@ Apuluokkien ja algoritmien luontia kuten suurimman yhteisen tekijän löytämine
 
 ## Miten ohjelma on edistynyt
 
-Viikonloppuna ja alkuviikolla työskentelyaikaani meni matematiikan yleistenttiin (Johdatus logiikkaan I ke 8.8. klo 10-14) valmistautuessa, joten siksi tällä viikolla vain torstai ja perjantai olivat tehokkaita työskentelypäiviä harjoitustyön parissa. Siksi työ ei ole edistynyt ihan niin paljon kuin olisin toivonut.
+Työ ei ole edistynyt ihan niin paljon kuin olisin toivonut koska viikonloppuna ja alkuviikolla työskentelyaikaani meni matematiikan yleistenttiin (Johdatus logiikkaan I ke 8.8.) valmistautuessa.
 
 Salauksen murtaminen on kunnolla aloitettu Vigenere salauksen muodossa index of coincincidencen ja frekevenssianalyysin keinoin.
 
