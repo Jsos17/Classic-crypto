@@ -83,10 +83,6 @@ public class CryptoUserInterface {
         System.out.println(cv2.compareTo(cv3));
         System.out.println(cv2.compareTo(cv1));
         
-        GreatestCommonDivisor gcd = new GreatestCommonDivisor();
-        System.out.println(gcd.euclidRecursive(5792659652l, 639220529486l));
-        System.out.println(gcd.euclidIterative(5792659652l, 639220529486l));
-        Arrays.sort(new int[10]);
     }
 
 }

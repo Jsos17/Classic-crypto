@@ -6,9 +6,7 @@
 package crypto.helpers;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -29,6 +27,10 @@ public class GreatestCommonDivisorTest {
     public void tearDown() {
     }
 
+    /*
+    WolframAlpha provides a handy tool to produce test values
+    http://www.wolframalpha.com/widgets/view.jsp?id=d269d2879d38da48991e43c3d3b66664
+    */
     @Test
     public void gcdRecursiveTest1() {
         assertEquals(3, gcd.euclidRecursive(30, 21));

@@ -23,6 +23,10 @@ public class IndexOfCoincidence {
     private HashMap<Character, Integer> alphabetIndexes;
     private String keyCandidate;
 
+    /**
+     *
+     * @param freq An instance of FrequencyAnalysis class
+     */
     public IndexOfCoincidence(FrequencyAnalysis freq) {
         this.freq = freq;
         this.c = this.freq.getAlphabet().length();
@@ -37,6 +41,13 @@ public class IndexOfCoincidence {
         this.keyCandidate = "";
     }
 
+    /**
+     * The method return the likeliest but not necessary correct key if the
+     * method findKey has been run. If findKey has not been run then only an
+     * empty String is returned.
+     *
+     * @return The likeliest key if the method findKey has been run
+     */
     public String getKeyCandidate() {
         return keyCandidate;
     }
@@ -66,8 +77,9 @@ public class IndexOfCoincidence {
      * possible key length is when the multiples of the key length also produce
      * high IC-values.
      *
-     * @param ciphertext
-     * @return
+     * @param ciphertext The text which the user wishes to decrypt
+     * @return The index of coincidence values for each key length, so that the
+     * user can make an informed choice of what the likeliest key length is
      */
     public double[] allDeltaBarICs(String ciphertext) {
         double[] deltaBarICs = new double[ciphertext.length()];
@@ -135,7 +147,15 @@ public class IndexOfCoincidence {
      *
      * @param ciphertext The ciphertext which the cryptanalyst wishes to decrypt
      * @param keyLen The suspected key length
-     * @return
+     * @return A two-dimensional array where the characters are sorted based on
+     * their chi-squared value for each position of the key. In other words, the
+     * method returns keyLen sorted arrays of alphabets, where the first
+     * character of the alphabet is the most likeliest corresponding character
+     * of the key. For example, if key length is seven, and the first character
+     * of the first alphabet is c, the first character of the second alphabet is
+     * i etc for p, h, e, r and finally s, then the likeliest key is "ciphers".
+     * It is possible that sometimes the first character of the alphabet is not
+     * the key, but instead the second one, or the 3rd etc.
      */
     public CharacterValue[][] findKey(String ciphertext, int keyLen) {
         VigenereCipher vig = new VigenereCipher();
