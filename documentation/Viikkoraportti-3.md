@@ -40,7 +40,7 @@ Työ ei ole edistynyt ihan niin paljon kuin olisin toivonut koska viikonloppuna 
 
 Salauksen murtaminen on kunnolla aloitettu Vigenere salauksen osalta index of coincincidencen ja frekevenssianalyysin keinoin. Periaatteessa koodi vaikuttaa olevan toimivaa mutta sen jatkokehitys "automatisointi VS käyttäjän valinnat" kannalta sekä tähän liittyen jonkinlaisen käyttöliittymän luominen on tarpeen.
 
-IndexOfCoincindence -luokan kohdalta testejä ei ole vielä osittain ajanpuutteen vuoksi ja osittain siksi koska vaikka periaatteessa luokka on täysin toiminnallinen, niin testien muotoa pitää vielä miettiä koska aina ei ole mahdollista saada täysin oikeaa vastausta ja lisäksi mahdollisesti koko luokan toiminnallisuus pitää uusia. Lisäksi järjestysalgoritmiluokkaan ei vielä ole tehty testejä kun siellä on vasta yksi metodi, joka sekin on lähes suora kopio TiRan luentomateriaalista.
+IndexOfCoincindence -luokan kohdalta testejä ei ole  lähinnä siksi koska vaikka periaatteessa luokka on täysin toiminnallinen, niin testien muotoa pitää vielä miettiä (aina ei ole mahdollista saada täysin oikeaa vastausta ja lisäksi mahdollisesti koko luokan toiminnallisuus pitää uusia. Lisäksi järjestysalgoritmiluokkaan ei vielä ole tehty testejä kun siellä on vasta yksi metodi, joka sekin on lähes suora kopio TiRan luentomateriaalista.
 
 Muilta osin testien kattavuus on korkea.
 
@@ -77,7 +77,7 @@ Omien tietorakenteiden ja perusalgoritmien toteutusta ja salauksen murtamisen ja
 | päivä   | käytetty aika (h) | toimenpiteet |
 | :----:|:--------| :----------|
 | Viikko 3 |
-| 6.8. | 1 | Saluksen murtamisen alkutoimia ja tutkimusta |
+| 6.8. | 1 | Salauksen murtamisen alkutoimia ja tutkimusta |
 | 9.8. | 11 | IndexOfCoincidence ja FrequencyAnalysis -luokkien avulla Vigenere cipherin murtamista eli salausavaimen löytämistä (alustava koodi, ei refaktoroitu), apuluokkia ja -algoritmeja (mm. suurin yhteinen tekijä) |
 | 10.8. | 8 | Lisää testejä, javadocin täydennystä, tutkimusta, dokumentaation kirjoitusta, iteratiivinen euclid |
 
