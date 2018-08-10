@@ -40,7 +40,7 @@ Työ ei ole edistynyt ihan niin paljon kuin olisin toivonut koska viikonloppuna 
 
 Salauksen murtaminen on kunnolla aloitettu Vigenere salauksen osalta index of coincincidencen ja frekevenssianalyysin keinoin. Periaatteessa koodi vaikuttaa olevan toimivaa mutta sen jatkokehitys "automatisointi VS käyttäjän valinnat" kannalta sekä tähän liittyen jonkinlaisen käyttöliittymän luominen on tarpeen.
 
-IndexOfCoincindence -luokan kohdalta testejä ei juuri ole koska vaikka periaatteessa luokka on täysin toiminnallinen, niin testien muotoa pitää vielä miettiä koska aina ei ole mahdollista saada täysin oikeaa vastausta ja lisäksi ylipäätänsä koko luokan toiminnallisuutta pitää vielä miettiä uudelleen. Lisäksi järjestysalgoritmiluokkaan ei vielä ole tehty testejä kun siellä on vasta yksi metodi, joka sekin on lähes suora kopio TiRan luentomateriaalista.
+IndexOfCoincindence -luokan kohdalta testejä ei ole vielä osittain ajanpuutteen vuoksi ja osittain siksi koska vaikka periaatteessa luokka on täysin toiminnallinen, niin testien muotoa pitää vielä miettiä koska aina ei ole mahdollista saada täysin oikeaa vastausta ja lisäksi mahdollisesti koko luokan toiminnallisuus pitää uusia. Lisäksi järjestysalgoritmiluokkaan ei vielä ole tehty testejä kun siellä on vasta yksi metodi, joka sekin on lähes suora kopio TiRan luentomateriaalista.
 
 Muilta osin testien kattavuus on korkea.
 
