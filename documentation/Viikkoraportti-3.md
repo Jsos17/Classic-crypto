@@ -36,11 +36,11 @@ Merkkien esiintymistä laskevan metodin testaamisessa käytin sivuja https://www
 
 ## Miten ohjelma on edistynyt
 
-Työ ei ole edistynyt ihan niin paljon kuin olisin toivonut koska viikonloppuna ja alkuviikolla työskentelyaikaani meni matematiikan yleistenttiin (Johdatus logiikkaan I ke 8.8.) valmistautuessa.
+Työ ei ole edistynyt ihan niin paljon kuin olisin toivonut koska viikonloppuna ja alkuviikolla työskentelyaikaani meni matematiikan yleistenttiin ke 8.8. (Johdatus logiikkaan I) valmistautuessa.
 
 Salauksen murtaminen on kunnolla aloitettu Vigenere salauksen osalta index of coincincidencen ja frekevenssianalyysin keinoin. Periaatteessa koodi vaikuttaa olevan toimivaa mutta sen jatkokehitys "automatisointi VS käyttäjän valinnat" kannalta sekä tähän liittyen jonkinlaisen käyttöliittymän luominen on tarpeen.
 
-IndexOfCoincindence -luokan kohdalta testejä ei juuri ole koska vaikka periaattessa luokka on täysin toiminnallinen, niin testien muotoa pitää vielä miettiä koska aina ei ole mahdollista saada täysin oikeaa vastausta ja lisäksi ylipäätänsä koko luokan toiminnallisuutta pitää vielä miettiä uudelleen. Lisäksi järjestysalgoritmiluokkaan ei vielä ole tehty testejä kun siellä on vasta yksi metodi, joka sekin on lähes suora kopio TiRan luentomateriaalista.
+IndexOfCoincindence -luokan kohdalta testejä ei juuri ole koska vaikka periaatteessa luokka on täysin toiminnallinen, niin testien muotoa pitää vielä miettiä koska aina ei ole mahdollista saada täysin oikeaa vastausta ja lisäksi ylipäätänsä koko luokan toiminnallisuutta pitää vielä miettiä uudelleen. Lisäksi järjestysalgoritmiluokkaan ei vielä ole tehty testejä kun siellä on vasta yksi metodi, joka sekin on lähes suora kopio TiRan luentomateriaalista.
 
 Muilta osin testien kattavuus on korkea.
 
@@ -48,7 +48,7 @@ Muilta osin testien kattavuus on korkea.
 
 ![Cipherit](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/week_3_test_coverages/cipher_tests.png)
 
-![Kryptoanalyysi]()
+![Kryptoanalyysi](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/week_3_test_coverages/cryptoanalysis_tests.png)
 
 ![Sorting](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/week_3_test_coverages/sorting_tests.png)
 
@@ -60,7 +60,7 @@ Salauksen murtamisesta aika paljon.
 
 ## Vaikeudet
 
-Tuo perusalgoritmien toteutus juuri eri datatyyppien käsittelyn osalta: primitiivityyyppien kohdalta asia ainakin selkeni koska tarvittaessa voi sitten vain copypasteta saman koodin eri parametrityypeillä. Olioiden suhteen en ole aivan varma ymmärränkö vielä miten se toteutetaan mutta en ole vielä kovin paljoa ehtinyt perehtymään asiaan.
+Tuo perusjärjestämisalgoritmien toteutus juuri eri datatyyppien käsittelyn osalta: primitiivityyyppien kohdalta asia ainakin selkeni koska tarvittaessa voi sitten vain copypasteta saman koodin eri parametrityypeillä. Olioiden suhteen en ole aivan varma ymmärränkö vielä miten se toteutetaan mutta en ole vielä kovin paljoa ehtinyt perehtymään asiaan.
 
 ## Kysymykset/Mikä jäi epäselväksi
 
