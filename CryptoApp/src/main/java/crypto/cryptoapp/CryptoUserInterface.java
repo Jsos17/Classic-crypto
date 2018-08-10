@@ -53,7 +53,7 @@ public class CryptoUserInterface {
 
         ic.findKey(ciphertext1, 5);
         ic.solve(ic.getKeyCandidate(), ciphertext1);
-
+        System.out.println(ic.getKeyCandidate());
         String ciphertext2 = "vptnvffuntshtarptymjwzirappljmhhqvsubwlzzygvtyitarptyiougxiuydtgzhhvvmum"
                 + "shwkzgstfmekvmpkswdgbilvjljmglmjfqwioiivknulvvfemioiemojtywdsajtwmtcgluy"
                 + "sdsumfbieugmvalvxkjduetukatymvkqzhvqvgvptytjwwldyeevquhlulwpkt";
@@ -72,16 +72,8 @@ public class CryptoUserInterface {
         }
         System.out.println(ic.solve(ic.getKeyCandidate(), ciphertext2));
         ic.findKey(ciphertext2, 14);
-        System.out.println(ic.solve(ic.getKeyCandidate(), ciphertext2));
-//        
+        System.out.println(ic.solve(ic.getKeyCandidate(), ciphertext2));     
         System.out.println(ic.solve("ciphers", ciphertext2));
-        
-        CharacterValue cv1 = new CharacterValue('a', 3.0);
-        CharacterValue cv2 = new CharacterValue('a', 1.0);
-        CharacterValue cv3 = new CharacterValue('a', 1.0);
-        System.out.println(cv1.compareTo(cv2));
-        System.out.println(cv2.compareTo(cv3));
-        System.out.println(cv2.compareTo(cv1));
         
     }
 
