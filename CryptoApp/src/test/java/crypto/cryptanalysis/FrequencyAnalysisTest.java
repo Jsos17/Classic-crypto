@@ -68,20 +68,21 @@ public class FrequencyAnalysisTest {
     http://www.characterfrequencyanalyzer.com/english/index.php
     
     were used to provide correct values for every countOccurrencesTest 
-    (checking that both sites produced same values) 
+    (checking that both sites produced the same values) 
     which were then inputted by hand to the counts-array.
     Note that the latter site omits missing characters from its listing.
-    */
+     */
     @Test
     public void countOccurrencesTest1() {
         String text = "a much more efficient method is the euclidean algorithm, which uses a division algorithm "
                 + "such as long division in combination with the observation that the gcd of two numbers also "
                 + "divides their difference. to compute gcd(48,18), divide 48 by 18 to get a quotient of 2 and a remainder of 12. "
                 + "then divide 18 by 12 to get a quotient of 1 and a remainder of 6";
-        int[] counts = new int[]{18, 5, 10, 17, 29, 9, 7, 14, 30, 0, 0, 5, 10,
+        long[] counts = new long[]{18, 5, 10, 17, 29, 9, 7, 14, 30, 0, 0, 5, 10,
             18, 24, 1, 2, 11, 11, 25, 8, 6, 3, 0, 2, 0};
+        long[] occurred = this.freq.countOccurrences(text);
         for (int i = 0; i < counts.length; i++) {
-            assertEquals(counts[i], this.freq.countOccurrences(text)[i]);
+            assertEquals(counts[i], occurred[i]);
         }
     }
 
@@ -90,10 +91,11 @@ public class FrequencyAnalysisTest {
         String text = "depending on the language and its implementation, primitive data types may or may not have "
                 + "a one-to-one correspondence with objects in the computer's memory. however, one usually expects "
                 + "operations on basic primitive data types to be the fastest language constructs there are";
-        int[] counts = new int[]{19, 3, 8, 6, 33, 1, 5, 7, 14, 1, 0, 5, 9, 18,
+        long[] counts = new long[]{19, 3, 8, 6, 33, 1, 5, 7, 14, 1, 0, 5, 9, 18,
             19, 10, 0, 12, 14, 25, 6, 4, 2, 1, 6, 0};
+        long[] occurred = this.freq.countOccurrences(text);
         for (int i = 0; i < counts.length; i++) {
-            assertEquals(counts[i], this.freq.countOccurrences(text)[i]);
+            assertEquals(counts[i], occurred[i]);
         }
     }
 
@@ -116,10 +118,11 @@ public class FrequencyAnalysisTest {
                 + "proxima centauri b and three around gliese 667 c (23.6 ly) considered the most likely candidates.[7] "
                 + "the international astronomical union took a public survey in 2015 about renaming some known extrasolar "
                 + "bodies, including the planets around epsilon eridani (10.5 ly) and fomalhaut";
-        int[] counts = new int[]{123, 22, 34, 33, 137, 20, 19, 58, 91, 1, 7, 62, 28,
+        long[] counts = new long[]{123, 22, 34, 33, 137, 20, 19, 58, 91, 1, 7, 62, 28,
             90, 85, 26, 0, 82, 93, 114, 25, 13, 18, 13, 34, 2};
+        long[] occurred = this.freq.countOccurrences(text);
         for (int i = 0; i < counts.length; i++) {
-            assertEquals(counts[i], this.freq.countOccurrences(text)[i]);
+            assertEquals(counts[i], occurred[i]);
         }
     }
 }

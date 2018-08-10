@@ -6,13 +6,14 @@
 package crypto.sorting;
 
 /**
+ * This class will implement sorting algorithms for non-primitive data types.
  *
  * @author jpssilve
  */
 public class ObjectSort {
-    
+
     public ObjectSort() {
-        
+
     }
-    
+
 }

@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 /**
+ * This class counts various statistics related to Index of coincidence.
  *
  * @author jpssilve
  */

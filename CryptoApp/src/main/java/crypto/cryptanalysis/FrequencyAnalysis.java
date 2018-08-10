@@ -9,6 +9,7 @@ import crypto.helpers.AlphabetHelper;
 import java.util.HashMap;
 
 /**
+ * This class performs basic frequency analysis of letters found in a text.
  *
  * @author jpssilve
  */
@@ -18,6 +19,10 @@ public class FrequencyAnalysis {
     private double[] expectedLetterFrequencies;
     private HashMap<Character, Integer> alphabetIndexes;
 
+    /**
+     * The Latin 26 character alphabet is the default alphabet, the average
+     * frequencies of letters in English texts are hard-coded.
+     */
     public FrequencyAnalysis() {
         this.alphabet = "abcdefghijklmnopqrstuvwxyz";
         this.expectedLetterFrequencies = new double[]{0.08167, 0.01492, 0.02782, 0.04253, 0.12702,
@@ -30,19 +35,45 @@ public class FrequencyAnalysis {
         this.alphabetIndexes = help.hashAlphabet(this.alphabet);
     }
 
+    /**
+     *
+     * @return The average frequencies of letters in English texts
+     */
     public double[] getExpectedLetterFrequencies() {
         return this.expectedLetterFrequencies;
     }
 
+    /**
+     *
+     * @return The alphabet that is currently in use
+     */
     public String getAlphabet() {
         return this.alphabet;
     }
 
+    /**
+     * Provides the possibility to change the alphabet and provide average
+     * letter frequencies.
+     *
+     * @param alphabet The desired alphabet
+     * @param expectedFrequencies The corresponding average letter frequencies
+     * in the language/alphabet chosen
+     */
     public void setAlphabet(String alphabet, double[] expectedFrequencies) {
         this.alphabet = alphabet;
         this.expectedLetterFrequencies = expectedFrequencies;
     }
 
+    /**
+     * This method counts the occurrences of each letter of the alphabet in the
+     * text which is provided as the parameter.
+     *
+     * @param text The text the user wishes to analyze
+     * @return A table where every index contains the number of occurrences for
+     * every corresponding letter. If the default alphabet is used then a:s
+     * occurrence count is in position 0, b:s occurrence count is in position 1
+     * and so on.
+     */
     public long[] countOccurrences(String text) {
         long[] occurrences = new long[this.alphabet.length()];
         for (int i = 0; i < text.length(); i++) {
