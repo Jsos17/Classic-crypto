@@ -44,6 +44,16 @@ IndexOfCoincindence -luokan kohdalta testejä ei juuri ole koska vaikka periaatt
 
 Muilta osin testien kattavuus on korkea.
 
+![Kaikki testit](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/week_3_test_coverages/all_tests.png)
+
+![Cipherit](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/week_3_test_coverages/cipher_tests.png)
+
+![Kryptoanalyysi]()
+
+![Sorting](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/week_3_test_coverages/sorting_tests.png)
+
+![Helpers](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/week_3_test_coverages/helper_tests.png)
+
 ## Mitä opin tällä viikolla
 
 Salauksen murtamisesta aika paljon.
@@ -69,6 +79,6 @@ Omien tietorakenteiden ja perusalgoritmien toteutusta ja salauksen murtamisen ja
 | Viikko 3 |
 | 6.8. | 1 | Saluksen murtamisen alkutoimia ja tutkimusta |
 | 9.8. | 11 | IndexOfCoincidence ja FrequencyAnalysis -luokkien avulla Vigenere cipherin murtamista eli salausavaimen löytämistä (alustava koodi, ei refaktoroitu), apuluokkia ja -algoritmeja (mm. suurin yhteinen tekijä) |
-| 10.8. | 7 | Lisää testejä, javadocin täydennystä, tutkimusta, dokumentaation kirjoitusta, iteratiivinen euclid |
+| 10.8. | 8 | Lisää testejä, javadocin täydennystä, tutkimusta, dokumentaation kirjoitusta, iteratiivinen euclid |
 
 [Tuntikirjanpito](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/tuntikirjanpito.md)
