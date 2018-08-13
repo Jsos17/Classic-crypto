@@ -42,6 +42,29 @@ public class CharIndexPair implements Comparable<CharIndexPair> {
         return this.number;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        CharIndexPair comparison = (CharIndexPair) obj;
+
+        if (this.c == comparison.c && this.number == comparison.number) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 43 * hash + this.c;
+        hash = 43 * hash + this.number;
+        return hash;
+    }
+
     /**
      * The CharIndexPairs are ordered based on their natural character order
      *

@@ -35,6 +35,29 @@ public class CharacterValue implements Comparable<CharacterValue> {
         return value;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        CharacterValue comparison = (CharacterValue) obj;
+
+        if (this.character == comparison.character && Double.valueOf(this.value).equals(comparison.value)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 89 * hash + this.character;
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.value) ^ (Double.doubleToLongBits(this.value) >>> 32));
+        return hash;
+    }
+
     /**
      * CharacterValues are ordered based on the double value only and using the
      * natural order of double values.

@@ -3,17 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package crypto.sorting;
+package crypto.datastructures;
 
 /**
- * This class will implement sorting algorithms for non-primitive data types.
  *
  * @author jpssilve
  */
-public class ObjectSort {
-
-    public ObjectSort() {
-
-    }
-
+public class HashTable {
+    
 }

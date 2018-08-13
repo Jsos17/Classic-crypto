@@ -13,6 +13,8 @@ import crypto.cryptanalysis.CharacterValue;
 import crypto.cryptanalysis.FrequencyAnalysis;
 import crypto.cryptanalysis.IndexOfCoincidence;
 import crypto.helpers.GreatestCommonDivisor;
+import crypto.sorting.GenericSort;
+import crypto.sorting.PrimitiveTypeSort;
 import java.util.Arrays;
 
 /**
@@ -75,6 +77,13 @@ public class CryptoUserInterface {
         System.out.println(ic.solve(ic.getKeyCandidate(), ciphertext2));     
         System.out.println(ic.solve("ciphers", ciphertext2));
         
+        int[] nums1 = new int[]{5, 4, 2, 1, 9, 8, 6};
+        PrimitiveTypeSort.iterativeMergeSort(nums1);
+        System.out.println(Arrays.toString(nums1));
+        
+        Integer[] nums = new Integer[]{5, 4, 2, 1, 9, 8, 6};
+        GenericSort.iterativeMergeSort(nums);
+        System.out.println(Arrays.toString(nums));
     }
 
 }
