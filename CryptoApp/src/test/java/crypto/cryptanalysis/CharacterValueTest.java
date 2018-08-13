@@ -61,37 +61,45 @@ public class CharacterValueTest {
         CharacterValue cval2 = new CharacterValue('a', 0.4201);
         assertTrue(cval1.equals(cval2));
     }
-    
+
     @Test
     public void equalsTest2() {
         CharacterValue cval1 = new CharacterValue('a', 0.4200000001);
         CharacterValue cval2 = new CharacterValue('a', 0.4200000001);
         assertTrue(cval1.equals(cval2));
     }
+
     /*
     The last digit is different, and the difference is noticed
-    */
+     */
     @Test
     public void equalsTest3() {
         CharacterValue cval1 = new CharacterValue('a', 0.4234512355431131);
         CharacterValue cval2 = new CharacterValue('a', 0.4234512355431132);
         assertFalse(cval1.equals(cval2));
     }
-    
+
     /*
     The last digit is different, and the difference is no longer noticed
-    */
+     */
     @Test
     public void equalsTest4() {
         CharacterValue cval1 = new CharacterValue('a', 0.42345123554311341);
         CharacterValue cval2 = new CharacterValue('a', 0.42345123554311342);
         assertTrue(cval1.equals(cval2));
     }
-    
+
     @Test
     public void equalsTest5() {
         CharacterValue cval1 = new CharacterValue('A', 0.4201);
         CharacterValue cval2 = new CharacterValue('a', 0.4201);
         assertFalse(cval1.equals(cval2));
+    }
+
+    @Test
+    public void equalsTest6() {
+        CharacterValue cval1 = new CharacterValue('A', 0.4201);
+        Object obj = new Object();
+        assertEquals(false, cval1.equals(obj));
     }
 }

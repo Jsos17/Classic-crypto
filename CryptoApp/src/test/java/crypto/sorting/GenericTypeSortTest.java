@@ -10,9 +10,7 @@ import crypto.cryptanalysis.CharacterValue;
 import java.util.Arrays;
 import java.util.Random;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -20,7 +18,7 @@ import static org.junit.Assert.*;
  *
  * @author jpssilve
  */
-public class GenericSortTest {
+public class GenericTypeSortTest {
     
     private int n;
     private CharacterValue[] cValControls;
@@ -64,7 +62,7 @@ public class GenericSortTest {
     @Test
     public void genericInsertionSortTest1() {
         Arrays.sort(this.cValControls);
-        GenericSort.insertionSort(this.cValOwns);
+        GenericTypeSort.insertionSort(this.cValOwns);
         for (int i = 0; i < this.n; i++) {
             assertEquals(this.cValControls[i], this.cValOwns[i]);
         }
@@ -73,7 +71,7 @@ public class GenericSortTest {
     @Test
     public void genericInsertionSortTest2() {
         Arrays.sort(this.cIdxControls);
-        GenericSort.insertionSort(this.cIdxOwns);
+        GenericTypeSort.insertionSort(this.cIdxOwns);
         for (int i = 0; i < this.n; i++) {
             assertEquals(this.cIdxControls[i], this.cIdxOwns[i]);
         }
@@ -91,7 +89,7 @@ public class GenericSortTest {
         }
         
         Arrays.sort(nums1);
-        GenericSort.insertionSort(nums2);
+        GenericTypeSort.insertionSort(nums2);
         for (int i = 0; i < 100; i++) {
             assertEquals(nums1[i], nums2[i]);
         }
@@ -108,7 +106,7 @@ public class GenericSortTest {
             nums2[i] = value;
         }
         
-        GenericSort.insertionSort(nums2);
+        GenericTypeSort.insertionSort(nums2);
         for (int i = 0; i < 100; i++) {
             assertFalse(nums1[i].equals(nums2[i] = 2));
         }
@@ -125,8 +123,8 @@ public class GenericSortTest {
             nums2[i] = value;
         }
         
-        GenericSort.insertionSort(nums1);
-        GenericSort.iterativeMergeSort(nums2);
+        GenericTypeSort.insertionSort(nums1);
+        GenericTypeSort.iterativeMergeSort(nums2);
         for (int i = 0; i < 100; i++) {
             assertEquals(nums1[i], nums2[i]);
         }
@@ -135,7 +133,7 @@ public class GenericSortTest {
     @Test
     public void genericMergeSortTest2() {
         Arrays.sort(this.cValControls);
-        GenericSort.iterativeMergeSort(this.cValOwns);
+        GenericTypeSort.iterativeMergeSort(this.cValOwns);
         for (int i = 0; i < this.n; i++) {
             assertEquals(this.cValControls[i], this.cValOwns[i]);
         }
@@ -144,7 +142,7 @@ public class GenericSortTest {
     @Test
     public void genericMergeSortTest3() {
         Arrays.sort(this.cIdxControls);
-        GenericSort.iterativeMergeSort(this.cIdxOwns);
+        GenericTypeSort.iterativeMergeSort(this.cIdxOwns);
         for (int i = 0; i < this.n; i++) {
             assertEquals(this.cIdxControls[i], this.cIdxOwns[i]);
         }

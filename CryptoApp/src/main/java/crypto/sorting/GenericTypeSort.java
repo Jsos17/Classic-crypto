@@ -12,9 +12,9 @@ import java.lang.reflect.Array;
  *
  * @author jpssilve
  */
-public class GenericSort {
+public class GenericTypeSort {
 
-    public GenericSort() {
+    public GenericTypeSort() {
 
     }
 
@@ -62,14 +62,12 @@ public class GenericSort {
         int i = 0;
         int j = 0;
         for (int k = left; k <= right; k++) {
-            if (i >= leftArray.length || j >= rightArray.length) {
-                if (i >= leftArray.length) {
-                    array[k] = rightArray[j];
-                    j++;
-                } else if (j >= rightArray.length) {
-                    array[k] = leftArray[i];
-                    i++;
-                }
+            if (j >= rightArray.length) {
+                array[k] = leftArray[i];
+                i++;
+            } else if (i >= leftArray.length) {
+                array[k] = rightArray[j];
+                j++;
             } else {
                 if (leftArray[i].compareTo(rightArray[j]) <= 0) {
                     array[k] = leftArray[i];

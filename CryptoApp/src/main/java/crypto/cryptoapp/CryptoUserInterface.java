@@ -13,7 +13,7 @@ import crypto.cryptanalysis.CharacterValue;
 import crypto.cryptanalysis.FrequencyAnalysis;
 import crypto.cryptanalysis.IndexOfCoincidence;
 import crypto.helpers.GreatestCommonDivisor;
-import crypto.sorting.GenericSort;
+import crypto.sorting.GenericTypeSort;
 import crypto.sorting.PrimitiveTypeSort;
 import java.util.Arrays;
 
@@ -80,10 +80,22 @@ public class CryptoUserInterface {
         int[] nums1 = new int[]{5, 4, 2, 1, 9, 8, 6};
         PrimitiveTypeSort.iterativeMergeSort(nums1);
         System.out.println(Arrays.toString(nums1));
+        long[] numbas = new long[10];
+        for (int i = 0; i< numbas.length; i++) {
+            numbas[i] = Long.MAX_VALUE;
+        }
+        PrimitiveTypeSort.iterativeMergeSort(numbas);
+        System.out.println(Arrays.toString(numbas));
         
-        Integer[] nums = new Integer[]{5, 4, 2, 1, 9, 8, 6};
-        GenericSort.iterativeMergeSort(nums);
-        System.out.println(Arrays.toString(nums));
+        long[] numbas2 = new long[]{1l};
+        PrimitiveTypeSort.iterativeMergeSort(numbas2);
+        System.out.println(Arrays.toString(numbas2));
+        
+        Integer[] nums2 = new Integer[]{5, 4, 2, 1, 9, 8, 6};
+        GenericTypeSort.iterativeMergeSort(nums2);
+        System.out.println(Arrays.toString(nums2));
+        
+        System.out.println(3 ^ 2);
     }
 
 }

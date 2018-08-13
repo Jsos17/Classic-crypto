@@ -7,7 +7,7 @@ package crypto.cryptanalysis;
 
 import crypto.ciphers.VigenereCipher;
 import crypto.helpers.AlphabetHelper;
-import java.util.Arrays;
+import crypto.sorting.GenericTypeSort;
 import java.util.HashMap;
 
 /**
@@ -184,7 +184,7 @@ public class IndexOfCoincidence {
         }
 
         for (CharacterValue[] charValue : charValues) {
-            Arrays.sort(charValue);
+            GenericTypeSort.iterativeMergeSort(charValue);
         }
 
         return charValues;

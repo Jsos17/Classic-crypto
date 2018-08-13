@@ -5,7 +5,7 @@
  */
 package crypto.ciphers;
 
-import java.util.Arrays;
+import crypto.sorting.GenericTypeSort;
 
 /**
  * The class implements a columnar transposition cipher. Both single and double
@@ -31,8 +31,8 @@ public class TranspositionCipher {
             CharIndexPair cnPair = new CharIndexPair(key.charAt(i), i % key.length());
             charIdxPairs[i] = cnPair;
         }
-
-        Arrays.sort(charIdxPairs);
+        
+        GenericTypeSort.iterativeMergeSort(charIdxPairs);
         return charIdxPairs;
     }
 

@@ -19,11 +19,35 @@ public class CharIndexPairTest {
 
     @Before
     public void setUp() {
-        ciPair = new CharIndexPair('x', 3);
+        this.ciPair = new CharIndexPair('x', 3);
     }
 
     @Test
     public void getCharTest1() {
         assertEquals('x', ciPair.getChar());
+    }
+
+    @Test
+    public void equalstest1() {
+        String s = "abc";
+        assertFalse(this.ciPair.equals(s));
+    }
+
+    @Test
+    public void equalstest2() {
+        CharIndexPair c2 = new CharIndexPair('y', 2);
+        assertFalse(this.ciPair.equals(c2));
+    }
+
+    @Test
+    public void equalstest3() {
+        CharIndexPair c2 = new CharIndexPair('y', 3);
+        assertFalse(this.ciPair.equals(c2));
+    }
+
+    @Test
+    public void equalstest4() {
+        CharIndexPair c2 = new CharIndexPair('x', 2);
+        assertFalse(this.ciPair.equals(c2));
     }
 }

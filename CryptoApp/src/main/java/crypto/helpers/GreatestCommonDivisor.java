@@ -41,7 +41,8 @@ public class GreatestCommonDivisor {
     /**
      * An iterative form of Euclid's algorithm and it produces the same result
      * as the recursive version, the only difference is that since it avoids the
-     * recursion it might be faster in practice and also uses much less memory.
+     * recursion it might be faster in practice and also uses less memory by
+     * avoiding the recursion.
      *
      * @see euclidRecursive(long a, long b)
      * @param a A non-negative integer
