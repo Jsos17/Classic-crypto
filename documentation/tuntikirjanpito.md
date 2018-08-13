@@ -16,4 +16,4 @@
 | 9.8. | 11 | IndexOfCoincidence ja FrequencyAnalysis -luokkien avulla Vigenere cipherin murtamista eli salausavaimen löytämistä (alustava koodi, ei refaktoroitu), apuluokkia ja -algoritmeja (mm. suurin yhteinen tekijä)  |
 | 10.8. | 8 | Lisää testejä, javadocin täydennystä, tutkimusta, dokumentaation kirjoitusta, iteratiivinen euclid |
 | Viikko 4 |
-| 13.8. | ? |  |
+| 13.8. | 6 | Geneerinen merge sort 1. versio, geneerinen insertion sort sekä  näille + primitiivityyppi järjestysalgoille testejä |
