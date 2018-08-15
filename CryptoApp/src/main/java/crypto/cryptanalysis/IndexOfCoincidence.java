@@ -52,7 +52,7 @@ public class IndexOfCoincidence {
         return keyCandidate;
     }
 
-    private String[] subSequences(String ciphertext, int keyLen) {
+    protected String[] subSequences(String ciphertext, int keyLen) {
         String[] subsequences = new String[keyLen];
 
         for (int k = 0; k < keyLen; k++) {
@@ -90,36 +90,33 @@ public class IndexOfCoincidence {
         return deltaBarICs;
     }
 
-    private double aggregateDeltaBarIC(String ciphertext, int keyLen) {
+    protected double aggregateDeltaBarIC(String ciphertext, int keyLen) {
         double sum = 0;
-
-        for (int k = 0; k < keyLen; k++) {
-            String newText = "";
-            for (int i = k; i < ciphertext.length(); i += keyLen) {
-                newText += ciphertext.charAt(i);
-            }
-
-            sum += deltaBarIC(newText);
+        String[] subsequences = subSequences(ciphertext, keyLen);
+        for (String subsequence : subsequences) {
+            sum += deltaBarIC(subsequence);
         }
 
         return sum / keyLen;
     }
 
-    private double deltaBarIC(String ciphertext) {
+    protected double deltaBarIC(String ciphertext) {
         if (ciphertext.length() <= 1) {
             return 0.0;
         }
 
         long[] occurrences = this.freq.countOccurrences(ciphertext);
+        long charOccurrencesSum = 0;
         double sum = 0;
         for (int i = 0; i < occurrences.length; i++) {
             sum += occurrences[i] * (occurrences[i] - 1);
+            charOccurrencesSum += occurrences[i];
         }
 
-        return this.c * sum / (ciphertext.length() * (ciphertext.length() - 1));
+        return this.c * sum / (charOccurrencesSum * (charOccurrencesSum - 1));
     }
 
-    private double chiSquared(long[] occurrences, double[] frequencies, int textLen) {
+    protected double chiSquared(long[] occurrences, double[] frequencies, int textLen) {
         double chiSum = 0;
         for (int i = 0; i < occurrences.length; i++) {
             double expected = textLen * frequencies[i];
@@ -183,8 +180,15 @@ public class IndexOfCoincidence {
             smallest = Double.POSITIVE_INFINITY;
         }
 
+        // THRESHOLD: to be decided, just a placeholder value
+        final int THRESHOLD = 20;
         for (CharacterValue[] charValue : charValues) {
-            GenericTypeSort.iterativeMergeSort(charValue);
+            if (charValue.length < THRESHOLD) {
+                GenericTypeSort.insertionSort(charValue);
+            } else {
+                GenericTypeSort.iterativeMergeSort(charValue);
+            }
+
         }
 
         return charValues;

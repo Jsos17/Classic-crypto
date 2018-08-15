@@ -31,8 +31,14 @@ public class TranspositionCipher {
             CharIndexPair cnPair = new CharIndexPair(key.charAt(i), i % key.length());
             charIdxPairs[i] = cnPair;
         }
-        
-        GenericTypeSort.iterativeMergeSort(charIdxPairs);
+
+        // THRESHOLD: to be decided, just a placeholder value
+        final int THRESHOLD = 20;
+        if (key.length() < THRESHOLD) {
+            GenericTypeSort.insertionSort(charIdxPairs);
+        } else {
+            GenericTypeSort.iterativeMergeSort(charIdxPairs);
+        }
         return charIdxPairs;
     }
 
