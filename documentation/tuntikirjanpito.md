@@ -17,3 +17,4 @@
 | 10.8. | 8 | Lisää testejä, javadocin täydennystä, tutkimusta, dokumentaation kirjoitusta, iteratiivinen euclid |
 | Viikko 4 |
 | 13.8. | 8 | Geneerinen merge sort 1. versio, geneerinen insertion sort sekä  näille + primitiivityyppi järjestysalgoille testejä, yleistä testikattavuuden parantamista, yleistä tutkimusta |
+| 15.8. | 4 | Testikattavuuden kasvattamista erityisesti IndexOfCoincidence luokalle ja samall yhden virheen korjaus |
