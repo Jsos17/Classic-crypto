@@ -17,4 +17,5 @@
 | 10.8. | 8 | Lisää testejä, javadocin täydennystä, tutkimusta, dokumentaation kirjoitusta, iteratiivinen euclid |
 | Viikko 4 |
 | 13.8. | 8 | Geneerinen merge sort 1. versio, geneerinen insertion sort sekä  näille + primitiivityyppi järjestysalgoille testejä, yleistä testikattavuuden parantamista, yleistä tutkimusta |
-| 15.8. | 4 | Testikattavuuden kasvattamista erityisesti IndexOfCoincidence luokalle ja samall yhden virheen korjaus |
+| 15.8. | 8 | Testikattavuuden kasvattamista erityisesti IndexOfCoincidence luokalle ja samalla yhden virheen korjaus, testejä varten tiedoston IC_test.xlsx luonti, jonka avulla lasketaan testisyötteitä ja johon dokumentoidaan myös testejä |
+| 16.8. | 2 | Testien luonnin jatkoa |
