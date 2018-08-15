@@ -102,4 +102,10 @@ public class CharacterValueTest {
         Object obj = new Object();
         assertEquals(false, cval1.equals(obj));
     }
+
+    @Test
+    public void equalsTest7() {
+        CharacterValue cval1 = new CharacterValue('A', 0.4201);
+        assertEquals(false, cval1.equals(null));
+    }
 }

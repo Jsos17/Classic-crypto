@@ -31,6 +31,9 @@ public class IndexOfCoincidenceTest {
     public void tearDown() {
     }
 
+    /*
+    Expected subsequences produced manually
+     */
     @Test
     public void subSequencesTest1() {
         String text = "crypt"
@@ -40,19 +43,21 @@ public class IndexOfCoincidenceTest {
                 + "analy"
                 + "sis";
 
-        String key = "lemon";
         String[] expected = new String[5];
         expected[0] = "cohcas";
         expected[1] = "rgyrni";
         expected[2] = "yrayas";
         expected[3] = "panpl";
         expected[4] = "tpdty";
-        String[] owns = this.ic.subSequences(text, key.length());
+        String[] owns = this.ic.subSequences(text, 5);
         for (int i = 0; i < expected.length; i++) {
             assertEquals(expected[i], owns[i]);
         }
     }
 
+    /*
+    Expected subsequences produced manually
+     */
     @Test
     public void subSequencesTest2() {
         String text = "hashco"
@@ -71,7 +76,6 @@ public class IndexOfCoincidenceTest {
                 + "ssible"
                 + "keys";
 
-        String key = "enigma";
         String[] expected = new String[6];
         expected[0] = "hlnraabnndslesk";
         expected[1] = "alsalvlhgoeatse";
@@ -79,26 +83,27 @@ public class IndexOfCoincidenceTest {
         expected[3] = "hsrtyiwsrsogfbs";
         expected[4] = "cieiudhhaufepl";
         expected[5] = "oopcnaeinbasoe";
-        String[] owns = this.ic.subSequences(text, key.length());
+        String[] owns = this.ic.subSequences(text, 6);
         for (int i = 0; i < expected.length; i++) {
             assertEquals(expected[i], owns[i]);
         }
     }
-     /*
-    Test values produced wiht LibreOffice Calc, 
-    and this file is attached to documentation, and the website
+
+    /*
+   Test values calculated with LibreOffice Calc 
+    (file is attached to documentation), and the website
     https://www.mtholyoke.edu/courses/quenell/s2003/ma139/js/count.html 
     was used to provide character counts
      */
     @Test
     public void subSequencesTest3() {
         String text = "wnylazlzeqntfpwtsmabjqinaweaocfewgpsrmyluadlybfgaltgljrlzaaxvjehhygggdsrygvnjmpyklvyilykdrphepbfgdspjtaap"
-                    + "sxrpayholutqfxstptffbcrkxvvjhorawfwaejxlgafilmzrywpfxjgaltdhjvjgtyguretajegpyirpxfpagodmzrhstrxjrpirlbfgkhhce"
-                    + "wgpsrvtuvlvepmwkpaeqlstaqolmsvjwnegmzafoslaaohalvwfkttfxdrphepqobqzdqnytagtrhspnmprtfnhmsrmznplrcijrosnrlwgds"
-                    + "bylapqgemyxeaeucgulwbajrkvowsrhxvngtahmaphhcyjrmielvqbbqinawepsxrewgpsrqtfqpveltkfkqiymwtqssqxvchoilmwkpzermw"
-                    + "eokiraluaammkwkownrawpedhcklrthtftfnjmtfbftazsclmtcssrlluwhxahjeagpmgvfpceggluadlybfgaltznlgdwsglfbpqepmsvjha"
-                    + "lwsnnsajlgiafyahezkbilxfthwsflgkiwgfmtrawtfxjbbhhcfsyocirbkhjziixdlpcbcthywwnrxpgvcropzvyvapxdrogcmfebjhhsllu"
-                    + "aqrwilnjolwllzwmncxvgkhrwlwiafajvgzxwnymabjgodfsclwneltrpkecguvlvepmwkponbidnebtcqlyahtckk";
+                + "sxrpayholutqfxstptffbcrkxvvjhorawfwaejxlgafilmzrywpfxjgaltdhjvjgtyguretajegpyirpxfpagodmzrhstrxjrpirlbfgkhhce"
+                + "wgpsrvtuvlvepmwkpaeqlstaqolmsvjwnegmzafoslaaohalvwfkttfxdrphepqobqzdqnytagtrhspnmprtfnhmsrmznplrcijrosnrlwgds"
+                + "bylapqgemyxeaeucgulwbajrkvowsrhxvngtahmaphhcyjrmielvqbbqinawepsxrewgpsrqtfqpveltkfkqiymwtqssqxvchoilmwkpzermw"
+                + "eokiraluaammkwkownrawpedhcklrthtftfnjmtfbftazsclmtcssrlluwhxahjeagpmgvfpceggluadlybfgaltznlgdwsglfbpqepmsvjha"
+                + "lwsnnsajlgiafyahezkbilxfthwsflgkiwgfmtrawtfxjbbhhcfsyocirbkhjziixdlpcbcthywwnrxpgvcropzvyvapxdrogcmfebjhhsllu"
+                + "aqrwilnjolwllzwmncxvgkhrwlwiafajvgzxwnymabjgodfsclwneltrpkecguvlvepmwkponbidnebtcqlyahtckk";
 
         String[] expected = new String[6];
         expected[0] = "wlfaafrdarvgypipgaputcjflmftgepfmrrhpvwllnfofdqqtmhnjlyeewvxhceqpgftysopelkrhhjtmlapcagllpasazflfthohdtrrvobliwnhazafeevpnlk";
@@ -115,8 +120,8 @@ public class IndexOfCoincidenceTest {
     }
 
     /*
-    Test values calculated with LibreOffice Calc spreadsheet program, 
-    and this file is attached to documentation, and the website
+    Test values calculated with LibreOffice Calc 
+    (file is attached to documentation), and the website
     https://www.mtholyoke.edu/courses/quenell/s2003/ma139/js/count.html 
     was used to provide character counts
      */
@@ -156,8 +161,8 @@ public class IndexOfCoincidenceTest {
     }
 
     /*
-    Test values calculated with LibreOffice Calc spreadsheet program, 
-    and this file is attached to documentation, and the website
+    Test values calculated with LibreOffice Calc 
+    (file is attached to documentation), and the website
     https://www.mtholyoke.edu/courses/quenell/s2003/ma139/js/count.html 
     was used to provide character counts
      */
@@ -203,8 +208,8 @@ public class IndexOfCoincidenceTest {
     }
 
     /*
-    Test values calculated with LibreOffice Calc spreadsheet program, 
-    and this file is attached to documentation, and the website
+    Test values calculated with LibreOffice Calc 
+    (file is attached to documentation), and the website
     https://www.mtholyoke.edu/courses/quenell/s2003/ma139/js/count.html 
     was used to provide character counts
      */
@@ -243,10 +248,10 @@ public class IndexOfCoincidenceTest {
 
         assertEquals(1.7489797231, this.ic.deltaBarIC(text.toLowerCase()), 0.01);
     }
-    
+
     /*
-    Test values calculated with LibreOffice Calc spreadsheet program, 
-    and this file is attached to documentation, and the website
+    Test values calculated with LibreOffice Calc 
+    (file is attached to documentation), and the website
     https://www.mtholyoke.edu/courses/quenell/s2003/ma139/js/count.html 
     was used to provide character counts
      */
@@ -264,23 +269,78 @@ public class IndexOfCoincidenceTest {
 
         assertEquals(1.9124163406, this.ic.deltaBarIC(text), 0.01);
     }
-    
+
     /*
-    Test values calculated with LibreOffice Calc spreadsheet program, 
-    and this file is attached to documentation, and the website
+    Test values calculated with LibreOffice Calc 
+    (file is attached to documentation), and the website
     https://www.mtholyoke.edu/courses/quenell/s2003/ma139/js/count.html 
     was used to provide character counts
      */
     @Test
     public void aggregateDeltaBarICTest1() {
         String text = "wnylazlzeqntfpwtsmabjqinaweaocfewgpsrmyluadlybfgaltgljrlzaaxvjehhygggdsrygvnjmpyklvyilykdrphepbfgdspjtaap"
-                    + "sxrpayholutqfxstptffbcrkxvvjhorawfwaejxlgafilmzrywpfxjgaltdhjvjgtyguretajegpyirpxfpagodmzrhstrxjrpirlbfgkhhce"
-                    + "wgpsrvtuvlvepmwkpaeqlstaqolmsvjwnegmzafoslaaohalvwfkttfxdrphepqobqzdqnytagtrhspnmprtfnhmsrmznplrcijrosnrlwgds"
-                    + "bylapqgemyxeaeucgulwbajrkvowsrhxvngtahmaphhcyjrmielvqbbqinawepsxrewgpsrqtfqpveltkfkqiymwtqssqxvchoilmwkpzermw"
-                    + "eokiraluaammkwkownrawpedhcklrthtftfnjmtfbftazsclmtcssrlluwhxahjeagpmgvfpceggluadlybfgaltznlgdwsglfbpqepmsvjha"
-                    + "lwsnnsajlgiafyahezkbilxfthwsflgkiwgfmtrawtfxjbbhhcfsyocirbkhjziixdlpcbcthywwnrxpgvcropzvyvapxdrogcmfebjhhsllu"
-                    + "aqrwilnjolwllzwmncxvgkhrwlwiafajvgzxwnymabjgodfsclwneltrpkecguvlvepmwkponbidnebtcqlyahtckk";
+                + "sxrpayholutqfxstptffbcrkxvvjhorawfwaejxlgafilmzrywpfxjgaltdhjvjgtyguretajegpyirpxfpagodmzrhstrxjrpirlbfgkhhce"
+                + "wgpsrvtuvlvepmwkpaeqlstaqolmsvjwnegmzafoslaaohalvwfkttfxdrphepqobqzdqnytagtrhspnmprtfnhmsrmznplrcijrosnrlwgds"
+                + "bylapqgemyxeaeucgulwbajrkvowsrhxvngtahmaphhcyjrmielvqbbqinawepsxrewgpsrqtfqpveltkfkqiymwtqssqxvchoilmwkpzermw"
+                + "eokiraluaammkwkownrawpedhcklrthtftfnjmtfbftazsclmtcssrlluwhxahjeagpmgvfpceggluadlybfgaltznlgdwsglfbpqepmsvjha"
+                + "lwsnnsajlgiafyahezkbilxfthwsflgkiwgfmtrawtfxjbbhhcfsyocirbkhjziixdlpcbcthywwnrxpgvcropzvyvapxdrogcmfebjhhsllu"
+                + "aqrwilnjolwllzwmncxvgkhrwlwiafajvgzxwnymabjgodfsclwneltrpkecguvlvepmwkponbidnebtcqlyahtckk";
         int keyLen = 6;
         assertEquals(1.1417354205, this.ic.aggregateDeltaBarIC(text, keyLen), 0.01);
+    }
+    
+//    @Test
+//    public void aggregateDeltaBarICTest2() {
+//        String text = "inasimplesubstitutionciphereachletteroftheplaintextisreplacedwithanother";
+//        int keyLen = text.length() / 2;
+//        assertEquals(26.0, this.ic.aggregateDeltaBarIC(text, keyLen), 0.01);
+//    }
+    
+    /*
+    The test values were created by replicating the calculations in LibreOffice 
+    Calc spreadsheet (file is attached to documentation). 
+    The subsequences were produced by using 
+    a modified version of the subSequences method (see SubSequencePrinter) 
+    and then the functions of the LibreOffice Calc were used to count characters 
+    in the subsequence and to calculate the expected values
+    */
+    @Test
+    public void allAggregateDeltaBarICsTest1() {
+        String text = "wnylazlzeqntfpwtsmabjqinaweaocfewgpsrmyluadlybfgaltgljrlzaaxvjehhygggdsrygvnjmpyklvyilykdrphepbfgdspjtaap"
+                + "sxrpayholutqfxstptffbcrkxvvjhorawfwaejxlgafilmzrywpfxjgaltdhjvjgtyguretajegpyirpxfpagodmzrhstrxjrpirlbfgkhhce"
+                + "wgpsrvtuvlvepmwkpaeqlstaqolmsvjwnegmzafoslaaohalvwfkttfxdrphepqobqzdqnytagtrhspnmprtfnhmsrmznplrcijrosnrlwgds"
+                + "bylapqgemyxeaeucgulwbajrkvowsrhxvngtahmaphhcyjrmielvqbbqinawepsxrewgpsrqtfqpveltkfkqiymwtqssqxvchoilmwkpzermw"
+                + "eokiraluaammkwkownrawpedhcklrthtftfnjmtfbftazsclmtcssrlluwhxahjeagpmgvfpceggluadlybfgaltznlgdwsglfbpqepmsvjha"
+                + "lwsnnsajlgiafyahezkbilxfthwsflgkiwgfmtrawtfxjbbhhcfsyocirbkhjziixdlpcbcthywwnrxpgvcropzvyvapxdrogcmfebjhhsllu"
+                + "aqrwilnjolwllzwmncxvgkhrwlwiafajvgzxwnymabjgodfsclwneltrpkecguvlvepmwkponbidnebtcqlyahtckk";
+        
+        double[] expected = new double[21];
+        expected[0] = 1.0954174743;
+        expected[1] = 1.1125173954;
+        expected[2] = 1.1146111504;
+        expected[3] = 1.108666275;
+        expected[4] = 1.0755653613;
+        expected[5] = 1.1417354205;
+        expected[6] = 1.9012065203;
+        expected[7] = 1.0759283377;
+        expected[8] = 1.0989061133;
+        expected[9] = 1.104109589;
+        expected[10] = 1.1004143115;
+        expected[11] = 1.1254979729;
+        expected[12] = 1.0689223058;
+        expected[13] = 1.9305533534;
+        expected[14] = 1.1191791383;
+        expected[15] = 1.0702718676;
+        expected[16] = 1.0317716939;
+        expected[17] = 1.1070718802;
+        expected[18] = 1.023832697;
+        expected[19] = 1.1145645646;
+        expected[20] = 1.9334400427;
+        
+        double[] actuals = this.ic.allAggregateDeltaBarICs(text);
+        
+        for (int i = 0; i < expected.length; i++) {
+            assertEquals(expected[i], actuals[i], 0.01);
+        }
     }
 }

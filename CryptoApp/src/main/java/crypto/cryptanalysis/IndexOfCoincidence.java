@@ -54,6 +54,10 @@ public class IndexOfCoincidence {
 
     protected String[] subSequences(String ciphertext, int keyLen) {
         String[] subsequences = new String[keyLen];
+        if (keyLen == 1) {
+            subsequences[0] = ciphertext;
+            return subsequences;
+        }
 
         for (int k = 0; k < keyLen; k++) {
             String newText = "";
@@ -81,7 +85,7 @@ public class IndexOfCoincidence {
      * @return The index of coincidence values for each key length, so that the
      * user can make an informed choice of what the likeliest key length is
      */
-    public double[] allDeltaBarICs(String ciphertext) {
+    public double[] allAggregateDeltaBarICs(String ciphertext) {
         double[] deltaBarICs = new double[ciphertext.length()];
         for (int keyLen = 1; keyLen <= ciphertext.length(); keyLen++) {
             deltaBarICs[keyLen - 1] = aggregateDeltaBarIC(ciphertext, keyLen);
