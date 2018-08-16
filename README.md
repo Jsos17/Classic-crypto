@@ -20,6 +20,6 @@ Harjoitustyö toteuttaa Java-kielellä klassisia (pre-1970-luku) kryptografisia 
 
 ## Muuta
 
-Tiedosto, jota käytetty ja johon dokumentoitu osa testausprosessista liittyen erityisesti paljon laskentaa vaativien metodien testaukseen IndexOfCoincidence luokassa. LibreOffice Calcin avulla oli pystyi semi-automatisoimaan laskentaa ja tekemään sen monelta osin täysin riippumattomasti omasta koodista. 
+Tiedosto, jota käytetty ja johon dokumentoitu osa testausprosessista liittyen erityisesti paljon laskentaa vaativien metodien testaukseen IndexOfCoincidence luokassa. LibreOffice Calcin avulla pystyi semi-automatisoimaan laskentaa ja tekemään sen monelta osin täysin riippumattomasti omasta koodista. 
 
 [IC_test.xlxs](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/IC_test.xlsx)
