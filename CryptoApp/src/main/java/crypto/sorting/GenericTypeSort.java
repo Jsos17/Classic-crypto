@@ -18,6 +18,16 @@ public class GenericTypeSort {
 
     }
 
+    /**
+     * This method implements a stable insertion sort for objects that have
+     * implemented the Comparable interface. The algorithm is a standard basic
+     * version of insertion sort found in the lecture material of the course
+     * Data structures and algorithms (University of Helsinki).
+     *
+     * @param <T> Any non-primitive type that implements the Comparable
+     * interface
+     * @param array An array consisting of instances of the specified type
+     */
     public static <T extends Comparable<? super T>> void insertionSort(T[] array) {
         for (int j = 1; j < array.length; j++) {
             T x = array[j];
@@ -30,6 +40,20 @@ public class GenericTypeSort {
         }
     }
 
+    /**
+     * This method implements a basic version of iterative merge-sort for
+     * non-primitive types. It is a stable sorting algorithm. The basic version
+     * is found in the lecture material of the course Data structures and
+     * algorithms (University of Helsinki) with one alteration: The infinite
+     * SENTINEL value is not used in the merge method, and instead the two
+     * smaller arrays are checked for valid indexing. This change was done
+     * because of the difficulty of determining an infinite value for unknown
+     * non-primitive types.
+     *
+     * @param <T> Any non-primitive type that implements the Comparable
+     * interface
+     * @param array An array consisting of instances of the specified type
+     */
     public static <T extends Comparable<? super T>> void iterativeMergeSort(T[] array) {
         int len = 1;
         while (len < array.length) {
@@ -46,7 +70,7 @@ public class GenericTypeSort {
         }
     }
 
-    public static <T extends Comparable<? super T>> void merge(T[] array, int left, int middle, int right) {
+    protected static <T extends Comparable<? super T>> void merge(T[] array, int left, int middle, int right) {
         int n1 = middle - left + 1;
         int n2 = right - middle;
         Class type = array.getClass().getComponentType();

@@ -5,6 +5,7 @@
  */
 package crypto.cryptanalysis;
 
+import java.util.Arrays;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -288,14 +289,7 @@ public class IndexOfCoincidenceTest {
         int keyLen = 6;
         assertEquals(1.1417354205, this.ic.aggregateDeltaBarIC(text, keyLen), 0.01);
     }
-    
-//    @Test
-//    public void aggregateDeltaBarICTest2() {
-//        String text = "inasimplesubstitutionciphereachletteroftheplaintextisreplacedwithanother";
-//        int keyLen = text.length() / 2;
-//        assertEquals(26.0, this.ic.aggregateDeltaBarIC(text, keyLen), 0.01);
-//    }
-    
+
     /*
     The test values were created by replicating the calculations in LibreOffice 
     Calc spreadsheet (file is attached to documentation). 
@@ -303,7 +297,7 @@ public class IndexOfCoincidenceTest {
     a modified version of the subSequences method (see SubSequencePrinter) 
     and then the functions of the LibreOffice Calc were used to count characters 
     in the subsequence and to calculate the expected values
-    */
+     */
     @Test
     public void allAggregateDeltaBarICsTest1() {
         String text = "wnylazlzeqntfpwtsmabjqinaweaocfewgpsrmyluadlybfgaltgljrlzaaxvjehhygggdsrygvnjmpyklvyilykdrphepbfgdspjtaap"
@@ -313,7 +307,7 @@ public class IndexOfCoincidenceTest {
                 + "eokiraluaammkwkownrawpedhcklrthtftfnjmtfbftazsclmtcssrlluwhxahjeagpmgvfpceggluadlybfgaltznlgdwsglfbpqepmsvjha"
                 + "lwsnnsajlgiafyahezkbilxfthwsflgkiwgfmtrawtfxjbbhhcfsyocirbkhjziixdlpcbcthywwnrxpgvcropzvyvapxdrogcmfebjhhsllu"
                 + "aqrwilnjolwllzwmncxvgkhrwlwiafajvgzxwnymabjgodfsclwneltrpkecguvlvepmwkponbidnebtcqlyahtckk";
-        
+
         double[] expected = new double[21];
         expected[0] = 1.0954174743;
         expected[1] = 1.1125173954;
@@ -336,11 +330,307 @@ public class IndexOfCoincidenceTest {
         expected[18] = 1.023832697;
         expected[19] = 1.1145645646;
         expected[20] = 1.9334400427;
-        
+
         double[] actuals = this.ic.allAggregateDeltaBarICs(text);
-        
+
         for (int i = 0; i < expected.length; i++) {
             assertEquals(expected[i], actuals[i], 0.01);
         }
+    }
+
+    @Test
+    public void getKeyCandidateTest1() {
+        String ciphertext = "vptnvffuntshtarptymjwzirappljmhhqvsubwlzzygvtyitarptyiougxiuydtgzhhvvmum"
+                + "shwkzgstfmekvmpkswdgbilvjljmglmjfqwioiivknulvvfemioiemojtywdsajtwmtcgluy"
+                + "sdsumfbieugmvalvxkjduetukatymvkqzhvqvgvptytjwwldyeevquhlulwpkt";
+        this.ic.findKey(ciphertext, 7);
+        assertEquals("ciahers", this.ic.getKeyCandidate());
+    }
+
+    @Test
+    public void findKeyTest1() {
+        CharacterValue[] cvals1 = new CharacterValue[26];
+        cvals1[0] = new CharacterValue('a', 2497.71031791495000);
+        cvals1[1] = new CharacterValue('b', 654.03203501739800);
+        cvals1[2] = new CharacterValue('c', 298.92083595533400);
+        cvals1[3] = new CharacterValue('d', 594.26491237835400);
+        cvals1[4] = new CharacterValue('e', 2146.95518868435000);
+        cvals1[5] = new CharacterValue('f', 1164.37613638998000);
+        cvals1[6] = new CharacterValue('g', 2838.64209862507000);
+        cvals1[7] = new CharacterValue('h', 2240.44171757765000);
+        cvals1[8] = new CharacterValue('i', 1447.76477498069000);
+        cvals1[9] = new CharacterValue('j', 423.35785628646600);
+        cvals1[10] = new CharacterValue('k', 990.90142798632200);
+        cvals1[11] = new CharacterValue('l', 1608.18742067536000);
+        cvals1[12] = new CharacterValue('m', 133.53908468833400);
+        cvals1[13] = new CharacterValue('n', 735.00068274474000);
+        cvals1[14] = new CharacterValue('o', 1013.06735393434000);
+        cvals1[15] = new CharacterValue('p', 2801.32449312556000);
+        cvals1[16] = new CharacterValue('q', 333.64338034876400);
+        cvals1[17] = new CharacterValue('r', 2924.77502028588000);
+        cvals1[18] = new CharacterValue('s', 314.20767531726900);
+        cvals1[19] = new CharacterValue('t', 1575.03097625396000);
+        cvals1[20] = new CharacterValue('u', 748.41275174680600);
+        cvals1[21] = new CharacterValue('v', 2939.19073226197000);
+        cvals1[22] = new CharacterValue('w', 1680.05073626135000);
+        cvals1[23] = new CharacterValue('x', 1175.81609921529000);
+        cvals1[24] = new CharacterValue('y', 931.18720504183700);
+        cvals1[25] = new CharacterValue('z', 439.74213593915200);
+        Arrays.sort(cvals1);
+
+        CharacterValue[] cvals2 = new CharacterValue[26];
+        cvals2[0] = new CharacterValue('a', 77.24526868542730);
+        cvals2[1] = new CharacterValue('b', 2108.56506641344000);
+        cvals2[2] = new CharacterValue('c', 874.48839566155000);
+        cvals2[3] = new CharacterValue('d', 2912.58801816205000);
+        cvals2[4] = new CharacterValue('e', 680.56195944282900);
+        cvals2[5] = new CharacterValue('f', 2804.53488966407000);
+        cvals2[6] = new CharacterValue('g', 333.50036602552400);
+        cvals2[7] = new CharacterValue('h', 1591.82308057005000);
+        cvals2[8] = new CharacterValue('i', 1382.34129749200000);
+        cvals2[9] = new CharacterValue('j', 1782.96863735655000);
+        cvals2[10] = new CharacterValue('k', 2325.32731003889000);
+        cvals2[11] = new CharacterValue('l', 653.93988161233000);
+        cvals2[12] = new CharacterValue('m', 536.26461356434700);
+        cvals2[13] = new CharacterValue('n', 241.57362716742500);
+        cvals2[14] = new CharacterValue('o', 3290.60283405506000);
+        cvals2[15] = new CharacterValue('p', 474.08883639426700);
+        cvals2[16] = new CharacterValue('q', 1036.41458968706000);
+        cvals2[17] = new CharacterValue('r', 1029.91267029177000);
+        cvals2[18] = new CharacterValue('s', 2774.83945662655000);
+        cvals2[19] = new CharacterValue('t', 796.42203382788200);
+        cvals2[20] = new CharacterValue('u', 3886.64637238324000);
+        cvals2[21] = new CharacterValue('v', 1909.68253794525000);
+        cvals2[22] = new CharacterValue('w', 1569.59845734046000);
+        cvals2[23] = new CharacterValue('x', 1012.36643988847000);
+        cvals2[24] = new CharacterValue('y', 987.26158180812000);
+        cvals2[25] = new CharacterValue('z', 922.98540958727200);
+        Arrays.sort(cvals2);
+
+        CharacterValue[] cvals3 = new CharacterValue[26];
+        cvals3[0] = new CharacterValue('a', 956.16653553576400);
+        cvals3[1] = new CharacterValue('b', 400.50927780610500);
+        cvals3[2] = new CharacterValue('c', 29.48415588342560);
+        cvals3[3] = new CharacterValue('d', 2331.39664372643000);
+        cvals3[4] = new CharacterValue('e', 623.56118190369400);
+        cvals3[5] = new CharacterValue('f', 3346.05337217156000);
+        cvals3[6] = new CharacterValue('g', 759.93262041637600);
+        cvals3[7] = new CharacterValue('h', 2225.47559598827000);
+        cvals3[8] = new CharacterValue('i', 302.98806614271200);
+        cvals3[9] = new CharacterValue('j', 1134.02642197581000);
+        cvals3[10] = new CharacterValue('k', 1478.19489968203000);
+        cvals3[11] = new CharacterValue('l', 704.44529218896400);
+        cvals3[12] = new CharacterValue('m', 3023.09447591995000);
+        cvals3[13] = new CharacterValue('n', 242.85840599656600);
+        cvals3[14] = new CharacterValue('o', 757.88822135480800);
+        cvals3[15] = new CharacterValue('p', 178.37330236491600);
+        cvals3[16] = new CharacterValue('q', 2784.35597818409000);
+        cvals3[17] = new CharacterValue('r', 579.74256852624100);
+        cvals3[18] = new CharacterValue('s', 831.48148398033700);
+        cvals3[19] = new CharacterValue('t', 1627.06903625441000);
+        cvals3[20] = new CharacterValue('u', 1202.06980675680000);
+        cvals3[21] = new CharacterValue('v', 513.45699253500400);
+        cvals3[22] = new CharacterValue('w', 3471.02941910619000);
+        cvals3[23] = new CharacterValue('x', 1657.71515893947000);
+        cvals3[24] = new CharacterValue('y', 1549.30488516156000);
+        cvals3[25] = new CharacterValue('z', 1081.92038394218000);
+        Arrays.sort(cvals3);
+
+        CharacterValue[] cvals4 = new CharacterValue[26];
+        cvals4[0] = new CharacterValue('a', 3004.21174478884000);
+        cvals4[1] = new CharacterValue('b', 2643.10930347168000);
+        cvals4[2] = new CharacterValue('c', 2965.56912370983000);
+        cvals4[3] = new CharacterValue('d', 1304.56859980359000);
+        cvals4[4] = new CharacterValue('e', 1037.61239710028000);
+        cvals4[5] = new CharacterValue('f', 906.64876141693900);
+        cvals4[6] = new CharacterValue('g', 515.88146759729000);
+        cvals4[7] = new CharacterValue('h', 44.30003835897450);
+        cvals4[8] = new CharacterValue('i', 1368.60694803821000);
+        cvals4[9] = new CharacterValue('j', 2450.49609076462000);
+        cvals4[10] = new CharacterValue('k', 2605.80595908494000);
+        cvals4[11] = new CharacterValue('l', 629.55036352739000);
+        cvals4[12] = new CharacterValue('m', 2864.19221669695000);
+        cvals4[13] = new CharacterValue('n', 408.61969225286800);
+        cvals4[14] = new CharacterValue('o', 1408.57550652782000);
+        cvals4[15] = new CharacterValue('p', 902.14414435454600);
+        cvals4[16] = new CharacterValue('q', 2204.14878061093000);
+        cvals4[17] = new CharacterValue('r', 2073.47181123730000);
+        cvals4[18] = new CharacterValue('s', 360.54442772998600);
+        cvals4[19] = new CharacterValue('t', 471.59423875700100);
+        cvals4[20] = new CharacterValue('u', 358.18042090989600);
+        cvals4[21] = new CharacterValue('v', 2945.23794464298000);
+        cvals4[22] = new CharacterValue('w', 742.72750027034800);
+        cvals4[23] = new CharacterValue('x', 721.37017602689100);
+        cvals4[24] = new CharacterValue('y', 1157.04609099813000);
+        cvals4[25] = new CharacterValue('z', 958.58612910076700);
+        Arrays.sort(cvals4);
+
+        CharacterValue[] cvals5 = new CharacterValue[26];
+        cvals5[0] = new CharacterValue('a', 1652.99347902693000);
+        cvals5[1] = new CharacterValue('b', 469.93110769010900);
+        cvals5[2] = new CharacterValue('c', 2741.94663446593000);
+        cvals5[3] = new CharacterValue('d', 2107.98937220812000);
+        cvals5[4] = new CharacterValue('e', 1056.70018948410000);
+        cvals5[5] = new CharacterValue('f', 1612.60389518383000);
+        cvals5[6] = new CharacterValue('g', 699.36119994848900);
+        cvals5[7] = new CharacterValue('h', 526.50598223790200);
+        cvals5[8] = new CharacterValue('i', 19.38755489915710);
+        cvals5[9] = new CharacterValue('j', 1393.20088411263000);
+        cvals5[10] = new CharacterValue('k', 594.11135988263200);
+        cvals5[11] = new CharacterValue('l', 2261.84876370962000);
+        cvals5[12] = new CharacterValue('m', 1571.89069582548000);
+        cvals5[13] = new CharacterValue('n', 3581.47644822526000);
+        cvals5[14] = new CharacterValue('o', 449.96144438226900);
+        cvals5[15] = new CharacterValue('p', 1815.26550667508000);
+        cvals5[16] = new CharacterValue('q', 850.51724465515900);
+        cvals5[17] = new CharacterValue('r', 1122.93980381844000);
+        cvals5[18] = new CharacterValue('s', 1567.41428045296000);
+        cvals5[19] = new CharacterValue('t', 527.28990248837000);
+        cvals5[20] = new CharacterValue('u', 623.12445559396000);
+        cvals5[21] = new CharacterValue('v', 545.46923585213700);
+        cvals5[22] = new CharacterValue('w', 4585.72241782652000);
+        cvals5[23] = new CharacterValue('x', 575.85486999150100);
+        cvals5[24] = new CharacterValue('y', 1056.91771959537000);
+        cvals5[25] = new CharacterValue('z', 725.91348812456200);
+        Arrays.sort(cvals5);
+
+        CharacterValue[] cvals6 = new CharacterValue[26];
+        cvals6[0] = new CharacterValue('a', 578.30528210614800);
+        cvals6[1] = new CharacterValue('b', 2147.46318939822000);
+        cvals6[2] = new CharacterValue('c', 879.33683055254200);
+        cvals6[3] = new CharacterValue('d', 608.12491306445700);
+        cvals6[4] = new CharacterValue('e', 975.70423219847800);
+        cvals6[5] = new CharacterValue('f', 1549.80557482961000);
+        cvals6[6] = new CharacterValue('g', 885.96024600058500);
+        cvals6[7] = new CharacterValue('h', 2908.62766153561000);
+        cvals6[8] = new CharacterValue('i', 1615.94859593832000);
+        cvals6[9] = new CharacterValue('j', 1649.38564688177000);
+        cvals6[10] = new CharacterValue('k', 497.19317849006200);
+        cvals6[11] = new CharacterValue('l', 1338.50981510828000);
+        cvals6[12] = new CharacterValue('m', 860.07864290534400);
+        cvals6[13] = new CharacterValue('n', 177.17323266950900);
+        cvals6[14] = new CharacterValue('o', 985.11607955020900);
+        cvals6[15] = new CharacterValue('p', 754.85069235711200);
+        cvals6[16] = new CharacterValue('q', 2876.29220683329000);
+        cvals6[17] = new CharacterValue('r', 229.50407102448500);
+        cvals6[18] = new CharacterValue('s', 2740.14984996285000);
+        cvals6[19] = new CharacterValue('t', 185.61910475097800);
+        cvals6[20] = new CharacterValue('u', 1924.75409734253000);
+        cvals6[21] = new CharacterValue('v', 680.02519968151800);
+        cvals6[22] = new CharacterValue('w', 2189.89459371723000);
+        cvals6[23] = new CharacterValue('x', 1933.38987567723000);
+        cvals6[24] = new CharacterValue('y', 721.46249446853100);
+        cvals6[25] = new CharacterValue('z', 585.06762009918500);
+        Arrays.sort(cvals6);
+
+        CharacterValue[] cvals7 = new CharacterValue[26];
+        cvals7[0] = new CharacterValue('a', 2402.36811940861000);
+        cvals7[1] = new CharacterValue('b', 1479.87993767141000);
+        cvals7[2] = new CharacterValue('c', 920.28736846374900);
+        cvals7[3] = new CharacterValue('d', 622.13283979502900);
+        cvals7[4] = new CharacterValue('e', 62.96938004412030);
+        cvals7[5] = new CharacterValue('f', 568.52677060189700);
+        cvals7[6] = new CharacterValue('g', 874.64109325045700);
+        cvals7[7] = new CharacterValue('h', 4349.68250620346000);
+        cvals7[8] = new CharacterValue('i', 1067.12861756154000);
+        cvals7[9] = new CharacterValue('j', 5457.72494046238000);
+        cvals7[10] = new CharacterValue('k', 502.81867892600000);
+        cvals7[11] = new CharacterValue('l', 2733.64516437300000);
+        cvals7[12] = new CharacterValue('m', 610.90078997181500);
+        cvals7[13] = new CharacterValue('n', 1318.78888483234000);
+        cvals7[14] = new CharacterValue('o', 2728.66537994489000);
+        cvals7[15] = new CharacterValue('p', 274.86812709813000);
+        cvals7[16] = new CharacterValue('q', 642.45518912843200);
+        cvals7[17] = new CharacterValue('r', 252.19322487113800);
+        cvals7[18] = new CharacterValue('s', 5832.72165242897000);
+        cvals7[19] = new CharacterValue('t', 643.17669784310100);
+        cvals7[20] = new CharacterValue('u', 1240.63422835294000);
+        cvals7[21] = new CharacterValue('v', 680.99860277243000);
+        cvals7[22] = new CharacterValue('w', 916.83642946731000);
+        cvals7[23] = new CharacterValue('x', 877.12517485307300);
+        cvals7[24] = new CharacterValue('y', 5188.69550245539000);
+        cvals7[25] = new CharacterValue('z', 3306.28673902853000);
+        Arrays.sort(cvals7);
+
+        CharacterValue[][] expected = new CharacterValue[7][26];
+        expected[0] = cvals1;
+        expected[1] = cvals2;
+        expected[2] = cvals3;
+        expected[3] = cvals4;
+        expected[4] = cvals5;
+        expected[5] = cvals6;
+        expected[6] = cvals7;
+
+        String ciphertext = "unczqztxeubjfxutwaqbroiromeimcjsmgxqrqmbuiblcpvgijtkzzrtx"
+                + "aelljmfhcuwglqrculnrkpcybvgglcytrxfetpvglqpnhqaxqxvdqypmlyhgf"
+                + "fqtthvfjarollvrfovomfeyenlbgidipaprgupjlzgijthvzvretcukrmrans"
+                + "wpggrtlvpieohaprpqtvlzrxgrppvgsfhgsmgxqrzhkvttetamkxyeuzitioo"
+                + "paivruniuczidowzqawfapjmfsrtjltrxfeteebyxdubotietvvipvkpvhvnp"
+                + "ksvapnxjrgwzrwqnvzmglqbczqpyeeqmneicuguklezanfavwusvvnvvetevc"
+                + "axfhgmzrugepjgbjoiromexqxvsmgxqruhvqxtephafsoicamtyqsullcpmip"
+                + "amkxxevamewiivobuiymqymkwunvompmbhgybrbftjhvnrktjpvtixsgzctkq"
+                + "svzbuefxevzeiepqulfxaekubuiblcpvgijtdbbgluskzvbxoetaivrfapkin"
+                + "vqanzwiidyevuzsziplvtpusjzwkqugjajriutjlzbjfhgtiywaivpahrximl"
+                + "tlxabghxyeunvlfgdarsdpvgtatltrwecqtubrfhwzbuiorawbnrmlazbzekn"
+                + "gllgsfrazmiidanjwzfuncaqbreohtictunizjrxiegukvttetamkxmnfwtnm"
+                + "ztgebyiftgya";
+
+        CharacterValue[][] actuals = this.ic.findKey(ciphertext, 7);
+        for (int i = 0; i < expected.length; i++) {
+            for (int j = 0; j < expected[0].length; j++) {
+                assertEquals(expected[i][j].getCharacter(), actuals[i][j].getCharacter());
+                assertEquals(expected[i][j].getValue(), actuals[i][j].getValue(), 0.001);
+            }
+        }
+    }
+    
+    @Test
+    public void getKeyCandidateTest2() {
+        String ciphertext = "unczqztxeubjfxutwaqbroiromeimcjsmgxqrqmbuiblcpvgijtkzzrtx"
+                + "aelljmfhcuwglqrculnrkpcybvgglcytrxfetpvglqpnhqaxqxvdqypmlyhgf"
+                + "fqtthvfjarollvrfovomfeyenlbgidipaprgupjlzgijthvzvretcukrmrans"
+                + "wpggrtlvpieohaprpqtvlzrxgrppvgsfhgsmgxqrzhkvttetamkxyeuzitioo"
+                + "paivruniuczidowzqawfapjmfsrtjltrxfeteebyxdubotietvvipvkpvhvnp"
+                + "ksvapnxjrgwzrwqnvzmglqbczqpyeeqmneicuguklezanfavwusvvnvvetevc"
+                + "axfhgmzrugepjgbjoiromexqxvsmgxqruhvqxtephafsoicamtyqsullcpmip"
+                + "amkxxevamewiivobuiymqymkwunvompmbhgybrbftjhvnrktjpvtixsgzctkq"
+                + "svzbuefxevzeiepqulfxaekubuiblcpvgijtdbbgluskzvbxoetaivrfapkin"
+                + "vqanzwiidyevuzsziplvtpusjzwkqugjajriutjlzbjfhgtiywaivpahrximl"
+                + "tlxabghxyeunvlfgdarsdpvgtatltrwecqtubrfhwzbuiorawbnrmlazbzekn"
+                + "gllgsfrazmiidanjwzfuncaqbreohtictunizjrxiegukvttetamkxmnfwtnm"
+                + "ztgebyiftgya";
+        this.ic.findKey(ciphertext, 7);
+        assertEquals("machine", this.ic.getKeyCandidate());
+    }
+    
+    @Test
+    public void solveTest1() {
+        String ciphertext = "unczqztxeubjfxutwaqbroiromeimcjsmgxqrqmbuiblcpvgijtkzzrtx"
+                + "aelljmfhcuwglqrculnrkpcybvgglcytrxfetpvglqpnhqaxqxvdqypmlyhgf"
+                + "fqtthvfjarollvrfovomfeyenlbgidipaprgupjlzgijthvzvretcukrmrans"
+                + "wpggrtlvpieohaprpqtvlzrxgrppvgsfhgsmgxqrzhkvttetamkxyeuzitioo"
+                + "paivruniuczidowzqawfapjmfsrtjltrxfeteebyxdubotietvvipvkpvhvnp"
+                + "ksvapnxjrgwzrwqnvzmglqbczqpyeeqmneicuguklezanfavwusvvnvvetevc"
+                + "axfhgmzrugepjgbjoiromexqxvsmgxqruhvqxtephafsoicamtyqsullcpmip"
+                + "amkxxevamewiivobuiymqymkwunvompmbhgybrbftjhvnrktjpvtixsgzctkq"
+                + "svzbuefxevzeiepqulfxaekubuiblcpvgijtdbbgluskzvbxoetaivrfapkin"
+                + "vqanzwiidyevuzsziplvtpusjzwkqugjajriutjlzbjfhgtiywaivpahrximl"
+                + "tlxabghxyeunvlfgdarsdpvgtatltrwecqtubrfhwzbuiorawbnrmlazbzekn"
+                + "gllgsfrazmiidanjwzfuncaqbreohtictunizjrxiegukvttetamkxmnfwtnm"
+                + "ztgebyiftgya";
+        
+        String plaintext = "inasimplesubstitutionciphereachletteroftheplaintextisreplaced"
+                + "withanotherandanyparticularletterintheplaintextwillalwaysbetransformed"
+                + "intothesameletterintheciphertextforinstanceifalloccurrencesoftheletter"
+                + "eturnintotheletterxaciphertextmessagecontainingnumerousinstancesofthel"
+                + "etterxwouldsuggesttoacryptanalystthatxrepresentsethebasicuseoffrequenc"
+                + "yanalysisistofirstcountthefrequencyofciphertextlettersandthenassociate"
+                + "guessedplaintextletterswiththemmorexsintheciphertextthananythingelsesu"
+                + "ggeststhatxcorrespondstoeintheplaintextbutthisisnotcertaintandaarealso"
+                + "verycommoninenglishsoxmightbeeitherofthemalsoitisunlikelytobeaplaintex"
+                + "tzorqwhicharelesscommonthusthecryptanalystmayneedtotryseveralcombinationsofmappingsbetweenciphertextandplaintextletters";
+        this.ic.findKey(ciphertext, 7);
+        String keyCandidate = this.ic.getKeyCandidate();
+        assertEquals(plaintext, this.ic.solve(keyCandidate, ciphertext));
     }
 }

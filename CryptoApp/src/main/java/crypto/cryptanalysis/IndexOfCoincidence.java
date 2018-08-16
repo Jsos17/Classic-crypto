@@ -184,15 +184,8 @@ public class IndexOfCoincidence {
             smallest = Double.POSITIVE_INFINITY;
         }
 
-        // THRESHOLD: to be decided, just a placeholder value
-        final int THRESHOLD = 20;
         for (CharacterValue[] charValue : charValues) {
-            if (charValue.length < THRESHOLD) {
-                GenericTypeSort.insertionSort(charValue);
-            } else {
-                GenericTypeSort.iterativeMergeSort(charValue);
-            }
-
+            GenericTypeSort.iterativeMergeSort(charValue);
         }
 
         return charValues;

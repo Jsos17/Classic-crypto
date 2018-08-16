@@ -63,4 +63,18 @@ public class GreatestCommonDivisor {
 
         return a;
     }
+    
+    public int euclidIterative(int a, int b) {
+        if (b < 0 || a < 0) {
+            return -1;
+        }
+
+        while (b != 0) {
+            int temp = a % b;
+            a = b;
+            b = temp;
+        }
+
+        return a;
+    }
 }

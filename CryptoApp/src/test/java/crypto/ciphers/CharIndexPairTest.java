@@ -50,4 +50,17 @@ public class CharIndexPairTest {
         CharIndexPair c2 = new CharIndexPair('x', 2);
         assertFalse(this.ciPair.equals(c2));
     }
+    
+    @Test
+    public void equalsTest5() {
+        CharIndexPair ci2 = new CharIndexPair('A', 5);
+        Object obj = new Object();
+        assertEquals(false, ci2.equals(obj));
+    }
+    
+    @Test
+    public void equalsTest6() {
+        CharIndexPair ci2 = new CharIndexPair('A', 5);
+        assertEquals(false, ci2.equals(null));
+    }
 }

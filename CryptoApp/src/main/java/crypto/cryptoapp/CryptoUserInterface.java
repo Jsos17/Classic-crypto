@@ -13,6 +13,7 @@ import crypto.cryptanalysis.CharacterValue;
 import crypto.cryptanalysis.FrequencyAnalysis;
 import crypto.cryptanalysis.IndexOfCoincidence;
 import crypto.helpers.GreatestCommonDivisor;
+import crypto.helpers.SubSequencePrinter;
 import crypto.sorting.GenericTypeSort;
 import crypto.sorting.PrimitiveTypeSort;
 import java.util.ArrayList;
@@ -57,9 +58,9 @@ public class CryptoUserInterface {
 //        ic.findKey(ciphertext1, 5);
 //        ic.solve(ic.getKeyCandidate(), ciphertext1);
 //        System.out.println(ic.getKeyCandidate());
-//        String ciphertext2 = "vptnvffuntshtarptymjwzirappljmhhqvsubwlzzygvtyitarptyiougxiuydtgzhhvvmum"
-//                + "shwkzgstfmekvmpkswdgbilvjljmglmjfqwioiivknulvvfemioiemojtywdsajtwmtcgluy"
-//                + "sdsumfbieugmvalvxkjduetukatymvkqzhvqvgvptytjwwldyeevquhlulwpkt";
+        String ciphertext2 = "vptnvffuntshtarptymjwzirappljmhhqvsubwlzzygvtyitarptyiougxiuydtgzhhvvmum"
+                + "shwkzgstfmekvmpkswdgbilvjljmglmjfqwioiivknulvvfemioiemojtywdsajtwmtcgluy"
+                + "sdsumfbieugmvalvxkjduetukatymvkqzhvqvgvptytjwwldyeevquhlulwpkt";
 //        double[] deltas2 = ic.allAggregateDeltaBarICs(ciphertext2);
 //        for (int i = 0; i < deltas2.length; i++) {
 //            System.out.print((i + 1) + " | ");
@@ -77,7 +78,7 @@ public class CryptoUserInterface {
 //        ic.findKey(ciphertext2, 14);
 //        System.out.println(ic.solve(ic.getKeyCandidate(), ciphertext2));     
 //        System.out.println(ic.solve("ciphers", ciphertext2));
-//        
+
 //        int[] nums1 = new int[]{5, 4, 2, 1, 9, 8, 6};
 //        PrimitiveTypeSort.iterativeMergeSort(nums1);
 //        System.out.println(Arrays.toString(nums1));
@@ -97,41 +98,69 @@ public class CryptoUserInterface {
 //        System.out.println(Arrays.toString(nums2));
 //        
 //        System.out.println(3 ^ 2);
-        
-        String text = "wnylazlzeqntfpwtsmabjqinaweaocfewgpsrmyluadlybfgaltgljrlzaaxvjehhygggdsrygvnjmpyklvyilykdrphepbfgdspjtaap"
-                + "sxrpayholutqfxstptffbcrkxvvjhorawfwaejxlgafilmzrywpfxjgaltdhjvjgtyguretajegpyirpxfpagodmzrhstrxjrpirlbfgkhhce"
-                + "wgpsrvtuvlvepmwkpaeqlstaqolmsvjwnegmzafoslaaohalvwfkttfxdrphepqobqzdqnytagtrhspnmprtfnhmsrmznplrcijrosnrlwgds"
-                + "bylapqgemyxeaeucgulwbajrkvowsrhxvngtahmaphhcyjrmielvqbbqinawepsxrewgpsrqtfqpveltkfkqiymwtqssqxvchoilmwkpzermw"
-                + "eokiraluaammkwkownrawpedhcklrthtftfnjmtfbftazsclmtcssrlluwhxahjeagpmgvfpceggluadlybfgaltznlgdwsglfbpqepmsvjha"
-                + "lwsnnsajlgiafyahezkbilxfthwsflgkiwgfmtrawtfxjbbhhcfsyocirbkhjziixdlpcbcthywwnrxpgvcropzvyvapxdrogcmfebjhhsllu"
-                + "aqrwilnjolwllzwmncxvgkhrwlwiafajvgzxwnymabjgodfsclwneltrpkecguvlvepmwkponbidnebtcqlyahtckk";
-        System.out.println(text.length());
-        ArrayList<String[]> subSeqs = new ArrayList<>();
-        for (int keyLen = 1; keyLen <= text.length(); keyLen++) {
-            subSeqs.add(allSubSequences(text, keyLen));         
-        }
-        
-        for (int i = 0; i < subSeqs.size() / 2; i++) {
-            System.out.println("KeyLen: " + (i + 1));
-            for (int j = 0; j < subSeqs.get(i).length; j++) {
-                System.out.println(subSeqs.get(i)[j]);
+        String text = "unczqztxeubjfxutwaqbroiromeimcjsmgxqrqmbuiblcpvgijtkzzrtxaelljmfhcuwglqrculnrkpcybvgglcytrxfetpvglqpnhqaxqxvdqypmlyhgffqtthvfjarollvrfovomfeyenlbgidipaprgupjlzgijthvzvretcukrmranswpggrtlvpieohaprpqtvlzrxgrppvgsfhgsmgxqrzhkvttetamkxyeuzitioopaivruniuczidowzqawfapjmfsrtjltrxfeteebyxdubotietvvipvkpvhvnpksvapnxjrgwzrwqnvzmglqbczqpyeeqmneicuguklezanfavwusvvnvvetevcaxfhgmzrugepjgbjoiromexqxvsmgxqruhvqxtephafsoicamtyqsullcpmipamkxxevamewiivobuiymqymkwunvompmbhgybrbftjhvnrktjpvtixsgzctkqsvzbuefxevzeiepqulfxaekubuiblcpvgijtdbbgluskzvbxoetaivrfapkinvqanzwiidyevuzsziplvtpusjzwkqugjajriutjlzbjfhgtiywaivpahrximltlxabghxyeunvlfgdarsdpvgtatltrwecqtubrfhwzbuiorawbnrmlazbzekngllgsfrazmiidanjwzfuncaqbreohtictunizjrxiegukvttetamkxmnfwtnmztgebyiftgya";
+//        SubSequencePrinter.printSubSequences(text, 7);
+
+//        String text = "bevqqfharxuhjcgszvulreljdfgywkpvtpgygnwtvqelnzkhzckhqthrfmhipgaytlgtzipvmnajncvkzjdhhyvnhhqbkmonxdpneanqpfncodkyasieyenznktepydxpduoncljbdxvqctcrrotbnwdaaydmixysfmizucskbykoaoksymscdzytnvaomqotoanswdjrmlwbfrxgabfgvufbrlrnkxhjccjctzbjbjqkjoogpsdonfkfftoiyrpfpuxztdpmeezoeqfrvxyafxgtkhcouehrjsvyfnfetvncdnnxjxsekxeodxupxyvioimpuxucsofmrdysixggpvimyrjfyofrtqdcarnxavmybahlixvnwilujfpmqyrmaytgedcocescdtznafpuagyfuqukefjxrzlzodqehyqsiyzrxpyazzaknkyjrmhfkiotpjbtkhhbzcxuxckkwbbnactcbubfhwvhqfkzrqiqoqlnecjhcpnnqlwwdbjswa"
+//                + "qfkzrqiqoqlnecjhcpnnqlwwdbjswa";
+//        ArrayList<Integer> indexes = new ArrayList<>();
+//        double[] deltas3 = ic.allAggregateDeltaBarICs(text);
+//        for (int i = 0; i < deltas3.length; i++) {
+//            if (deltas3[i] > 1.40) {
+//                System.out.print((i + 1) + " | ");
+//                System.out.printf("%.2f %n", deltas3[i]);
+//                indexes.add((i+1));
+//            }
+//            
+//        }
+//        
+//        ArrayList<Integer> keyLens = new ArrayList<>();
+//        ic.findKey(text, 2);
+//        System.out.println(ic.getKeyCandidate());
+//        GreatestCommonDivisor gcd = new GreatestCommonDivisor();
+//        for (int i = 0; i < indexes.size(); i++) {
+//            for (int j = i + 1; j < indexes.size(); j++) {
+//                System.out.println(indexes.get(i) + " and " + indexes.get(j));
+//                int common = gcd.euclidIterative(indexes.get(i), indexes.get(j));
+//                System.out.println(common);
+//                keyLens.add(common);
+//            }
+//        }
+//        
+//        for (int i = 0; i < keyLens.size(); i++) {
+//            ic.findKey(text, keyLens.get(i));
+//            System.out.println(ic.getKeyCandidate());
+//        }
+//        double[] vals = ic.allAggregateDeltaBarICs(text);
+//        for (int i = 0; i < 10; i++) {
+//            System.out.print((i + 1) + " | ");
+//            System.out.println(vals[i]);
+//        }
+//        ic.findKey(text, 7);
+//        System.out.println(ic.getKeyCandidate());
+
+
+        CharacterValue[][] charValues = ic.findKey(text, 7);
+        for (int j = 0; j < charValues[0].length; j++) {
+            for (int i = 0; i < charValues.length; i++) {
+                System.out.print(charValues[i][j].getCharacter() + " ");
             }
+            System.out.println();
         }
+        
+        ArrayList<String> subs = new ArrayList<>();
+        subs.add("uxuomqbjxfqkgfqqmqafydujergeqgfqtyoudfrfxekkjqqeczuefgoqqtoqmxiyubfkxqfeabjuofqdzuuufaxauatefomkfdueuitmzf");
+        subs.add("neticrltahrplepxltroeipttarotrhreeonoatedtpsrnbeuastheixreisieimnhttssxpeltseaayisgthiibnrachrlnranoneentt");
+        subs.add("cuwrjqckecccctnvytovnpjhcnthvpgztupiwpjtuvvvgvcqgnvegprvupcupvvqvgjjgveqkcdktpnepjjjgvmgvstqwaaganchigtfgg");
+        subs.add("zbaosmpzluuyyphdhhlolalvuslalpshazauzjlebvhawzzmufvvmjoshhalaaoyoyhpzzvuupbzakzvlzaltplhldltzwzlzjatzuawey");
+        subs.add("qjqmmbvzlwlbtvqqgvlmbpzzkwvpzvmkmiicqmteoivpzmqnkanczgmmvamlmmbmmbvvcbzlbvbviiwuvwjziatxfptubbblmwqijkmtba");
+        subs.add("zfbegugrjgnvrgayffvfgrgvrpprrggvktvzafrbtpnnrgpelvvarbegqftckeukprnttuefuggbvniztkrbyhlygvrbunzgizbcrvkny");
+        subs.add("txrixiitmlrgxlxpfjreigirmgipxsxtxiriwsxyivpxwlyiewvxujxxxsypxwiwmbrikeixiilxrvispqijwrxedgwriresifrtxtxmi");
+        VigenereCipher vig = new VigenereCipher();
+        String abc = "abcdefghijklmnopqrstuvwxyz";
+//        for (int i = 0; i < abc.length(); i++) {
+//            long[] occurrences = freq.countOccurrences(vig.decrypt(abc.substring(i, i + 1), subT));
+//            System.out.println(Arrays.toString(occurrences));
+//        }
     }
-    
-    protected static String[] allSubSequences(String ciphertext, int keyLen) {
-        String[] subsequences = new String[keyLen];
-
-        for (int k = 0; k < keyLen; k++) {
-            String newText = "";
-            for (int i = k; i < ciphertext.length(); i += keyLen) {
-                newText += ciphertext.charAt(i) + " ";
-            }
-
-            subsequences[k] = newText;
-        }
-
-        return subsequences;
-    }
-
 }

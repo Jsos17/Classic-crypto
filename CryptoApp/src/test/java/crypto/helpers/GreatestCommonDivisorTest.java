@@ -92,33 +92,33 @@ public class GreatestCommonDivisorTest {
     }
     
     @Test
-    public void gcdRIterativeTest1() {
-        assertEquals(3, gcd.euclidIterative(30, 21));
+    public void gcdIterativeTest1() {
+        assertEquals(3l, gcd.euclidIterative(30l, 21l));
     }
 
     @Test
     public void gcdIterativeTest2() {
-        assertEquals(-1, gcd.euclidIterative(-30, -21));
+        assertEquals(-1l, gcd.euclidIterative(-30l, -21l));
     }
 
     @Test
     public void gcdIterativeTest3() {
-        assertEquals(29, gcd.euclidIterative(899, 493));
+        assertEquals(29l, gcd.euclidIterative(899l, 493l));
     }
 
     @Test
     public void gcdIterativeTest4() {
-        assertEquals(29, gcd.euclidIterative(493, 899));
+        assertEquals(29l, gcd.euclidIterative(493l, 899l));
     }
 
     @Test
     public void gcdIterativeTest5() {
-        assertEquals(6, gcd.euclidIterative(10596, 5634));
+        assertEquals(6l, gcd.euclidIterative(10596l, 5634l));
     }
     
     @Test
     public void gcdIterativeTest6() {
-        assertEquals(21, gcd.euclidIterative(462, 1071));
+        assertEquals(21l, gcd.euclidIterative(462l, 1071l));
     }
     
     @Test
@@ -149,5 +149,15 @@ public class GreatestCommonDivisorTest {
     @Test
     public void gcdIterativeTestCornerCase6() {
         assertEquals(0, gcd.euclidIterative(0, 0));
+    }
+    
+    @Test
+    public void intGcdIterativeTest1() {
+        assertEquals(3, gcd.euclidIterative(30, 21));
+    }
+    
+    @Test
+    public void intGcdIterativeTest2() {
+        assertEquals(21, gcd.euclidIterative(462, 1071));
     }
 }
