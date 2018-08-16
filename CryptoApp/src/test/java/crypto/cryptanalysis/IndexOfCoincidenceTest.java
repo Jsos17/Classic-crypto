@@ -583,7 +583,7 @@ public class IndexOfCoincidenceTest {
             }
         }
     }
-    
+
     @Test
     public void getKeyCandidateTest2() {
         String ciphertext = "unczqztxeubjfxutwaqbroiromeimcjsmgxqrqmbuiblcpvgijtkzzrtx"
@@ -602,7 +602,7 @@ public class IndexOfCoincidenceTest {
         this.ic.findKey(ciphertext, 7);
         assertEquals("machine", this.ic.getKeyCandidate());
     }
-    
+
     @Test
     public void solveTest1() {
         String ciphertext = "unczqztxeubjfxutwaqbroiromeimcjsmgxqrqmbuiblcpvgijtkzzrtx"
@@ -618,7 +618,7 @@ public class IndexOfCoincidenceTest {
                 + "tlxabghxyeunvlfgdarsdpvgtatltrwecqtubrfhwzbuiorawbnrmlazbzekn"
                 + "gllgsfrazmiidanjwzfuncaqbreohtictunizjrxiegukvttetamkxmnfwtnm"
                 + "ztgebyiftgya";
-        
+
         String plaintext = "inasimplesubstitutionciphereachletteroftheplaintextisreplaced"
                 + "withanotherandanyparticularletterintheplaintextwillalwaysbetransformed"
                 + "intothesameletterintheciphertextforinstanceifalloccurrencesoftheletter"

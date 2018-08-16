@@ -163,8 +163,6 @@ public class IndexOfCoincidence {
         String[] subsequences = subSequences(ciphertext, keyLen);
 
         String alphabet = this.freq.getAlphabet();
-        double smallest = Double.POSITIVE_INFINITY;
-        int keyIndex = -1;
         this.keyCandidate = "";
         CharacterValue[][] charValues = new CharacterValue[keyLen][alphabet.length()];
 
@@ -173,19 +171,14 @@ public class IndexOfCoincidence {
                 long[] occurrences = this.freq.countOccurrences(vig.decrypt(alphabet.substring(j, j + 1), subsequences[i]));
                 double value = chiSquared(occurrences, this.freq.getExpectedLetterFrequencies(), subsequences[i].length());
                 charValues[i][j] = new CharacterValue(alphabet.charAt(j), value);
-
-                if (value < smallest) {
-                    smallest = value;
-                    keyIndex = j;
-                }
             }
-
-            this.keyCandidate += alphabet.substring(keyIndex, keyIndex + 1);
-            smallest = Double.POSITIVE_INFINITY;
         }
 
         for (CharacterValue[] charValue : charValues) {
             GenericTypeSort.iterativeMergeSort(charValue);
+            if (charValue.length > 0) {
+                this.keyCandidate += charValue[0].getCharacter();
+            }
         }
 
         return charValues;
