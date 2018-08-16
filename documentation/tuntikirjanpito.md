@@ -18,4 +18,5 @@
 | Viikko 4 |
 | 13.8. | 8 | Geneerinen merge sort 1. versio, geneerinen insertion sort sekä  näille + primitiivityyppi järjestysalgoille testejä, yleistä testikattavuuden parantamista, yleistä tutkimusta |
 | 15.8. | 8 | Testikattavuuden kasvattamista erityisesti IndexOfCoincidence luokalle ja samalla yhden virheen korjaus, testejä varten tiedoston IC_test.xlsx luonti, jonka avulla lasketaan testisyötteitä ja johon dokumentoidaan myös testejä |
-| 16.8. | 2 | Testien luonnin jatkoa |
+| 16.8. | 8 | Testien luonnin jatkoa, työmäärältään hyvin massiivisen testin luonti IndexOfCoincidence-luokalle taulukkolaskentaohjelman avulla ja jo testattujen oman ohjelman funktioiden avulla (osajonojen tulostus ja osajonon dekryptaus jokaisella aakkosella) |
+| 17.8. | ? | |
