@@ -12,6 +12,8 @@ import crypto.ciphers.VigenereCipher;
 import crypto.cryptanalysis.CharacterValue;
 import crypto.cryptanalysis.FrequencyAnalysis;
 import crypto.cryptanalysis.IndexOfCoincidence;
+import crypto.cryptanalysis.Quadgrams;
+import crypto.cryptanalysis.TranspositionCipherAttack;
 import crypto.helpers.GreatestCommonDivisor;
 import crypto.helpers.SubSequencePrinter;
 import crypto.sorting.GenericTypeSort;
@@ -29,25 +31,25 @@ public class CryptoUserInterface {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        FrequencyAnalysis freq = new FrequencyAnalysis();
-        double[] expFreq = freq.getExpectedLetterFrequencies();
-        double sum = 0;
-        for (int i = 0; i < expFreq.length; i++) {
-            sum += expFreq[i];
-        }
-
-        System.out.println(sum);
-
-        double sum_pow2 = 0;
-        for (int i = 0; i < expFreq.length; i++) {
-            sum_pow2 += expFreq[i] * expFreq[i];
-        }
-
-        double expectedIC = 26 * sum_pow2;
-        System.out.println(expectedIC);
-        IndexOfCoincidence ic = new IndexOfCoincidence(freq);
-        String ciphertext1 = "QPWKALVRXCQZIKGRBPFAEOMFLJMSDZVDHXCXJYEBIMTRQWNMEAIZRVKCVKVLXNEICFZPZCZZHKMLVZVZIZRRQWDKECHOSNYXXLSPMYKVQXJTDCIOMEEXDQVSRXLRLKZHOV".toLowerCase();
-        System.out.println(ciphertext1);
+//        FrequencyAnalysis freq = new FrequencyAnalysis();
+//        double[] expFreq = freq.getExpectedLetterFrequencies();
+//        double sum = 0;
+//        for (int i = 0; i < expFreq.length; i++) {
+//            sum += expFreq[i];
+//        }
+//
+//        System.out.println(sum);
+//
+//        double sum_pow2 = 0;
+//        for (int i = 0; i < expFreq.length; i++) {
+//            sum_pow2 += expFreq[i] * expFreq[i];
+//        }
+//
+//        double expectedIC = 26 * sum_pow2;
+//        System.out.println(expectedIC);
+//        IndexOfCoincidence ic = new IndexOfCoincidence(freq);
+//        String ciphertext1 = "QPWKALVRXCQZIKGRBPFAEOMFLJMSDZVDHXCXJYEBIMTRQWNMEAIZRVKCVKVLXNEICFZPZCZZHKMLVZVZIZRRQWDKECHOSNYXXLSPMYKVQXJTDCIOMEEXDQVSRXLRLKZHOV".toLowerCase();
+//        System.out.println(ciphertext1);
 
 //        double[] deltas = ic.allAggregateDeltaBarICs(ciphertext1);
 //        for (int i = 0; i < 20; i++) {
@@ -58,9 +60,9 @@ public class CryptoUserInterface {
 //        ic.findKey(ciphertext1, 5);
 //        ic.solve(ic.getKeyCandidate(), ciphertext1);
 //        System.out.println(ic.getKeyCandidate());
-        String ciphertext2 = "vptnvffuntshtarptymjwzirappljmhhqvsubwlzzygvtyitarptyiougxiuydtgzhhvvmum"
-                + "shwkzgstfmekvmpkswdgbilvjljmglmjfqwioiivknulvvfemioiemojtywdsajtwmtcgluy"
-                + "sdsumfbieugmvalvxkjduetukatymvkqzhvqvgvptytjwwldyeevquhlulwpkt";
+//        String ciphertext2 = "vptnvffuntshtarptymjwzirappljmhhqvsubwlzzygvtyitarptyiougxiuydtgzhhvvmum"
+//                + "shwkzgstfmekvmpkswdgbilvjljmglmjfqwioiivknulvvfemioiemojtywdsajtwmtcgluy"
+//                + "sdsumfbieugmvalvxkjduetukatymvkqzhvqvgvptytjwwldyeevquhlulwpkt";
 //        double[] deltas2 = ic.allAggregateDeltaBarICs(ciphertext2);
 //        for (int i = 0; i < deltas2.length; i++) {
 //            System.out.print((i + 1) + " | ");
@@ -140,27 +142,58 @@ public class CryptoUserInterface {
 //        System.out.println(ic.getKeyCandidate());
 
 
-        CharacterValue[][] charValues = ic.findKey(text, 7);
-        for (int j = 0; j < charValues[0].length; j++) {
-            for (int i = 0; i < charValues.length; i++) {
-                System.out.print(charValues[i][j].getCharacter() + " ");
-            }
-            System.out.println();
-        }
+//        CharacterValue[][] charValues = ic.findKey(text, 7);
+//        for (int j = 0; j < charValues[0].length; j++) {
+//            for (int i = 0; i < charValues.length; i++) {
+//                System.out.print(charValues[i][j].getCharacter() + " ");
+//            }
+//            System.out.println();
+//        }
         
-        ArrayList<String> subs = new ArrayList<>();
-        subs.add("uxuomqbjxfqkgfqqmqafydujergeqgfqtyoudfrfxekkjqqeczuefgoqqtoqmxiyubfkxqfeabjuofqdzuuufaxauatefomkfdueuitmzf");
-        subs.add("neticrltahrplepxltroeipttarotrhreeonoatedtpsrnbeuastheixreisieimnhttssxpeltseaayisgthiibnrachrlnranoneentt");
-        subs.add("cuwrjqckecccctnvytovnpjhcnthvpgztupiwpjtuvvvgvcqgnvegprvupcupvvqvgjjgveqkcdktpnepjjjgvmgvstqwaaganchigtfgg");
-        subs.add("zbaosmpzluuyyphdhhlolalvuslalpshazauzjlebvhawzzmufvvmjoshhalaaoyoyhpzzvuupbzakzvlzaltplhldltzwzlzjatzuawey");
-        subs.add("qjqmmbvzlwlbtvqqgvlmbpzzkwvpzvmkmiicqmteoivpzmqnkanczgmmvamlmmbmmbvvcbzlbvbviiwuvwjziatxfptubbblmwqijkmtba");
-        subs.add("zfbegugrjgnvrgayffvfgrgvrpprrggvktvzafrbtpnnrgpelvvarbegqftckeukprnttuefuggbvniztkrbyhlygvrbunzgizbcrvkny");
-        subs.add("txrixiitmlrgxlxpfjreigirmgipxsxtxiriwsxyivpxwlyiewvxujxxxsypxwiwmbrikeixiilxrvispqijwrxedgwriresifrtxtxmi");
-        VigenereCipher vig = new VigenereCipher();
-        String abc = "abcdefghijklmnopqrstuvwxyz";
+//        ArrayList<String> subs = new ArrayList<>();
+//        subs.add("uxuomqbjxfqkgfqqmqafydujergeqgfqtyoudfrfxekkjqqeczuefgoqqtoqmxiyubfkxqfeabjuofqdzuuufaxauatefomkfdueuitmzf");
+//        subs.add("neticrltahrplepxltroeipttarotrhreeonoatedtpsrnbeuastheixreisieimnhttssxpeltseaayisgthiibnrachrlnranoneentt");
+//        subs.add("cuwrjqckecccctnvytovnpjhcnthvpgztupiwpjtuvvvgvcqgnvegprvupcupvvqvgjjgveqkcdktpnepjjjgvmgvstqwaaganchigtfgg");
+//        subs.add("zbaosmpzluuyyphdhhlolalvuslalpshazauzjlebvhawzzmufvvmjoshhalaaoyoyhpzzvuupbzakzvlzaltplhldltzwzlzjatzuawey");
+//        subs.add("qjqmmbvzlwlbtvqqgvlmbpzzkwvpzvmkmiicqmteoivpzmqnkanczgmmvamlmmbmmbvvcbzlbvbviiwuvwjziatxfptubbblmwqijkmtba");
+//        subs.add("zfbegugrjgnvrgayffvfgrgvrpprrggvktvzafrbtpnnrgpelvvarbegqftckeukprnttuefuggbvniztkrbyhlygvrbunzgizbcrvkny");
+//        subs.add("txrixiitmlrgxlxpfjreigirmgipxsxtxiriwsxyivpxwlyiewvxujxxxsypxwiwmbrikeixiilxrvispqijwrxedgwriresifrtxtxmi");
+//        VigenereCipher vig = new VigenereCipher();
+//        String abc = "abcdefghijklmnopqrstuvwxyz";
 //        for (int i = 0; i < abc.length(); i++) {
 //            long[] occurrences = freq.countOccurrences(vig.decrypt(abc.substring(i, i + 1), subT));
 //            System.out.println(Arrays.toString(occurrences));
 //        }
+
+        Quadgrams quad = new Quadgrams("english_quadgrams.txt");
+        System.out.println(quad.getNgramStats().get("INGT"));
+        System.out.println(quad.getSampleSize());
+        System.out.println(quad.logProbability("INGT"));
+        System.out.println(6461147l / 4224127912l);
+        String text2 = "ATTACKTHEEASTWALLOFTHECASTLEATDAWN";
+        System.out.println(text2.length());
+        String ciphertext2 = "FYYFHPYMJJFXYBFQQTKYMJHFXYQJFYIFBS";
+        System.out.println(quad.fitness(text2));
+        System.out.println(quad.fitness(ciphertext2));
+        System.out.println(quad.getN());
+        
+        Quadgrams quad2 = new Quadgrams("test.txt");
+        System.out.println(quad2.getSampleSize());
+        System.out.println(quad2.getNgramStats().get("INGT"));
+        System.out.println(quad2.getNgramStats().get("MATT"));
+        System.out.println(quad2.fitness(text2));
+        System.out.println(quad.fitness(text2));
+        System.out.println(quad.fitness(ciphertext2));
+       
+        TranspositionCipherAttack attack = new TranspositionCipherAttack();
+        
+        int[] nums = new int[25];
+        nums[4] = 2;
+        System.out.println(nums.length);
+        System.out.println(nums[4]);
+        
+        nums = new int[0];
+        System.out.println(nums.length);
+//        System.out.println(nums[4]);
     }
 }

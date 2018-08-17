@@ -633,4 +633,10 @@ public class IndexOfCoincidenceTest {
         String keyCandidate = this.ic.getKeyCandidate();
         assertEquals(plaintext, this.ic.solve(keyCandidate, ciphertext));
     }
+    
+    @Test
+    public void findKeyCornerCase() {
+        this.freq.setAlphabet("", new double[1]);
+        assertEquals(0, this.ic.findKey("", 1)[0].length);
+    }
 }

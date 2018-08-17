@@ -24,11 +24,10 @@ public class TranspositionCipher {
     }
 
     private CharIndexPair[] orderOfKey(String key) {
-        int[] order = new int[key.length()];
         CharIndexPair[] charIdxPairs = new CharIndexPair[key.length()];
 
         for (int i = 0; i < key.length(); i++) {
-            CharIndexPair cnPair = new CharIndexPair(key.charAt(i), i % key.length());
+            CharIndexPair cnPair = new CharIndexPair(key.charAt(i), i);
             charIdxPairs[i] = cnPair;
         }
 
