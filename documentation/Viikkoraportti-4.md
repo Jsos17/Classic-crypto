@@ -22,17 +22,17 @@ Transposition cipherin murtamiseen liittyviä toimia sivun http://practicalcrypt
 
 ## Miten ohjelma on edistynyt
 
-
-
+Koko IndexOfCoincidence luokka on nyt testattu, tosin joissain tapauksissa on olemassa vain yksi testi (esim. findKey) metodille johtuen testiaineiston/syötteen luomisen haastavuudesta/raskaudesta. Mahdollisuuksien mukaan näitä testejä laajennetaan, mutta toisaalta nämä metodit ovat hyvin suoraviivaisia siinä mielessä, että haaraautumisia ei juuri ole ja lähinnä summataan, kerrotaan ja jaetaan lukuja.
 
 ## Mitä opin tällä viikolla
 
 Miten luoda vähän esoteerisemmalla tavalla testejä. Transposition cipherin murtamisesta jonkin verran.
 
-
 ## Vaikeudet
 
 IndexOfCoincidence luokan testisyötteiden luontia piti miettiä pitkään. Lopulta löysin edeskohtuullisessa ajassa toimivan menetelmän eli taulukkolaskentaohjelman avulla syötteiden luonti, mutta menetelmä vaati aika lailla manuaalista työtä varsinkin haastavampien testien osalta. Sinällään Excelin (ja siten myös avoimen lähdekoodin taulukkolaskentaohjelmien) käyttö tällaisessa datan manipuloinnissa oli minulle tuttua, mutta hiukan kömpelöksi syötteiden luonti jäi. 
+
+Erityisesti tuo IndexOfCoincidence luokan findKey-metodin testaus on hyvin haastavaa koska se palauttaa kaksiulotteisen taulukon, ja huomattavat määrät laskentaa tehdään metodin sisällä, lisäksi osajonojen generoinnnissa käytin lopulta omaa ohjelmaa (jota oli siinä vaiheessa jo testattu) vaikka mieluiten toteuttaisin kaikki testit omasta koodista riippumattomasti.
 
 ## Kysymykset/Mikä jäi epäselväksi
 
