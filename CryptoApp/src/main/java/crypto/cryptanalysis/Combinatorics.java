@@ -6,7 +6,6 @@
 package crypto.cryptanalysis;
 
 /**
- *
  * @author jpssilve
  */
 public class Combinatorics {
