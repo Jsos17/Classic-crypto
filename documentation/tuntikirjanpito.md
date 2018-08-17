@@ -19,4 +19,5 @@
 | 13.8. | 8 | Geneerinen merge sort 1. versio, geneerinen insertion sort sekä  näille + primitiivityyppi järjestysalgoille testejä, yleistä testikattavuuden parantamista, yleistä tutkimusta |
 | 15.8. | 8 | Testikattavuuden kasvattamista erityisesti IndexOfCoincidence luokalle ja samalla yhden virheen korjaus, testejä varten tiedoston IC_test.xlsx luonti, jonka avulla lasketaan testisyötteitä ja johon dokumentoidaan myös testejä |
 | 16.8. | 9 | Testien luonnin jatkoa, työmäärältään hyvin massiivisen testin luonti IndexOfCoincidence-luokalle taulukkolaskentaohjelman avulla ja jo testattujen oman ohjelman funktioiden avulla (osajonojen tulostus ja osajonon dekryptaus jokaisella aakkosella), Perehtymistä Transposition cipherin murtamiseen |
-| 17.8. | 8 | Transposition cipherin murtamisen alkutoimia: Quadgram statistiikan laskemiseen luokka ja siihen liittyvä data tekstitiedostosta, permutaatioiden generointi, näille testejä. Dokumentaation päivittämistä |
+| 17.8. | 14 | Transposition cipherin murtaminen lyhyillä avaimilla käyden kaikka avaimen kirjainten järjestysten permutaatiot läpi, quad-, tri, bi ja monogram statistiikan laskeminen tekstitiedostossa olevan datan perusteella, permutaatioiden generointi, kaikille näille testejä. Dokumentaation päivittämistä |
+| Viikko 5 |
