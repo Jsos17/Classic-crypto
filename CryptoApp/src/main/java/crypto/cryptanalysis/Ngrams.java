@@ -42,6 +42,7 @@ public abstract class Ngrams {
                     try {
                         frequency = Long.parseLong(line[1]);
                     } catch (NumberFormatException ne) {
+                        System.out.println("The file is corrupted: " + ne);
                     }
 
                     this.ngramStats.put(line[0], frequency);
@@ -56,7 +57,7 @@ public abstract class Ngrams {
     }
 
     public double logProbability(String ngram) {
-        long count = this.ngramStats.getOrDefault(ngram, 0l);
+        long count = this.getNgramCount(ngram);
         double dblCount = (double) count;
         if (count == 0) {
             dblCount = 0.1;

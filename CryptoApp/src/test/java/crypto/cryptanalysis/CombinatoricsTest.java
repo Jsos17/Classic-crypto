@@ -106,14 +106,13 @@ public class CombinatoricsTest {
 
     /*
     This method is here to compare wtih the actual implementation of generating  permutations
-    and it is found in an almost exact form in the lecture material of the course Data strcutures
+    and it is found in an almost exact form (apart from not printing the permutations and 
+    instead storing them in an array) in the lecture material of the course Data structures
     and algorithms (University of Helsinki).
      */
     public void generatePermutationsNaive(int[] nums, boolean[] used, int k, int[][] permutations) {
         if (k == nums.length) {
-            for (int i = 0; i < permutations[this.index].length; i++) {
-                permutations[this.index][i] = nums[i];
-            }
+            System.arraycopy(nums, 0, permutations[this.index], 0, permutations[this.index].length);
             this.index++;
         } else {
             for (int i = 0; i < nums.length; i++) {
@@ -135,7 +134,7 @@ public class CombinatoricsTest {
     Permutations are generated for random n, where n = 1,..,9
      */
     @Test
-    public void permutationsTestLarge() {
+    public void permutationsTestRandom() {
         Random rand = new Random();
         int n = rand.nextInt(9) + 1;
         int[] factorials = new int[10];
@@ -149,7 +148,7 @@ public class CombinatoricsTest {
         factorials[7] = 5040;
         factorials[8] = 40320;
         factorials[9] = 362880;
-        
+
         int[][] expected = new int[factorials[n]][n];
         generatePermutationsNaive(new int[n], new boolean[n], 0, expected);
 

@@ -14,6 +14,7 @@ import crypto.cryptanalysis.FrequencyAnalysis;
 import crypto.cryptanalysis.IndexOfCoincidence;
 import crypto.cryptanalysis.Quadgrams;
 import crypto.cryptanalysis.Combinatorics;
+import crypto.cryptanalysis.TranspositionAttack;
 import crypto.helpers.GreatestCommonDivisor;
 import crypto.sorting.GenericTypeSort;
 import crypto.sorting.PrimitiveTypeSort;
@@ -79,7 +80,6 @@ public class CryptoUserInterface {
 //        ic.findKey(ciphertext2, 14);
 //        System.out.println(ic.solve(ic.getKeyCandidate(), ciphertext2));     
 //        System.out.println(ic.solve("ciphers", ciphertext2));
-
 //        int[] nums1 = new int[]{5, 4, 2, 1, 9, 8, 6};
 //        PrimitiveTypeSort.iterativeMergeSort(nums1);
 //        System.out.println(Arrays.toString(nums1));
@@ -139,8 +139,6 @@ public class CryptoUserInterface {
 //        }
 //        ic.findKey(text, 7);
 //        System.out.println(ic.getKeyCandidate());
-
-
 //        CharacterValue[][] charValues = ic.findKey(text, 7);
 //        for (int j = 0; j < charValues[0].length; j++) {
 //            for (int i = 0; i < charValues.length; i++) {
@@ -148,7 +146,6 @@ public class CryptoUserInterface {
 //            }
 //            System.out.println();
 //        }
-        
 //        ArrayList<String> subs = new ArrayList<>();
 //        subs.add("uxuomqbjxfqkgfqqmqafydujergeqgfqtyoudfrfxekkjqqeczuefgoqqtoqmxiyubfkxqfeabjuofqdzuuufaxauatefomkfdueuitmzf");
 //        subs.add("neticrltahrplepxltroeipttarotrhreeonoatedtpsrnbeuastheixreisieimnhttssxpeltseaayisgthiibnrachrlnranoneentt");
@@ -163,36 +160,70 @@ public class CryptoUserInterface {
 //            long[] occurrences = freq.countOccurrences(vig.decrypt(abc.substring(i, i + 1), subT));
 //            System.out.println(Arrays.toString(occurrences));
 //        }
-
         Quadgrams quad = new Quadgrams("english_quadgrams.txt");
-        System.out.println(quad.getNgramCount("INGT"));
-        System.out.println(quad.getSampleSize());
-        System.out.println(quad.logProbability("INGT"));
-        System.out.println(6461147l / 4224127912l);
-        String text2 = "ATTACKTHEEASTWALLOFTHECASTLEATDAWN";
-        System.out.println(text2.length());
-        String ciphertext2 = "FYYFHPYMJJFXYBFQQTKYMJHFXYQJFYIFBS";
-        System.out.println(quad.fitness(text2));
-        System.out.println(quad.fitness(ciphertext2));
-        System.out.println(quad.getN());
-        
-        Quadgrams quad2 = new Quadgrams("test.txt");
-        System.out.println(quad2.getSampleSize());
-        System.out.println(quad2.getNgramCount("INGT"));
-        System.out.println(quad2.getNgramCount("MATT"));
-        System.out.println(quad2.fitness(text2));
-        System.out.println(quad.fitness(text2));
-        System.out.println(quad.fitness(ciphertext2));
-       
-        Combinatorics attack = new Combinatorics();
-        
-        int[] nums = new int[25];
-        nums[4] = 2;
-        System.out.println(nums.length);
-        System.out.println(nums[4]);
-        
-        nums = new int[0];
-        System.out.println(nums.length);
+//        quad.
+//        System.out.println(quad.getNgramCount("INGT"));
+//        System.out.println(quad.getSampleSize());
+//        System.out.println(quad.logProbability("INGT"));
+//        System.out.println(6461147l / 4224127912l);
+//        String text2 = "ATTACKTHEEASTWALLOFTHECASTLEATDAWN";
+//        System.out.println(text2.length());
+//        String ciphertext2 = "FYYFHPYMJJFXYBFQQTKYMJHFXYQJFYIFBS";
+//        System.out.println(quad.fitness(text2));
+//        System.out.println(quad.fitness(ciphertext2));
+//        System.out.println(quad.getN());
+//        
+//        Quadgrams quad2 = new Quadgrams("test.txt");
+//        System.out.println(quad2.getSampleSize());
+//        System.out.println(quad2.getNgramCount("INGT"));
+//        System.out.println(quad2.getNgramCount("MATT"));
+//        System.out.println(quad2.fitness(text2));
+//        System.out.println(quad.fitness(text2));
+//        System.out.println(quad.fitness(ciphertext2));
+//       
+//        Combinatorics comib = new Combinatorics();
+//        
+//        int[] nums = new int[25];
+//        nums[4] = 2;
+//        System.out.println(nums.length);
 //        System.out.println(nums[4]);
+//        
+//        nums = new int[0];
+//        System.out.println(nums.length);
+//        System.out.println(nums[4]);
+
+        
+        
+        
+        TranspositionAttack attack = new TranspositionAttack();
+        
+        String text1 = "evlnacdtesearofodeecwiree".toUpperCase();
+        
+        long startTime1 = System.currentTimeMillis();
+        String cand = attack.attackShortKeyWordsNaive(text1);
+        long endTime1 = System.currentTimeMillis();
+        System.out.println("Operaatioon kului aikaa: " + (endTime1 - startTime1) + "ms.");
+        
+        System.out.println(attack.crackWithKey(cand, text1));
+
+        long startTime2 = System.currentTimeMillis();
+        String candi = attack.attackShortKeyWords(text1);
+        long endTime2 = System.currentTimeMillis();
+        System.out.println("Operaatioon kului aikaa: " + (endTime2 - startTime2) + "ms.");
+        
+        System.out.println(attack.crackWithKey(candi, text1));
+        
+        String ciphertext = "QDBSSAGNTDOLLCSERUELAESTOSIOODDUYSANUFRISUIUHARRGAE"
+                + "MLULANORSARCROSMEPDVNUXVSTBCNAFNTIWUZUFIITEISDMOENSEYINUMDIAITACEEHECCC";
+        String cand2 = attack.attackShortKeyWords(ciphertext);
+        System.out.println(attack.crackWithKey(cand2, ciphertext));
+        
+        String ciphertext1 = "NSTLEICYEMPMHELGOAAHVCOTBYAAAESEAWAMNERTATHOPFTMZDHAISAALITSUOOAZNSREMSEAVTLETYGUAEGREERNIUAKRNRPSMS";
+        String cand3 = attack.attackShortKeyWords(ciphertext1);
+        System.out.println(attack.crackWithKey(cand3, ciphertext1));
+//        String text2 = "hmnrnvaicwhtsieiitoawguseint".toUpperCase();
+//        String cand2 = attack.attackShortKeyWordsNaive(text2);
+//        System.out.println(attack.crackWithKey(cand2, text2));
+
     }
 }
