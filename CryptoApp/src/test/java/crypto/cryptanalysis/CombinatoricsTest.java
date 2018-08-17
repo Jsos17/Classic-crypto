@@ -8,9 +8,7 @@ package crypto.cryptanalysis;
 import java.util.Arrays;
 import java.util.Random;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,39 +16,40 @@ import static org.junit.Assert.*;
  *
  * @author jpssilve
  */
-public class TranspositionCipherAttackTest {
-    
-    private TranspositionCipherAttack attack;
+public class CombinatoricsTest {
+
+    private Combinatorics combi;
     private int index;
-    
+
     @Before
     public void setUp() {
-        this.attack = new TranspositionCipherAttack();
+        this.index = 0;
+        this.combi = new Combinatorics();
     }
-    
+
     @After
     public void tearDown() {
     }
 
     @Test
     public void factorialTest1() {
-        assertEquals(1, attack.factorial(0));
-        assertEquals(1, attack.factorial(1));
-        assertEquals(2, attack.factorial(2));
-        assertEquals(6, attack.factorial(3));
-        assertEquals(24, attack.factorial(4));
-        assertEquals(120, attack.factorial(5));
-        assertEquals(720, attack.factorial(6));
-        assertEquals(5040, attack.factorial(7));
-        assertEquals(40320, attack.factorial(8));
-        assertEquals(362880, attack.factorial(9));
+        assertEquals(1, combi.factorial(0));
+        assertEquals(1, combi.factorial(1));
+        assertEquals(2, combi.factorial(2));
+        assertEquals(6, combi.factorial(3));
+        assertEquals(24, combi.factorial(4));
+        assertEquals(120, combi.factorial(5));
+        assertEquals(720, combi.factorial(6));
+        assertEquals(5040, combi.factorial(7));
+        assertEquals(40320, combi.factorial(8));
+        assertEquals(362880, combi.factorial(9));
     }
-    
+
     @Test
     public void factorialTest2() {
-        assertEquals(-1, attack.factorial(-25));
+        assertEquals(-1, combi.factorial(-25));
     }
-    
+
     @Test
     public void permutationsTest1() {
         int[][] expected = new int[6][3];
@@ -60,15 +59,15 @@ public class TranspositionCipherAttackTest {
         expected[3] = new int[]{1, 2, 0};
         expected[4] = new int[]{2, 0, 1};
         expected[5] = new int[]{2, 1, 0};
-        
-        int[][] actuals = this.attack.permutations(3);
+
+        int[][] actuals = this.combi.permutations(3);
         for (int i = 0; i < actuals.length; i++) {
             for (int j = 0; j < actuals[i].length; j++) {
                 assertEquals(expected[i][j], actuals[i][j]);
             }
         }
     }
-    
+
     @Test
     public void permutationsTest2() {
         int[][] expected = new int[24][4];
@@ -96,21 +95,26 @@ public class TranspositionCipherAttackTest {
         expected[21] = new int[]{3, 1, 2, 0};
         expected[22] = new int[]{3, 2, 0, 1};
         expected[23] = new int[]{3, 2, 1, 0};
-        
-        int[][] actuals = this.attack.permutations(4);
+
+        int[][] actuals = this.combi.permutations(4);
         for (int i = 0; i < actuals.length; i++) {
             for (int j = 0; j < actuals[i].length; j++) {
                 assertEquals(expected[i][j], actuals[i][j]);
             }
         }
     }
-    
+
+    /*
+    This method is here to compare wtih the actual implementation of generating  permutations
+    and it is found in an almost exact form in the lecture material of the course Data strcutures
+    and algorithms (University of Helsinki).
+     */
     public void generatePermutationsNaive(int[] nums, boolean[] used, int k, int[][] permutations) {
         if (k == nums.length) {
-            for (int i = 0; i < permutations[index].length; i++) {
-                permutations[index][i] = nums[i];
+            for (int i = 0; i < permutations[this.index].length; i++) {
+                permutations[this.index][i] = nums[i];
             }
-            index++;
+            this.index++;
         } else {
             for (int i = 0; i < nums.length; i++) {
                 if (used[i] == false) {
@@ -122,27 +126,42 @@ public class TranspositionCipherAttackTest {
             }
         }
     }
-    
+
     /*
     Test done with the help of the naive version of the generate permutations algorithm
     which is almost identical implementation of the pseudo code found in the lecture 
     material of the course Data structures and algorithms (University of Helsinki).
-    */
+    
+    Permutations are generated for random n, where n = 1,..,9
+     */
     @Test
     public void permutationsTestLarge() {
-        int n = 9;
-        int[][] expected = new int[362880][n];
+        Random rand = new Random();
+        int n = rand.nextInt(9) + 1;
+        int[] factorials = new int[10];
+        factorials[0] = 1;
+        factorials[1] = 1;
+        factorials[2] = 2;
+        factorials[3] = 6;
+        factorials[4] = 24;
+        factorials[5] = 120;
+        factorials[6] = 720;
+        factorials[7] = 5040;
+        factorials[8] = 40320;
+        factorials[9] = 362880;
+        
+        int[][] expected = new int[factorials[n]][n];
         generatePermutationsNaive(new int[n], new boolean[n], 0, expected);
-        
-        int[][] actuals = this.attack.permutations(n);
-        
+
+        int[][] actuals = this.combi.permutations(n);
+
         for (int i = 0; i < actuals.length; i++) {
             for (int j = 0; j < actuals[i].length; j++) {
                 assertEquals(expected[i][j], actuals[i][j]);
             }
         }
     }
-    
+
     @Test
     public void permutationsTest4() {
         int[][] expected = new int[24][4];
@@ -170,14 +189,14 @@ public class TranspositionCipherAttackTest {
         expected[21] = new int[]{3, 1, 2, 0};
         expected[22] = new int[]{3, 2, 0, 1};
         expected[23] = new int[]{3, 2, 1, 0};
-        
-        int[][] actuals = this.attack.permutations(4);
+
+        int[][] actuals = this.combi.permutations(4);
         for (int i = 0; i < actuals.length; i++) {
             for (int j = 0; j < actuals[i].length; j++) {
                 assertEquals(expected[i][j], actuals[i][j]);
             }
         }
-        
+
         int[][] expected2 = new int[6][3];
         expected2[0] = new int[]{0, 1, 2};
         expected2[1] = new int[]{0, 2, 1};
@@ -185,8 +204,8 @@ public class TranspositionCipherAttackTest {
         expected2[3] = new int[]{1, 2, 0};
         expected2[4] = new int[]{2, 0, 1};
         expected2[5] = new int[]{2, 1, 0};
-        
-        int[][] actuals2 = this.attack.permutations(3);
+
+        int[][] actuals2 = this.combi.permutations(3);
         System.out.println("Len: " + actuals2.length);
         for (int i = 0; i < actuals2.length; i++) {
             for (int j = 0; j < actuals2[i].length; j++) {

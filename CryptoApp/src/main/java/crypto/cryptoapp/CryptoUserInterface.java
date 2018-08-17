@@ -13,9 +13,8 @@ import crypto.cryptanalysis.CharacterValue;
 import crypto.cryptanalysis.FrequencyAnalysis;
 import crypto.cryptanalysis.IndexOfCoincidence;
 import crypto.cryptanalysis.Quadgrams;
-import crypto.cryptanalysis.TranspositionCipherAttack;
+import crypto.cryptanalysis.Combinatorics;
 import crypto.helpers.GreatestCommonDivisor;
-import crypto.helpers.SubSequencePrinter;
 import crypto.sorting.GenericTypeSort;
 import crypto.sorting.PrimitiveTypeSort;
 import java.util.ArrayList;
@@ -166,7 +165,7 @@ public class CryptoUserInterface {
 //        }
 
         Quadgrams quad = new Quadgrams("english_quadgrams.txt");
-        System.out.println(quad.getNgramStats().get("INGT"));
+        System.out.println(quad.getNgramCount("INGT"));
         System.out.println(quad.getSampleSize());
         System.out.println(quad.logProbability("INGT"));
         System.out.println(6461147l / 4224127912l);
@@ -179,13 +178,13 @@ public class CryptoUserInterface {
         
         Quadgrams quad2 = new Quadgrams("test.txt");
         System.out.println(quad2.getSampleSize());
-        System.out.println(quad2.getNgramStats().get("INGT"));
-        System.out.println(quad2.getNgramStats().get("MATT"));
+        System.out.println(quad2.getNgramCount("INGT"));
+        System.out.println(quad2.getNgramCount("MATT"));
         System.out.println(quad2.fitness(text2));
         System.out.println(quad.fitness(text2));
         System.out.println(quad.fitness(ciphertext2));
        
-        TranspositionCipherAttack attack = new TranspositionCipherAttack();
+        Combinatorics attack = new Combinatorics();
         
         int[] nums = new int[25];
         nums[4] = 2;

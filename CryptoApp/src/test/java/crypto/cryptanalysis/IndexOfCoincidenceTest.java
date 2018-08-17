@@ -633,7 +633,7 @@ public class IndexOfCoincidenceTest {
         String keyCandidate = this.ic.getKeyCandidate();
         assertEquals(plaintext, this.ic.solve(keyCandidate, ciphertext));
     }
-    
+
     @Test
     public void findKeyCornerCase() {
         this.freq.setAlphabet("", new double[1]);

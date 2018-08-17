@@ -15,11 +15,12 @@ import java.util.Scanner;
  * @author jpssilve
  */
 public abstract class Ngrams {
+
     private final int n;
     private final String filename;
     private long sampleSize;
     private final HashMap<String, Long> ngramStats;
-    
+
     public Ngrams(int n, String filename) {
         this.n = n;
         this.filename = filename;
@@ -42,7 +43,7 @@ public abstract class Ngrams {
                         frequency = Long.parseLong(line[1]);
                     } catch (NumberFormatException ne) {
                     }
-                    
+
                     this.ngramStats.put(line[0], frequency);
                     this.sampleSize += frequency;
                 }
@@ -50,12 +51,12 @@ public abstract class Ngrams {
         } catch (FileNotFoundException exc) {
             System.out.println(exc);
         }
-        
+
         return this.sampleSize;
     }
-    
-    public double logProbability(String quadgram) {
-        long count = this.ngramStats.getOrDefault(quadgram, 0l);
+
+    public double logProbability(String ngram) {
+        long count = this.ngramStats.getOrDefault(ngram, 0l);
         double dblCount = (double) count;
         if (count == 0) {
             dblCount = 0.1;
@@ -68,8 +69,8 @@ public abstract class Ngrams {
         return sampleSize;
     }
 
-    public HashMap<String, Long> getNgramStats() {
-        return ngramStats;
+    public long getNgramCount(String ngram) {
+        return this.ngramStats.getOrDefault(ngram, 0l);
     }
 
     public double fitness(String text) {

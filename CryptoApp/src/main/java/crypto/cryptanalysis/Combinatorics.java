@@ -9,14 +9,14 @@ package crypto.cryptanalysis;
  *
  * @author jpssilve
  */
-public class TranspositionCipherAttack {
+public class Combinatorics {
 
     private int index;
     private int[] nums;
     private boolean[] used;
     private int[][] permutations;
 
-    public TranspositionCipherAttack() {
+    public Combinatorics() {
     }
 
     protected int[][] permutations(int n) {
@@ -49,7 +49,6 @@ public class TranspositionCipherAttack {
             for (int i = 0; i < this.permutations[index].length; i++) {
                 this.permutations[index][i] = nums[i];
             }
-
             this.index++;
         } else {
             for (int i = 0; i < this.nums.length; i++) {
