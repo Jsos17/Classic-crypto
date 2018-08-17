@@ -1,12 +1,14 @@
-# CryptoApp testausdokumentti
+# CryptoApp testausdokumentti (kesken)
 
 ## Mitä on testattu
 
-
+Metodien oikeellisutta on pyritty testaamaan luomalla paljon erilaisia syötteitä ja paikoin satunnaistamalla näitä syötteitä. Osalla metodeista ei ole vielä kuin yksi suuri testi johtuen testisyötteiden luonnin työläydestä.
 
 ## Miten on testattu
 
-Pyrkimys on ollut testata omasta koodista/ohjelmoinnista riippumattomasti niin paljon kuin mahdollista, eli jos helposti saatavilla on esimerkiksi jokin webapp, joka tekee samanlaisia asioita niin tätä on pyritty hyödyntämään. Lisäksi taulukkolaskentaohjelma LibreOffice Calc nousi merkittäväksi apuvälineeksi IndexOfCoincidence -luokan testauksessa kun useat sen metodit tekivät raskaita mutta kuitenkin suhteellisen mekaanisia laskuoperaatioita ja lisäksi taulukkolaskentaohjelman avulla on helppo järjestää aineistoa.
+Pyrkimys on ollut testata omasta koodista/ohjelmoinnista riippumattomasti niin paljon kuin mahdollista, eli jos on helposti saatavilla esimerkiksi jokin webapp, joka tekee samanlaisia asioita niin tätä on pyritty hyödyntämään. Lisäksi taulukkolaskentaohjelma LibreOffice Calc nousi merkittäväksi apuvälineeksi IndexOfCoincidence -luokan testauksessa kun useat sen metodit tekivät raskaita mutta kuitenkin suhteellisen mekaanisia laskuoperaatioita ja lisäksi taulukkolaskentaohjelman avulla on helppo järjestää aineistoa.
+
+Eritysesti tiedostoon [IC_test.xlsx](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/IC_test.xlsx) on dokumentoitu testidataa ja laskutoimituksia sekä niiden tuloksia moniin luokan IndexOfCoincidence metodeihin liittyen. Monet tiedoston välilehdistä (sheet) on nimetty siten mihin testiin ne liittyvät. Tiedoston välilehdet on suojatttu ilman salasanaa, jotta vältyttäisiin datan korruptoitumiselta, eli tarvittaessa salauksen poisto onnistuu valitsemalla Tools -> Protect sheet LibreOffice Calcista. Tämä ei kuitenkaan ole välttämättä tarpeen sillä kaikki formulat ovat näkyvissä.
 
 Muutamassa tapauksessa testiluokkien sisällä on jokin apumetodi, joka auttaa luomaan testisyötteitä. Esimerkiksi VigenereCipherTest luokassa on randomizeInPlace, jonka avulla voidaan tuottaa pseudosatunnaisia salatekstejä.
 
@@ -17,9 +19,9 @@ CombinatoricsTest luokassa taas on metodi joka on lähes sama kuin Tietorakentee
 
 ## Suorituskykytestauksen suunnitelma
 
-Koska aihe on kryptografia, ja suuri osa salauksen murtamiseen liittyvistä menetelmistä ei ole täysin deterministinen, niin tarkoitus on keskittyä testauksessa siihen minkälaisia syötteitä todennäköisesti voidaan murtaa.
+Koska aihe on kryptografia, ja suuri osa salauksen murtamiseen liittyvistä menetelmistä ei ole täysin deterministinen, niin tarkoitus on keskittyä testauksessa siihen minkälaisia syötteitä todennäköisesti voidaan murtaa ja kerätä tilastoja avaimein pituuksista ja salatekstien pituuksista.
 
-Tätä testausta tuetaan myös perinteisellä tehokkuusmittauksilla, mutta pääpaino tullee olemaan siinä mitä voidaan murtaa ja tilastojen keräämistä tästä.
+Tätä testausta tuetaan myös perinteisellä tehokkuusmittauksilla, mutta pääpaino tullee olemaan siinä mitä voidaan murtaa ja tilastojen keräämisestä siitä.
 
 ## Erityisen raskaat testit
 
