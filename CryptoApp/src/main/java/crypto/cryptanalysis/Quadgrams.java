@@ -6,7 +6,7 @@
 package crypto.cryptanalysis;
 
 /**
- *
+ * 
  * @author jpssilve
  */
 public class Quadgrams extends Ngrams {

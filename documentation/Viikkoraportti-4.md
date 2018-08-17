@@ -70,6 +70,6 @@ Aikaa minulla on runsaasti käytössä koska en ole töissä ja ainoastaan yksi 
 | 13.8. | 8 | Geneerinen merge sort 1. versio, geneerinen insertion sort sekä  näille + primitiivityyppi järjestysalgoille testejä, yleistä testikattavuuden parantamista, yleistä tutkimusta |
 | 15.8. | 8 | Testikattavuuden kasvattamista erityisesti IndexOfCoincidence luokalle ja samalla yhden virheen korjaus, testejä varten tiedoston IC_test.xlsx luonti, jonka avulla lasketaan testisyötteitä ja johon dokumentoidaan myös testejä |
 | 16.8. | 9 | Testien luonnin jatkoa, työmäärältään hyvin massiivisen testin luonti IndexOfCoincidence-luokalle taulukkolaskentaohjelman avulla ja jo testattujen oman ohjelman funktioiden avulla (osajonojen tulostus ja osajonon dekryptaus jokaisella aakkosella), Perehtymistä Transposition cipherin murtamiseen |
-| 17.8. | 14 | Transposition cipherin murtaminen lyhyillä avaimilla käyden läpi kaikki avaimen kirjainten järjestysten permutaatiot läpi, quad-, tri, bi ja monogram statistiikan laskeminen tekstitiedostossa olevan datan perusteella, permutaatioiden generointi, kaikille näille testejä. Dokumentaation päivittämistä |
+| 17.8. | 15 | Transposition cipherin murtaminen lyhyillä avaimilla käyden läpi kaikki avaimen kirjainten järjestysten permutaatiot läpi, quad-, tri, bi ja monogram statistiikan laskeminen tekstitiedostossa olevan datan perusteella, permutaatioiden generointi, kaikille näille testejä. Dokumentaation päivittämistä |
 
 [Tuntikirjanpito](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/tuntikirjanpito.md)
