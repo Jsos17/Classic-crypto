@@ -82,13 +82,13 @@ public class TranspositionAttack {
     }
 
     /**
-     * A faster and memory-wise less expensive version of going through all
-     * possible transposition keys of length 1 to 8. This version does not build
-     * a two dimensional to store all the possible permutations, and instead
-     * once a permutation has been generated, then the fitness value produced by
-     * the trial decryption with that particular permutation of the key is
-     * calculated and, if it is the highest value thus far, it becomes the new
-     * benchmark.
+     * A possibly faster and memory-wise less expensive version of going through
+     * all possible transposition keys of length 1 to 8. This version does not
+     * build a two dimensional to store all the possible permutations, and
+     * instead once a permutation has been generated, then the fitness value
+     * produced by the trial decryption with that particular permutation of the
+     * key is calculated and, if it is the highest value thus far, it becomes
+     * the new benchmark.
      *
      * This method does not always produce the right answer if the ciphertext is
      * short.
