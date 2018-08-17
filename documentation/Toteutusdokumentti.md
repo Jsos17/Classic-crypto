@@ -1,20 +1,41 @@
-# CryptoApp toteutusdokumentti
+# CryptoApp toteutusdokumentti (kesken)
+
+## Ohjelman esittely
+
+
+### Salausalgoritmi: Vigenère cipher
+
+Vigenère cipher perustuu selkotekstin (plaintext) jokaisen kirjaimen vaihtamiseen johonkin toiseen kirjaimeen käyttäen useaa vaihtoehtoista aakkoston järjestystä, jossa kirjaimia siirretään aina yhden pykälän vasemmalle ja erityistä salausavainta käytetään oikean aakkoston valitsemiseen. Tästä tulee sana "polyalphabetic cipher" eli jokainen kirjain salataan erityisen avaimen perusteella, siten että jokainen avaimen kirjain kuvautuu tiettyyn aakkoston järjestykseen. Jos avain on lyhyempi kuin selkoteksti, niin silloin avainta pidennetään lisäämällä sen kopioita itseensä kunnes pituus on riittävä.
+
+Niin sanotussa Keyed Vigenere cipherissä aakkoston alkuun laitetaan spesifi aakkostonsekoitusavain, joka ei sisällä toistuvia aakkoston kirjaimia ja sitten jäljelle jäävät kirjaimet laitetaan aakkosjärjestyksessä avaimen jälkeen. Muuten avain toimii kuin klassinen Vigenère, mutta aakkoston järjestyksessä on satunnaisuutta johtuen ylimääräisen avaimen käytöstä.
+
+Autokey Vigenèressä salausavainta käytetään salauksessa vain yhden kerran, jonka jälkeen itse selkoteksti liitetään avaimen perään ja aakkoston valinta tehdään salausavain + selkoteksti -yhdistelmän kirjainten perusteella.
+
+### Salausalgoritmi: Transposition cipher
+
+Transposition cipherissa selkotekstin kirjaimet säilyvät ennallaan, mutta kirjaimien järjestystä muutetaan asettamalla selkoteksti matriisin kirjoittaen tekstiä rivi kerrallaan vasemmalta oikealle. Salausavain määrittää matriisin sarakkeiden määrän ja salausavaimen kirjainten aakkosjärjestys sen missä järjestyksessä matriisin sarakkeita poimitaan muodostettavaan salatekstiin.
 
 ## Ohjelman yleisrakenne
 
-Ohjelma jakaantuu salausalgoritmeihin eli ciphereihin, joiden avulla on mahdollista salata viestejä käyttäen Vigenère salausta ja sen variantteja sekä transposition tyyppisiä salauksia.
+### Salausalgoritmit
 
-### Vigenère cipher
+Ohjelma jakaantuu salausalgoritmeihin eli ciphereihin, joiden avulla on mahdollista salata viestejä käyttäen Vigenère salausta ja sen variantteja sekä transposition tyyppisiä salauksia. Algoritmit ovat 100 % deterministisiä, jos salauksen molemmilla osapuolilla on tiedossa käytetty salausavain ja ohjelman avulla viestejä voi salata ja avata automaattisesti salausavaimen avulla.
 
-Vigenère cipher perustuu selkotekstin (plaintext) jokaisen kirjaimen vaihtamiseen johonkin toiseen kirjaimeen käyttäen useaa vaihtoehtoista aakkoston järjestystä. Tästä tulee sana "polyalphabetic cipher" eli jokainen kirjain salataan erityisen avaimen perusteella, siten että jokainen avaimen kirjain kuvautuu tiettyyn aakkoston järjestykseen. 
+### Salauksen murtaminen
+
+Vigenère cipherin perusversion murtamiseen on rakennettu työkaluja ja alustavasti myös singular transposition cipherin murtamiseen lyhyillä avaimilla. Nämä algoritmit eivät ole 100% deterministisiä, koska ne nojaavat paljon (englannin) kielen tilastollisiin ominaisuuksiin minkä vuoksi lyhyitä viestejä ei välttämättä pysty murtamaan ainakaan yksikäsitteisesti.
 
 ## Aika- ja tilavaativuudet
 
+
 ## Työn puutteet
+
 
 ## Parannusehdotukset
 
+
 ## Lähteet
+
 
 ### Yleisesti seuraavat sivustot:
 
