@@ -18,15 +18,18 @@ IndexOfCoinciden luokan testisyötteidein luonnin jatkamista edelleen käyttäen
 
 ### Perjantai:
 
-Transposition cipherin murtamiseen liittyviä toimia sivun http://practicalcryptography.com/cryptanalysis/stochastic-searching/cryptanalysis-columnar-transposition-cipher/ metodia noudattaen. Samalta sivulta on myös otettu data quadgramien esiintyvyydestä englanninkielisessä tekstissä. Tähän liittyen quadgram statistiikan laskennan aloittelua ja permutaatioden generointi.
+Transposition cipherin murtamiseen liittyviä toimia sivun http://practicalcryptography.com/cryptanalysis/stochastic-searching/cryptanalysis-columnar-transposition-cipher/
+menetelmää noudattaen. Samalta sivulta on myös otettu data quadgramien esiintyvyydestä englanninkielisessä tekstissä. Tähän liittyen quadgram statistiikan laskennan aloittelua ja permutaatioden generointi.
 
 ## Miten ohjelma on edistynyt
 
 Koko IndexOfCoincidence luokka on nyt testattu, tosin joissain tapauksissa on olemassa vain yksi testi (esim. findKey) metodille johtuen testiaineiston/syötteen luomisen haastavuudesta/raskaudesta. Mahdollisuuksien mukaan näitä testejä laajennetaan, mutta toisaalta nämä metodit ovat hyvin suoraviivaisia siinä mielessä, että haaraautumisia ei juuri ole ja lähinnä summataan, kerrotaan ja jaetaan lukuja.
 
+Transposition cipherin murtaminen on aloitettu
+
 ## Mitä opin tällä viikolla
 
-Miten luoda vähän esoteerisemmalla tavalla testejä. Transposition cipherin murtamisesta jonkin verran.
+Miten luoda vähän esoteerisemmalla tavalla testejä. Toisaalta kaiken lasketun datan näkeminen omin silmin taulukkolaskentaohjelmasta oli hyödyllistä tämän salauksen murtamismenetlmän ymmärtämisen kannalta. Transposition cipherin murtamisesta merkittävästi.
 
 ## Vaikeudet
 
@@ -40,13 +43,15 @@ Tällä hetkellä toteutettuna on Vigenere cipher ja sen varintit sekä Columnar
 
 Koska jäljellä on enää kolme viikkoa niin en usko että merkittävässä määrin ohjelmaa enää ehtii laajentamaan, sillä murtamista pitää vielä hioa merkittävästi, käyttöliittymä luoda ja omien perustietorakenteiden luonti (hajautustaul) sekä lisäksi vielä kaiken dokumentointi ja testaus (toimivuus ja suorituskyky). 
 
-Eli kysymys liittyy siihen, että mihin kannattaa keskittyä? Onko parempi syventyä siihen mitä on jo olemassa vai kenties lisätä salausrepertooria (jolloin työstä tulee selvästi pinnallisempi koska nämä salausalgoritmit ovat kuitenkin huomattavasti yksinkertaisempia kuin salauksen murtaminen)? Itse kallistun työn syventämisen puolelle.
+Eli kysymys liittyy siihen, että mihin kannattaa keskittyä? Onko parempi syventyä siihen mitä on jo olemassa ja parantaa sitä vai kenties lisätä salausrepertooria (jolloin työstä tulee selvästi pinnallisempi koska nämä salausalgoritmit ovat kuitenkin huomattavasti yksinkertaisempia kuin salauksen murtaminen)? Itse kallistun työn syventämisen puolelle.
 
-Aikaa minulla on runsaasti käytössä koska en ole töissä ja ainoastaan yksi luentokurssi on samaan aikaan päällä seuraavat kaksi viikkoa (viimeisellä viikolla alkaa jo sitten 1. periodi jolloin tehokas työskentelyaika tulee luultavasti menemään siihen että työ viimeistellään palautuskuntoon), mutta toisaalta 2-3 viikkoa on lyhyt aika.
+Aikaa minulla on runsaasti käytössä koska en ole töissä ja ainoastaan yksi luentokurssi on samaan aikaan päällä seuraavat kaksi viikkoa (viimeisellä viikolla alkaa jo sitten 1. periodi jolloin tehokas työskentelyaika tullee luultavasti menemään siihen että työ viimeistellään palautuskuntoon), mutta toisaalta 2-3 viikkoa on lyhyt aika.
 
 ## Mitä teen seuraavaksi
 
 * Murtamistoiminnallisuuden täydentäminen, eli yritys paketoida Vigenere cipherin murtamista kokonaisuudeksi käyttöliittymään ja transposition cipherin murtamisen algoritmien jatkotyöstämistä.
+
+* Permutaatioiden generoimisen optimoiminen mahdollisesti tallentamalla osatuloksia, koska aina tuotetaan samat permutaatiot ja niitä tuotetaan korkeintaan 9:lle elementille
 
 * Hajautustaulun toteutus.
 
