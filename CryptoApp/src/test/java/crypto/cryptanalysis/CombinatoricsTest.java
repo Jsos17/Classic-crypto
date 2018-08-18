@@ -52,15 +52,15 @@ public class CombinatoricsTest {
 
     @Test
     public void permutationsTest1() {
-        int[][] expected = new int[6][3];
-        expected[0] = new int[]{0, 1, 2};
-        expected[1] = new int[]{0, 2, 1};
-        expected[2] = new int[]{1, 0, 2};
-        expected[3] = new int[]{1, 2, 0};
-        expected[4] = new int[]{2, 0, 1};
-        expected[5] = new int[]{2, 1, 0};
+        byte[][] expected = new byte[6][3];
+        expected[0] = new byte[]{0, 1, 2};
+        expected[1] = new byte[]{0, 2, 1};
+        expected[2] = new byte[]{1, 0, 2};
+        expected[3] = new byte[]{1, 2, 0};
+        expected[4] = new byte[]{2, 0, 1};
+        expected[5] = new byte[]{2, 1, 0};
 
-        int[][] actuals = this.combi.permutations(3);
+        byte[][] actuals = this.combi.permutations(3);
         for (int i = 0; i < actuals.length; i++) {
             for (int j = 0; j < actuals[i].length; j++) {
                 assertEquals(expected[i][j], actuals[i][j]);
@@ -70,33 +70,33 @@ public class CombinatoricsTest {
 
     @Test
     public void permutationsTest2() {
-        int[][] expected = new int[24][4];
-        expected[0] = new int[]{0, 1, 2, 3};
-        expected[1] = new int[]{0, 1, 3, 2};
-        expected[2] = new int[]{0, 2, 1, 3};
-        expected[3] = new int[]{0, 2, 3, 1};
-        expected[4] = new int[]{0, 3, 1, 2};
-        expected[5] = new int[]{0, 3, 2, 1};
-        expected[6] = new int[]{1, 0, 2, 3};
-        expected[7] = new int[]{1, 0, 3, 2};
-        expected[8] = new int[]{1, 2, 0, 3};
-        expected[9] = new int[]{1, 2, 3, 0};
-        expected[10] = new int[]{1, 3, 0, 2};
-        expected[11] = new int[]{1, 3, 2, 0};
-        expected[12] = new int[]{2, 0, 1, 3};
-        expected[13] = new int[]{2, 0, 3, 1};
-        expected[14] = new int[]{2, 1, 0, 3};
-        expected[15] = new int[]{2, 1, 3, 0};
-        expected[16] = new int[]{2, 3, 0, 1};
-        expected[17] = new int[]{2, 3, 1, 0};
-        expected[18] = new int[]{3, 0, 1, 2};
-        expected[19] = new int[]{3, 0, 2, 1};
-        expected[20] = new int[]{3, 1, 0, 2};
-        expected[21] = new int[]{3, 1, 2, 0};
-        expected[22] = new int[]{3, 2, 0, 1};
-        expected[23] = new int[]{3, 2, 1, 0};
+        byte[][] expected = new byte[24][4];
+        expected[0] = new byte[]{0, 1, 2, 3};
+        expected[1] = new byte[]{0, 1, 3, 2};
+        expected[2] = new byte[]{0, 2, 1, 3};
+        expected[3] = new byte[]{0, 2, 3, 1};
+        expected[4] = new byte[]{0, 3, 1, 2};
+        expected[5] = new byte[]{0, 3, 2, 1};
+        expected[6] = new byte[]{1, 0, 2, 3};
+        expected[7] = new byte[]{1, 0, 3, 2};
+        expected[8] = new byte[]{1, 2, 0, 3};
+        expected[9] = new byte[]{1, 2, 3, 0};
+        expected[10] = new byte[]{1, 3, 0, 2};
+        expected[11] = new byte[]{1, 3, 2, 0};
+        expected[12] = new byte[]{2, 0, 1, 3};
+        expected[13] = new byte[]{2, 0, 3, 1};
+        expected[14] = new byte[]{2, 1, 0, 3};
+        expected[15] = new byte[]{2, 1, 3, 0};
+        expected[16] = new byte[]{2, 3, 0, 1};
+        expected[17] = new byte[]{2, 3, 1, 0};
+        expected[18] = new byte[]{3, 0, 1, 2};
+        expected[19] = new byte[]{3, 0, 2, 1};
+        expected[20] = new byte[]{3, 1, 0, 2};
+        expected[21] = new byte[]{3, 1, 2, 0};
+        expected[22] = new byte[]{3, 2, 0, 1};
+        expected[23] = new byte[]{3, 2, 1, 0};
 
-        int[][] actuals = this.combi.permutations(4);
+        byte[][] actuals = this.combi.permutations(4);
         for (int i = 0; i < actuals.length; i++) {
             for (int j = 0; j < actuals[i].length; j++) {
                 assertEquals(expected[i][j], actuals[i][j]);
@@ -110,12 +110,12 @@ public class CombinatoricsTest {
     instead storing them in an array) in the lecture material of the course Data structures
     and algorithms (University of Helsinki).
      */
-    public void generatePermutationsNaive(int[] nums, boolean[] used, int k, int[][] permutations) {
+    public void generatePermutationsNaive(byte[] nums, boolean[] used, int k, byte[][] permutations) {
         if (k == nums.length) {
             System.arraycopy(nums, 0, permutations[this.index], 0, permutations[this.index].length);
             this.index++;
         } else {
-            for (int i = 0; i < nums.length; i++) {
+            for (byte i = 0; i < nums.length; i++) {
                 if (used[i] == false) {
                     boolean[] used2 = Arrays.copyOf(used, used.length);
                     used2[i] = true;
@@ -149,10 +149,10 @@ public class CombinatoricsTest {
         factorials[8] = 40320;
         factorials[9] = 362880;
 
-        int[][] expected = new int[factorials[n]][n];
-        generatePermutationsNaive(new int[n], new boolean[n], 0, expected);
+        byte[][] expected = new byte[factorials[n]][n];
+        generatePermutationsNaive(new byte[n], new boolean[n], 0, expected);
 
-        int[][] actuals = this.combi.permutations(n);
+        byte[][] actuals = this.combi.permutations(n);
 
         for (int i = 0; i < actuals.length; i++) {
             for (int j = 0; j < actuals[i].length; j++) {
@@ -163,48 +163,48 @@ public class CombinatoricsTest {
 
     @Test
     public void permutationsTest4() {
-        int[][] expected = new int[24][4];
-        expected[0] = new int[]{0, 1, 2, 3};
-        expected[1] = new int[]{0, 1, 3, 2};
-        expected[2] = new int[]{0, 2, 1, 3};
-        expected[3] = new int[]{0, 2, 3, 1};
-        expected[4] = new int[]{0, 3, 1, 2};
-        expected[5] = new int[]{0, 3, 2, 1};
-        expected[6] = new int[]{1, 0, 2, 3};
-        expected[7] = new int[]{1, 0, 3, 2};
-        expected[8] = new int[]{1, 2, 0, 3};
-        expected[9] = new int[]{1, 2, 3, 0};
-        expected[10] = new int[]{1, 3, 0, 2};
-        expected[11] = new int[]{1, 3, 2, 0};
-        expected[12] = new int[]{2, 0, 1, 3};
-        expected[13] = new int[]{2, 0, 3, 1};
-        expected[14] = new int[]{2, 1, 0, 3};
-        expected[15] = new int[]{2, 1, 3, 0};
-        expected[16] = new int[]{2, 3, 0, 1};
-        expected[17] = new int[]{2, 3, 1, 0};
-        expected[18] = new int[]{3, 0, 1, 2};
-        expected[19] = new int[]{3, 0, 2, 1};
-        expected[20] = new int[]{3, 1, 0, 2};
-        expected[21] = new int[]{3, 1, 2, 0};
-        expected[22] = new int[]{3, 2, 0, 1};
-        expected[23] = new int[]{3, 2, 1, 0};
+        byte[][] expected = new byte[24][4];
+        expected[0] = new byte[]{0, 1, 2, 3};
+        expected[1] = new byte[]{0, 1, 3, 2};
+        expected[2] = new byte[]{0, 2, 1, 3};
+        expected[3] = new byte[]{0, 2, 3, 1};
+        expected[4] = new byte[]{0, 3, 1, 2};
+        expected[5] = new byte[]{0, 3, 2, 1};
+        expected[6] = new byte[]{1, 0, 2, 3};
+        expected[7] = new byte[]{1, 0, 3, 2};
+        expected[8] = new byte[]{1, 2, 0, 3};
+        expected[9] = new byte[]{1, 2, 3, 0};
+        expected[10] = new byte[]{1, 3, 0, 2};
+        expected[11] = new byte[]{1, 3, 2, 0};
+        expected[12] = new byte[]{2, 0, 1, 3};
+        expected[13] = new byte[]{2, 0, 3, 1};
+        expected[14] = new byte[]{2, 1, 0, 3};
+        expected[15] = new byte[]{2, 1, 3, 0};
+        expected[16] = new byte[]{2, 3, 0, 1};
+        expected[17] = new byte[]{2, 3, 1, 0};
+        expected[18] = new byte[]{3, 0, 1, 2};
+        expected[19] = new byte[]{3, 0, 2, 1};
+        expected[20] = new byte[]{3, 1, 0, 2};
+        expected[21] = new byte[]{3, 1, 2, 0};
+        expected[22] = new byte[]{3, 2, 0, 1};
+        expected[23] = new byte[]{3, 2, 1, 0};
 
-        int[][] actuals = this.combi.permutations(4);
+        byte[][] actuals = this.combi.permutations(4);
         for (int i = 0; i < actuals.length; i++) {
             for (int j = 0; j < actuals[i].length; j++) {
                 assertEquals(expected[i][j], actuals[i][j]);
             }
         }
 
-        int[][] expected2 = new int[6][3];
-        expected2[0] = new int[]{0, 1, 2};
-        expected2[1] = new int[]{0, 2, 1};
-        expected2[2] = new int[]{1, 0, 2};
-        expected2[3] = new int[]{1, 2, 0};
-        expected2[4] = new int[]{2, 0, 1};
-        expected2[5] = new int[]{2, 1, 0};
+        byte[][] expected2 = new byte[6][3];
+        expected2[0] = new byte[]{0, 1, 2};
+        expected2[1] = new byte[]{0, 2, 1};
+        expected2[2] = new byte[]{1, 0, 2};
+        expected2[3] = new byte[]{1, 2, 0};
+        expected2[4] = new byte[]{2, 0, 1};
+        expected2[5] = new byte[]{2, 1, 0};
 
-        int[][] actuals2 = this.combi.permutations(3);
+        byte[][] actuals2 = this.combi.permutations(3);
         System.out.println("Len: " + actuals2.length);
         for (int i = 0; i < actuals2.length; i++) {
             for (int j = 0; j < actuals2[i].length; j++) {

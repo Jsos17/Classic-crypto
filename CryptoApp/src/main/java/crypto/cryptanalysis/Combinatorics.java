@@ -11,9 +11,9 @@ package crypto.cryptanalysis;
 public class Combinatorics {
 
     private int index;
-    private int[] nums;
+    private byte[] nums;
     private boolean[] used;
-    private int[][] permutations;
+    private byte[][] permutations;
 
     public Combinatorics() {
     }
@@ -26,12 +26,12 @@ public class Combinatorics {
      * @return A two-dimensional array that contains all the permutations of the
      * numbers 0 to n-1
      */
-    protected int[][] permutations(int n) {
+    protected byte[][] permutations(int n) {
         this.index = 0;
-        this.nums = new int[n];
+        this.nums = new byte[n];
         this.used = new boolean[n];
         int rows = factorial(n);
-        this.permutations = new int[rows][n];
+        this.permutations = new byte[rows][n];
         generatePermutations(0);
         return permutations;
     }
@@ -74,8 +74,8 @@ public class Combinatorics {
                 this.permutations[index][i] = nums[i];
             }
             this.index++;
-        } else  {
-            for (int i = 0; i < this.nums.length; i++) {
+        } else {
+            for (byte i = 0; i < this.nums.length; i++) {
                 if (this.used[i] == false) {
                     this.used[i] = true;
                     this.nums[k] = i;

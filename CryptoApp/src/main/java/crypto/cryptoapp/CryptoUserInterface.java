@@ -192,38 +192,78 @@ public class CryptoUserInterface {
 //        System.out.println(nums.length);
 //        System.out.println(nums[4]);
 
-        
-        
-        
         TranspositionAttack attack = new TranspositionAttack();
-        
-        String text1 = "evlnacdtesearofodeecwiree".toUpperCase();
-        
-        long startTime1 = System.currentTimeMillis();
-        String cand = attack.attackShortKeyWordsNaive(text1);
-        long endTime1 = System.currentTimeMillis();
-        System.out.println("Operaatioon kului aikaa: " + (endTime1 - startTime1) + "ms.");
-        
-        System.out.println(attack.crackWithKey(cand, text1));
 
-        long startTime2 = System.currentTimeMillis();
-        String candi = attack.attackShortKeyWords(text1);
-        long endTime2 = System.currentTimeMillis();
-        System.out.println("Operaatioon kului aikaa: " + (endTime2 - startTime2) + "ms.");
+        String text1 = "evlnacdtesearofodeecwiree".toUpperCase();
+        String text2 = "evlnacdtesearofodeecwiree".toUpperCase();
+        String text3 = "evlnacdtesearofodeecwiree".toUpperCase();
+        String text4 = "evlnacdtesearofodeecwiree".toUpperCase();
+        String text5 = "evlnacdtesearofodeecwiree".toUpperCase();
+        String text6 = "evlnacdtesearofodeecwiree".toUpperCase();
+
+        long startTime = System.currentTimeMillis();
+        attack.attackShortKeyWordsNaive(text1);
+        long endTime = System.currentTimeMillis();
+        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
+
+        startTime = System.currentTimeMillis();
+        attack.attackShortKeyWordsNaive(text2);
+        endTime = System.currentTimeMillis();
+        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
+
+        startTime = System.currentTimeMillis();
+        attack.attackShortKeyWordsNaive(text3);
+        endTime = System.currentTimeMillis();
+        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
         
-        System.out.println(attack.crackWithKey(candi, text1));
+        startTime = System.currentTimeMillis();
+        attack.attackShortKeyWordsNaive(text4);
+        endTime = System.currentTimeMillis();
+        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
         
-        String ciphertext = "QDBSSAGNTDOLLCSERUELAESTOSIOODDUYSANUFRISUIUHARRGAE"
-                + "MLULANORSARCROSMEPDVNUXVSTBCNAFNTIWUZUFIITEISDMOENSEYINUMDIAITACEEHECCC";
-        String cand2 = attack.attackShortKeyWords(ciphertext);
-        System.out.println(attack.crackWithKey(cand2, ciphertext));
+        startTime = System.currentTimeMillis();
+        attack.attackShortKeyWordsNaive(text5);
+        endTime = System.currentTimeMillis();
+        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
         
-        String ciphertext1 = "NSTLEICYEMPMHELGOAAHVCOTBYAAAESEAWAMNERTATHOPFTMZDHAISAALITSUOOAZNSREMSEAVTLETYGUAEGREERNIUAKRNRPSMS";
-        String cand3 = attack.attackShortKeyWords(ciphertext1);
-        System.out.println(attack.crackWithKey(cand3, ciphertext1));
+        startTime = System.currentTimeMillis();
+        attack.attackShortKeyWordsNaive(text6);
+        endTime = System.currentTimeMillis();
+        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
+
+//        System.out.println(attack.crackWithKey(cand, text1));
+//
+//        startTime = System.currentTimeMillis();
+//        String candi = attack.attackShortKeyWordsNaive(text1);
+//        endTime = System.currentTimeMillis();
+//        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
+//
+//        System.out.println(attack.crackWithKey(candi, text1));
+//
+//        String ciphertext = "QDBSSAGNTDOLLCSERUELAESTOSIOODDUYSANUFRISUIUHARRGAE"
+//                + "MLULANORSARCROSMEPDVNUXVSTBCNAFNTIWUZUFIITEISDMOENSEYINUMDIAITACEEHECCC";
+//        startTime = System.currentTimeMillis();
+//        String cand2 = attack.attackShortKeyWordsNaive(ciphertext);
+//        endTime = System.currentTimeMillis();
+//        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
+//        System.out.println(attack.crackWithKey(cand2, ciphertext));
+//
+//        String ciphertext1 = "NSTLEICYEMPMHELGOAAHVCOTBYAAAESEAWAMNERTATHOPFTMZDHAISAALITSUOOAZNSREMSEAVTLETYGUAEGREERNIUAKRNRPSMS";
+//
+//        startTime = System.currentTimeMillis();
+//        String cand3 = attack.attackShortKeyWordsNaive(ciphertext1);
+//        endTime = System.currentTimeMillis();
+//        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
+//        System.out.println(attack.crackWithKey(cand3, ciphertext1));
 //        String text2 = "hmnrnvaicwhtsieiitoawguseint".toUpperCase();
 //        String cand2 = attack.attackShortKeyWordsNaive(text2);
 //        System.out.println(attack.crackWithKey(cand2, text2));
+        int[] table = new int[]{0, 2, 1, 4};
+        byte x = 1;
+        System.out.println(table[x]);
+
+        int[] table2 = table;
+        System.out.println(table2.length);
 
     }
 }

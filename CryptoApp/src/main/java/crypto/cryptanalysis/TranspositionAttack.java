@@ -14,17 +14,19 @@ import crypto.ciphers.TranspositionCipher;
  */
 public class TranspositionAttack {
 
-    private int[] nums;
+    private byte[] nums;
     private boolean[] used;
     private double benchmark;
     private String ciphertext;
     private String keyCandidate;
 
+    private Combinatorics combi;
     private String alphabet;
     private TranspositionCipher ciph;
     private Quadgrams quad;
 
     public TranspositionAttack() {
+        this.combi = new Combinatorics();
         this.alphabet = "abcdefghijklmnopqrstuvwxyz";
         this.ciph = new TranspositionCipher();
         this.quad = new Quadgrams("english_quadgrams.txt");
@@ -57,15 +59,14 @@ public class TranspositionAttack {
      * actual key is irrelevant in a transposition cipher, only the alphabetical
      * order of characters matters.
      */
-    // Current limit set to 8 to speed up tests
+    // Current limit set to 7 to speed up tests
     public String attackShortKeyWordsNaive(String ciphertext2) {
-        Combinatorics combi = new Combinatorics();
         String keyCandidate2 = "a";
         double benchmark2 = this.quad.fitness(this.ciph.decryptSingleTransposition(keyCandidate2, ciphertext2));
 
-        for (int i = 2; i <= 8; i++) {
-            int[][] p = combi.permutations(i);
-            for (int[] p1 : p) {
+        for (byte i = 2; i <= 7; i++) {
+            byte[][] p = combi.permutations(i);
+            for (byte[] p1 : p) {
                 String maybeKey = "";
                 for (int k = 0; k < p1.length; k++) {
                     maybeKey += this.alphabet.charAt(p1[k]);
@@ -102,13 +103,13 @@ public class TranspositionAttack {
      * actual key is irrelevant in a transposition cipher, only the alphabetical
      * order of characters matters.
      */
-    // Current limit set to 8 to speed up tests
+    // Current limit set to 7 to speed up tests
     public String attackShortKeyWords(String ciphertext1) {
         this.ciphertext = ciphertext1;
         this.keyCandidate = "a";
         this.benchmark = this.quad.fitness(this.ciph.decryptSingleTransposition(keyCandidate, this.ciphertext));
 
-        for (int i = 2; i <= 8; i++) {
+        for (int i = 2; i <= 7; i++) {
             attackPermutations(i);
         }
 
@@ -116,7 +117,7 @@ public class TranspositionAttack {
     }
 
     private void attackPermutations(int n) {
-        this.nums = new int[n];
+        this.nums = new byte[n];
         this.used = new boolean[n];
         generateDuringAttack(0);
     }
@@ -135,7 +136,7 @@ public class TranspositionAttack {
                 this.keyCandidate = maybeKey;
             }
         } else {
-            for (int i = 0; i < this.nums.length; i++) {
+            for (byte i = 0; i < this.nums.length; i++) {
                 if (this.used[i] == false) {
                     this.used[i] = true;
                     this.nums[k] = i;

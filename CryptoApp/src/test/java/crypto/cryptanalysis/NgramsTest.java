@@ -5,17 +5,15 @@
  */
 package crypto.cryptanalysis;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.io.PrintStream;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Rule;
-import org.junit.rules.ExpectedException;
 import org.junit.rules.TemporaryFolder;
 
 /**
@@ -24,14 +22,32 @@ import org.junit.rules.TemporaryFolder;
  */
 public class NgramsTest {
 
+    /*
+    The folowing code (initialization and three methods) found in
+    https://stackoverflow.com/questions/1119385/junit-test-for-system-out-println
+    */
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+    private final PrintStream originalOut = System.out;
+    private final PrintStream originalErr = System.err;
+
+    @Before
+    public void setUpStreams() {
+        System.setOut(new PrintStream(outContent));
+        System.setErr(new PrintStream(errContent));
+    }
+
+    @After
+    public void restoreStreams() {
+        System.setOut(originalOut);
+        System.setErr(originalErr);
+    }
+
     @Rule
     public TemporaryFolder testFolder = new TemporaryFolder();
 
     private File testFile;
     private Ngrams ngrams;
-
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
 
     @Before
     public void setUp() throws Exception {
@@ -106,7 +122,7 @@ public class NgramsTest {
         }
 
         Ngrams ngrams2 = new Quadgrams(testFile2.getAbsolutePath());
-        assertEquals(0, ngrams2.getNgramCount("THET"));
+        assertEquals("The file is corrupted\n", errContent.toString());
         testFile2.delete();
     }
 
@@ -120,6 +136,12 @@ public class NgramsTest {
         Ngrams ngrams2 = new Quadgrams(testFile2.getAbsolutePath());
         assertEquals(0, ngrams2.getSampleSize());
         testFile2.delete();
+    }
+    
+    @Test
+    public void nonExistentFileTest() {
+        Ngrams ngrams2 = new Quadgrams("test3.txt");
+        assertEquals("File not found\n", errContent.toString());
     }
 
     @Test

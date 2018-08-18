@@ -51,7 +51,7 @@ public abstract class Ngrams {
                     try {
                         frequency = Long.parseLong(line[1]);
                     } catch (NumberFormatException ne) {
-                        System.out.println("The file is corrupted: " + ne);
+                        System.err.println("The file is corrupted");
                     }
 
                     this.ngramStats.put(line[0], frequency);
@@ -59,7 +59,7 @@ public abstract class Ngrams {
                 }
             }
         } catch (FileNotFoundException exc) {
-            System.out.println(exc);
+            System.err.println("File not found");
         }
 
         return this.sampleSize;
