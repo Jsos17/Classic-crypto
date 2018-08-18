@@ -20,16 +20,29 @@ public class Combinatorics {
 
     /**
      * This method generates all the permutations of the numbers 0 to n-1, and
-     * stores them in a two-dimensional array.
+     * stores them in a two-dimensional byte array.
+     *
+     * This is an exponential algorithm hence the n should be small, and because
+     * the algorithm is only intended to be used for small n, byte arrays are
+     * used.
      *
      * @param n The number of elements to be permuted
-     * @return A two-dimensional array that contains all the permutations of the
-     * numbers 0 to n-1
+     * @return A two-dimensional byte array that contains all the possible
+     * permutations of the numbers 0 to n-1. In each row there is a permutation,
+     * and the columns consist of the numbers 0 to n-1.
      */
     protected byte[][] permutations(int n) {
+        if (n <= 0) {
+            return new byte[0][0];
+        }
+
         this.index = 0;
         this.nums = new byte[n];
         this.used = new boolean[n];
+        for (int i = 0; i < this.used.length; i++) {
+            this.used[i] = false;
+        }
+
         int rows = factorial(n);
         this.permutations = new byte[rows][n];
         generatePermutations(0);

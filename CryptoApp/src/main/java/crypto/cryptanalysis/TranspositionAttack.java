@@ -59,12 +59,12 @@ public class TranspositionAttack {
      * actual key is irrelevant in a transposition cipher, only the alphabetical
      * order of characters matters.
      */
-    // Current limit set to 7 to speed up tests
+    // Current limit set to 8 to speed up tests
     public String attackShortKeyWordsNaive(String ciphertext2) {
         String keyCandidate2 = "a";
         double benchmark2 = this.quad.fitness(this.ciph.decryptSingleTransposition(keyCandidate2, ciphertext2));
 
-        for (byte i = 2; i <= 7; i++) {
+        for (byte i = 2; i <= 8; i++) {
             byte[][] p = combi.permutations(i);
             for (byte[] p1 : p) {
                 String maybeKey = "";
@@ -103,13 +103,13 @@ public class TranspositionAttack {
      * actual key is irrelevant in a transposition cipher, only the alphabetical
      * order of characters matters.
      */
-    // Current limit set to 7 to speed up tests
+    // Current limit set to 8 to speed up tests
     public String attackShortKeyWords(String ciphertext1) {
         this.ciphertext = ciphertext1;
         this.keyCandidate = "a";
         this.benchmark = this.quad.fitness(this.ciph.decryptSingleTransposition(keyCandidate, this.ciphertext));
 
-        for (int i = 2; i <= 7; i++) {
+        for (int i = 2; i <= 8; i++) {
             attackPermutations(i);
         }
 

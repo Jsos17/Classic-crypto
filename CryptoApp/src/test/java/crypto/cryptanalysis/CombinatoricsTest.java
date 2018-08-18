@@ -212,4 +212,16 @@ public class CombinatoricsTest {
             }
         }
     }
+
+    @Test
+    public void permutationsCornerCase1() {
+        byte[][] expected = new byte[0][0];
+        assertArrayEquals(expected, this.combi.permutations(0));
+    }
+
+    @Test
+    public void permutationsCornerCase2() {
+        byte[][] expected = new byte[0][0];
+        assertArrayEquals(expected, this.combi.permutations(-42));
+    }
 }
