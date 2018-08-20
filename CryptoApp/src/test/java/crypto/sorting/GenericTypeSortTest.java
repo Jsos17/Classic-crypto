@@ -119,7 +119,7 @@ public class GenericTypeSortTest {
         for (int i = 0; i < 100; i++) {
             Double value = rand2.nextDouble();
             nums1[i] = value;
-            nums2[i] = value;
+            nums2[99 - i] = value;
         }
 
         Arrays.sort(nums1);
@@ -140,13 +140,13 @@ public class GenericTypeSortTest {
             nums2[i] = value;
         }
 
-        GenericTypeSort.insertionSort(nums1);
+        Arrays.sort(nums1);
         GenericTypeSort.iterativeMergeSort(nums2);
         for (int i = 0; i < 100; i++) {
             assertEquals(nums1[i], nums2[i]);
         }
     }
-    
+
     @Test
     public void genericMergeSortTest2() {
         Integer[] nums1 = new Integer[1001];
@@ -156,7 +156,6 @@ public class GenericTypeSortTest {
             nums2[i] = 1000 - i;
         }
 
-        GenericTypeSort.insertionSort(nums1);
         GenericTypeSort.iterativeMergeSort(nums2);
         for (int i = 0; i < 1001; i++) {
             assertEquals(nums1[i], nums2[i]);
@@ -180,5 +179,4 @@ public class GenericTypeSortTest {
             assertEquals(this.cIdxControls[i], this.cIdxOwns[i]);
         }
     }
-
 }

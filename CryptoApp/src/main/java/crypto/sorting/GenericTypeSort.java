@@ -5,8 +5,6 @@
  */
 package crypto.sorting;
 
-import java.lang.reflect.Array;
-
 /**
  * This class will implement sorting algorithms for non-primitive data types.
  *
@@ -73,9 +71,8 @@ public class GenericTypeSort {
     protected static <T extends Comparable<? super T>> void merge(T[] array, int left, int middle, int right) {
         int n1 = middle - left + 1;
         int n2 = right - middle;
-        Class type = array.getClass().getComponentType();
-        T[] leftArray = (T[]) Array.newInstance(type, n1);
-        T[] rightArray = (T[]) Array.newInstance(type, n2);
+        T[] leftArray = (T[]) new Comparable[n1];
+        T[] rightArray = (T[]) new Comparable[n2];
         for (int idx = 0; idx < n1; idx++) {
             leftArray[idx] = array[left + idx];
         }
