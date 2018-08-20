@@ -21,3 +21,5 @@
 | 16.8. | 9 | Testien luonnin jatkoa, työmäärältään hyvin massiivisen testin luonti IndexOfCoincidence-luokalle taulukkolaskentaohjelman avulla ja jo testattujen oman ohjelman funktioiden avulla (osajonojen tulostus ja osajonon dekryptaus jokaisella aakkosella), Perehtymistä Transposition cipherin murtamiseen |
 | 17.8. | 15 | Transposition cipherin murtaminen lyhyillä avaimilla käyden läpi kaikki avaimen kirjainten järjestysten permutaatiot läpi, quad-, tri, bi ja monogram statistiikan laskeminen tekstitiedostossa olevan datan perusteella, permutaatioiden generointi, kaikille näille testejä. Dokumentaation päivittämistä |
 | Viikko 5 |
+| 18.8. | 1 | Combinatorics-luokan optimoinnin kokeilua (josta lopulta vain taulukoiden int[] -> byte[] muutos päätyi koodiin), Ngrams -luokan tekstitiedoston lukemisen virhetilanteille testejä |
+| 20.8. | ? | |
