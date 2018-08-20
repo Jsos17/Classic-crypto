@@ -34,28 +34,28 @@ public class TranspositionCipherTest {
 
     @Test
     public void encryptSingleTranspositionTest2() {
-        assertEquals("hmnrnvaicwhtsieiitoawguseint", tr.encryptSingleTransposition("ciaman", "wehavehimwaitinginstructions"));
+        assertEquals("hmnrnwhtsivaiceiitoawguseint", tr.encryptSingleTransposition("ciamen", "wehavehimwaitinginstructions"));
     }
 
     @Test
     public void encryptSingleTranspositionTest3() {
-        assertEquals("aotpheionnissstmoittnrie", tr.encryptSingleTransposition("nsaciakgb", "transpositionthisonetime"));
+        assertEquals("aihtpooesismntiitonnrste", tr.encryptSingleTransposition("nsakgb", "transpositionthisonetime"));
     }
 
     @Test
     public void decryptSingleTranspositionTest1() {
-        assertEquals("mattimeikäläinen", tr.decryptSingleTransposition("nsaciakgb", "tämektiiinenmäal"));
+        assertEquals("mattimeikäläinen", tr.decryptSingleTransposition("nsakgb", "tkemäiltänmeiain"));
     }
 
     @Test
     public void decryptSingleTranspositionTest2() {
-        assertEquals("herra47kummelipulttibois", tr.decryptSingleTransposition("nsaciakgb", "reb4psutrloklaii7uhmtemi"));
+        assertEquals("herra47kummelipulttibois", tr.decryptSingleTransposition("nsakgb", "rupb4etsamlirmuoh7ltekii"));
     }
 
     @Test
     public void decryptSingleTranspositionTest3() {
         assertEquals("keyswereeasilychangedbychangingtherotordisksandtheplugboardwires",
-                tr.decryptSingleTransposition("nsaciakgb", "yidnrtaecchspwennoageslbgdhreaarsurwyytiedrhheklikaggtnbseseiodo"));
+                tr.decryptSingleTransposition("nsakgb", "yecdnhrapaeeincnostgwwsayiridudsahbgednlrskrlghgtkhbieeyeatoseor"));
     }
 
     @Test
@@ -81,13 +81,13 @@ public class TranspositionCipherTest {
     @Test
     public void decryptDoubleTranspositionTest1() {
         assertEquals("The key is generated from the message in some automated fashion",
-                tr.decryptDoubleTransposition("hello", "world", "faem to eedeasT me notenyefr ehtnik dgeo   saemsahhta giruissmo"));
+                tr.decryptDoubleTransposition("helou", "world", "faem to eedeasT me notenyefr ehtnik dgeo   saemsahhta giruissmo"));
     }
 
     @Test
     public void decryptDoubleTranspositionTest2() {
         assertEquals("Ciphers, on the other hand, work at a lower level: the level of individual letters, small groups of letters, or, in modern schemes, individual bits and blocks of bits.",
-                tr.decryptDoubleTransposition("linguistics", "mathematics", "rlre.  hbg n s  ldsl: stntrnhuo etn,ebrvtdftehehct a,lps  todriiioi ls a lsloei ur  vsmlw no,rtce  ieofrl, iei loddhdp ,eseiaiuhCnvwnof vkbteremaoeo  slaas, eal kmeodt"));
+                tr.decryptDoubleTransposition("enigma", "lorenz", "als Caa i tlso,ffdewe ah:mnsretinh gebairl lrmbhep,.kituoneisrtnd vuss veanv,doelrmi e ecn  ihol, e a  wilvi lotte h rdtdoesolreoettds , e   u,btlsrk   ipl rsohlcfdoon"));
     }
 
     @Test
@@ -114,7 +114,7 @@ public class TranspositionCipherTest {
 
     @Test
     public void decryptCornerCaseTest1() {
-        assertEquals("rotor disk", tr.decryptSingleTransposition("color", "r tiodosrk"));
+        assertEquals("rotor disk", tr.decryptSingleTransposition("mind", "oio krrstd"));
     }
 
     @Test
@@ -125,5 +125,11 @@ public class TranspositionCipherTest {
     @Test
     public void decryptCornerCaseTest3() {
         assertEquals("", tr.decryptSingleTransposition("enigma", ""));
+    }
+
+    @Test
+    public void sortChoiceTest() {
+        assertEquals("plreryilomrmpelucryaoiet pi me ioare t  cvur- lpmRer imoo",
+                tr.encryptSingleTransposition("uncopyrightable", "Relatively prime or mutually prime or coprime or co-prime"));
     }
 }

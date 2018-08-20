@@ -23,23 +23,19 @@ import org.junit.rules.TemporaryFolder;
 public class NgramsTest {
 
     /*
-    The folowing code (initialization and three methods) found in
+    The following code adapted from (initialization and three methods) found in
     https://stackoverflow.com/questions/1119385/junit-test-for-system-out-println
-    */
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+     */
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
-    private final PrintStream originalOut = System.out;
     private final PrintStream originalErr = System.err;
 
     @Before
     public void setUpStreams() {
-        System.setOut(new PrintStream(outContent));
         System.setErr(new PrintStream(errContent));
     }
 
     @After
     public void restoreStreams() {
-        System.setOut(originalOut);
         System.setErr(originalErr);
     }
 
@@ -137,7 +133,7 @@ public class NgramsTest {
         assertEquals(0, ngrams2.getSampleSize());
         testFile2.delete();
     }
-    
+
     @Test
     public void nonExistentFileTest() {
         Ngrams ngrams2 = new Quadgrams("test3.txt");

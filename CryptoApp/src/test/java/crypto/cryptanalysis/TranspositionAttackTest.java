@@ -32,20 +32,20 @@ public class TranspositionAttackTest {
     @Test
     public void attackShortKeyWordsNaiveTest1() {
         String ciphertext = "TTRTROTOOEOAMWNZCOAZEAKRTER";
-        assertEquals("eabcd", attack.attackShortKeyWordsNaive(ciphertext));
+        assertEquals("eabcd", attack.attackShortKeyWordsPreGenerated(ciphertext));
     }
 
     @Test
     public void attackShortKeyWordsTest1() {
         String ciphertext = "TTRTROTOOEOAMWNZCOAZEAKRTER";
-        assertEquals("eabcd", attack.attackShortKeyWords(ciphertext));
+        assertEquals("eabcd", attack.attackShortKeyWordsDynamic(ciphertext));
     }
 
     @Test
     public void crackWithKeyTest1() {
         String ciphertext = "QDBSSAGNTDOLLCSERUELAESTOSIOODDUYSANUFRISUIUHARRGAE"
                 + "MLULANORSARCROSMEPDVNUXVSTBCNAFNTIWUZUFIITEISDMOENSEYINUMDIAITACEEHECCC";
-        String keycandidate = attack.attackShortKeyWords(ciphertext);
+        String keycandidate = attack.attackShortKeyWordsDynamic(ciphertext);
         assertEquals("AFREQUENCYDISTRIBUTIONSHOWSUSASUMMARIZEDGROUPING"
                 + "OFDATADIVIDEDINTOMUTUALLYEXCLUSIVECLASSESANDTHENUMBER"
                 + "OFOCCURRENCESINACLASS", attack.crackWithKey(keycandidate, ciphertext));
@@ -54,7 +54,7 @@ public class TranspositionAttackTest {
     @Test
     public void crackWithKeyTest2() {
         String ciphertext = "NSTLEICYEMPMHELGOAAHVCOTBYAAAESEAWAMNERTATHOPFTMZDHAISAALITSUOOAZNSREMSEAVTLETYGUAEGREERNIUAKRNRPSMS";
-        String keycandidate = attack.attackShortKeyWords(ciphertext);
+        String keycandidate = attack.attackShortKeyWordsDynamic(ciphertext);
         assertEquals("ANAGRAMSAREINTHEMSELVESARECREATIONALACTIVITYBUTTHEYALSOMAKEUPPARTOFMANYOTHERGAMESPUZZLESANDGAMESHOWS", 
                 attack.crackWithKey(keycandidate, ciphertext));
     }

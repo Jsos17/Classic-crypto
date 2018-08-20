@@ -32,7 +32,7 @@ public class TranspositionCipher {
         }
 
         // THRESHOLD: to be decided, just a placeholder value
-        final int THRESHOLD = 20;
+        final int THRESHOLD = 14;
         if (key.length() < THRESHOLD) {
             GenericTypeSort.insertionSort(charIdxPairs);
         } else {

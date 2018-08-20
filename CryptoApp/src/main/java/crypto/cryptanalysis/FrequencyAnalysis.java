@@ -76,6 +76,10 @@ public class FrequencyAnalysis {
      */
     public long[] countOccurrences(String text) {
         long[] occurrences = new long[this.alphabet.length()];
+        for (int i = 0; i < occurrences.length; i++) {
+            occurrences[i] = 0l;
+        }
+
         for (int i = 0; i < text.length(); i++) {
             if (this.alphabetIndexes.containsKey(text.charAt(i))) {
                 occurrences[this.alphabetIndexes.get(text.charAt(i))] += 1;

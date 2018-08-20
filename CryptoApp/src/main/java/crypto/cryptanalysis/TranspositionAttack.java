@@ -36,10 +36,10 @@ public class TranspositionAttack {
      * The naive version of going through all possible transposition keys of
      * length 1 to 8. This method works as a benchmark for correctness, since
      * the algorithm producing the permutations has been tested exactly as it
-     * is. The somewhat faster version attackShortKeyWords is preferred to this
-     * method.
+     * is. The somewhat faster version attackShortKeyWordsDynamic is preferred
+     * to this method.
      *
-     * @see #attackShortKeyWords(String ciphertext1)
+     * @see #attackShortKeyWordsDynamic(String)
      *
      * Note that the actual characters of the key are not important. Only the
      * alphabetical order of the characters in the key are important, hence only
@@ -60,7 +60,7 @@ public class TranspositionAttack {
      * order of characters matters.
      */
     // Current limit set to 8 to speed up tests
-    public String attackShortKeyWordsNaive(String ciphertext2) {
+    public String attackShortKeyWordsPreGenerated(String ciphertext2) {
         String keyCandidate2 = "a";
         double benchmark2 = this.quad.fitness(this.ciph.decryptSingleTransposition(keyCandidate2, ciphertext2));
 
@@ -83,13 +83,15 @@ public class TranspositionAttack {
     }
 
     /**
-     * A possibly faster and memory-wise less expensive version of going through
-     * all possible transposition keys of length 1 to 8. This version does not
-     * build a two dimensional to store all the possible permutations, and
-     * instead once a permutation has been generated, then the fitness value
-     * produced by the trial decryption with that particular permutation of the
-     * key is calculated and, if it is the highest value thus far, it becomes
-     * the new benchmark.
+     * A different version of going through all possible transposition keys of
+     * length 1 to 8 that calculates values while generating permutations. This
+     * version does not build a two dimensional array to store all the possible
+     * permutations, and instead once a permutation has been generated, then the
+     * fitness value produced by the trial decryption with that particular
+     * permutation of the key is calculated and, if it is the highest value thus
+     * far, it becomes the new benchmark.
+     *
+     * @see #attackShortKeyWordsPreGenerated(String)
      *
      * This method does not always produce the right answer if the ciphertext is
      * short.
@@ -104,7 +106,7 @@ public class TranspositionAttack {
      * order of characters matters.
      */
     // Current limit set to 8 to speed up tests
-    public String attackShortKeyWords(String ciphertext1) {
+    public String attackShortKeyWordsDynamic(String ciphertext1) {
         this.ciphertext = ciphertext1;
         this.keyCandidate = "a";
         this.benchmark = this.quad.fitness(this.ciph.decryptSingleTransposition(keyCandidate, this.ciphertext));

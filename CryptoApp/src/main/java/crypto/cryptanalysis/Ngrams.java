@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 /**
  * This class is an abstract class to facilitate statistical calculations that
- * relate to n-grams i.e. to substrings of a piece of text that is of length n.
+ * relate to n-grams i.e. to substrings of a piece of text that are of length n.
  *
  * @author jpssilve
  */
@@ -23,6 +23,17 @@ public abstract class Ngrams {
     private long sampleSize;
     private final HashMap<String, Long> ngramStats;
 
+    /**
+     *
+     * @param n The desired n-gram substring length i.e. monogram is 1-gram and
+     * is related to frequencies of single letter in a text, bigram (2-gram) is
+     * related to frequencies of letter pairs in a text etc.
+     * @param filename A text file which contains data related to the specified
+     * n-gram. For each row the file should have the n-gram string, then a
+     * single space and finally the count of said n-grams in sample text. If the
+     * file violates this rule, then the results most likely will not be
+     * accurate.
+     */
     public Ngrams(int n, String filename) {
         this.n = n;
         this.filename = filename;
@@ -37,7 +48,7 @@ public abstract class Ngrams {
 
     /**
      * Reads the n-gram statistical data from a text file and then stores it in
-     * a hash table
+     * a hash table. The text file is provided as a constructor parameter.
      *
      * @return The sample size of the statistical data contained in the text
      * file
@@ -50,12 +61,11 @@ public abstract class Ngrams {
                     long frequency = 0;
                     try {
                         frequency = Long.parseLong(line[1]);
+                        this.ngramStats.put(line[0], frequency);
+                        this.sampleSize += frequency;
                     } catch (NumberFormatException ne) {
                         System.err.println("The file is corrupted");
                     }
-
-                    this.ngramStats.put(line[0], frequency);
-                    this.sampleSize += frequency;
                 }
             }
         } catch (FileNotFoundException exc) {
