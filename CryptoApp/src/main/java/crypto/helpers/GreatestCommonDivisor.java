@@ -27,7 +27,7 @@ public class GreatestCommonDivisor {
      * was negative then -1
      */
     public long euclidRecursive(long a, long b) {
-        if (b < 0 || a < 0) {
+        if (a < 0 || b < 0) {
             return -1;
         }
 
@@ -51,7 +51,7 @@ public class GreatestCommonDivisor {
      * was negative then -1
      */
     public long euclidIterative(long a, long b) {
-        if (b < 0 || a < 0) {
+        if (a < 0 || b < 0) {
             return -1;
         }
 
@@ -63,9 +63,18 @@ public class GreatestCommonDivisor {
 
         return a;
     }
-    
+
+    /**
+     * The same as euclidIterative(long a, long b) but using ints.
+     *
+     * @see euclidIterative(int a, int b)
+     * @param a A non-negative integer
+     * @param b A non-negative integer
+     * @return The greatest common divisor of the parameters or if one of them
+     * was negative then -1
+     */
     public int euclidIterative(int a, int b) {
-        if (b < 0 || a < 0) {
+        if (a < 0 || b < 0) {
             return -1;
         }
 

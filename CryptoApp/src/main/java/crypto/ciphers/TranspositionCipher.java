@@ -94,8 +94,8 @@ public class TranspositionCipher {
 
         for (int j = 0; j < pairOrder.length; j++) {
             for (int i = 0; i < rows; i++) {
-                if (matrix[i][pairOrder[j].getNumber()] != '\u0000') {
-                    encryptedMessage += Character.toString(matrix[i][pairOrder[j].getNumber()]);
+                if (matrix[i][pairOrder[j].getIndex()] != '\u0000') {
+                    encryptedMessage += Character.toString(matrix[i][pairOrder[j].getIndex()]);
                 }
             }
         }
@@ -196,13 +196,13 @@ public class TranspositionCipher {
         int j = 0;
         int k = 0;
         while (k < ciphertext.length()) {
-            int colIndex = pairOrder[j].getNumber();
+            int colIndex = pairOrder[j].getIndex();
             if ((colIndex >= remainder && i == regularRows) || (colIndex < remainder && i == rows)) {
                 i = 0;
                 j++;
             }
 
-            matrix[i][pairOrder[j].getNumber()] = ciphertext.charAt(k);
+            matrix[i][pairOrder[j].getIndex()] = ciphertext.charAt(k);
             i++;
             k++;
         }

@@ -14,16 +14,16 @@ package crypto.ciphers;
 public class CharIndexPair implements Comparable<CharIndexPair> {
 
     private char c;
-    private int number;
+    private int index;
 
     /**
      *
      * @param c The character found in the key
-     * @param number The index of the character within the key String
+     * @param index The index of the character within the key String
      */
-    public CharIndexPair(char c, int number) {
+    public CharIndexPair(char c, int index) {
         this.c = c;
-        this.number = number;
+        this.index = index;
     }
 
     /**
@@ -38,8 +38,8 @@ public class CharIndexPair implements Comparable<CharIndexPair> {
      *
      * @return The index of the character within the key String
      */
-    public int getNumber() {
-        return this.number;
+    public int getIndex() {
+        return this.index;
     }
 
     @Override
@@ -50,7 +50,7 @@ public class CharIndexPair implements Comparable<CharIndexPair> {
 
         CharIndexPair comparison = (CharIndexPair) obj;
 
-        if (this.c == comparison.c && this.number == comparison.number) {
+        if (this.c == comparison.c && this.index == comparison.index) {
             return true;
         } else {
             return false;
@@ -61,7 +61,7 @@ public class CharIndexPair implements Comparable<CharIndexPair> {
     public int hashCode() {
         int hash = 7;
         hash = 43 * hash + this.c;
-        hash = 43 * hash + this.number;
+        hash = 43 * hash + this.index;
         return hash;
     }
 
