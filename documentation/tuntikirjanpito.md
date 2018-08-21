@@ -22,4 +22,5 @@
 | 17.8. | 15 | Transposition cipherin murtaminen lyhyillä avaimilla käyden läpi kaikki avaimen kirjainten järjestysten permutaatiot läpi, quad-, tri, bi ja monogram statistiikan laskeminen tekstitiedostossa olevan datan perusteella, permutaatioiden generointi, kaikille näille testejä. Dokumentaation päivittämistä |
 | Viikko 5 |
 | 18.8. | 1 | Combinatorics-luokan optimoinnin kokeilua (josta lopulta vain taulukoiden int[] -> byte[] muutos päätyi koodiin), Ngrams -luokan tekstitiedoston lukemisen virhetilanteille testejä |
-| 20.8. | ? | |
+| 20.8. | 3 |  Hajautustaulujen toteutukseen liittyvä tutkimus |
+| 21.8. | 6 | Lisää tutkimusta, kahteen suuntaan linkitetyn listan toteutus ja testit, ja yhteentörmäykset chainingilla ratkaisevan perushajautustaulun toteutuksen aloitus |
