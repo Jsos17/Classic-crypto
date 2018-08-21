@@ -5,8 +5,6 @@
  */
 package crypto.datastructures;
 
-import java.util.Objects;
-
 /**
  *
  * @author jpssilve

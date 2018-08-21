@@ -74,7 +74,7 @@ public class HashTable {
 
     public ListNode hashSearch(Object obj) {
         if (this.hashtable[hashFunction(obj)] == null) {
-            this.hashtable[hashFunction(obj)] = new DoublyLinkedList();
+            return null;
         }
 
         DoublyLinkedList list = this.hashtable[hashFunction(obj)];

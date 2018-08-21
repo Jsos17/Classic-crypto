@@ -128,7 +128,7 @@ public class CombinatoricsTest {
 
     /*
     Test done with the help of the naive version of the generate permutations algorithm
-    which is almost identical implementation of the pseudo code found in the lecture 
+    which is almost identical implementation of the pseudocode found in the lecture
     material of the course Data structures and algorithms (University of Helsinki).
     
     Permutations are generated for random n, where n = 1,..,9
