@@ -33,11 +33,10 @@ public class TranspositionAttack {
     }
 
     /**
-     * The naive version of going through all possible transposition keys of
+     * A basic version of going through all possible transposition keys of
      * length 1 to 8. This method works as a benchmark for correctness, since
      * the algorithm producing the permutations has been tested exactly as it
-     * is. The somewhat faster version attackShortKeyWordsDynamic is preferred
-     * to this method.
+     * is.
      *
      * @see #attackShortKeyWordsDynamic(String)
      *
