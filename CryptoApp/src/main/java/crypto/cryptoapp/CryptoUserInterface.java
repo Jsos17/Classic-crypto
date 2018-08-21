@@ -15,6 +15,7 @@ import crypto.cryptanalysis.IndexOfCoincidence;
 import crypto.cryptanalysis.Quadgrams;
 import crypto.cryptanalysis.Combinatorics;
 import crypto.cryptanalysis.TranspositionAttack;
+import crypto.datastructures.HashTable;
 import crypto.helpers.GreatestCommonDivisor;
 import crypto.sorting.GenericTypeSort;
 import crypto.sorting.PrimitiveTypeSort;
@@ -264,6 +265,8 @@ public class CryptoUserInterface {
 
         int[] table2 = table;
         System.out.println(table2.length);
+        
+        HashTable ht = new HashTable();
 
     }
 }

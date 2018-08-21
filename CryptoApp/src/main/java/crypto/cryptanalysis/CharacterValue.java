@@ -43,11 +43,7 @@ public class CharacterValue implements Comparable<CharacterValue> {
 
         CharacterValue comparison = (CharacterValue) obj;
 
-        if (this.character == comparison.character && Double.valueOf(this.value).equals(comparison.value)) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.character == comparison.character && Double.valueOf(this.value).equals(comparison.value);
     }
 
     @Override

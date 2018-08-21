@@ -5,8 +5,6 @@
  */
 package crypto.sorting;
 
-import java.lang.reflect.Array;
-
 /**
  * This class will implement sorting algorithms for primitive data types.
  *
