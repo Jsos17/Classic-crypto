@@ -5,16 +5,18 @@
  */
 package crypto.datastructures;
 
+import java.util.Objects;
+
 /**
  *
  * @author jpssilve
  */
 public class ListNode {
-    
+
     private Object obj;
-    public ListNode next;
-    public ListNode prev;
-    
+    protected ListNode next;
+    protected ListNode prev;
+
     public ListNode(Object obj, ListNode next, ListNode prev) {
         this.obj = obj;
         this.next = next;
