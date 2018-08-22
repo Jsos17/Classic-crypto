@@ -5,8 +5,6 @@
  */
 package crypto.ciphers;
 
-import java.util.HashMap;
-
 /**
  * This class implements the basic Vigenere cipher that uses the latin 26
  * character alphabet.
@@ -16,7 +14,6 @@ import java.util.HashMap;
 public class VigenereCipher {
 
     private char[] alphabet;
-    private HashMap<Character, Integer> abcNumbers;
     private int modulus;
 
     /**
@@ -25,23 +22,12 @@ public class VigenereCipher {
     public VigenereCipher() {
         this.alphabet = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
             'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
-        this.abcNumbers = new HashMap<>();
         this.modulus = this.alphabet.length;
-        hashAlphabet();
     }
 
-    protected void scrambleAlphabet(String alphabet) {
-        String abc = alphabet.trim().toLowerCase();
-        this.alphabet = abc.toCharArray();
-        this.modulus = this.alphabet.length;
-        this.abcNumbers.clear();
-        hashAlphabet();
-    }
-
-    private void hashAlphabet() {
-        for (int i = 0; i < this.alphabet.length; i++) {
-            this.abcNumbers.put(this.alphabet[i], i);
-        }
+    protected void setAlpahabet(char[] alphabet) {
+        this.alphabet = alphabet;
+        this.modulus = alphabet.length;
     }
 
     /**
@@ -71,6 +57,29 @@ public class VigenereCipher {
         }
 
         return keyMultiple;
+    }
+
+    /**
+     * This method maps the standard Latin alphabet abcdefghijklmnopqrstuvwxyz
+     * to the respective indexes 012345678910111213141516171819202122232425. It
+     * takes advantage of the ASCII/Unicode value of the corresponding lowercase
+     * characters, and the fact that, all the lowercase Latin alphabet
+     * characters are in consecutive order in ASCII/Unicode, and thus we can use
+     * the value of 'a' as the modulus and calculate the right index based on
+     * that.
+     *
+     * @param character Any character in the string abcdefghijklmnopqrstuvwxyz,
+     * any other character defaults to 0
+     * @return 0 for a, 1 for b, 2, c and so on for the standard Latin alphabet
+     * characters, any other character defaults to 0
+     */
+    protected int mapCharToIndex(char character) {
+        if (character < 'a' || character > 'z') {
+            return 0;
+        }
+
+        int m = (int) 'a';
+        return character % m;
     }
 
     /**
@@ -110,8 +119,8 @@ public class VigenereCipher {
         char[] encryptedChars = new char[plaintextLowerCase.length()];
 
         for (int i = 0; i < plaintextLowerCase.length(); i++) {
-            int keyAlphabetNum = this.abcNumbers.getOrDefault(encryptKey.charAt(i), 0);
-            int plaintextAlphabetNum = this.abcNumbers.getOrDefault(plaintextLowerCase.charAt(i), 0);
+            int keyAlphabetNum = mapCharToIndex(encryptKey.charAt(i));
+            int plaintextAlphabetNum = mapCharToIndex(plaintextLowerCase.charAt(i));
 
             encryptedChars[i] = this.alphabet[(keyAlphabetNum + plaintextAlphabetNum) % this.modulus];
         }
@@ -150,9 +159,8 @@ public class VigenereCipher {
         char[] decryptedChars = new char[ciphertextLowerCase.length()];
 
         for (int i = 0; i < ciphertextLowerCase.length(); i++) {
-            int keyAlphabetNum = abcNumbers.getOrDefault(decryptKey.charAt(i), 0);
-            int ciphertextAlphabetNum = abcNumbers.getOrDefault(ciphertextLowerCase.charAt(i), 0);
-
+            int keyAlphabetNum = mapCharToIndex(decryptKey.charAt(i));
+            int ciphertextAlphabetNum = mapCharToIndex(ciphertextLowerCase.charAt(i));
             decryptedChars[i] = alphabet[(((ciphertextAlphabetNum - keyAlphabetNum) % modulus) + modulus) % modulus];
         }
 

@@ -141,7 +141,7 @@ public class NgramsTest {
     }
 
     @Test
-    public void monoBiTriQuadgramsTest1() {
+    public void monoBiTrigramsTest1() {
         Monograms mono = new Monograms("english_monograms.txt");
         Bigrams bi = new Bigrams("english_bigrams.txt");
         Trigrams tri = new Trigrams("english_trigrams.txt");
@@ -154,4 +154,5 @@ public class NgramsTest {
         assertEquals(3920675l, bi.getNgramCount("GS"));
         assertEquals(3317738l, tri.getNgramCount("UGH"));
     }
+
 }

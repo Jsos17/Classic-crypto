@@ -30,6 +30,18 @@ public class KeyedVigenereCipherTest {
     }
 
     @Test
+    public void hashFunctionMapsToUniqueIndexes() {
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        int primeModulus = 29;
+
+        int prev = alphabet.charAt(0) % primeModulus;
+        for (int i = 1; i < alphabet.length(); i++) {
+            assertNotEquals(prev, alphabet.charAt(i) % primeModulus);
+            prev = alphabet.charAt(i) % primeModulus;
+        }
+    }
+
+    @Test
     public void encryptTest1() {
         assertEquals("twjshmfhgyzqnujnormjxikavucsjxxndalnlflirzjdmaitesjmubzzxjxnbiqjyzczlfpvkbbzjhdzbvklkaxdzxykkeqysscvtmkhxidjc",
                 kvig.encrypt("whitehouse", "acryptanalystlooksforrepeatedgroupsoflettersandcountsthenumberoflettersbetweenthebeginningofeachrepeatedgroup"));

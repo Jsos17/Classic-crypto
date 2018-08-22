@@ -5,8 +5,6 @@
  */
 package crypto.ciphers;
 
-import java.util.HashMap;
-
 /**
  * This class implements the variation of Vigenere cipher where the standard
  * alphabet is disrupted from the beginning by inserting an alphabet key which
@@ -17,6 +15,19 @@ import java.util.HashMap;
  */
 public class KeyedVigenereCipher extends VigenereCipher {
 
+    private int[] charMap;
+    /**
+     * The primeModulus is chosen to be 29 because since the ASCII code of each
+     * of the characters maps to a unique index in the range 0 to 28 when the
+     * calculation ASCII value mod primeModulus is performed, and also it is
+     * very close to the actual alphabet size.
+     *
+     * Thus it is a simple hashing tool that aids to convert a particular
+     * character into its right index in the modified alphabetical order of the
+     * keyed Vigenere cipher.
+     */
+    private final int primeModulus;
+
     /**
      *
      * @param alphabetKey The alphabet key should contain only the standard 26
@@ -26,16 +37,31 @@ public class KeyedVigenereCipher extends VigenereCipher {
      */
     public KeyedVigenereCipher(String alphabetKey) {
         super();
-        super.scrambleAlphabet(buildAlphabet(alphabetKey.toLowerCase(), hashAlphabet("abcdefghijklmnopqrstuvwxyz".toCharArray())));
+        this.primeModulus = 29;
+        this.charMap = new int[this.primeModulus];
+        String alphabet = buildAlphabet(alphabetKey.toLowerCase());
+        super.setAlpahabet(alphabet.toCharArray());
+        /**
+         * If the alphabetKey was "kryptos" for example, then k maps to 0, r to
+         * 1, y to 2, and so on, and the rest of the unused alphabetical
+         * characters map to the remaining numbers 7 to 25 by their natural
+         * alphabetical order. These character value pairs are stored in this
+         * table using the hash function ASCII code % primeModulus, which gives
+         * unique indexes to these 26 standard Latin alphabet characters.
+         */
+        for (int i = 0; i < alphabet.length(); i++) {
+            int index = alphabet.charAt(i) % this.primeModulus;
+            this.charMap[index] = i;
+        }
     }
 
-    private HashMap<Character, Integer> hashAlphabet(char[] alphabet) {
-        HashMap<Character, Integer> abcNums = new HashMap<>();
-        for (int i = 0; i < alphabet.length; i++) {
-            abcNums.put(alphabet[i], i);
+    @Override
+    protected int mapCharToIndex(char character) {
+        if (character < 'a' || character > 'z') {
+            return 0;
         }
 
-        return abcNums;
+        return this.charMap[character % this.primeModulus];
     }
 
     /**
@@ -50,21 +76,24 @@ public class KeyedVigenereCipher extends VigenereCipher {
      * abcdef... etc
      * @return The newly ordered alphabet
      */
-    private String buildAlphabet(String alphabetKey, HashMap<Character, Integer> regAbcNums) {
+    private String buildAlphabet(String alphabetKey) {
         int[] countingAlphabet = new int[26];
         for (int i = 0; i < 26; i++) {
             countingAlphabet[i] = 0;
         }
 
         for (int i = 0; i < alphabetKey.length(); i++) {
-            countingAlphabet[regAbcNums.get(alphabetKey.charAt(i))] = 1;
+            char character = alphabetKey.charAt(i);
+            if (character >= 'a' && character <= 'z') {
+                countingAlphabet[character % 'a'] = 1;
+            }
         }
 
         String abc = "abcdefghijklmnopqrstuvwxyz";
         String keyedAbc = alphabetKey;
         for (int i = 0; i < countingAlphabet.length; i++) {
             if (countingAlphabet[i] == 0) {
-                keyedAbc += abc.substring(i, i + 1);
+                keyedAbc += Character.toString(abc.charAt(i));
             }
         }
 

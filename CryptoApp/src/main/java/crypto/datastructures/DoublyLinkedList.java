@@ -9,25 +9,27 @@ package crypto.datastructures;
  *
  * @author jpssilve
  */
-public class DoublyLinkedList {
+public class DoublyLinkedList<K, V> {
 
     private ListNode head;
+    private int size;
 
     public DoublyLinkedList() {
         this.head = null;
+        this.size = 0;
     }
 
-    public ListNode search(Object obj) {
+    public ListNode search(K key) {
         ListNode p = this.head;
-        while (p != null && !obj.equals(p.getObj())) {
+        while (p != null && !key.equals(p.getKey())) {
             p = p.next;
         }
 
         return p;
     }
 
-    public void insert(Object obj) {
-        ListNode x = new ListNode(obj, null, null);
+    public void insert(K key, V value) {
+        ListNode x = new ListNode(key, value, null, null);
         x.next = this.head;
         x.prev = null;
 
@@ -37,6 +39,8 @@ public class DoublyLinkedList {
         }
 
         this.head = x;
+        this.size++;
+
     }
 
     public void delete(ListNode x) {
@@ -52,6 +56,8 @@ public class DoublyLinkedList {
         if (succ != null) {
             succ.prev = pred;
         }
+
+        this.size--;
     }
 
     public ListNode getHead() {
@@ -60,5 +66,9 @@ public class DoublyLinkedList {
 
     public boolean isEmpty() {
         return this.head == null;
+    }
+
+    public int getSize() {
+        return this.size;
     }
 }

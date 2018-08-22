@@ -5,6 +5,7 @@
  */
 package crypto.cryptanalysis;
 
+import crypto.datastructures.HashTable;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
@@ -21,7 +22,8 @@ public abstract class Ngrams {
     private final int n;
     private final String filename;
     private long sampleSize;
-    private final HashMap<String, Long> ngramStats;
+//    private final HashMap<String, Long> ngramStats;
+    public final HashTable<String, Long> ngramStats;
 
     /**
      *
@@ -38,7 +40,8 @@ public abstract class Ngrams {
         this.n = n;
         this.filename = filename;
         this.sampleSize = 0;
-        this.ngramStats = new HashMap<>();
+//        this.ngramStats = new HashMap<>();
+        this.ngramStats = new HashTable<>(400_000);
         readFile();
     }
 
@@ -61,7 +64,8 @@ public abstract class Ngrams {
                     long frequency = 0;
                     try {
                         frequency = Long.parseLong(line[1]);
-                        this.ngramStats.put(line[0], frequency);
+//                        this.ngramStats.put(line[0], frequency);
+                        this.ngramStats.hashInsert(line[0], frequency);
                         this.sampleSize += frequency;
                     } catch (NumberFormatException ne) {
                         System.err.println("The file is corrupted");

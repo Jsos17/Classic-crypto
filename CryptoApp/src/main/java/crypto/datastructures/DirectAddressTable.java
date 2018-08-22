@@ -10,5 +10,5 @@ package crypto.datastructures;
  * @author jpssilve
  */
 public class DirectAddressTable {
-    
+
 }

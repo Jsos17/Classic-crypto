@@ -9,12 +9,12 @@ package crypto.datastructures;
  *
  * @author jpssilve
  */
-public class HashTable {
+public class HashTable<K, V> {
 
     private final int[] middlePrimes;
     private int index;
     private int tableSize;
-    private DoublyLinkedList[] hashtable;
+    public DoublyLinkedList[] hashtable;
     private int currentSize;
     private final double HIGH_THRESHOLD;
     private final double LOW_THRESHOLD;
@@ -34,6 +34,13 @@ public class HashTable {
         this.SHRINK_TRIGGER = 12_289;
     }
 
+    /**
+     * Currently, the prime number 402_653_189 is the biggest middle prime that
+     * is approximately between successive powers of two, and does not cause
+     * java.lang.OutOfMemoryError and thus Array size is limited to that.
+     *
+     * @param size
+     */
     public HashTable(int size) {
         this.middlePrimes = new int[]{11, 23, 47, 97, 193, 389, 769, 1543, 3079, 6143,
             12_289, 24_571, 49_157, 98_317, 196_613, 393_209,
@@ -41,7 +48,7 @@ public class HashTable {
             50_331_653, 100_663_291, 201_326_611, 402_653_189, 805_306_357, 1_610_612_741};
 
         if (size >= this.middlePrimes[this.middlePrimes.length - 1]) {
-            this.index = this.middlePrimes.length - 3;
+            this.index = this.middlePrimes.length - 3; // 402_653_189
         } else if (size > 0) {
             int i = 0;
             while (i < this.middlePrimes.length && size > this.middlePrimes[i]) {
@@ -68,37 +75,53 @@ public class HashTable {
         return currentSize;
     }
 
-    protected int hashFunction(Object obj) {
-        return obj.hashCode() % this.tableSize;
+    protected int hashFunction(K key) {
+        return (key.hashCode() & 0x7fffffff) % this.tableSize;
     }
 
-    public ListNode hashSearch(Object obj) {
-        if (this.hashtable[hashFunction(obj)] == null) {
+    public ListNode hashSearch(K key) {
+        if (this.hashtable[hashFunction(key)] == null) {
             return null;
         }
 
-        DoublyLinkedList list = this.hashtable[hashFunction(obj)];
-        return list.search(obj);
+        return this.hashtable[hashFunction(key)].search(key);
     }
 
-    public void hashInsert(Object obj) {
-        if (this.hashtable[hashFunction(obj)] == null) {
-            this.hashtable[hashFunction(obj)] = new DoublyLinkedList();
+    public V get(K key) {
+        ListNode node = hashSearch(key);
+        if (node == null) {
+            return null;
         }
 
-        DoublyLinkedList list = this.hashtable[hashFunction(obj)];
-        list.insert(obj);
+        return (V) node.getValue();
+    }
+
+    public V getOrDefault(K key, V defaultValue) {
+        ListNode node = hashSearch(key);
+        if (node == null) {
+            return defaultValue;
+        }
+
+        return (V) node.getValue();
+    }
+
+    public void hashInsert(K key, V value) {
+        if (this.hashtable[hashFunction(key)] == null) {
+            this.hashtable[hashFunction(key)] = new DoublyLinkedList();
+        }
+
+        this.hashtable[hashFunction(key)].insert(key, value);
         this.currentSize++;
         checkThreshold();
     }
 
     public void hashDelete(ListNode node) {
-        if (this.hashtable[hashFunction(node.getObj())] == null) {
+        K key = (K) node.getKey();
+        if (this.hashtable[hashFunction(key)] == null) {
             return;
         }
 
-        DoublyLinkedList list = this.hashtable[hashFunction(node.getObj())];
-        list.delete(node);
+        this.hashtable[hashFunction(key)].delete(node);
         this.currentSize--;
         checkThreshold();
     }

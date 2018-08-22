@@ -21,27 +21,28 @@ public class ListNodeTest {
     @Before
     public void setUp() {
         CharIndexPair ci = new CharIndexPair('x', 45);
-        this.node = new ListNode(ci, null, null);
+        this.node = new ListNode(1, ci, null, null);
     }
 
     @Test
-    public void getObjTest1() {
+    public void getKeyTest1() {
+        assertEquals(1, this.node.getKey());
+    }
+
+    @Test
+    public void getValueTest2() {
         CharIndexPair ci2 = new CharIndexPair('x', 45);
-        assertEquals(ci2, this.node.getObj());
-    }
-
-    @Test
-    public void getObjTest2() {
-        CharIndexPair ci2 = new CharIndexPair('X', 45);
-        assertNotEquals(ci2, this.node.getObj());
+        assertEquals(ci2, this.node.getValue());
     }
 
     @Test
     public void nodeTest1() {
-        ListNode node2 = new ListNode("node", this.node, null);
-        ListNode node3 = new ListNode("Solmu", null, node2);
+        ListNode node2 = new ListNode("node", 1, this.node, null);
+        ListNode node3 = new ListNode("Solmu", 2, null, node2);
+        CharIndexPair ci2 = new CharIndexPair('x', 45);
 
-        assertEquals(this.node.getObj(), node2.next.getObj());
-        assertEquals(node2.getObj(), node3.prev.getObj());
+        assertEquals(ci2, node2.next.getValue());
+        assertEquals(1, node3.prev.getValue());
+        assertEquals("node", node3.prev.getKey());
     }
 }

@@ -161,7 +161,6 @@ public class CryptoUserInterface {
 //            long[] occurrences = freq.countOccurrences(vig.decrypt(abc.substring(i, i + 1), subT));
 //            System.out.println(Arrays.toString(occurrences));
 //        }
-        Quadgrams quad = new Quadgrams("english_quadgrams.txt");
 //        quad.
 //        System.out.println(quad.getNgramCount("INGT"));
 //        System.out.println(quad.getSampleSize());
@@ -192,46 +191,44 @@ public class CryptoUserInterface {
 //        nums = new int[0];
 //        System.out.println(nums.length);
 //        System.out.println(nums[4]);
-
-        TranspositionAttack attack = new TranspositionAttack();
-
-        String text1 = "evlnacdtesearofodeecwiree".toUpperCase();
-        String text2 = "evlnacdtesearofodeecwiree".toUpperCase();
-        String text3 = "evlnacdtesearofodeecwiree".toUpperCase();
-        String text4 = "evlnacdtesearofodeecwiree".toUpperCase();
-        String text5 = "evlnacdtesearofodeecwiree".toUpperCase();
-        String text6 = "evlnacdtesearofodeecwiree".toUpperCase();
-
-        long startTime = System.currentTimeMillis();
-        attack.attackShortKeyWordsPreGenerated(text1);
-        long endTime = System.currentTimeMillis();
-        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
-
-        startTime = System.currentTimeMillis();
-        attack.attackShortKeyWordsPreGenerated(text2);
-        endTime = System.currentTimeMillis();
-        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
-
-        startTime = System.currentTimeMillis();
-        attack.attackShortKeyWordsPreGenerated(text3);
-        endTime = System.currentTimeMillis();
-        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
-        
-        startTime = System.currentTimeMillis();
-        attack.attackShortKeyWordsPreGenerated(text4);
-        endTime = System.currentTimeMillis();
-        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
-        
-        startTime = System.currentTimeMillis();
-        attack.attackShortKeyWordsPreGenerated(text5);
-        endTime = System.currentTimeMillis();
-        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
-        
-        startTime = System.currentTimeMillis();
-        attack.attackShortKeyWordsPreGenerated(text6);
-        endTime = System.currentTimeMillis();
-        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
-
+//        TranspositionAttack attack = new TranspositionAttack();
+//
+//        String text1 = "evlnacdtesearofodeecwiree".toUpperCase();
+//        String text2 = "evlnacdtesearofodeecwiree".toUpperCase();
+//        String text3 = "evlnacdtesearofodeecwiree".toUpperCase();
+//        String text4 = "evlnacdtesearofodeecwiree".toUpperCase();
+//        String text5 = "evlnacdtesearofodeecwiree".toUpperCase();
+//        String text6 = "evlnacdtesearofodeecwiree".toUpperCase();
+//
+//        long startTime = System.currentTimeMillis();
+//        attack.attackShortKeyWordsPreGenerated(text1);
+//        long endTime = System.currentTimeMillis();
+//        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
+//
+//        startTime = System.currentTimeMillis();
+//        attack.attackShortKeyWordsPreGenerated(text2);
+//        endTime = System.currentTimeMillis();
+//        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
+//
+//        startTime = System.currentTimeMillis();
+//        attack.attackShortKeyWordsPreGenerated(text3);
+//        endTime = System.currentTimeMillis();
+//        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
+//
+//        startTime = System.currentTimeMillis();
+//        attack.attackShortKeyWordsPreGenerated(text4);
+//        endTime = System.currentTimeMillis();
+//        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
+//
+//        startTime = System.currentTimeMillis();
+//        attack.attackShortKeyWordsPreGenerated(text5);
+//        endTime = System.currentTimeMillis();
+//        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
+//
+//        startTime = System.currentTimeMillis();
+//        attack.attackShortKeyWordsPreGenerated(text6);
+//        endTime = System.currentTimeMillis();
+//        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
 //        System.out.println(attack.crackWithKey(cand, text1));
 //
 //        startTime = System.currentTimeMillis();
@@ -259,14 +256,71 @@ public class CryptoUserInterface {
 //        String text2 = "hmnrnvaicwhtsieiitoawguseint".toUpperCase();
 //        String cand2 = attack.attackShortKeyWordsPreGenerated(text2);
 //        System.out.println(attack.crackWithKey(cand2, text2));
-        int[] table = new int[]{0, 2, 1, 4};
-        byte x = 1;
-        System.out.println(table[x]);
+//        int[] table = new int[]{0, 2, 1, 4};
+//        byte x = 1;
+//        System.out.println(table[x]);
+//
+//        int[] table2 = table;
+//        System.out.println(table2.length);
+//        
+//        HashTable ht = new HashTable();
+        int n = 5;
+        long[] times = new long[n];
 
-        int[] table2 = table;
-        System.out.println(table2.length);
-        
-        HashTable ht = new HashTable();
+        long startTime = System.currentTimeMillis();
+        Quadgrams quad1 = new Quadgrams("english_quadgrams.txt");
+        long endTime = System.currentTimeMillis();
+        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
+        times[0] = endTime - startTime;
 
+        long sum = 0;
+        int count = 0;
+        int longest = 0;
+        for (int i = 0; i < quad1.ngramStats.hashtable.length; i++) {
+            if (quad1.ngramStats.hashtable[i] != null) {
+                int l = quad1.ngramStats.hashtable[i].getSize();
+                if (l > longest) {
+                    longest = l;
+                }
+                sum += l;
+                count++;
+            }
+        }
+
+        System.out.println("Longest: " + longest);
+        System.out.println(sum);
+        System.out.println(count);
+        System.out.println((double) sum / count);
+
+//        startTime = System.currentTimeMillis();
+//        Quadgrams quad2 = new Quadgrams("english_quadgrams.txt");
+//        endTime = System.currentTimeMillis();
+//        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
+//        times[1] = endTime - startTime;
+//
+//        startTime = System.currentTimeMillis();
+//        Quadgrams quad3 = new Quadgrams("english_quadgrams.txt");
+//        endTime = System.currentTimeMillis();
+//        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
+//        times[2] = endTime - startTime;
+//
+//        startTime = System.currentTimeMillis();
+//        Quadgrams quad4 = new Quadgrams("english_quadgrams.txt");
+//        endTime = System.currentTimeMillis();
+//        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
+//        times[3] = endTime - startTime;
+//
+//        startTime = System.currentTimeMillis();
+//        Quadgrams quad5 = new Quadgrams("english_quadgrams.txt");
+//        endTime = System.currentTimeMillis();
+//        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
+//        times[4] = endTime - startTime;
+//
+//        double avg = 0;
+//        for (int i = 0; i < n; i++) {
+//            avg += (double) times[i] / n;
+//        }
+//
+//        System.out.println(avg + " ms");
     }
 }

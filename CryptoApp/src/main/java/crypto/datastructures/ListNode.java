@@ -9,19 +9,25 @@ package crypto.datastructures;
  *
  * @author jpssilve
  */
-public class ListNode {
+public class ListNode<K, V> {
 
-    private Object obj;
+    private K key;
+    private V value;
     protected ListNode next;
     protected ListNode prev;
 
-    public ListNode(Object obj, ListNode next, ListNode prev) {
-        this.obj = obj;
+    public ListNode(K key, V value, ListNode next, ListNode prev) {
+        this.key = key;
+        this.value = value;
         this.next = next;
         this.prev = prev;
     }
 
-    public Object getObj() {
-        return obj;
+    public K getKey() {
+        return this.key;
+    }
+
+    public V getValue() {
+        return value;
     }
 }
