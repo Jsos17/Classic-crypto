@@ -24,3 +24,4 @@
 | 18.8. | 1 | Combinatorics-luokan optimoinnin kokeilua (josta lopulta vain taulukoiden int[] -> byte[] muutos päätyi koodiin), Ngrams -luokan tekstitiedoston lukemisen virhetilanteille testejä |
 | 20.8. | 3 |  Hajautustaulujen toteutukseen liittyvä tutkimus |
 | 21.8. | 6 | Lisää tutkimusta, kahteen suuntaan linkitetyn listan toteutus ja testit, ja yhteentörmäykset chainingilla ratkaisevan perushajautustaulun toteutuksen aloitus |
+| 22.8. | 7 | Hajautustaulun (HashTable luokka) sekä linkitetyn listan uudelleensuunnittelu ja toteutus, Vigenere cipherin ja sen varianttien refaktorointi siten että HashMap (ja siten hajautustataulu) ovat tarpeettomia | 
