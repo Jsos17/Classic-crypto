@@ -5,6 +5,7 @@
  */
 package crypto.datastructures;
 
+import java.util.Random;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -33,31 +34,31 @@ public class HashTableTest {
 
     @Test
     public void initialTableSizeTest1() {
-        assertEquals(47, this.hashT.getTableSize());
+        assertEquals(47, this.hashT.getMaxArrayCapacity());
     }
 
     @Test
     public void initialTableSizeTest2() {
         HashTable ht2 = new HashTable(100_000);
-        assertEquals(196_613, ht2.getTableSize());
+        assertEquals(196_613, ht2.getMaxArrayCapacity());
     }
 
     @Test
     public void initialTableSizeTest3() {
         HashTable ht2 = new HashTable(Integer.MAX_VALUE - 1000);
-        assertEquals(402_653_189, ht2.getTableSize());
+        assertEquals(402_653_189, ht2.getMaxArrayCapacity());
     }
 
     @Test
     public void initialTableSizeTest4() {
         HashTable ht2 = new HashTable(1);
-        assertEquals(11, ht2.getTableSize());
+        assertEquals(11, ht2.getMaxArrayCapacity());
     }
 
     @Test
     public void initialTableSizeTest5() {
         HashTable ht2 = new HashTable(22);
-        assertEquals(23, ht2.getTableSize());
+        assertEquals(23, ht2.getMaxArrayCapacity());
     }
 
     @Test
@@ -131,8 +132,135 @@ public class HashTableTest {
         this.hashT.hashInsert("gggd", 'b');
         this.hashT.hashInsert("gfgd", 'c');
         this.hashT.hashInsert("gatr", 'd');
-        this.hashT.hashInsert("qged", 't');
+        this.hashT.hashInsert("ged", 't');
 
         assertEquals(4, this.hashT.getCurrentSize());
+    }
+
+    @Test
+    public void getTest1() {
+        this.hashT.hashInsert("gggd", 'b');
+        this.hashT.hashInsert("gfgd", 'c');
+        this.hashT.hashInsert("gatr", 'd');
+        this.hashT.hashInsert("ged", 't');
+
+        assertEquals('b', this.hashT.get("gggd"));
+        assertEquals('c', this.hashT.get("gfgd"));
+        assertEquals('d', this.hashT.get("gatr"));
+        assertEquals('t', this.hashT.get("ged"));
+    }
+
+    @Test
+    public void getOrDefaultTest1() {
+        this.hashT.hashInsert("gggd", 'b');
+        this.hashT.hashInsert("gfgd", 'c');
+        this.hashT.hashInsert("gatr", 'd');
+        this.hashT.hashInsert("ged", 't');
+
+        assertEquals('b', this.hashT.getOrDefault("gggd", 'x'));
+        assertEquals('c', this.hashT.getOrDefault("gfgd", 'y'));
+        assertEquals('m', this.hashT.getOrDefault("gatro", 'm'));
+        assertEquals('d', this.hashT.getOrDefault("gd", 'd'));
+    }
+
+    @Test
+    public void growingMaintainsContentsTest1() {
+        HashTable<Integer, Integer> hashtable = new HashTable<>();
+
+        int n = 100;
+        int[] set1 = new int[n];
+        int[] set2 = new int[n];
+        for (int i = 0; i < n; i++) {
+            set1[i] = i + 1;
+            set2[i] = 10 * (i + 1);
+            hashtable.hashInsert(set1[i], set2[i]);
+        }
+
+        for (int i = 0; i < n; i++) {
+            assertEquals(set2[i], (int) hashtable.get(set1[i]));
+        }
+
+    }
+
+    @Test
+    public void growingMaintainsContentsTest2() {
+        HashTable<Integer, Integer> hashtable = new HashTable<>();
+
+        int n = 100;
+        int[] set1 = new int[n];
+        int[] set2 = new int[n];
+        for (int i = 0; i < n; i++) {
+            set1[i] = i + 1;
+            set2[i] = 10 * (i + 1);
+            hashtable.hashInsert(set1[i], set2[i]);
+        }
+
+        for (int i = 0; i < n; i++) {
+            assertEquals(set2[i], (int) hashtable.getOrDefault(set1[i], -1000));
+        }
+
+    }
+
+    @Test
+    public void shrinkingMaintainsContentsTest1() {
+        HashTable<Integer, Integer> hashtable = new HashTable<>();
+
+        int n = 20000;
+        int[] set1 = new int[n];
+        int[] set2 = new int[n];
+        for (int i = 0; i < n; i++) {
+            set1[i] = i + 1;
+            set2[i] = 10 * (i + 1);
+            hashtable.hashInsert(set1[i], set2[i]);
+        }
+
+        int remove = 10000;
+        for (int i = 0; i < remove; i++) {
+            hashtable.hashDelete(hashtable.hashSearch(set1[i]));
+        }
+
+        for (int i = remove; i < n; i++) {
+            assertEquals(set2[i], (int) hashtable.get(set1[i]));
+        }
+    }
+
+    @Test
+    public void growWorksTest1() {
+        HashTable<Integer, Integer> hashtable = new HashTable<>();
+        assertEquals(47, hashtable.getMaxArrayCapacity());
+
+        int n = 1000;
+        int[] set1 = new int[n];
+        int[] set2 = new int[n];
+        for (int i = 0; i < n; i++) {
+            set1[i] = i + 1;
+            set2[i] = 10 * (i + 1);
+            hashtable.hashInsert(set1[i], set2[i]);
+        }
+
+        assertEquals(1543, hashtable.getMaxArrayCapacity());
+    }
+
+    @Test
+    public void shrinkWorksTest1() {
+        HashTable<Integer, Integer> hashtable = new HashTable<>();
+        assertEquals(47, hashtable.getMaxArrayCapacity());
+
+        int n = 50_000;
+        int[] set1 = new int[n];
+        int[] set2 = new int[n];
+        for (int i = 0; i < n; i++) {
+            set1[i] = i + 1;
+            set2[i] = 10 * (i + 1);
+            hashtable.hashInsert(set1[i], set2[i]);
+        }
+
+        assertEquals(98317, hashtable.getMaxArrayCapacity());
+
+        for (int i = 0; i < 30_000; i++) {
+            hashtable.hashDelete(hashtable.hashSearch(set1[i]));
+        }
+
+        assertEquals(49_157, hashtable.getMaxArrayCapacity());
     }
 }

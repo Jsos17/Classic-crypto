@@ -41,7 +41,7 @@ public abstract class Ngrams {
         this.filename = filename;
         this.sampleSize = 0;
 //        this.ngramStats = new HashMap<>();
-        this.ngramStats = new HashTable<>(400_000);
+        this.ngramStats = new HashTable<>();
         readFile();
     }
 

@@ -23,7 +23,7 @@ import org.junit.rules.TemporaryFolder;
 public class NgramsTest {
 
     /*
-    The following code adapted from (initialization and three methods) found in
+    The following code adapted from (initialization and three methods)
     https://stackoverflow.com/questions/1119385/junit-test-for-system-out-println
      */
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
