@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package crypto.cryptanalysis;
+package crypto.helpers;
 
 /**
  * A helper class to keep track of the most likely characters in a Vigenere

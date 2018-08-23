@@ -5,6 +5,7 @@
  */
 package crypto.cryptanalysis;
 
+import crypto.helpers.CharacterValue;
 import crypto.ciphers.VigenereCipher;
 import crypto.helpers.AlphabetHelper;
 import crypto.sorting.GenericTypeSort;

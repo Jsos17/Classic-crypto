@@ -5,6 +5,7 @@
  */
 package crypto.cryptanalysis;
 
+import crypto.helpers.CharacterValue;
 import java.util.Arrays;
 import org.junit.After;
 import org.junit.Before;

@@ -5,6 +5,7 @@
  */
 package crypto.ciphers;
 
+import crypto.helpers.CharIndexPair;
 import crypto.sorting.GenericTypeSort;
 
 /**

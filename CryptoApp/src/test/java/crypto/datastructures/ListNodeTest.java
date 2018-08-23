@@ -5,7 +5,7 @@
  */
 package crypto.datastructures;
 
-import crypto.ciphers.CharIndexPair;
+import crypto.helpers.CharIndexPair;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

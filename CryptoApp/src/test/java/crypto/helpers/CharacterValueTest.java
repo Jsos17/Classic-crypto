@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package crypto.cryptanalysis;
+package crypto.helpers;
 
+import crypto.helpers.CharacterValue;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

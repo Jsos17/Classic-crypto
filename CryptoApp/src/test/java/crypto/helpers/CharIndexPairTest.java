@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package crypto.ciphers;
+package crypto.helpers;
 
+import crypto.helpers.CharIndexPair;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

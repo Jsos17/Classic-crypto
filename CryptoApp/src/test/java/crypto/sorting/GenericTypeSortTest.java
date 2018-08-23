@@ -5,8 +5,8 @@
  */
 package crypto.sorting;
 
-import crypto.ciphers.CharIndexPair;
-import crypto.cryptanalysis.CharacterValue;
+import crypto.helpers.CharIndexPair;
+import crypto.helpers.CharacterValue;
 import java.util.Arrays;
 import java.util.Random;
 import org.junit.After;

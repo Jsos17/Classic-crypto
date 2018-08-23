@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package crypto.ciphers;
+package crypto.helpers;
 
 /**
  * This class is a small helper class to store the indexes of the characters
