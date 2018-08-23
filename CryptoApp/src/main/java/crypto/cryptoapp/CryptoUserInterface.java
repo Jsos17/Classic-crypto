@@ -5,6 +5,8 @@
  */
 package crypto.cryptoapp;
 
+import crypto.ciphers.TranspositionCipher;
+import crypto.cryptanalysis.HillClimber;
 import crypto.cryptanalysis.Quadgrams;
 
 /**
@@ -85,9 +87,8 @@ public class CryptoUserInterface {
 //        System.out.println(Arrays.toString(nums2));
 //        
 //        System.out.println(3 ^ 2);
-        String text = "unczqztxeubjfxutwaqbroiromeimcjsmgxqrqmbuiblcpvgijtkzzrtxaelljmfhcuwglqrculnrkpcybvgglcytrxfetpvglqpnhqaxqxvdqypmlyhgffqtthvfjarollvrfovomfeyenlbgidipaprgupjlzgijthvzvretcukrmranswpggrtlvpieohaprpqtvlzrxgrppvgsfhgsmgxqrzhkvttetamkxyeuzitioopaivruniuczidowzqawfapjmfsrtjltrxfeteebyxdubotietvvipvkpvhvnpksvapnxjrgwzrwqnvzmglqbczqpyeeqmneicuguklezanfavwusvvnvvetevcaxfhgmzrugepjgbjoiromexqxvsmgxqruhvqxtephafsoicamtyqsullcpmipamkxxevamewiivobuiymqymkwunvompmbhgybrbftjhvnrktjpvtixsgzctkqsvzbuefxevzeiepqulfxaekubuiblcpvgijtdbbgluskzvbxoetaivrfapkinvqanzwiidyevuzsziplvtpusjzwkqugjajriutjlzbjfhgtiywaivpahrximltlxabghxyeunvlfgdarsdpvgtatltrwecqtubrfhwzbuiorawbnrmlazbzekngllgsfrazmiidanjwzfuncaqbreohtictunizjrxiegukvttetamkxmnfwtnmztgebyiftgya";
+//        String text = "unczqztxeubjfxutwaqbroiromeimcjsmgxqrqmbuiblcpvgijtkzzrtxaelljmfhcuwglqrculnrkpcybvgglcytrxfetpvglqpnhqaxqxvdqypmlyhgffqtthvfjarollvrfovomfeyenlbgidipaprgupjlzgijthvzvretcukrmranswpggrtlvpieohaprpqtvlzrxgrppvgsfhgsmgxqrzhkvttetamkxyeuzitioopaivruniuczidowzqawfapjmfsrtjltrxfeteebyxdubotietvvipvkpvhvnpksvapnxjrgwzrwqnvzmglqbczqpyeeqmneicuguklezanfavwusvvnvvetevcaxfhgmzrugepjgbjoiromexqxvsmgxqruhvqxtephafsoicamtyqsullcpmipamkxxevamewiivobuiymqymkwunvompmbhgybrbftjhvnrktjpvtixsgzctkqsvzbuefxevzeiepqulfxaekubuiblcpvgijtdbbgluskzvbxoetaivrfapkinvqanzwiidyevuzsziplvtpusjzwkqugjajriutjlzbjfhgtiywaivpahrximltlxabghxyeunvlfgdarsdpvgtatltrwecqtubrfhwzbuiorawbnrmlazbzekngllgsfrazmiidanjwzfuncaqbreohtictunizjrxiegukvttetamkxmnfwtnmztgebyiftgya";
 //        SubSequencePrinter.printSubSequences(text, 7);
-
 //        String text = "bevqqfharxuhjcgszvulreljdfgywkpvtpgygnwtvqelnzkhzckhqthrfmhipgaytlgtzipvmnajncvkzjdhhyvnhhqbkmonxdpneanqpfncodkyasieyenznktepydxpduoncljbdxvqctcrrotbnwdaaydmixysfmizucskbykoaoksymscdzytnvaomqotoanswdjrmlwbfrxgabfgvufbrlrnkxhjccjctzbjbjqkjoogpsdonfkfftoiyrpfpuxztdpmeezoeqfrvxyafxgtkhcouehrjsvyfnfetvncdnnxjxsekxeodxupxyvioimpuxucsofmrdysixggpvimyrjfyofrtqdcarnxavmybahlixvnwilujfpmqyrmaytgedcocescdtznafpuagyfuqukefjxrzlzodqehyqsiyzrxpyazzaknkyjrmhfkiotpjbtkhhbzcxuxckkwbbnactcbubfhwvhqfkzrqiqoqlnecjhcpnnqlwwdbjswa"
 //                + "qfkzrqiqoqlnecjhcpnnqlwwdbjswa";
 //        ArrayList<Integer> indexes = new ArrayList<>();
@@ -249,34 +250,33 @@ public class CryptoUserInterface {
 //        System.out.println(table2.length);
 //        
 //        HashTable ht = new HashTable();
-        int n = 5;
-        long[] times = new long[n];
-
-        long startTime = System.currentTimeMillis();
-        Quadgrams quad1 = new Quadgrams("english_quadgrams.txt");
-        long endTime = System.currentTimeMillis();
-        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
-        times[0] = endTime - startTime;
-
-        long sum = 0;
-        int count = 0;
-        int longest = 0;
-        for (int i = 0; i < quad1.ngramStats.hashtable.length; i++) {
-            if (quad1.ngramStats.hashtable[i] != null) {
-                int l = quad1.ngramStats.hashtable[i].getSize();
-                if (l > longest) {
-                    longest = l;
-                }
-                sum += l;
-                count++;
-            }
-        }
-
-        System.out.println("Longest: " + longest);
-        System.out.println(sum);
-        System.out.println(count);
-        System.out.println((double) sum / count);
-
+//        int n = 5;
+//        long[] times = new long[n];
+//
+//        long startTime = System.currentTimeMillis();
+//        Quadgrams quad1 = new Quadgrams("english_quadgrams.txt");
+//        long endTime = System.currentTimeMillis();
+//        System.out.println("Operaatioon kului aikaa: " + (endTime - startTime) + "ms.");
+//        times[0] = endTime - startTime;
+//
+//        long sum = 0;
+//        int count = 0;
+//        int longest = 0;
+//        for (int i = 0; i < quad1.ngramStats.hashtable.length; i++) {
+//            if (quad1.ngramStats.hashtable[i] != null) {
+//                int l = quad1.ngramStats.hashtable[i].getSize();
+//                if (l > longest) {
+//                    longest = l;
+//                }
+//                sum += l;
+//                count++;
+//            }
+//        }
+//
+//        System.out.println("Longest: " + longest);
+//        System.out.println(sum);
+//        System.out.println(count);
+//        System.out.println((double) sum / count);
 //        startTime = System.currentTimeMillis();
 //        Quadgrams quad2 = new Quadgrams("english_quadgrams.txt");
 //        endTime = System.currentTimeMillis();
@@ -307,5 +307,13 @@ public class CryptoUserInterface {
 //        }
 //
 //        System.out.println(avg + " ms");
+        Quadgrams quad = new Quadgrams("english_quadgrams.txt");
+        TranspositionCipher cipher = new TranspositionCipher();
+        HillClimber climber = new HillClimber(quad);
+        String ciphertext = "phinascpskrcepxtuctetustyrlllsireftaneiobeoistepnawyipohlileocmsctliarlaarrdletfoehrrlttiihhpttsruhlgdepyytaiaducnhinactotoeooetfnviefnepshtnbbtttessvihoafaknicaswiruiungoouueufesknksiboebhetoecamcotrlfeealyoihtpoaaakttcusnatiutneotcoavoihtnneeluekntestaheansdefkonsslkdoeneaeoawyfcacktwhoeebfoiimsaonehotrsoedegstuane";
+//        System.out.println(text.length());
+        String key = climber.runToTheHills(10, ciphertext.toUpperCase(), 20, 1000);
+        System.out.println(key);
+        System.out.println(cipher.decryptSingleTransposition(key, ciphertext));
     }
 }
