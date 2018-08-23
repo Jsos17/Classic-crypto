@@ -9,29 +9,27 @@ package crypto.datastructures;
  *
  * @author jpssilve
  */
-public class HashTable<K, V> {
+public class HashedSet<T> {
 
     private final int MAXIMUM_ARRAY_SIZE;
     private final int[] middlePrimes;
     private int index;
-    public DoublyLinkedList<K, V>[] hashtable;
+    public DoublyLinkedMemberList<T>[] hashtable;
     private int currentSize;
     private final double HIGH_THRESHOLD;
     private final double LOW_THRESHOLD;
-    private final int SHRINK_TRIGGER;
 
-    public HashTable() {
+    public HashedSet() {
         this.MAXIMUM_ARRAY_SIZE = 402_653_189;
         this.middlePrimes = new int[]{11, 23, 47, 97, 193, 389, 769, 1543, 3079, 6143,
             12_289, 24_571, 49_157, 98_317, 196_613, 393_209,
             786_433, 1_572_869, 3_145_721, 6_291_469, 12_582_917, 25_165_813,
             50_331_653, 100_663_291, 201_326_611, 402_653_189, 805_306_357, 1_610_612_741};
         this.index = 2;
-        this.hashtable = new DoublyLinkedList[this.middlePrimes[this.index]];
+        this.hashtable = new DoublyLinkedMemberList[this.middlePrimes[this.index]];
         this.currentSize = 0;
         this.HIGH_THRESHOLD = 0.75;
         this.LOW_THRESHOLD = 0.25;
-        this.SHRINK_TRIGGER = 12_289;
     }
 
     /**
@@ -41,7 +39,7 @@ public class HashTable<K, V> {
      *
      * @param size
      */
-    public HashTable(int size) {
+    public HashedSet(int size) {
         this.MAXIMUM_ARRAY_SIZE = 402_653_189;
         this.middlePrimes = new int[]{11, 23, 47, 97, 193, 389, 769, 1543, 3079, 6143,
             12_289, 24_571, 49_157, 98_317, 196_613, 393_209,
@@ -61,10 +59,9 @@ public class HashTable<K, V> {
             this.index = 2;
         }
 
-        this.hashtable = new DoublyLinkedList[this.middlePrimes[this.index]];
+        this.hashtable = new DoublyLinkedMemberList[this.middlePrimes[this.index]];
         this.HIGH_THRESHOLD = 0.75;
         this.LOW_THRESHOLD = 0.25;
-        this.SHRINK_TRIGGER = 12_289;
     }
 
     public int getTableCapacity() {
@@ -75,77 +72,43 @@ public class HashTable<K, V> {
         return currentSize;
     }
 
-    protected int hashFunction(K key) {
-        return (key.hashCode() & 0x7fffffff) % this.hashtable.length;
+    protected int hashFunction(T obj) {
+        return (obj.hashCode() & 0x7fffffff) % this.hashtable.length;
     }
 
-    public ListNode hashSearch(K key) {
-        if (this.hashtable[hashFunction(key)] == null) {
-            return null;
+    public boolean contains(T object) {
+        if (this.hashtable[this.hashFunction(object)] == null) {
+            return false;
         }
 
-        return this.hashtable[hashFunction(key)].search(key);
+        return this.hashtable[this.hashFunction(object)].contains(object);
     }
 
-    public V get(K key) {
-        ListNode node = hashSearch(key);
-        if (node == null) {
-            return null;
+    public void insert(T object) {
+        if (this.hashtable[this.hashFunction(object)] == null) {
+            this.hashtable[this.hashFunction(object)] = new DoublyLinkedMemberList<>();
         }
 
-        return (V) node.getValue();
-    }
-
-    public V getOrDefault(K key, V defaultValue) {
-        ListNode node = hashSearch(key);
-        if (node == null) {
-            return defaultValue;
-        }
-
-        return (V) node.getValue();
-    }
-
-    public void hashInsert(K key, V value) {
-        if (this.hashtable[hashFunction(key)] == null) {
-            this.hashtable[hashFunction(key)] = new DoublyLinkedList();
-        }
-
-        this.hashtable[hashFunction(key)].insert(key, value);
-        this.currentSize++;
-        checkThreshold();
-    }
-
-    protected void hashDelete(ListNode node) {
-        if (node == null) {
-            return;
-        }
-
-        K key = (K) node.getKey();
-        if (this.hashtable[hashFunction(key)] != null) {
-            this.hashtable[hashFunction(key)].delete(node);
-            this.currentSize--;
-            checkThreshold();
+        if (this.hashtable[this.hashFunction(object)].insert(object)) {
+            this.currentSize++;
+            this.checkThreshold();
         }
     }
 
-    public V remove(K key) {
-        ListNode node = this.hashSearch(key);
-        if (node == null) {
-            return null;
+    public void delete(T object) {
+        if (this.hashtable[this.hashFunction(object)] != null) {
+            if (this.hashtable[this.hashFunction(object)].delete(object)) {
+                this.currentSize--;
+                this.checkThreshold();
+            }
         }
-
-        this.hashtable[hashFunction(key)].delete(node);
-        this.currentSize--;
-        checkThreshold();
-
-        return (V) node.getValue();
     }
 
     private void checkThreshold() {
         double loadFactor = (double) this.currentSize / this.hashtable.length;
         if (loadFactor > this.HIGH_THRESHOLD) {
             grow();
-        } else if (this.currentSize >= this.SHRINK_TRIGGER && loadFactor < this.LOW_THRESHOLD) {
+        } else if (loadFactor < this.LOW_THRESHOLD) {
             shrink();
         }
     }
@@ -167,21 +130,21 @@ public class HashTable<K, V> {
     }
 
     private void reHash(int newSize) {
-        DoublyLinkedList<K, V>[] newTable = new DoublyLinkedList[newSize];
+        DoublyLinkedMemberList<T>[] newTable = new DoublyLinkedMemberList[newSize];
         int newCurrSize = 0;
 
         for (int i = 0; i < this.hashtable.length; i++) {
             if (this.hashtable[i] != null) {
-                ListNode x = this.hashtable[i].getHead();
-                while (x != null) {
-                    int hash = (x.getKey().hashCode() & 0x7fffffff) % newSize;
+                ListMember member = this.hashtable[i].getHead();
+                while (member != null) {
+                    int hash = (member.getObject().hashCode() & 0x7fffffff) % newSize;
                     if (newTable[hash] == null) {
-                        newTable[hash] = new DoublyLinkedList<>();
+                        newTable[hash] = new DoublyLinkedMemberList<>();
                     }
 
-                    newTable[hash].insert((K) x.getKey(), (V) x.getValue());
+                    newTable[hash].insert((T) member.getObject());
                     newCurrSize++;
-                    x = x.next;
+                    member = member.next;
                 }
             }
         }

@@ -49,7 +49,7 @@ public class TranspositionCipherTest {
 
     @Test
     public void decryptSingleTranspositionTest2() {
-        assertEquals("herra47kummelipulttibois", tr.decryptSingleTransposition("nsakgb", "rupb4etsamlirmuoh7ltekii"));
+        assertEquals("Binäärihakupuu", tr.decryptSingleTransposition("nsakgb", "narpäuäkBiuihu"));
     }
 
     @Test

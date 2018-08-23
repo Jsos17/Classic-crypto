@@ -5,11 +5,8 @@
  */
 package crypto.datastructures;
 
-import java.util.Random;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -34,31 +31,31 @@ public class HashTableTest {
 
     @Test
     public void initialTableSizeTest1() {
-        assertEquals(47, this.hashT.getMaxArrayCapacity());
+        assertEquals(47, this.hashT.getTableCapacity());
     }
 
     @Test
     public void initialTableSizeTest2() {
         HashTable ht2 = new HashTable(100_000);
-        assertEquals(196_613, ht2.getMaxArrayCapacity());
+        assertEquals(196_613, ht2.getTableCapacity());
     }
 
     @Test
     public void initialTableSizeTest3() {
         HashTable ht2 = new HashTable(Integer.MAX_VALUE - 1000);
-        assertEquals(402_653_189, ht2.getMaxArrayCapacity());
+        assertEquals(402_653_189, ht2.getTableCapacity());
     }
 
     @Test
     public void initialTableSizeTest4() {
         HashTable ht2 = new HashTable(1);
-        assertEquals(11, ht2.getMaxArrayCapacity());
+        assertEquals(11, ht2.getTableCapacity());
     }
 
     @Test
     public void initialTableSizeTest5() {
         HashTable ht2 = new HashTable(22);
-        assertEquals(23, ht2.getMaxArrayCapacity());
+        assertEquals(23, ht2.getTableCapacity());
     }
 
     @Test
@@ -227,7 +224,7 @@ public class HashTableTest {
     @Test
     public void growWorksTest1() {
         HashTable<Integer, Integer> hashtable = new HashTable<>();
-        assertEquals(47, hashtable.getMaxArrayCapacity());
+        assertEquals(47, hashtable.getTableCapacity());
 
         int n = 1000;
         int[] set1 = new int[n];
@@ -238,13 +235,13 @@ public class HashTableTest {
             hashtable.hashInsert(set1[i], set2[i]);
         }
 
-        assertEquals(1543, hashtable.getMaxArrayCapacity());
+        assertEquals(1543, hashtable.getTableCapacity());
     }
 
     @Test
     public void shrinkWorksTest1() {
         HashTable<Integer, Integer> hashtable = new HashTable<>();
-        assertEquals(47, hashtable.getMaxArrayCapacity());
+        assertEquals(47, hashtable.getTableCapacity());
 
         int n = 50_000;
         int[] set1 = new int[n];
@@ -255,12 +252,34 @@ public class HashTableTest {
             hashtable.hashInsert(set1[i], set2[i]);
         }
 
-        assertEquals(98317, hashtable.getMaxArrayCapacity());
+        assertEquals(98317, hashtable.getTableCapacity());
 
         for (int i = 0; i < 30_000; i++) {
             hashtable.hashDelete(hashtable.hashSearch(set1[i]));
         }
 
-        assertEquals(49_157, hashtable.getMaxArrayCapacity());
+        assertEquals(49_157, hashtable.getTableCapacity());
     }
+
+    @Test
+    public void removeTest1() {
+        this.ht.hashInsert("aaaa", 42l);
+        assertEquals(42l, (long) this.ht.get("aaaa"));
+        this.ht.remove("aaaa");
+        assertTrue(this.ht.get("aaaa") == null);
+    }
+
+    @Test
+    public void removeTest2() {
+        this.ht.remove("bbbb");
+        assertTrue(this.ht.get("bbbb") == null);
+    }
+
+//    @Test
+//    public void deleteNonExistentListNodeTest1() {
+//        HashTable<Character, Integer> ht2 = new HashTable<>();
+//        ht2.hashInsert('a', 0);
+//        ListNode x = new ListNode('t', 0, null, null);
+//
+//    }
 }
