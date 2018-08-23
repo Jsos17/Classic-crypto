@@ -5,11 +5,11 @@
 
 ## Miten ohjelma on edistynyt
 
-Hashapin toimintaa enemmän tai vähemmän jäljittelevä HashTable, joka käyttää kahteen suuntaan linkitettyä listoja yhteentörmäysten ratkaisemisessa (hashing with chaining). Tämä rakenne sallii usean saman avaimen tallennuksen rakenteeseen eikä edes tarkista duplikaatteja, ja siten on lähinnä tarkoitettu uniikeille avaimille, sillä jos rakenteessa on useita samoja avaimia ei voi tietää mikä niistä palautetaan.
+*HashMapin* toimintaa enemmän tai vähemmän jäljittelevä **HashTable**, joka käyttää kahteen suuntaan linkitettyä listoja yhteentörmäysten ratkaisemisessa (hashing with chaining). Tämä rakenne sallii usean saman avaimen tallennuksen rakenteeseen eikä edes tarkista duplikaatteja, ja siten on lähinnä tarkoitettu uniikeille avaimille, sillä jos rakenteessa on useita samoja avaimia ei voi tietää mikä niistä palautetaan.
 
-HashSetin toimintaa enemmän tai vähemmän jäljittelevä HashedSet, joka toimii uniikkeja olioita tallentavana joukkototeutuksena ja tälle hajautusrakenteelle oma kahteen suuntaan linkitetty lista (hashing with chaining). Tämä rakenne on käytössä HillClimber luokassa, jossa HashedSetin avulla yritetään välttää jo kerran generoitujen satunnaisten avaimien fitness-arvon uudelleen laskemista.
+*HashSetin* toimintaa enemmän tai vähemmän jäljittelevä **HashedSet**, joka toimii uniikkeja olioita tallentavana joukkototeutuksena ja tälle hajautusrakenteelle on oma kahteen suuntaan linkitetty lista (hashing with chaining). Tämä rakenne on käytössä HillClimber luokassa, jossa HashedSetin avulla yritetään välttää jo kerran generoitujen satunnaisten avaimien fitness-arvon uudelleen laskemista.
 
-HillClimber luokka, ja erityisesti siinä Transposition cipherin murtaminen luomalla satunnaisia avaimia ja yrittämällä löytää lokaali optimi ja sitten tämän koko algoritmin uudelleenajo useita kertoja tallentaen kaikki lokaalit optimit ja toivoen, että globaali optimi löytyy näiden joukosta.
+**HillClimber** luokka, ja erityisesti siinä Transposition cipherin murtaminen luomalla satunnaisia avaimia ja yrittämällä löytää lokaali optimi ja sitten tämän koko algoritmin uudelleenajo useita kertoja tallentaen kaikki lokaalit optimit ja toivoen, että globaali optimi löytyy näiden joukosta.
 
 Vigenere salauksissa hajautustaulun käytön välttäminen "hakkerointiratkaisulla" hyödyntämällä merkkien uniikkeja ASCII/Unicode arvoja Java-kielessä. Kuten mainittu,  tämä ratkaisu on hiukan hakkerointia, koska voi olla että merkkien kokonaislukuarvot eivät säily samana tulevaisuudessa ja sen takia koko toiminnallisuus voisi hajota tämän vuoksi. Lisäksi tehokkuushyöty on todennäköisesti hyvin pieni ja sen vuoksi voi olla että palaan normaalin hajautustaulun käyttöön. 
 
@@ -23,6 +23,7 @@ Hill climbing menetelmästä jonkin verran, hajautustaulun toteutuksesta suhteel
 
 ## Vaikeudet
 
+Hajautustaulun toteutusyksityiskohdat olivat yllättävän haastavia vaikka ymmärrän rakenteen sinällään aika hyvin. 
 
 ## Kysymykset/Mikä jäi epäselväksi
 
