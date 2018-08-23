@@ -2,6 +2,23 @@
 
 ## Mitä olen tehnyt
 
+### Keskiviikko:
+
+HashTable toteutus vastaamaan perinteistä hajautustaulua, jossa yhteentörmäykset ratkaistaan ketjuttamalla avain-arvo parit kahteen suuntaan linkitettyihin listoihin. Tähän tietorakenteeseen voi tallentaa monta samaa avainta jotka viittaavat eri arvoon (ei suositeltavaa/ei ole käyttötarkoitus: tällä hetkellä näiden kaikkien eri arvojen hakua ei tueta)
+
+### Torstai:
+
+HashedSetin toteutus mallintamaan joukkoa matemaattisesti (ei duplikaatteja, pelkkä olio/olioviite tallennetaan)
+
+Hill climbing algoritimin aloittelu seuraavien yleisten ohjeiden pohjalta:
+
+http://practicalcryptography.com/cryptanalysis/stochastic-searching/cryptanalysis-columnar-transposition-cipher/
+https://en.wikipedia.org/wiki/Hill_climbing
+https://en.wikipedia.org/wiki/Stochastic_hill_climbing
+https://crypto.stackexchange.com/questions/19439/generating-child-keys-for-a-hill-climb-algorithm
+
+### Perjantai:
+
 
 ## Miten ohjelma on edistynyt
 
