@@ -32,7 +32,7 @@ Hill climbing menetelmästä jonkin verran, hajautustaulun toteutuksesta suhteel
 
 missä bittimanipulaatio on negatiiviisia lukuja varten ja this.hashtable.length on valittu kovakoodatuista alkuluvuista, jotka ovat kaukana kakkosen potensseista, ja joiden koot suurinpiirtein kaksinkertaistuvat kun taulukon kokoa kasvatetaan.
 
-**Merkkijonojen manipulointi**: Onko välttämätöntä luoda omat toiminallisuudet? toUpperCase, toLowerCase, välien ja muiden merkkien poisto sekä uusien merkkijonojen luonti char arraystä ovat hyvin yleisiä toimintoja jo nyt ja käytööliittymässä erityisesti. 
+**Merkkijonojen manipulointi**: Onko välttämätöntä luoda omat toiminallisuudet? toUpperCase, toLowerCase, välien ja muiden merkkien poisto sekä uusien merkkijonojen luonti char arraystä ovat hyvin yleisiä toimintoja jo nyt ja käyttöliittymässä tullaan käyttämään erityisesti. 
 
 **Pseudo-random generator**:
 
@@ -57,7 +57,7 @@ Sanakirjahyökkäystoiminnallisuus saatetaan lisätä transpositioncipheriin, jo
 | 20.8. | 3 |  Hajautustaulujen toteutukseen liittyvä tutkimus |
 | 21.8. | 6 | Lisää tutkimusta, kahteen suuntaan linkitetyn listan toteutus ja testit, ja yhteentörmäykset ketjutuksella ratkaisevan perushajautustaulun toteutuksen aloitus |
 | 22.8. | ~ 8 | Hajautustalun toteutus, Vigenere salauksissa hajaatustalun käytön välttely esimerkiksi hyödyntäen merkkien Unicode arvoja ja tallentamalla niitä taulukkoon niiden Unicode arvon modulo (Unicode arvo) 'a' perusteella. Hill climbing algoritmin tutkimusta |
-| 23.8. | 8 | HashSet typpisen rakenteen ja sille omien listarakenteiden luonti, Hill climbing  algoritmin aloittelua, ja eritysesti sen sovellus Transposition cipherin avaimien löytämisessä etsimllä lokaaleja maksimeja ja toivoen että niiden joukossa on globaali maksimi |
+| 23.8. | 8 | HashSet typpisen rakenteen ja sille omien listarakenteiden luonti, Hill climbing  algoritmin aloittelua, ja eritysesti sen sovellus Transposition cipherin avaimien löytämisessä etsimllä lokaaleja maksimeja ja toivoen että niiden joukossa on globaali maksimi, dokumentaation lisäys |
 | 24.8. | ? | |
 
 [Tuntikirjanpito](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/tuntikirjanpito.md)
