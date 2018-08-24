@@ -42,7 +42,7 @@ Testikattavuus on suhteellisen hyvä. Ainoastaan hajautusrakenteiden kokoon ja k
 
 ![Testikattavuus_vko_5](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/testikattavuus_vko_5.png)
 
-### HillClimber luokka
+### HillClimber luokka single columnar transposition cipherin murtamisessa
 
 Kun seuraava teksti salattiin (ilman välejä) avaimella "machinerys" single columnar transposition salauksella (eli käyttäen pelkästään aakkosia abcdefghij avain olisi kirjainten aakkosjärejestykseltään: fabdegchji)
 
@@ -52,16 +52,21 @@ saadaan ciphertext:
  
     phinascpskrcepxtuctetustyrlllsireftaneiobeoistepnawyipohlileocmsctliarlaarrdletfoehrrlttiihhpttsruhlgdepyytaiaducnhinactotoeooetfnviefnepshtnbbtttessvihoafaknicaswiruiungoouueufesknksiboebhetoecamcotrlfeealyoihtpoaaakttcusnatiutneotcoavoihtnneeluekntestaheansdefkonsslkdoeneaeoawyfcacktwhoeebfoiimsaonehotrsoedegstuane
     
-ja kun tätä salaustaa yrittää murtaa HillClimber luokan avulla: climber.runToTheHills(10, ciphertext.toUpperCase(), 20, 1000)
+ja kun tätä salaustaa yrittää murtaa HillClimber luokan avulla: 
+
+    climber.runToTheHills(10, ciphertext.toUpperCase(), 20, 1000)
 
 niin ohjelma usein palauttaa oikean avaimen fabdegchji mutta toisinaan melkein oikean avaimen ifabdegchj:
 
+Onnistunut run:
+
 ![Oikea tulos](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/right_key.png)
+
+(Hiukan) epäonnistunut run:
 
 ![Väärä tulos](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/wrong_key.png)
 
-Eli viitteitä algoritmin toimivuudesta siis on, mutta tässä tosin heti käytettiin avaimen pituutta 10 (koska se tiedettiin) ja muutenkin tämä on tietysti yksittäistapaus. Kuitenkin algoritmi näyttää lupaavalta.
-
+Eli viitteitä algoritmin toimivuudesta siis on, mutta tässä tosin heti käytettiin avaimen pituutta 10 (koska se tiedettiin) ja muutenkin tämä on tietysti yksittäistapaus ja ei sinällään todista mitään. Kuitenkin algoritmi näyttää lupaavalta.
 
 ## Mitä opin tällä viikolla
 
