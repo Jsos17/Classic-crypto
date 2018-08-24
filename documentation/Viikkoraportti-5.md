@@ -13,8 +13,11 @@ HashedSetin toteutus mallintamaan joukkoa matemaattisesti (ei duplikaatteja, pel
 Hill climbing algoritimin aloittelu seuraavien yleisten ohjeiden pohjalta:
 
 http://practicalcryptography.com/cryptanalysis/stochastic-searching/cryptanalysis-columnar-transposition-cipher/
-https://en.wikipedia.org/wiki/Hill_climbing
+
+https://en.wikipedia.org/wiki/Hill_climbing 
+
 https://en.wikipedia.org/wiki/Stochastic_hill_climbing
+
 https://crypto.stackexchange.com/questions/19439/generating-child-keys-for-a-hill-climb-algorithm
 
 ### Perjantai:
