@@ -56,9 +56,9 @@ ja kun tätä salaustaa yrittää murtaa HillClimber luokan avulla: climber.runT
 
 niin ohjelma usein palauttaa oikean avaimen fabdegchji mutta toisinaan melkein oikean avaimen ifabdegchj:
 
-![Oikea tulos]()
+![Oikea tulos](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/right_key.png)
 
-![Väärä tulos]()
+![Väärä tulos](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/wrong_key.png)
 
 Eli viitteitä algoritmin toimivuudesta siis on, mutta tässä tosin heti käytettiin avaimen pituutta 10 (koska se tiedettiin) ja muutenkin tämä on tietysti yksittäistapaus. Kuitenkin algoritmi näyttää lupaavalta.
 
