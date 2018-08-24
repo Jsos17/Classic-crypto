@@ -92,7 +92,7 @@ public class HillClimber {
      * hill" i.e. to find a more optimal key by swapping two pairs of characters
      * in the key randomly.
      * @param index Allows the storing of all produced key candidates and their
-     * corresponding fitness values in two separate array.
+     * corresponding fitness values in two separate arrays.
      */
     protected void climbARandomHill(int keyLen, String ciphertext, int iterations, int index) {
         char[] maybeKeyChars = new char[keyLen];
