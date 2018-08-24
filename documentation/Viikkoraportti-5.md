@@ -75,8 +75,8 @@ Sanakirjahyökkäystoiminnallisuus saatetaan lisätä transpositioncipheriin, jo
 | 18.8. | 1 | Combinatorics-luokan optimoinnin kokeilua (josta lopulta vain taulukoiden int[] -> byte[] muutos päätyi koodiin), Ngrams -luokan tekstitiedoston lukemisen virhetilanteille testejä |
 | 20.8. | 3 |  Hajautustaulujen toteutukseen liittyvä tutkimus |
 | 21.8. | 6 | Lisää tutkimusta, kahteen suuntaan linkitetyn listan toteutus ja testit, ja yhteentörmäykset ketjutuksella ratkaisevan perushajautustaulun toteutuksen aloitus |
-| 22.8. | ~ 8 | Hajautustalun toteutus, Vigenere salauksissa hajaatustalun käytön välttely esimerkiksi hyödyntäen merkkien Unicode arvoja ja tallentamalla niitä taulukkoon niiden Unicode arvon modulo (Unicode arvo) 'a' perusteella. Hill climbing algoritmin tutkimusta |
-| 23.8. | 8 | HashSet typpisen rakenteen ja sille omien listarakenteiden luonti, Hill climbing  algoritmin aloittelua, ja eritysesti sen sovellus Transposition cipherin avaimien löytämisessä etsimllä lokaaleja maksimeja ja toivoen että niiden joukossa on globaali maksimi, dokumentaation lisäys |
-| 24.8. | ? | |
+| 22.8. | ~ 8 | Hajautustaulun (HashTable luokka) sekä linkitetyn listan uudelleensuunnittelu ja toteutus, Vigenere cipherin ja sen varianttien refaktorointi siten että hajautustataulu on tarpeeton, Hill climbing algoritmin tutkimusta |
+| 23.8. | 8 | HashedSet luokan ja sille oman kahteen suuntaan linkitetyn listan luonti mallintamaan suurinpiirtein Javan HashSettiä, Hill climbing algoritmin aloittelu,  dokumentaation lisäys |
+| 24.8. | 4 | Graafisen käyttöliittymän hyvin karu ei-refaktoroitu luonnos, missä nyt olemassa toiminnallisuus siirtyä päävalikosta salaukseen ja takaisin, mutta ei vielä liitettyä algoritmillista toiminnallisuutta |
 
 [Tuntikirjanpito](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/tuntikirjanpito.md)
