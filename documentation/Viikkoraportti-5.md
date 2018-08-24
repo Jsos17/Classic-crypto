@@ -2,6 +2,18 @@
 
 ## Mitä olen tehnyt
 
+### Lauantai:
+
+Pieniä optimointiyrityksiä permutaatioiden generointiin, jotka eivät johtaneet juuri mihinkään.
+
+### Maanantai:
+
+Hajautustaulun toteutuksen tutkimusta.
+
+### Tiistai:
+
+Hajautustaulun toteutuksen ja kahteen suuntaan linkitetyn listan aloitus.
+
 ### Keskiviikko:
 
 HashTable toteutus vastaamaan perinteistä hajautustaulua, jossa yhteentörmäykset ratkaistaan ketjuttamalla avain-arvo parit kahteen suuntaan linkitettyihin listoihin. Tähän tietorakenteeseen voi tallentaa monta samaa avainta jotka viittaavat eri arvoon (ei suositeltavaa/ei ole käyttötarkoitus: tällä hetkellä näiden kaikkien eri arvojen hakua ei tueta)
@@ -22,15 +34,15 @@ https://crypto.stackexchange.com/questions/19439/generating-child-keys-for-a-hil
 
 ### Perjantai:
 
-Graafisen käyttöliittymän pohja, jossa nyt toivia päävalikko, josta pääsee napeilla eri salausmenetelmien pariin ja takaisin. Itse algoritmeja ei vielä ole liitetty, ja muutenkin itse koodissa surutta copypastetaan eikä sitä ole refaktoroitu juurikaan.
+Graafisen käyttöliittymän pohja, jossa on nyt toimiva päävalikko, josta pääsee napeilla eri salausmenetelmien pariin ja takaisin. Itse algoritmeja ei vielä ole liitetty, ja muutenkin itse koodissa surutta copypastetaan eikä sitä ole refaktoroitu juurikaan. Testikattavuuden nostoa ja dokumentoinnin päivitystä.
 
 ## Miten ohjelma on edistynyt
 
-*HashMapin* toimintaa enemmän tai vähemmän jäljittelevä **HashTable**, joka käyttää kahteen suuntaan linkitettyä listoja yhteentörmäysten ratkaisemisessa (hashing with chaining). Tämä rakenne sallii usean saman avaimen tallennuksen rakenteeseen eikä edes tarkista duplikaatteja, ja siten on lähinnä tarkoitettu uniikeille avaimille, sillä jos rakenteessa on useita samoja avaimia ei voi tietää mikä niistä palautetaan.
+*HashMapin* toimintaa enemmän tai vähemmän jäljittelevä **HashTable**, joka käyttää kahteen suuntaan linkitettyä listoja yhteentörmäysten ratkaisemisessa (hashing with chaining). Tämä rakenne sallii usean saman avaimen tallennuksen rakenteeseen eikä edes tarkista duplikaatteja, ja siten on lähinnä tarkoitettu uniikeille avaimille.
 
 *HashSetin* toimintaa enemmän tai vähemmän jäljittelevä **HashedSet**, joka toimii uniikkeja olioita tallentavana joukkototeutuksena ja tälle hajautusrakenteelle on oma kahteen suuntaan linkitetty lista (hashing with chaining). Tämä rakenne on käytössä HillClimber luokassa, jossa HashedSetin avulla yritetään välttää jo kerran generoitujen satunnaisten avaimien fitness-arvon uudelleen laskemista.
 
-**HillClimber** luokka, ja erityisesti siinä Transposition cipherin murtaminen luomalla satunnaisia avaimia ja yrittämällä löytää lokaali optimi ja sitten tämän koko algoritmin uudelleenajo useita kertoja tallentaen kaikki lokaalit optimit ja toivoen, että globaali optimi löytyy näiden joukosta.
+**HillClimber** luokka, ja erityisesti siinä Transposition cipherin murtaminen luomalla satunnaisia avaimia ja yrittämällä löytää lokaali optimi ja sitten tämän koko algoritmin uudelleenajo useita kertoja tallentaen kaikki (pseudo)-lokaalit optimit ja toivoen, että globaali optimi löytyy näiden joukosta.
 
 Vigenere salauksissa hajautustaulun käytön välttäminen "hakkerointiratkaisulla" hyödyntämällä merkkien uniikkeja ASCII/Unicode arvoja Java-kielessä. Kuten mainittu,  tämä ratkaisu on hiukan hakkerointia, koska voi olla että merkkien kokonaislukuarvot eivät säily samana tulevaisuudessa ja sen takia koko toiminnallisuus voisi hajota tämän vuoksi. Lisäksi tehokkuushyöty on todennäköisesti hyvin pieni ja sen vuoksi voi olla että palaan normaalin hajautustaulun käyttöön. 
 
@@ -38,13 +50,13 @@ Vigenere salauksissa hajautustaulun käytön välttäminen "hakkerointiratkaisul
 
 * Keyed Vigenere cipherissa hyödynnetään sitä faktaa, että k % 29 on uniikki luku, missä k = 97,...,122 (eli siis merkit a,b,...,z) ja näin tämä on eräänlainen ad-hoc hajautusfunktio, joka edelleen nojaa näiden kyseisten merkkien ASCII/Unicode arvoihin Java-kielessä.
 
-Testikattavuus on suhteellisen hyvä. Ainoastaan hajautusrakenteiden kokoon ja koon kasvattamiseen ja pienentämiseen liittyvissä rajatapausten testauksesa on puutteita. Lisäksi HillClimber luokassa kaksi päämetodia, jotka perustuvat satunnaisen avaimen valintaan ovat täysin testaamattomia (manuaalisesti on testattu) koska algoritmit eivät ole deterministisiä tulosten suhteen ja toistaiseksi en keksinyt järkevää tapaa testaamiseen. Oikeastaan kaikki HillClimber luokan metodit ovat satunnaisuuteen perustuvia ja niiden todellinen testaus tapahtunee suorituskykytestauksen kautta eli kuinka usein menetelmä antaa oikean vastauksen.
+**Testikattavuus** on suhteellisen hyvä. Ainoastaan hajautusrakenteiden kokoon ja koon kasvattamiseen ja pienentämiseen liittyvissä rajatapausten testauksesa on puutteita. Lisäksi HillClimber luokassa kaksi päämetodia, jotka perustuvat satunnaisen avaimen valintaan ovat täysin testaamattomia (manuaalisesti on testattu) koska algoritmit eivät ole deterministisiä tulosten suhteen ja toistaiseksi en keksinyt järkevää tapaa testaamiseen. Oikeastaan kaikki HillClimber luokan metodit ovat satunnaisuuteen perustuvia ja niiden todellinen testaus tapahtunee suorituskykytestauksen kautta eli kuinka usein menetelmä antaa oikean vastauksen.
 
 ![Testikattavuus_vko_5](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/testikattavuus_vko_5.png)
 
 ### HillClimber luokka single columnar transposition cipherin murtamisessa
 
-Kun seuraava teksti salattiin (ilman välejä) avaimella "machinerys" single columnar transposition salauksella (eli käyttäen pelkästään aakkosia abcdefghij avain olisi kirjainten aakkosjärejestykseltään: fabdegchji)
+Kun seuraava teksti salattiin **ilman välilyöntejä** avaimella "machinerys" single columnar transposition salauksella (eli käyttäen pelkästään aakkosia abcdefghij avain olisi kirjainten aakkosjärejestykseltään: fabdegchji)
 
     a perfect hash function with values in a limited range can be used for efficient lookup operations by placing keys from s or other associated values in a lookup table indexed by the output of the function one can then test whether a key is present in s or lookup a value associated with that key by looking for it at its cell of the table each such lookup takes constant time in the worst case
     
@@ -52,7 +64,7 @@ saadaan ciphertext:
  
     phinascpskrcepxtuctetustyrlllsireftaneiobeoistepnawyipohlileocmsctliarlaarrdletfoehrrlttiihhpttsruhlgdepyytaiaducnhinactotoeooetfnviefnepshtnbbtttessvihoafaknicaswiruiungoouueufesknksiboebhetoecamcotrlfeealyoihtpoaaakttcusnatiutneotcoavoihtnneeluekntestaheansdefkonsslkdoeneaeoawyfcacktwhoeebfoiimsaonehotrsoedegstuane
     
-ja kun tätä salaustaa yrittää murtaa HillClimber luokan avulla: 
+ja kun tätä salausta yrittää murtaa HillClimber luokan avulla (missä 10 on avaimen pituus, 20 kuinka monta kertaa algoritmi ajetaan ja 1000 kuinka monta kertaa satunnaisesti valitun avaimen kahta kirjainta yritetään vaihtaa (satunnainen valinta indekseille): 
 
     climber.runToTheHills(10, ciphertext.toUpperCase(), 20, 1000)
 
@@ -86,17 +98,15 @@ missä bittimanipulaatio on negatiiviisia lukuja varten ja this.hashtable.length
 
 **Merkkijonojen manipulointi**: Onko välttämätöntä luoda omat toiminallisuudet? toUpperCase, toLowerCase, välien ja muiden merkkien poisto sekä uusien merkkijonojen luonti char arraystä ovat hyvin yleisiä toimintoja jo nyt ja käyttöliittymässä tullaan käyttämään erityisesti. 
 
-**Pseudo-random generator**:
-
 ## Mitä teen seuraavaksi
 
 Yleisesti tarkoitus on saada työ niin pitkälle valmiiksi kuin mahdollista.
 
-Salausalgoritmeja (ciphers) ei lisätä vaan paketoidaan Vigenere ja sen variantit sekä Transposition cipherit käytöliittymään, jossa käyttäjä voi suorittaa salauksia ja niiden dekryptauksia haluamillaan parametreilla. Käyttöliittymästä pyritään tekemään yksinkertainen graafinen näyttöikkuna (minkä pitäisi onnistua suhteellisessa ajassa).
+Salausalgoritmeja (ciphers) ei lisätä vaan paketoidaan Vigenere ja sen variantit sekä Transposition cipherit käytöliittymään, jossa käyttäjä voi suorittaa salauksia ja niiden dekryptauksia haluamillaan parametreilla. Käyttöliittymä on graafinen.
 
-Salauksen murtamisen osalta uusia toiminnallisuuksia ei enää pyritä juurikaan lisäämään vaan tyydytään murtamisen osalta Vigenere cipherin murtamiseen olemasssa olevien frekvenssianalyysin ja index of coincidencen avulla sekä single columnar transposition cipherin murtamiseen brute forcen (permutaatiot) ja hill climbingin avulla. Lisäksi mahdollisesti hill climbing tekniikkaa sovelletaan Vigenere cipherin murtamiseen. Myös murtamistoiminnallisuus pyritään paketoimaan samaan graafiseen käyttöliittymään omaksi osiokseen.
+Salauksen murtamisen osalta uusia toiminnallisuuksia ei enää pyritä juurikaan lisäämään vaan tyydytään murtamisen osalta Vigenere cipherin murtamiseen olemasssa olevien frekvenssianalyysin ja index of coincidencen avulla sekä single columnar transposition cipherin murtamiseen brute forcen (permutaatiot) ja hill climbingin avulla. Lisäksi mahdollisesti hill climbing tekniikkaa sovelletaan Vigenere cipherin murtamiseen. Myös murtamistoiminnallisuus pyritään paketoimaan samaan graafiseen käyttöliittymään omaksi osiokseen ,ja jos aikaa jää niin olisi hyödyllistä murtamisen kannalta liittää JavaFX:n visualisointia eli jotain pylväsdiagrammeja jne.
 
-Tietorakenteita saatetaan optimoida testauksen perusteella tai jos aikaa jää.
+Merkkijonojen manipulointia yritetään optimoida ja luodaan tarvittaessa omat toteutukset. Lisäksi pseudo-satunnaislukugeneraattorin luonti lähinnä tuota HillClimber luokkaa varten. Myös tietorakenteita saatetaan optimoida testauksen perusteella tai jos aikaa jää.
 
 Sanakirjahyökkäystoiminnallisuus saatetaan lisätä transpositioncipheriin, jos sopiva sanakirja saadaan kokoon ja aikaa jää.
 
@@ -110,6 +120,6 @@ Sanakirjahyökkäystoiminnallisuus saatetaan lisätä transpositioncipheriin, jo
 | 21.8. | 6 | Lisää tutkimusta, kahteen suuntaan linkitetyn listan toteutus ja testit, ja yhteentörmäykset ketjutuksella ratkaisevan perushajautustaulun toteutuksen aloitus |
 | 22.8. | ~ 8 | Hajautustaulun (HashTable luokka) sekä linkitetyn listan uudelleensuunnittelu ja toteutus, Vigenere cipherin ja sen varianttien refaktorointi siten että hajautustataulu on tarpeeton, Hill climbing algoritmin tutkimusta |
 | 23.8. | 8 | HashedSet luokan ja sille oman kahteen suuntaan linkitetyn listan luonti mallintamaan suurinpiirtein Javan HashSettiä, Hill climbing algoritmin aloittelu,  dokumentaation lisäys |
-| 24.8. | 5 | Graafisen käyttöliittymän hyvin karu ei-refaktoroitu luonnos, missä nyt olemassa toiminnallisuus siirtyä päävalikosta salaukseen ja takaisin, mutta ei vielä liitettyä algoritmillista toiminnallisuutta |
+| 24.8. | 7 | Graafisen käyttöliittymän hyvin karu ei-refaktoroitu luonnos, missä nyt olemassa toiminnallisuus siirtyä päävalikosta salaukseen ja takaisin, mutta ei vielä liitettyä algoritmillista toiminnallisuutta, testikattavuuden nosto, dokumentoinnin päivitys |
 
 [Tuntikirjanpito](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/tuntikirjanpito.md)
