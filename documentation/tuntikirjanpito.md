@@ -26,4 +26,4 @@
 | 21.8. | 6 | Lisää tutkimusta, kahteen suuntaan linkitetyn listan toteutus ja testit, ja yhteentörmäykset ketjutuksella ratkaisevan perushajautustaulun toteutuksen aloitus |
 | 22.8. | ~ 8 | Hajautustaulun (HashTable luokka) sekä linkitetyn listan uudelleensuunnittelu ja toteutus, Vigenere cipherin ja sen varianttien refaktorointi siten että hajautustataulu on tarpeeton, Hill climbing algoritmin tutkimusta |
 | 23.8. | 8 | HashedSet luokan ja sille oman kahteen suuntaan linkitetyn listan luonti mallintamaan suurinpiirtein Javan HashSettiä, Hill climbing algoritmin aloittelu,  dokumentaation lisäys |
-| 24.8. | 4 | Graafisen käyttöliittymän hyvin kary ei-refaktoroitu luonnos, missä nyt olemassa toiminnallisuus siirtyä päävalikosta salaukseen ja takaisin, mutta ei vielä liitettyä algoritmillista toiminnallisuutta |
+| 24.8. | 7 | Graafisen käyttöliittymän hyvin karu ei-refaktoroitu luonnos, missä nyt olemassa toiminnallisuus siirtyä päävalikosta salaukseen ja takaisin, mutta ei vielä liitettyä algoritmillista toiminnallisuutta, testikattavuuden nosto, dokumentoinnin päivitys |
