@@ -132,18 +132,21 @@ public class HillClimber {
         return new String(copy);
     }
 
-    protected char[] randomizeInPlace(char[] alphabet) {
+    /**
+     * Code based on the pseudocode for Randomize-In-Place(A) method found in
+     * the book Introduction to Algorithms, 3rd edition. It is meant to produce
+     * a random permutation of the alphabet, so that it can used as the starting
+     * point in the climbAHill algorithm.
+     *
+     * @param alphabet
+     */
+    protected void randomizeInPlace(char[] alphabet) {
         int n = alphabet.length;
-        Random random = new Random();
-
         for (int i = 0; i < n; i++) {
-            int rndNumber = random.ints(i, n).findFirst().getAsInt();
+            int rndNumber = this.rand.ints(i, n).findFirst().getAsInt();
             char temp = alphabet[i];
             alphabet[i] = alphabet[rndNumber];
             alphabet[rndNumber] = temp;
         }
-
-        return alphabet;
     }
-
 }

@@ -5,7 +5,6 @@
  */
 package crypto.datastructures;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -23,10 +22,6 @@ public class HashTableTest {
     public void setUp() {
         this.hashT = new HashTable();
         this.ht = new HashTable<>();
-    }
-
-    @After
-    public void tearDown() {
     }
 
     @Test

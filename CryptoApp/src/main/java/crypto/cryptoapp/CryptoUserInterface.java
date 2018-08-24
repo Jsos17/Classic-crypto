@@ -8,17 +8,34 @@ package crypto.cryptoapp;
 import crypto.ciphers.TranspositionCipher;
 import crypto.cryptanalysis.HillClimber;
 import crypto.cryptanalysis.Quadgrams;
+import java.awt.GraphicsEnvironment;
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
 
 /**
  *
  * @author jpssilve
  */
-public class CryptoUserInterface {
+public class CryptoUserInterface extends Application {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        launch(CryptoUserInterface.class);
+
 //        FrequencyAnalysis freq = new FrequencyAnalysis();
 //        double[] expFreq = freq.getExpectedLetterFrequencies();
 //        double sum = 0;
@@ -38,7 +55,6 @@ public class CryptoUserInterface {
 //        IndexOfCoincidence ic = new IndexOfCoincidence(freq);
 //        String ciphertext1 = "QPWKALVRXCQZIKGRBPFAEOMFLJMSDZVDHXCXJYEBIMTRQWNMEAIZRVKCVKVLXNEICFZPZCZZHKMLVZVZIZRRQWDKECHOSNYXXLSPMYKVQXJTDCIOMEEXDQVSRXLRLKZHOV".toLowerCase();
 //        System.out.println(ciphertext1);
-
 //        double[] deltas = ic.allAggregateDeltaBarICs(ciphertext1);
 //        for (int i = 0; i < 20; i++) {
 //            System.out.print((i + 1) + " | ");
@@ -307,13 +323,232 @@ public class CryptoUserInterface {
 //        }
 //
 //        System.out.println(avg + " ms");
-        Quadgrams quad = new Quadgrams("english_quadgrams.txt");
-        TranspositionCipher cipher = new TranspositionCipher();
-        HillClimber climber = new HillClimber(quad);
-        String ciphertext = "phinascpskrcepxtuctetustyrlllsireftaneiobeoistepnawyipohlileocmsctliarlaarrdletfoehrrlttiihhpttsruhlgdepyytaiaducnhinactotoeooetfnviefnepshtnbbtttessvihoafaknicaswiruiungoouueufesknksiboebhetoecamcotrlfeealyoihtpoaaakttcusnatiutneotcoavoihtnneeluekntestaheansdefkonsslkdoeneaeoawyfcacktwhoeebfoiimsaonehotrsoedegstuane";
-//        System.out.println(text.length());
-        String key = climber.runToTheHills(10, ciphertext.toUpperCase(), 20, 1000);
-        System.out.println(key);
-        System.out.println(cipher.decryptSingleTransposition(key, ciphertext));
+//        Quadgrams quad = new Quadgrams("english_quadgrams.txt");
+//        TranspositionCipher cipher = new TranspositionCipher();
+//        HillClimber climber = new HillClimber(quad);
+//        String ciphertext = "phinascpskrcepxtuctetustyrlllsireftaneiobeoistepnawyipohlileocmsctliarlaarrdletfoehrrlttiihhpttsruhlgdepyytaiaducnhinactotoeooetfnviefnepshtnbbtttessvihoafaknicaswiruiungoouueufesknksiboebhetoecamcotrlfeealyoihtpoaaakttcusnatiutneotcoavoihtnneeluekntestaheansdefkonsslkdoeneaeoawyfcacktwhoeebfoiimsaonehotrsoedegstuane";
+////        System.out.println(text.length());
+//        String key = climber.runToTheHills(10, ciphertext.toUpperCase(), 20, 1000);
+//        System.out.println(key);
+//        System.out.println(cipher.decryptSingleTransposition(key, ciphertext));
+    }
+
+    /**
+     * Very crude code with no refactoring that simply replicates all elements
+     * event though some could be reused, and this most likely will be done in
+     * the future.
+     *
+     * @param stage
+     * @throws Exception
+     */
+    @Override
+    public void start(Stage stage) throws Exception {
+        // Vigenere
+        Label vigLabel = new Label("Vigenere cipher");
+        TextArea vigText = new TextArea();
+        vigText.setPromptText("Enter plaintext/ciphertext");
+        vigText.setWrapText(true);
+        Label vigKeyLabel = new Label("Encryption/Decryption key");
+        TextField vigKey = new TextField();
+        vigKey.setPromptText("Enter key");
+
+        Button encrypt1 = new Button("Encrypt");
+        Button decrypt1 = new Button("Decrypt");
+        Button clear1 = new Button("Clear");
+
+        HBox hbox1 = createButtonBox(new Node[]{encrypt1, decrypt1, clear1});
+        VBox vigL = createLeftBox(new Node[]{vigLabel, vigText, hbox1});
+        VBox vigR = createRightBox(new Node[]{vigKeyLabel, vigKey});
+
+        // Keyed Vigenere
+        Label keyedVigLabel = new Label("Keyed Vigenere cipher");
+        TextArea keyedVigText = new TextArea();
+        keyedVigText.setPromptText("Enter plaintext/ciphertext");
+        keyedVigText.setWrapText(true);
+        Label alphabetKeyLabel = new Label("Alphabet key");
+        TextField alphabetKey = new TextField();
+        alphabetKey.setPromptText("Enter alphabet key");
+        Label keyedVigKeyLabel = new Label("Encryption/Decryption key");
+        TextField keyedVigKey = new TextField();
+        keyedVigKey.setPromptText("Enter key");
+
+        Button encrypt2 = new Button("Encrypt");
+        Button decrypt2 = new Button("Decrypt");
+        Button clear2 = new Button("Clear");
+
+        HBox hbox2 = createButtonBox(new Node[]{encrypt2, decrypt2, clear2});
+        VBox keyedL = createLeftBox(new Node[]{keyedVigLabel, keyedVigText, hbox2});
+        VBox keyedR = createRightBox(new Node[]{alphabetKeyLabel, alphabetKey, keyedVigKeyLabel, keyedVigKey});
+
+        // Autokey Vigenere
+        Label autokeyLabel = new Label("Autokey Vigenere cipher");
+        TextArea autokeyVigText = new TextArea();
+        autokeyVigText.setPromptText("Enter plaintext/ciphertext");
+        autokeyVigText.setWrapText(true);
+        Label primerLabel = new Label("Primer key");
+        TextField primer = new TextField();
+        primer.setPromptText("Enter primer key");
+
+        Button encrypt3 = new Button("Encrypt");
+        Button decrypt3 = new Button("Decrypt");
+        Button clear3 = new Button("Clear");
+
+        HBox hbox3 = createButtonBox(new Node[]{encrypt3, decrypt3, clear3});
+        VBox autokeyL = createLeftBox(new Node[]{autokeyLabel, autokeyVigText, hbox3});
+        VBox autokeyR = createRightBox(new Node[]{primerLabel, primer});
+
+        // Single transposition
+        Label singleTrLabel = new Label("Single columnar transposition cipher");
+        TextArea singleTranspositionText = new TextArea();
+        singleTranspositionText.setPromptText("Enter plaintext/ciphertext");
+        singleTranspositionText.setWrapText(true);
+        Label transpositionKeyLabel = new Label("Encryption/Decryption key");
+        TextField transpositionKey = new TextField();
+        transpositionKey.setPromptText("Enter key");
+
+        Button encrypt4 = new Button("Encrypt");
+        Button decrypt4 = new Button("Decrypt");
+        Button clear4 = new Button("Clear");
+
+        HBox hbox4 = createButtonBox(new Node[]{encrypt4, decrypt4, clear4});
+        VBox transpL = createLeftBox(new Node[]{singleTrLabel, singleTranspositionText, hbox4});
+        VBox transpR = createRightBox(new Node[]{transpositionKeyLabel, transpositionKey});
+
+        // Double transposition
+        Label doubleTrLabel = new Label("Double columnar transposition cipher");
+        TextArea doubleTranspositionText = new TextArea();
+        doubleTranspositionText.setPromptText("Enter plaintext/ciphertext");
+        doubleTranspositionText.setWrapText(true);
+        Label key1Label = new Label("First encryption/decryption key");
+        TextField transpositionKey1 = new TextField();
+        transpositionKey1.setPromptText("Enter first key");
+        Label key2Label = new Label("Second encryption/decryption key");
+        TextField transpositionKey2 = new TextField();
+        transpositionKey2.setPromptText("Enter second key");
+
+        Button encrypt5 = new Button("Encrypt");
+        Button decrypt5 = new Button("Decrypt");
+        Button clear5 = new Button("Clear");
+
+        HBox hbox5 = createButtonBox(new Node[]{encrypt5, decrypt5, clear5});
+        VBox dTranspL = createLeftBox(new Node[]{doubleTrLabel, doubleTranspositionText, hbox5});
+        VBox dTranspR = createRightBox(new Node[]{key1Label, transpositionKey1, key2Label, transpositionKey2});
+
+        // Cipher menu
+        VBox ciphersMenu = new VBox();
+        Label ciphers = new Label("Ciphers:");
+        ciphers.setFont(new Font("Comic Sans MS", 16));
+        Button vigCipher = new Button("Vigenere cipher");
+        Button keyedVigCipher = new Button("Keyed Vigenere cipher");
+        Button autokeyVigCipher = new Button("Autokey Vigenere cipher");
+        Button singleTranspositionCipher = new Button("Single columnar transposition cipher");
+        Button doubleTranspositionCipher = new Button("Double columnar transposition cipher");
+        ciphersMenu.getChildren().addAll(ciphers, vigCipher, keyedVigCipher, autokeyVigCipher, singleTranspositionCipher, doubleTranspositionCipher);
+        ciphersMenu.setSpacing(20);
+
+        BorderPane cipherView = new BorderPane();
+        Scene cipherScene = new Scene(cipherView, 800, 640);
+        Button mainMenu = new Button("Main menu");
+        cipherView.setBottom(mainMenu);
+
+        vigCipher.setOnMouseClicked((event) -> {
+            cipherView.setLeft(vigL);
+            cipherView.setRight(vigR);
+            stage.setScene(cipherScene);
+
+        });
+
+        keyedVigCipher.setOnMouseClicked((event) -> {
+            cipherView.setLeft(keyedL);
+            cipherView.setRight(keyedR);
+            stage.setScene(cipherScene);
+        });
+
+        autokeyVigCipher.setOnMouseClicked((event) -> {
+            cipherView.setLeft(autokeyL);
+            cipherView.setRight(autokeyR);
+            stage.setScene(cipherScene);
+        });
+
+        singleTranspositionCipher.setOnMouseClicked((event) -> {
+            cipherView.setLeft(transpL);
+            cipherView.setRight(transpR);
+            stage.setScene(cipherScene);
+        });
+
+        doubleTranspositionCipher.setOnMouseClicked((event) -> {
+            cipherView.setLeft(dTranspL);
+            cipherView.setRight(dTranspR);
+            stage.setScene(cipherScene);
+        });
+
+        // Cryptanalysis menu
+        VBox cryptanalysisMenu = new VBox();
+        Label cracking = new Label("Cryptanalysis:");
+        cracking.setFont(new Font("Comic Sans MS", 16));
+        Button attackVigenere = new Button("Attack Vigenere cipher");
+        Button attackSingleTransposition = new Button("Attack single transposition cipher");
+        cryptanalysisMenu.getChildren().addAll(cracking, attackVigenere, attackSingleTransposition);
+        cryptanalysisMenu.setSpacing(20);
+
+        attackVigenere.setOnMouseClicked((event) -> {
+
+        });
+
+        attackSingleTransposition.setOnMouseClicked((event) -> {
+
+        });
+
+        Label welcome = new Label("Choose Ciphers for encryption/decryption or Cryptanalysis to analyze ciphertext");
+        welcome.setFont(new Font("Comic Sans MS", 20));
+        welcome.setPadding(new Insets(11));
+
+        BorderPane menu = new BorderPane();
+        menu.setTop(welcome);
+        menu.setLeft(ciphersMenu);
+        menu.setRight(cryptanalysisMenu);
+
+        Scene menuScene = new Scene(menu, 800, 640);
+
+        mainMenu.setOnMouseClicked((event) -> {
+            stage.setScene(menuScene);
+        });
+
+        stage.setTitle("CryptoApp");
+        stage.setScene(menuScene);
+        stage.show();
+    }
+
+    private VBox createLeftBox(Node[] nodes) {
+        VBox vboxLeft = new VBox();
+        for (Node node : nodes) {
+            vboxLeft.getChildren().add(node);
+        }
+
+        return vboxLeft;
+    }
+
+    private VBox createRightBox(Node[] nodes) {
+        VBox vboxRight = new VBox();
+        for (Node node : nodes) {
+            vboxRight.getChildren().add(node);
+        }
+
+        return vboxRight;
+    }
+
+    private HBox createButtonBox(Node[] nodes) {
+        HBox hbox = new HBox();
+        hbox.setSpacing(5);
+        for (Node node : nodes) {
+            hbox.getChildren().add(node);
+        }
+
+        return hbox;
+    }
+
+    @Override
+    public void stop() {
+        System.out.println("The application closes");
     }
 }
