@@ -2,7 +2,7 @@
 
 ## Tietorakenteet ja algoritmit aineopintojen harjoitustyö
 
-Harjoitustyö toteuttaa Java-kielellä klassisia (pre-1970-luku) kryptografisia algoritmeja ja kryptoanalyysiä näihin liittyen.
+Harjoitustyö toteuttaa Java-kielellä klassisia (pre-1940-luku) kryptografisia algoritmeja ja kryptoanalyysiä näihin liittyen.
 
 ## Keskeiset dokumentit
 
