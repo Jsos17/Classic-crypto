@@ -19,6 +19,7 @@ https://crypto.stackexchange.com/questions/19439/generating-child-keys-for-a-hil
 
 ### Perjantai:
 
+Graafisen käyttöliittymän pohja, jossa nyt toivia päävalikko, josta pääsee napeilla eri salausmenetelmien pariin ja takaisin. Itse algoritmeja ei vielä ole liitetty, ja muutenkin itse koodissa surutta copypastetaan eikä sitä ole refaktoroitu juurikaan.
 
 ## Miten ohjelma on edistynyt
 
