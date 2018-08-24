@@ -34,23 +34,24 @@ public class HillClimber {
 
     /**
      * This method simply loops over a mathematical optimization algorithm
-     * climbAHill for the specified number of times trying to find the global
-     * maximum among all the local maximums produced by the climbAHill
-     * algorithm.
+     * climbARandomHill for the specified number of times trying to find the
+     * global maximum among all the local maximums (or close approximations of
+     * the local maximum) produced by the climbARandomHill algorithm.
      *
      * This algorithm is not deterministic and no guarantees can be made that it
-     * finds the right key. However, the more times the algorithm is run and the
-     * more iterations each run consists of, the higher the chance that the
-     * right decryption is found or at least a decryption that is close to the
-     * right one.
+     * finds the right key. Successive runs have shown to produce the right key
+     * and also a key that is close to the right one. However, the more times
+     * the algorithm is run and the more iterations each run consists of, the
+     * higher the chance that the right decryption is found or at least a
+     * decryption that is close to the right one.
      *
      * @param keyLen The trial length of the key used in the Singular
      * Transposition encryption
      * @param ciphertext The text we are trying to crack
      * @param algoRestarts How many the times the algorithm attempts to find the
-     * local maximum. In other words how many times the climbAHill algorithm is
-     * run. The more restarts the likelier the algorithm is to find a true
-     * global maximum among all the local maximums.
+     * local maximum. In other words how many times the climbARandomHill
+     * algorithm is run. The more restarts the likelier the algorithm is to find
+     * a true global maximum among all the local maximums.
      * @param iterations How many times we try to find a "higher point on the
      * hill" i.e. to find a more optimal key by swapping two pairs of characters
      * in the key randomly.
@@ -64,7 +65,7 @@ public class HillClimber {
         String bestGuess = "";
 
         for (int i = 0; i < algoRestarts; i++) {
-            climbAHill(keyLen, ciphertext, iterations, i);
+            climbARandomHill(keyLen, ciphertext, iterations, i);
             if (fitnesses[i] > best) {
                 best = fitnesses[i];
                 bestGuess = maybeKeys[i];
@@ -86,14 +87,14 @@ public class HillClimber {
      *
      * @param keyLen
      * @param ciphertext The ciphertext should be in uppercase and should be a
-     * single block of text with no spaces etc
+     * single block of text with no spaces, commas, dots etc
      * @param iterations How many times we try to find a "higher point on the
      * hill" i.e. to find a more optimal key by swapping two pairs of characters
      * in the key randomly.
      * @param index Allows the storing of all produced key candidates and their
      * corresponding fitness values in two separate array.
      */
-    protected void climbAHill(int keyLen, String ciphertext, int iterations, int index) {
+    protected void climbARandomHill(int keyLen, String ciphertext, int iterations, int index) {
         char[] maybeKeyChars = new char[keyLen];
         System.arraycopy(this.alphabet, 0, maybeKeyChars, 0, keyLen);
 
@@ -103,7 +104,7 @@ public class HillClimber {
         this.hashedSet.insert(maybeKey);
 
         for (int i = 1; i <= iterations; i++) {
-            maybeKey = swapRandom(maybeKeyChars);
+            maybeKey = swapRandomly(maybeKeyChars);
             if (!this.hashedSet.contains(maybeKey)) {
                 this.hashedSet.insert(maybeKey);
                 double value = this.ngrams.fitness(this.tCipher.decryptSingleTransposition(maybeKey, ciphertext));
@@ -120,7 +121,15 @@ public class HillClimber {
 //        System.out.println("Current best: " + best + " current key: " + new String(maybeKeyChars));
     }
 
-    protected String swapRandom(char[] keyChars) {
+    /**
+     * This method swaps to characters in a char array choosing the swapped
+     * characters randomly. It is possible that no swap is done if the random
+     * number is the same for both sampling draws.
+     *
+     * @param keyChars A char array
+     * @return A new String formed after the swap
+     */
+    protected String swapRandomly(char[] keyChars) {
         char[] copy = new char[keyChars.length];
         System.arraycopy(keyChars, 0, copy, 0, keyChars.length);
         int idx1 = this.rand.nextInt(keyChars.length);
@@ -136,7 +145,7 @@ public class HillClimber {
      * Code based on the pseudocode for Randomize-In-Place(A) method found in
      * the book Introduction to Algorithms, 3rd edition. It is meant to produce
      * a random permutation of the alphabet, so that it can used as the starting
-     * point in the climbAHill algorithm.
+     * point in the climbARandomHill algorithm.
      *
      * @param alphabet
      */

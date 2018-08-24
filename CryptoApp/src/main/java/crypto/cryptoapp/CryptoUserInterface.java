@@ -334,9 +334,9 @@ public class CryptoUserInterface extends Application {
     }
 
     /**
-     * Very crude code with no refactoring that simply replicates all elements
-     * event though some could be reused, and this most likely will be done in
-     * the future.
+     * Very crude code with very little refactoring that simply replicates all
+     * elements even though some could be reused, and this most likely will be
+     * done in the future.
      *
      * @param stage
      * @throws Exception

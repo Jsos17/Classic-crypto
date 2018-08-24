@@ -270,6 +270,28 @@ public class HashTableTest {
         assertTrue(this.ht.get("bbbb") == null);
     }
 
+    @Test
+    public void containsKeyTest1() {
+        assertFalse(this.ht.containsKey("machine"));
+        this.ht.hashInsert("machine", 1942l);
+        assertTrue(this.ht.containsKey("machine"));
+    }
+
+    @Test
+    public void containsKeyTest2() {
+        assertFalse(this.ht.containsKey("machine"));
+        this.ht.hashInsert("machine", 1942l);
+        assertTrue(this.ht.containsKey("machine"));
+        this.ht.remove("machine");
+        assertFalse(this.ht.containsKey("machine"));
+    }
+
+    @Test
+    public void containsKeyTest3() {
+        this.ht.hashInsert("Machine", 1942l);
+        assertFalse(this.ht.containsKey("machine"));
+    }
+
 //    @Test
 //    public void deleteNonExistentListNodeTest1() {
 //        HashTable<Character, Integer> ht2 = new HashTable<>();

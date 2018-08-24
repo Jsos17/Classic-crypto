@@ -87,6 +87,10 @@ public class HashTable<K, V> {
         return this.hashtable[hashFunction(key)].search(key);
     }
 
+    public boolean containsKey(K key) {
+        return this.hashSearch(key) != null;
+    }
+
     public V get(K key) {
         ListNode node = hashSearch(key);
         if (node == null) {
