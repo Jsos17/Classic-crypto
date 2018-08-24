@@ -38,6 +38,31 @@ Vigenere salauksissa hajautustaulun käytön välttäminen "hakkerointiratkaisul
 
 * Keyed Vigenere cipherissa hyödynnetään sitä faktaa, että k % 29 on uniikki luku, missä k = 97,...,122 (eli siis merkit a,b,...,z) ja näin tämä on eräänlainen ad-hoc hajautusfunktio, joka edelleen nojaa näiden kyseisten merkkien ASCII/Unicode arvoihin Java-kielessä.
 
+Testikattavuus on suhteellisen hyvä. Ainoastaan hajautusrakenteiden kokoon ja koon kasvattamiseen ja pienentämiseen liittyvissä rajatapausten testauksesa on puutteita. Lisäksi HillClimber luokassa kaksi päämetodia, jotka perustuvat satunnaisen avaimen valintaan ovat täysin testaamattomia (manuaalisesti on testattu) koska algoritmit eivät ole deterministisiä tulosten suhteen ja toistaiseksi en keksinyt järkevää tapaa testaamiseen. Oikeastaan kaikki HillClimber luokan metodit ovat satunnaisuuteen perustuvia ja niiden todellinen testaus tapahtunee suorituskykytestauksen kautta eli kuinka usein menetelmä antaa oikean vastauksen.
+
+![Testikattavuus_vko_5](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/testikattavuus_vko_5.png)
+
+### HillClimber luokka
+
+Kun seuraava teksti salattiin (ilman välejä) avaimella "machinerys" single columnar transposition salauksella (eli käyttäen pelkästään aakkosia abcdefghij avain olisi kirjainten aakkosjärejestykseltään: fabdegchji)
+
+    a perfect hash function with values in a limited range can be used for efficient lookup operations by placing keys from s or other associated values in a lookup table indexed by the output of the function one can then test whether a key is present in s or lookup a value associated with that key by looking for it at its cell of the table each such lookup takes constant time in the worst case
+    
+saadaan ciphertext:
+ 
+    phinascpskrcepxtuctetustyrlllsireftaneiobeoistepnawyipohlileocmsctliarlaarrdletfoehrrlttiihhpttsruhlgdepyytaiaducnhinactotoeooetfnviefnepshtnbbtttessvihoafaknicaswiruiungoouueufesknksiboebhetoecamcotrlfeealyoihtpoaaakttcusnatiutneotcoavoihtnneeluekntestaheansdefkonsslkdoeneaeoawyfcacktwhoeebfoiimsaonehotrsoedegstuane
+    
+ja kun tätä salaustaa yrittää murtaa HillClimber luokan avulla: climber.runToTheHills(10, ciphertext.toUpperCase(), 20, 1000)
+
+niin ohjelma usein palauttaa oikean avaimen fabdegchji mutta toisinaan melkein oikean avaimen ifabdegchj:
+
+![Oikea tulos]()
+
+![Väärä tulos]()
+
+Eli viitteitä algoritmin toimivuudesta siis on, mutta tässä tosin heti käytettiin avaimen pituutta 10 (koska se tiedettiin) ja muutenkin tämä on tietysti yksittäistapaus. Kuitenkin algoritmi näyttää lupaavalta.
+
+
 ## Mitä opin tällä viikolla
 
 Hill climbing menetelmästä jonkin verran, hajautustaulun toteutuksesta suhteellisen paljon.
