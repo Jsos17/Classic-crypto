@@ -43,10 +43,6 @@ public class VigenereCipherTest {
         this.vig = new VigenereCipher();
     }
 
-    @After
-    public void tearDown() {
-    }
-
     @Test
     public void encryptTest1() {
         assertEquals("lxfopvefrnhr", vig.encrypt("LEMON", "ATTACKATDAWN"));
@@ -139,5 +135,15 @@ public class VigenereCipherTest {
     @Test
     public void decryptCornerCaseTest1() {
         assertEquals("afegeteheasf", vig.decrypt("", "afegeteheasf"));
+    }
+
+    @Test
+    public void mapCharToIndexCornerCase1() {
+        assertEquals(0, this.vig.mapCharToIndex('X'));
+    }
+
+    @Test
+    public void mapCharToIndexCornerCase2() {
+        assertEquals(0, this.vig.mapCharToIndex('}'));
     }
 }

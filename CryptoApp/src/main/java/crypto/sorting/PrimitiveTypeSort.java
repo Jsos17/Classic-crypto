@@ -12,10 +12,6 @@ package crypto.sorting;
  */
 public class PrimitiveTypeSort {
 
-    public PrimitiveTypeSort() {
-
-    }
-
     public static void insertionSort(int[] array) {
         for (int j = 1; j < array.length; j++) {
             int x = array[j];

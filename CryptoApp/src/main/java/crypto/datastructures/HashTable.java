@@ -48,7 +48,7 @@ public class HashTable<K, V> {
             786_433, 1_572_869, 3_145_721, 6_291_469, 12_582_917, 25_165_813,
             50_331_653, 100_663_291, 201_326_611, 402_653_189, 805_306_357, 1_610_612_741};
 
-        if (size >= this.middlePrimes[this.middlePrimes.length - 1]) {
+        if (size >= this.middlePrimes[this.middlePrimes.length - 3]) {
             this.index = this.middlePrimes.length - 3; // the value at index: 402_653_189
         } else if (size > 0) {
             int i = 0;

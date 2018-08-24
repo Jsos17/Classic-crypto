@@ -79,6 +79,17 @@ public class DoublyLinkedMemberListTest {
     }
 
     @Test
+    public void deleteTest3() {
+        assertEquals(0, this.list.getSize());
+        this.list.insert("enigma");
+        this.list.insert("entropy");
+        assertEquals(2, this.list.getSize());
+        this.list.delete("enigma");
+        this.list.delete("entropy");
+        assertEquals(0, this.list.getSize());
+    }
+
+    @Test
     public void getHeadTest1() {
         assertTrue(this.list.getHead() == null);
     }

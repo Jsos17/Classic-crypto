@@ -292,11 +292,38 @@ public class HashTableTest {
         assertFalse(this.ht.containsKey("machine"));
     }
 
-//    @Test
-//    public void deleteNonExistentListNodeTest1() {
-//        HashTable<Character, Integer> ht2 = new HashTable<>();
-//        ht2.hashInsert('a', 0);
-//        ListNode x = new ListNode('t', 0, null, null);
-//
-//    }
+    @Test
+    public void tableSizeTest1() {
+        HashTable<String, Integer> table = new HashTable<>(300_000_000);
+        assertEquals(402_653_189, table.getTableCapacity());
+    }
+
+    @Test
+    public void tableSizeTest2() {
+        HashTable<String, Integer> table = new HashTable<>(-50);
+        assertEquals(47, table.getTableCapacity());
+    }
+
+    @Test
+    public void tableSizeTest3() {
+        HashTable<String, Integer> table = new HashTable<>(3);
+        assertEquals(11, table.getTableCapacity());
+    }
+
+    @Test
+    public void deleteNonExistentListNodeTest1() {
+        HashTable<Character, Integer> ht2 = new HashTable<>();
+        assertEquals(0, ht2.getCurrentSize());
+        ht2.hashDelete(null);
+        assertEquals(0, ht2.getCurrentSize());
+    }
+
+    @Test
+    public void deleteListNodeNotInTableTest1() {
+        HashTable<Character, Integer> ht2 = new HashTable<>();
+        ListNode x = new ListNode("node", 42, null, null);
+        assertEquals(0, ht2.getCurrentSize());
+        ht2.hashDelete(x);
+        assertEquals(0, ht2.getCurrentSize());
+    }
 }

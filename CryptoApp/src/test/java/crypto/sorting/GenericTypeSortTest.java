@@ -55,10 +55,6 @@ public class GenericTypeSortTest {
         }
     }
 
-    @After
-    public void tearDown() {
-    }
-
     @Test
     public void genericInsertionSortTest1() {
         Arrays.sort(this.cValControls);

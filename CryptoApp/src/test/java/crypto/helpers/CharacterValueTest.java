@@ -24,10 +24,6 @@ public class CharacterValueTest {
         this.cval = new CharacterValue('a', 0.742);
     }
 
-    @After
-    public void tearDown() {
-    }
-
     @Test
     public void getterTest1() {
         assertEquals('a', this.cval.getCharacter());
@@ -108,5 +104,11 @@ public class CharacterValueTest {
     public void equalsTest7() {
         CharacterValue cval1 = new CharacterValue('A', 0.4201);
         assertEquals(false, cval1.equals(null));
+    }
+
+    @Test
+    public void hashCodeTest1() {
+        CharacterValue cval1 = new CharacterValue('a', 0.25);
+        assertEquals(1070660176, cval1.hashCode());
     }
 }

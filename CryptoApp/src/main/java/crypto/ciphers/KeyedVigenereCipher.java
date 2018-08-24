@@ -68,29 +68,31 @@ public class KeyedVigenereCipher extends VigenereCipher {
      * This method simply builds the alphabet order based on the alphabet key.
      *
      * @param alphabetKey The alphabet key should contain only the standard 26
-     * Latin alphabet characters and none of them should be repeated in the
-     * alphabet key because this key is used to break the standard starting
-     * pattern of the alphabet in the standard Vigenere cipher.
-     * @param regAbcNums A HashMap containing the corresponding order number for
-     * each alphabet character when the the alphabet is in regular order
-     * abcdef... etc
+     * Latin alphabet characters in lowercase and none of them should be
+     * repeated in the alphabet key because this key is used to break the
+     * standard starting pattern of the alphabet in the standard Vigenere
+     * cipher.
      * @return The newly ordered alphabet
      */
-    private String buildAlphabet(String alphabetKey) {
+    protected String buildAlphabet(String alphabetKey) {
         int[] countingAlphabet = new int[26];
         for (int i = 0; i < 26; i++) {
             countingAlphabet[i] = 0;
         }
 
+        String keyedAbc = "";
         for (int i = 0; i < alphabetKey.length(); i++) {
             char character = alphabetKey.charAt(i);
             if (character >= 'a' && character <= 'z') {
+                if (countingAlphabet[character % 'a'] == 0) {
+                    keyedAbc += character;
+                }
+
                 countingAlphabet[character % 'a'] = 1;
             }
         }
 
         String abc = "abcdefghijklmnopqrstuvwxyz";
-        String keyedAbc = alphabetKey;
         for (int i = 0; i < countingAlphabet.length; i++) {
             if (countingAlphabet[i] == 0) {
                 keyedAbc += Character.toString(abc.charAt(i));

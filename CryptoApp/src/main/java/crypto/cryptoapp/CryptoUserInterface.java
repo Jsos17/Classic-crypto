@@ -8,7 +8,6 @@ package crypto.cryptoapp;
 import crypto.ciphers.TranspositionCipher;
 import crypto.cryptanalysis.HillClimber;
 import crypto.cryptanalysis.Quadgrams;
-import java.awt.GraphicsEnvironment;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
@@ -34,8 +33,6 @@ public class CryptoUserInterface extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        launch(CryptoUserInterface.class);
-
 //        FrequencyAnalysis freq = new FrequencyAnalysis();
 //        double[] expFreq = freq.getExpectedLetterFrequencies();
 //        double sum = 0;
@@ -323,14 +320,16 @@ public class CryptoUserInterface extends Application {
 //        }
 //
 //        System.out.println(avg + " ms");
-//        Quadgrams quad = new Quadgrams("english_quadgrams.txt");
-//        TranspositionCipher cipher = new TranspositionCipher();
-//        HillClimber climber = new HillClimber(quad);
-//        String ciphertext = "phinascpskrcepxtuctetustyrlllsireftaneiobeoistepnawyipohlileocmsctliarlaarrdletfoehrrlttiihhpttsruhlgdepyytaiaducnhinactotoeooetfnviefnepshtnbbtttessvihoafaknicaswiruiungoouueufesknksiboebhetoecamcotrlfeealyoihtpoaaakttcusnatiutneotcoavoihtnneeluekntestaheansdefkonsslkdoeneaeoawyfcacktwhoeebfoiimsaonehotrsoedegstuane";
-////        System.out.println(text.length());
-//        String key = climber.runToTheHills(10, ciphertext.toUpperCase(), 20, 1000);
-//        System.out.println(key);
-//        System.out.println(cipher.decryptSingleTransposition(key, ciphertext));
+        Quadgrams quad = new Quadgrams("english_quadgrams.txt");
+        TranspositionCipher cipher = new TranspositionCipher();
+        HillClimber climber = new HillClimber(quad);
+        String ciphertext = "phinascpskrcepxtuctetustyrlllsireftaneiobeoistepnawyipohlileocmsctliarlaarrdletfoehrrlttiihhpttsruhlgdepyytaiaducnhinactotoeooetfnviefnepshtnbbtttessvihoafaknicaswiruiungoouueufesknksiboebhetoecamcotrlfeealyoihtpoaaakttcusnatiutneotcoavoihtnneeluekntestaheansdefkonsslkdoeneaeoawyfcacktwhoeebfoiimsaonehotrsoedegstuane";
+//        System.out.println(text.length());
+        String key = climber.runToTheHills(10, ciphertext.toUpperCase(), 20, 1000);
+        System.out.println(key);
+        System.out.println(cipher.decryptSingleTransposition(key, ciphertext));
+
+        launch(CryptoUserInterface.class);
     }
 
     /**

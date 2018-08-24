@@ -12,10 +12,6 @@ package crypto.sorting;
  */
 public class GenericTypeSort {
 
-    public GenericTypeSort() {
-
-    }
-
     /**
      * This method implements a stable insertion sort for objects that have
      * implemented the Comparable interface. The algorithm is a standard basic

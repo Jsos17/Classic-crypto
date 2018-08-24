@@ -77,6 +77,14 @@ public class HashedSetTest {
         assertEquals(1, this.set.getCurrentSize());
     }
 
+    @Test
+    public void deleteTest3() {
+        this.set.insert("Jj");
+        assertEquals(1, this.set.getCurrentSize());
+        this.set.delete("KK");
+        assertEquals(1, this.set.getCurrentSize());
+    }
+
     /*
     "KK".hashCode() & 0x7fffffff = 2400
     "Jj".hashCode() & 0x7fffffff = 2400
@@ -154,5 +162,29 @@ public class HashedSetTest {
         for (int i = k + 1; i <= n; i++) {
             assertTrue(set2.contains(i));
         }
+    }
+
+    @Test
+    public void tableSizeTest1() {
+        HashedSet<String> set = new HashedSet<>(300_000_000);
+        assertEquals(402_653_189, set.getTableCapacity());
+    }
+
+    @Test
+    public void tableSizeTest2() {
+        HashedSet<String> set = new HashedSet<>(-50);
+        assertEquals(47, set.getTableCapacity());
+    }
+
+    @Test
+    public void tableSizeTest3() {
+        HashedSet<String> set = new HashedSet<>(3);
+        assertEquals(11, set.getTableCapacity());
+    }
+
+    @Test
+    public void tableSizeTest4() {
+        HashedSet<String> set = new HashedSet<>(500_000_000);
+        assertEquals(402_653_189, set.getTableCapacity());
     }
 }

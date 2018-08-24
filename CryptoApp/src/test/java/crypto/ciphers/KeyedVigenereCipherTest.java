@@ -88,4 +88,29 @@ public class KeyedVigenereCipherTest {
         assertEquals("normandy",
                 kvig2.decrypt("operationoverlord", "ikykgdem"));
     }
+
+    @Test
+    public void mapCharToIndexCornerCase1() {
+        assertEquals(0, this.kvig.mapCharToIndex('X'));
+    }
+
+    @Test
+    public void mapCharToIndexCornerCase2() {
+        assertEquals(0, this.kvig.mapCharToIndex('}'));
+    }
+
+    @Test
+    public void buildAlphabetKeyWrongTypesOfCharactersIgnored1() {
+        assertEquals("eyabcdfghijklmnopqrstuvwxz", this.kvig.buildAlphabet("Key"));
+    }
+
+    @Test
+    public void buildAlphabetKeyWrongTypesOfCharactersIgnored2() {
+        assertEquals("abcdefghijklmnopqrstuvwxyz", this.kvig.buildAlphabet("KEY{}"));
+    }
+
+    @Test
+    public void buildAlphabetRepeatedCharactersIgnored() {
+        assertEquals("dreamtbcfghijklnopqsuvwxyz", this.kvig.buildAlphabet("dreamteam"));
+    }
 }
