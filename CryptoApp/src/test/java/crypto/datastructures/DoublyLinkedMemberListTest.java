@@ -23,10 +23,6 @@ public class DoublyLinkedMemberListTest {
         this.list = new DoublyLinkedMemberList<>();
     }
 
-    @After
-    public void tearDown() {
-    }
-
     @Test
     public void containsTest1() {
         assertFalse(this.list.contains("plaintext"));
@@ -83,10 +79,11 @@ public class DoublyLinkedMemberListTest {
         assertEquals(0, this.list.getSize());
         this.list.insert("enigma");
         this.list.insert("entropy");
-        assertEquals(2, this.list.getSize());
-        this.list.delete("enigma");
+        this.list.insert("code");
+        assertEquals(3, this.list.getSize());
         this.list.delete("entropy");
-        assertEquals(0, this.list.getSize());
+        this.list.delete("enigma");
+        assertEquals(1, this.list.getSize());
     }
 
     @Test
