@@ -103,6 +103,11 @@ public class TranspositionCipherTest {
     }
 
     @Test
+    public void decryptDoubleTranspositionTest5() {
+        assertEquals("Enigma machine, Polish codebreakers.", tr.decryptDoubleTransposition("machine", "math", "aiaboiEri Pegkd,arnecshmehn c solm.e"));
+    }
+
+    @Test
     public void encryptCornerCaseTest1() {
         assertEquals("abBtsaelkl", tr.encryptSingleTransposition("lemon", "Basketball"));
     }

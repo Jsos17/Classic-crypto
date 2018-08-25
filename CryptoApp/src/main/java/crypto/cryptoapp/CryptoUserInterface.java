@@ -119,14 +119,20 @@ public class CryptoUserInterface extends Application {
         TextField transpositionKey = new TextField();
         transpositionKey.setPromptText("Enter key");
         String info = "If text is pasted into the text areas,\n"
-                + "care should be taken that no extra\n"
+                + "care should be taken, that no extra\n"
                 + "spaces are added automatically by\n"
                 + "the paste operation to the end of\n"
                 + "the text, because it might produce\n"
                 + "incorrect results.\n"
-                + "This is especially important, \n "
-                + "if the text ot be encrypted \n "
-                + "contains a lot spaces.";
+                + "This is especially important,\n "
+                + "if the text to be encrypted\n "
+                + "or decrypted contains a lot\n"
+                + "spaces.\n"
+                + "The transposition operation\n"
+                + "is very sensitive to even one\n"
+                + "single additional space,\n"
+                + "especially when decrypting\n"
+                + "a ciphertext.";
         Text instruction1 = new Text(info);
         VBox transpR = createRightBox(new Node[]{transpositionKeyLabel, transpositionKey, instruction1});
         Button encrypt4 = new Button("Encrypt");
