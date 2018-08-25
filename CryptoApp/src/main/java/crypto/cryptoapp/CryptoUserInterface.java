@@ -62,7 +62,7 @@ public class CryptoUserInterface extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         vigenere = new VigenereCipher();
-        keyedVig = new KeyedVigenereCipher();
+        keyedVig = new KeyedVigenereCipher("");
         autokeyVig = new AutokeyVigenereCipher();
         transposition = new TranspositionCipher();
 
