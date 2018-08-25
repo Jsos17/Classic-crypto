@@ -29,16 +29,24 @@ public class KeyedVigenereCipher extends VigenereCipher {
     private final int primeModulus;
 
     /**
+     * The primeModulus is a prime number which acts as the modulus in a
+     * de-facto hash function where the Unicode value of a character is mapped
+     * to a table mod 29.
+     */
+    public KeyedVigenereCipher() {
+        super();
+        this.primeModulus = 29;
+        this.charMap = new int[this.primeModulus];
+    }
+
+    /**
      *
      * @param alphabetKey The alphabet key should contain only the standard 26
      * Latin alphabet characters and none of them should be repeated in the
      * alphabet key because this key is used to break the standard pattern of
      * the alphabet in the standard Vigenere cipher.
      */
-    public KeyedVigenereCipher(String alphabetKey) {
-        super();
-        this.primeModulus = 29;
-        this.charMap = new int[this.primeModulus];
+    public void setAlphabet(String alphabetKey) {
         String alphabet = buildAlphabet(alphabetKey.toLowerCase());
         super.setAlpahabet(alphabet.toCharArray());
         /**
@@ -46,8 +54,9 @@ public class KeyedVigenereCipher extends VigenereCipher {
          * 1, y to 2, and so on, and the rest of the unused alphabetical
          * characters map to the remaining numbers 7 to 25 by their natural
          * alphabetical order. These character value pairs are stored in this
-         * table using the hash function ASCII code % primeModulus, which gives
-         * unique indexes to these 26 standard Latin alphabet characters.
+         * table using the hash function ASCII/Unicode value mod primeModulus,
+         * which gives unique indexes to these 26 standard Latin alphabet
+         * characters.
          */
         for (int i = 0; i < alphabet.length(); i++) {
             int index = alphabet.charAt(i) % this.primeModulus;

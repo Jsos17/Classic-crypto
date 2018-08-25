@@ -21,8 +21,10 @@ public class KeyedVigenereCipherTest {
 
     @Before
     public void setUp() {
-        this.kvig = new KeyedVigenereCipher("kryptos");
-        this.kvig2 = new KeyedVigenereCipher("ciakgb");
+        this.kvig = new KeyedVigenereCipher();
+        this.kvig.setAlphabet("kryptos");
+        this.kvig2 = new KeyedVigenereCipher();
+        this.kvig2.setAlphabet("ciakgb");
     }
 
     @After
