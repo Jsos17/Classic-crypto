@@ -4,6 +4,8 @@
 
 Harjoitustyö toteuttaa Java-kielellä klassisia (pre-1940-luku) kryptografisia algoritmeja ja kryptoanalyysiä näihin liittyen.
 
+Vigenère cipheriin ja sen variantteihin viitataan tässä työssä usein pelkästään sanalla "Vigenere cipher" kirjoittamisen helpottamiseksi, vaikka oikeaan kirjoitusasuun siis kuuluu tuo è-merkki.
+
 ## Keskeiset dokumentit
 
 [Määrittelydokumentti](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Maarittelydokumentti.md)
@@ -23,6 +25,8 @@ Harjoitustyö toteuttaa Java-kielellä klassisia (pre-1940-luku) kryptografisia 
 [Viikkoraportti 4](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Viikkoraportti-4.md)
 
 [Viikkoraportti 5](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Viikkoraportti-5.md)
+
+[Viikkoraportti 6](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Viikkoraportti-6.md)
 
 ## Tuntikirjanpito
 
