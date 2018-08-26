@@ -29,3 +29,4 @@
 | 24.8. | 7 | Graafisen käyttöliittymän hyvin karu ei-refaktoroitu luonnos, missä nyt olemassa toiminnallisuus siirtyä päävalikosta salaukseen ja takaisin, mutta ei vielä liitettyä algoritmillista toiminnallisuutta, testikattavuuden nosto, dokumentoinnin päivitys |
 | Viikko 6 |
 | 25.8. | 6 | Käyttöliittymään lisätty kaikkien salausten perustoiminnallisuus ilman syötteentarkistusta (ja ilman tekstin manipulointityökalua, joka tulossa), samalla KeyedVigenereCipher refaktoroitiin siten että aakkostoavaimen voi muuttaa set-metodilla |
+| 26.8. | 2 | Dokumentoinnin päivitys ja käyttöliittymässä alutavien ohjetekstien lisäys eri salauksille |
