@@ -30,6 +30,7 @@ Lisäksi KeyedVigenereCipher refaktoroitiin siten, että käytetyn aakkostoavaim
 | :----:|:--------| :----------|
 | Viikko 6 |
 | 25.8. | 6 | Käyttöliittymään lisätty kaikkien salausten perustoiminnallisuus ilman syötteentarkistusta (ja ilman tekstin manipulointityökalua, joka tulossa), samalla KeyedVigenereCipher refaktoroitiin siten että aakkostoavaimen voi muuttaa set-metodilla |
+| 26.8. | 2 | Dokumentoinnin päivitys ja käyttöliittymässä alutavien ohjetekstien lisäys eri salauksille |
 
 
 [Tuntikirjanpito](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/tuntikirjanpito.md)
