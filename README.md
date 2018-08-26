@@ -4,7 +4,28 @@
 
 Harjoitustyö toteuttaa Java-kielellä klassisia (pre-1940-luku) kryptografisia algoritmeja ja kryptoanalyysiä näihin liittyen.
 
-Vigenère cipheriin ja sen variantteihin viitataan tässä työssä usein pelkästään sanalla "Vigenere cipher" kirjoittamisen helpottamiseksi, vaikka oikeaan kirjoitusasuun siis kuuluu tuo è-merkki.
+Salausalgoritmeista on toteutettu Vigenère cipher, Keyed Vigenère cipher ja Autokey Vigenère cipher sekä yksinkertainen (Single) ja kaksinkertainen (Double) Columnar Transposition.
+
+Ohjelmassa on käyttöliittymä, jonka kautta saluksia voi tehdä (encrypt) ja avata (decrypt), ja lisäksi ohjelmaan on tulossa joidenkin salausten murtamiseen liittyvää toiminnallisuutta (molemmat kesken).
+
+### Vigenère cipher
+Vigenère cipher ja sen variantit kuuluvat luokkaan polyalphabetic substitution cipher eli ne ovat salauksia, joissa salauksessa jokainen kirjain vaihdetaan toiseen erityisen avainsanan perusteella ja käyttäen useita eri aakkostoja.
+
+### Transposition cipher
+
+Transposition cipher taas perustuu kirjainten järjestysten vaihtamiseen asettamalla viesti erityisen avainsanan pituisille riveille matriisi-muotoon ja sitten muodostamalla salateksti poimimalla matriisista sarakkeita perustuen avainsanan kirjainten aakkosjärjestykseen. 
+
+Tarvittaessa avainsanan voisi myös korvata numerosarjalla, koska itse avaimessa ainoa merkitesvä tekijä on avaimen kirjainten aakkosjärjestys. Tästä syystä on suositeltavaa että avainsanassa jokainen kirjain esiintyy vain yhden kerran, koska muuten salauksen aakkosjärjestyksen määrääminen ei välttämättä enää ole yksikäsitteistä.
+
+Yksinkertaisessa (Single) columnar transposition cipherissa edellä kuvattu salaus tehdään kerran yhden avaimen perusteella, kun taas kaksinkertaisessa (double) columnar trnsposition cipherissa yksinkertainen salaus tehdään kaksi kertaa peräjälkeen käyttäen kahta avainta. Käytetyt avaimet voivat olla samoja, tosin kahden eri avaimen käyttö antaa vahvemman salauksen.
+
+### Lisähuomautus
+
+[Vigenère cipheriin](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher) ja sen variantteihin viitataan tässä työssä usein pelkästään sanalla "Vigenere cipher" kirjoittamisen helpottamiseksi, vaikka oikeaan kirjoitusasuun siis kuuluu tuo è-merkki.
+
+### Salauksen murtaminen eli cryptanalysis (kesken)
+
+Työssä on toteutettu toiminnallisuutta (kesken) tavallisen Vigenère cipherin murtamiseen sekä yksinketaisen columnar transposition cipherin murtamiseen.
 
 ## Keskeiset dokumentit
 
