@@ -66,6 +66,8 @@ public class CryptoUserInterface extends Application {
         autokeyVig = new AutokeyVigenereCipher();
         transposition = new TranspositionCipher();
 
+        int width = 1000;
+        int height = 640;
         // Ciphers, general
         Label textLabel = new Label("Plaintex/Ciphertext:");
         TextArea text = new TextArea();
@@ -82,40 +84,98 @@ public class CryptoUserInterface extends Application {
         // Vigenere
         Label vigLabel = new Label("Vigenere cipher");
         styleLabels(vigLabel, 15);
-        Label vigKeyLabel = new Label("Encryption/Decryption key");
+        Label vigKeyLabel = new Label("Encryption/Decryption key:");
         TextField vigKey = new TextField();
         vigKey.setPromptText("Enter key");
-        VBox vigR = createRightBox(new Node[]{vigKeyLabel, vigKey});
+        String vigInfo = "The key should be a word of any\n"
+                + "length containing the characters\n"
+                + "of the standard Latin alphabet\n"
+                + "in lower case:\n"
+                + "abcdefghijklmnopqrstuvwxyz\n"
+                + "\n"
+                + "Using other characters will\n"
+                + "most likely produce incorrect\n"
+                + "results. Letters can be repeated\n"
+                + "in the key.\n"
+                + "\n"
+                + "The longer the key, the stronger\n"
+                + "the encryption, since the key is\n"
+                + "lengthened to match the plaintext\n"
+                + "length.\n"
+                + "If the key is longer than the plaintext\n"
+                + "then cryptanalysis of the ciphertext is\n"
+                + "much more difficult.";
+        VBox vigR = createRightBox(new Node[]{vigKeyLabel, vigKey, new Text(vigInfo)});
         Button encrypt1 = new Button("Encrypt");
         Button decrypt1 = new Button("Decrypt");
 
         // Keyed Vigenere
         Label keyedVigLabel = new Label("Keyed Vigenere cipher");
         styleLabels(keyedVigLabel, 15);
-        Label alphabetKeyLabel = new Label("Alphabet key");
+        Label alphabetKeyLabel = new Label("Alphabet key:");
         TextField alphabetKey = new TextField();
         alphabetKey.setPromptText("Enter alphabet key");
-        Label keyedVigKeyLabel = new Label("Encryption/Decryption key");
+        Label keyedVigKeyLabel = new Label("Encryption/Decryption key:");
         TextField keyedVigKey = new TextField();
         keyedVigKey.setPromptText("Enter key");
-        VBox keyedR = createRightBox(new Node[]{alphabetKeyLabel, alphabetKey, keyedVigKeyLabel, keyedVigKey});
+        String alphabetKeyInfo = "For example, a suitable alphabet key\n"
+                + "is the word kryptos, since it\n"
+                + "contains only the standard 26\n"
+                + "Latin alphabet characters,\n"
+                + "letters are in lower case and\n"
+                + "no characters are repeated.\n"
+                + "The resulting alphabet order\n"
+                + "would be:\n"
+                + "\n"
+                + "kryptosabcdefghijlmnquvwxz\n"
+                + "\n"
+                + "If the alphabet key contains\n"
+                + "characters in upper case or\n"
+                + "characters that do not belong\n"
+                + "to the standard 26 character\n"
+                + "Latin alphabet, then these\n"
+                + "characters are simply ignored\n"
+                + "and they are replaced with any\n"
+                + "unused characters from the\n"
+                + "standard order.\n"
+                + "\n"
+                + "Leaving the alphabet key empty\n"
+                + "produces the standard alphabet\n"
+                + "order:\n"
+                + "\n"
+                + "abcdefghijklmnopqrstuvwxyz";
+        String keyInfo2 = "Instructions are the same\n"
+                + "as for the Vigenere cipher.";
+        VBox keyedR = createRightBox(new Node[]{alphabetKeyLabel, alphabetKey, new Text(alphabetKeyInfo), keyedVigKeyLabel, keyedVigKey, new Text(keyInfo2)});
         Button encrypt2 = new Button("Encrypt");
         Button decrypt2 = new Button("Decrypt");
 
         // Autokey Vigenere
         Label autokeyLabel = new Label("Autokey Vigenere cipher");
         styleLabels(autokeyLabel, 15);
-        Label primerLabel = new Label("Primer key");
+        Label primerLabel = new Label("Primer key:");
         TextField primer = new TextField();
         primer.setPromptText("Enter primer key");
-        VBox autokeyR = createRightBox(new Node[]{primerLabel, primer});
+        String primerInfo = "The primer key should not be\n"
+                + "empty since it makes deterministic\n"
+                + "decryption impossible.\n"
+                + "\n"
+                + "The primer key should contain\n"
+                + "The standard 26 characters of\n"
+                + "the Latin alphabet in lower case\n"
+                + "and the characters can repeat as\n"
+                + "many times as is desired.\n"
+                + "\n"
+                + "If other characters are used then\n"
+                + "the results might be inconsistent";
+        VBox autokeyR = createRightBox(new Node[]{primerLabel, primer, new Text(primerInfo)});
         Button encrypt3 = new Button("Encrypt");
         Button decrypt3 = new Button("Decrypt");
 
         // Single transposition
         Label singleTrLabel = new Label("Single columnar transposition cipher");
         styleLabels(singleTrLabel, 15);
-        Label transpositionKeyLabel = new Label("Encryption/Decryption key");
+        Label transpositionKeyLabel = new Label("Encryption/Decryption key:");
         TextField transpositionKey = new TextField();
         transpositionKey.setPromptText("Enter key");
         String info = "If text is pasted into the text areas,\n"
@@ -124,31 +184,41 @@ public class CryptoUserInterface extends Application {
                 + "the paste operation to the end of\n"
                 + "the text, because it might produce\n"
                 + "incorrect results.\n"
-                + "This is especially important,\n "
-                + "if the text to be encrypted\n "
-                + "or decrypted contains a lot\n"
+                + "This is especially important,\n"
+                + "if the text to be encrypted\n"
+                + "or decrypted contains many\n"
                 + "spaces.\n"
                 + "The transposition operation\n"
                 + "is very sensitive to even one\n"
                 + "single additional space,\n"
                 + "especially when decrypting\n"
                 + "a ciphertext.";
-        Text instruction1 = new Text(info);
-        VBox transpR = createRightBox(new Node[]{transpositionKeyLabel, transpositionKey, instruction1});
+        VBox transpR = createRightBox(new Node[]{new Text(info), transpositionKeyLabel, transpositionKey});
         Button encrypt4 = new Button("Encrypt");
         Button decrypt4 = new Button("Decrypt");
 
         // Double transposition
         Label doubleTrLabel = new Label("Double columnar transposition cipher");
         styleLabels(doubleTrLabel, 15);
-        Label key1Label = new Label("First encryption/decryption key");
+        Label key1Label = new Label("First encryption/decryption key:");
         TextField transpositionKey1 = new TextField();
         transpositionKey1.setPromptText("Enter first key");
-        Label key2Label = new Label("Second encryption/decryption key");
+        Label key2Label = new Label("Second encryption/decryption key:");
         TextField transpositionKey2 = new TextField();
         transpositionKey2.setPromptText("Enter second key");
-        Text instruction2 = new Text(info);
-        VBox dTranspR = createRightBox(new Node[]{key1Label, transpositionKey1, key2Label, transpositionKey2, instruction2});
+        String keyOrderInfo = "The key order is the same\n"
+                + "in both encryption and decryption:\n"
+                + "The plaintext is encrypted using\n"
+                + "the first key, and then the second\n"
+                + "one.\n"
+                + "\n"
+                + "When decrypting a message the keys\n"
+                + "should be in the exact same order as\n"
+                + "if one was trying to encrypt a message.\n"
+                + "The program automatically applies the\n"
+                + "second key first in decryption and the\n"
+                + "first key last in decryption.";
+        VBox dTranspR = createRightBox(new Node[]{new Text(info), key1Label, transpositionKey1, key2Label, transpositionKey2, new Text(keyOrderInfo)});
         Button encrypt5 = new Button("Encrypt");
         Button decrypt5 = new Button("Decrypt");
 
@@ -168,7 +238,7 @@ public class CryptoUserInterface extends Application {
 
         // Cipher scene/window
         BorderPane cipherView = new BorderPane();
-        Scene cipherScene = new Scene(cipherView, 800, 640);
+        Scene cipherScene = new Scene(cipherView, width, height);
         cipherView.setLeft(ciphersLeft);
         cipherView.setBottom(backToMenu1);
 
@@ -280,7 +350,7 @@ public class CryptoUserInterface extends Application {
 
         // Cryptanalysis scene/window
         BorderPane cryptanalysisView = new BorderPane();
-        Scene cryptanalysisScene = new Scene(cryptanalysisView, 800, 640);
+        Scene cryptanalysisScene = new Scene(cryptanalysisView, width, height);
         Label cryptanalysisLabel = new Label("Cryptanalysis");
         styleLabels(cryptanalysisLabel, 15);
         cryptanalysisView.setTop(cryptanalysisLabel);
@@ -304,7 +374,7 @@ public class CryptoUserInterface extends Application {
         menu.setLeft(ciphersMenu);
         menu.setRight(cryptanalysisMenu);
 
-        Scene menuScene = new Scene(menu, 800, 640);
+        Scene menuScene = new Scene(menu, width, height);
         backToMenu1.setOnMouseClicked((event) -> {
             ciphersLeft.getChildren().remove(2);
             text.clear();
@@ -319,10 +389,6 @@ public class CryptoUserInterface extends Application {
         stage.setTitle("CryptoApp");
         stage.setScene(menuScene);
         stage.show();
-    }
-
-    private void encryptVigenere(TextArea text, TextField key, TextArea result) {
-
     }
 
     private void styleLabels(Label label, int fontsize) {
