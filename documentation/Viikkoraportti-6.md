@@ -8,6 +8,22 @@ Käyttöliittymään liitettiin kaikkki toteutetut salausalgoritmit (eli Vigener
 
 Lisäksi KeyedVigenereCipher refaktoroitiin siten, että käytetyn aakkostoavaimen voi asettaa uudelleen.
 
+### Sunnuntai:
+
+Lisättiin käyttöliittymään ohjetekstejä salauksille.
+
+### Maanantai:
+
+[Lehmer random number generatorin](https://en.wikipedia.org/wiki/Lehmer_random_number_generator) luonti. Lähteinä erityisesti:
+
+Stephen K. Park; Keith W. Miller (1988). Random Number Generators: Good Ones Are Hard To Find. Communications of the ACM. Volume 31. pages 1192-1201
+
+George Marsaglia (1993). Technical correspondence: Remarks on Choosing and Implementing Random Number Generators. Communications of the ACM. Volume 36. pages 108-110
+
+molempiin on linkki esimerkiksi tuon wikipedia sivun lähteissä.
+
+Valitsin tämän generaattorin, koska se oli suhteellisen helppo ymmärtää ja toteuttaa sekä se tuottanee riittävän hyviä pseudosatunnaislukuja HillClimber luokan tarpeisiin. Yksi luokan testeistä (eli seed10001thTest1) tulee suoraan paperista *Random Number Generators: Good Ones Are Hard To Find*, mikä oli erityisen kätevä testaamaan implementaatiota kokonaislukujen ylivuodon suhteen.
+
 ## Miten ohjelma on edistynyt
 
 
@@ -31,6 +47,7 @@ Lisäksi KeyedVigenereCipher refaktoroitiin siten, että käytetyn aakkostoavaim
 | Viikko 6 |
 | 25.8. | 6 | Käyttöliittymään lisätty kaikkien salausten perustoiminnallisuus ilman syötteentarkistusta (ja ilman tekstin manipulointityökalua, joka tulossa), samalla KeyedVigenereCipher refaktoroitiin siten että aakkostoavaimen voi muuttaa set-metodilla |
 | 26.8. | 2 | Dokumentoinnin päivitys ja käyttöliittymässä alutavien ohjetekstien lisäys eri salauksille |
+| 27.8. | 6 | Lehmer random number generaattorin luonti ja testit |
 
 
 [Tuntikirjanpito](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/tuntikirjanpito.md)
