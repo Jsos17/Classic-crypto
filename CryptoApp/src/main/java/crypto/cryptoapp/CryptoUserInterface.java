@@ -22,7 +22,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -54,7 +56,8 @@ public class CryptoUserInterface extends Application {
     }
 
     /**
-     * Very crude outline of the graphical user interface.
+     * Very crude outline of the graphical user interface. Cryptanalysis
+     * functionality is missing
      *
      * @param stage
      * @throws Exception
@@ -85,6 +88,7 @@ public class CryptoUserInterface extends Application {
         Label vigLabel = new Label("Vigenere cipher");
         styleLabels(vigLabel, 15);
         Label vigKeyLabel = new Label("Encryption/Decryption key:");
+        styleKeyLabels(vigKeyLabel);
         TextField vigKey = new TextField();
         vigKey.setPromptText("Enter key");
         String vigInfo = "The key should be a word of any\n"
@@ -113,9 +117,11 @@ public class CryptoUserInterface extends Application {
         Label keyedVigLabel = new Label("Keyed Vigenere cipher");
         styleLabels(keyedVigLabel, 15);
         Label alphabetKeyLabel = new Label("Alphabet key:");
+        styleKeyLabels(alphabetKeyLabel);
         TextField alphabetKey = new TextField();
         alphabetKey.setPromptText("Enter alphabet key");
         Label keyedVigKeyLabel = new Label("Encryption/Decryption key:");
+        styleKeyLabels(keyedVigKeyLabel);
         TextField keyedVigKey = new TextField();
         keyedVigKey.setPromptText("Enter key");
         String alphabetKeyInfo = "For example, a suitable alphabet key\n"
@@ -154,6 +160,7 @@ public class CryptoUserInterface extends Application {
         Label autokeyLabel = new Label("Autokey Vigenere cipher");
         styleLabels(autokeyLabel, 15);
         Label primerLabel = new Label("Primer key:");
+        styleKeyLabels(primerLabel);
         TextField primer = new TextField();
         primer.setPromptText("Enter primer key");
         String primerInfo = "The primer key should not be\n"
@@ -176,6 +183,7 @@ public class CryptoUserInterface extends Application {
         Label singleTrLabel = new Label("Single columnar transposition cipher");
         styleLabels(singleTrLabel, 15);
         Label transpositionKeyLabel = new Label("Encryption/Decryption key:");
+        styleKeyLabels(transpositionKeyLabel);
         TextField transpositionKey = new TextField();
         transpositionKey.setPromptText("Enter key");
         String info = "If text is pasted into the text areas,\n"
@@ -201,9 +209,11 @@ public class CryptoUserInterface extends Application {
         Label doubleTrLabel = new Label("Double columnar transposition cipher");
         styleLabels(doubleTrLabel, 15);
         Label key1Label = new Label("First encryption/decryption key:");
+        styleKeyLabels(key1Label);
         TextField transpositionKey1 = new TextField();
         transpositionKey1.setPromptText("Enter first key");
         Label key2Label = new Label("Second encryption/decryption key:");
+        styleKeyLabels(key2Label);
         TextField transpositionKey2 = new TextField();
         transpositionKey2.setPromptText("Enter second key");
         String keyOrderInfo = "The key order is the same\n"
@@ -242,6 +252,7 @@ public class CryptoUserInterface extends Application {
         cipherView.setLeft(ciphersLeft);
         cipherView.setBottom(backToMenu1);
 
+        // User chooses a cipher
         vigCipher.setOnMouseClicked((event) -> {
             ciphersLeft.getChildren().add(2, createButtonBox(new Node[]{encrypt1, decrypt1, clearText}));
             cipherView.setTop(vigLabel);
@@ -277,6 +288,7 @@ public class CryptoUserInterface extends Application {
             stage.setScene(cipherScene);
         });
 
+        // Encryption/decryption events for different ciphers
         encrypt1.setOnMouseClicked((event) -> {
             result.setText(vigenere.encrypt(vigKey.getText(), text.getText()));
         });
@@ -319,6 +331,7 @@ public class CryptoUserInterface extends Application {
             result.setText(transposition.decryptDoubleTransposition(transpositionKey1.getText(), transpositionKey2.getText(), text.getText()));
         });
 
+        // Clearing the text areas
         clearText.setOnMouseClicked((event) -> {
             text.clear();
         });
@@ -389,6 +402,11 @@ public class CryptoUserInterface extends Application {
         stage.setTitle("CryptoApp");
         stage.setScene(menuScene);
         stage.show();
+    }
+
+    private void styleKeyLabels(Label label) {
+        label.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+        label.setTextFill(Color.GREEN);
     }
 
     private void styleLabels(Label label, int fontsize) {

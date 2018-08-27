@@ -166,8 +166,8 @@ public class HashedSetTest {
 
     @Test
     public void tableSizeTest1() {
-        HashedSet<String> set = new HashedSet<>(300_000_000);
-        assertEquals(402_653_189, set.getTableCapacity());
+        HashedSet<String> set = new HashedSet<>(95_000_000);
+        assertEquals(100_663_291, set.getTableCapacity());
     }
 
     @Test
@@ -185,6 +185,6 @@ public class HashedSetTest {
     @Test
     public void tableSizeTest4() {
         HashedSet<String> set = new HashedSet<>(500_000_000);
-        assertEquals(402_653_189, set.getTableCapacity());
+        assertEquals(100_663_291, set.getTableCapacity());
     }
 }

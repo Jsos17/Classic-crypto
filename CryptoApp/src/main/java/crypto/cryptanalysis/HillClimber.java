@@ -7,7 +7,7 @@ package crypto.cryptanalysis;
 
 import crypto.ciphers.TranspositionCipher;
 import crypto.datastructures.HashedSet;
-import java.util.Random;
+import crypto.datastructures.LehmerRandomNumberGenerator;
 
 /**
  *
@@ -15,7 +15,7 @@ import java.util.Random;
  */
 public class HillClimber {
 
-    private final Random rand;
+    private final LehmerRandomNumberGenerator generator;
     private final char[] alphabet;
     private final Ngrams ngrams;
     private final TranspositionCipher tCipher;
@@ -24,7 +24,7 @@ public class HillClimber {
     private String[] maybeKeys;
 
     public HillClimber(Ngrams ngrams) {
-        this.rand = new Random();
+        this.generator = new LehmerRandomNumberGenerator();
         this.alphabet = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
             'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
         this.ngrams = ngrams;
@@ -33,7 +33,7 @@ public class HillClimber {
     }
 
     /**
-     * This method simply loops over a mathematical optimization algorithm
+     * This method simply loops over a stochastic optimization algorithm
      * climbARandomHill for the specified number of times trying to find the
      * global maximum among all the local maximums (or close approximations of
      * the local maximum) produced by the climbARandomHill algorithm.
@@ -76,7 +76,7 @@ public class HillClimber {
     }
 
     /**
-     * This is a mathematical optimization algorithm that tries to find a global
+     * This is a stochastic optimization algorithm that tries to find a global
      * maximum for the "fitness value" of a plaintext by starting with a
      * randomly chosen key and then incrementally trying to find a key that
      * produces a higher fitness value for the plaintext when the original
@@ -132,8 +132,8 @@ public class HillClimber {
     protected String swapRandomly(char[] keyChars) {
         char[] copy = new char[keyChars.length];
         System.arraycopy(keyChars, 0, copy, 0, keyChars.length);
-        int idx1 = this.rand.nextInt(keyChars.length);
-        int idx2 = this.rand.nextInt(keyChars.length);
+        int idx1 = this.generator.nextInt(keyChars.length);
+        int idx2 = this.generator.nextInt(keyChars.length);
         char temp = copy[idx1];
         copy[idx1] = copy[idx2];
         copy[idx2] = temp;
@@ -147,12 +147,12 @@ public class HillClimber {
      * a random permutation of the alphabet, so that it can used as the starting
      * point in the climbARandomHill algorithm.
      *
-     * @param alphabet
+     * @param alphabet The alphabet that is pseudo-randomly permuted
      */
     protected void randomizeInPlace(char[] alphabet) {
         int n = alphabet.length;
         for (int i = 0; i < n; i++) {
-            int rndNumber = this.rand.ints(i, n).findFirst().getAsInt();
+            int rndNumber = this.generator.ints(i, n);
             char temp = alphabet[i];
             alphabet[i] = alphabet[rndNumber];
             alphabet[rndNumber] = temp;

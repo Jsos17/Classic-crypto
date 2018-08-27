@@ -20,7 +20,7 @@ public class HashedSet<T> {
     private final double LOW_THRESHOLD;
 
     public HashedSet() {
-        this.MAXIMUM_ARRAY_SIZE = 402_653_189;
+        this.MAXIMUM_ARRAY_SIZE = 100_663_291;
         this.middlePrimes = new int[]{11, 23, 47, 97, 193, 389, 769, 1543, 3079, 6143,
             12_289, 24_571, 49_157, 98_317, 196_613, 393_209,
             786_433, 1_572_869, 3_145_721, 6_291_469, 12_582_917, 25_165_813,
@@ -33,21 +33,22 @@ public class HashedSet<T> {
     }
 
     /**
-     * Currently, the prime number 402_653_189 is the biggest middle prime that
-     * is approximately between successive powers of two, and does not cause
-     * java.lang.OutOfMemoryError and thus Array size is limited to that.
+     * Large array sizes cause java.lang.OutOfMemoryError and thus there is an
+     * attempt to mitigate this problem by restricting the maximum array size to
+     * 100_663_291, since on different machines different values cause problems,
+     * but there is no guarantee that this is a small enough value.
      *
      * @param size
      */
     public HashedSet(int size) {
-        this.MAXIMUM_ARRAY_SIZE = 402_653_189;
+        this.MAXIMUM_ARRAY_SIZE = 100_663_291;
         this.middlePrimes = new int[]{11, 23, 47, 97, 193, 389, 769, 1543, 3079, 6143,
             12_289, 24_571, 49_157, 98_317, 196_613, 393_209,
             786_433, 1_572_869, 3_145_721, 6_291_469, 12_582_917, 25_165_813,
             50_331_653, 100_663_291, 201_326_611, 402_653_189, 805_306_357, 1_610_612_741};
 
         if (size >= this.middlePrimes[this.middlePrimes.length - 3]) {
-            this.index = this.middlePrimes.length - 3; // the value at index: 402_653_189
+            this.index = this.middlePrimes.length - 5; // the value at index: 100_663_291
         } else if (size > 0) {
             int i = 0;
             while (i < this.middlePrimes.length && size > this.middlePrimes[i]) {
