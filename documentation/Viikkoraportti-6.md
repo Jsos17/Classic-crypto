@@ -46,7 +46,7 @@ Valitsin tämän generaattorin, koska se oli suhteellisen helppo ymmärtää ja 
 | :----:|:--------| :----------|
 | Viikko 6 |
 | 25.8. | 6 | Käyttöliittymään lisätty kaikkien salausten perustoiminnallisuus ilman syötteentarkistusta (ja ilman tekstin manipulointityökalua, joka tulossa), samalla KeyedVigenereCipher refaktoroitiin siten että aakkostoavaimen voi muuttaa set-metodilla |
-| 26.8. | 2 | Dokumentoinnin päivitys ja käyttöliittymässä alutavien ohjetekstien lisäys eri salauksille |
+| 26.8. | 2 | Dokumentoinnin päivitys ja käyttöliittymässä alustavien ohjetekstien lisäys eri salauksille |
 | 27.8. | 6 | Lehmer random number generaattorin luonti ja testit |
 
 
