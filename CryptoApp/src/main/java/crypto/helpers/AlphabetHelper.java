@@ -5,7 +5,7 @@
  */
 package crypto.helpers;
 
-import java.util.HashMap;
+import crypto.datastructures.HashTable;
 
 /**
  * A small helper class that contains methods related to alphabets that are used
@@ -26,10 +26,10 @@ public class AlphabetHelper {
      * @param alphabet The alphabet in use, usually abcdefghijklmnopqrstuvwxyz
      * @return a HashMap of character-index key-values
      */
-    public HashMap<Character, Integer> hashAlphabet(String alphabet) {
-        HashMap<Character, Integer> alphabetIndexes = new HashMap<>();
+    public HashTable<Character, Integer> hashAlphabet(String alphabet) {
+        HashTable<Character, Integer> alphabetIndexes = new HashTable<>();
         for (int i = 0; i < alphabet.length(); i++) {
-            alphabetIndexes.put(alphabet.charAt(i), i);
+            alphabetIndexes.hashInsert(alphabet.charAt(i), i);
         }
 
         return alphabetIndexes;

@@ -7,7 +7,6 @@ package crypto.cryptanalysis;
 
 import crypto.datastructures.HashTable;
 import crypto.helpers.AlphabetHelper;
-import java.util.HashMap;
 
 /**
  * This class performs basic frequency analysis of letters found in a text.
@@ -19,7 +18,7 @@ public class FrequencyAnalysis {
     private String alphabet;
     private double[] expectedLetterFrequencies;
 //    private HashTable<Character, Integer> alphabetIndexes;;
-    private HashMap<Character, Integer> alphabetIndexes;
+    private HashTable<Character, Integer> alphabetIndexes;
 
     /**
      * The Latin 26 character alphabet is the default alphabet, the average

@@ -8,7 +8,7 @@ package crypto.cryptanalysis;
 import crypto.ciphers.TranspositionCipher;
 import crypto.datastructures.HashedSet;
 import crypto.datastructures.LehmerRandomNumberGenerator;
-import java.util.Random;
+//import java.util.Random;
 
 /**
  *

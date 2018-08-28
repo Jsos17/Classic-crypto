@@ -7,9 +7,9 @@ package crypto.cryptanalysis;
 
 import crypto.helpers.CharacterValue;
 import crypto.ciphers.VigenereCipher;
+import crypto.datastructures.HashTable;
 import crypto.helpers.AlphabetHelper;
 import crypto.sorting.GenericTypeSort;
-import java.util.HashMap;
 
 /**
  * This class counts various statistics related to Index of coincidence.
@@ -21,7 +21,7 @@ public class IndexOfCoincidence {
     private FrequencyAnalysis freq;
     private int c;
     private double expectedIC;
-    private HashMap<Character, Integer> alphabetIndexes;
+    private HashTable<Character, Integer> alphabetIndexes;
     private String keyCandidate;
 
     /**
@@ -43,7 +43,7 @@ public class IndexOfCoincidence {
     }
 
     /**
-     * The method returns the likeliest but not necessary correct key if the
+     * The method returns the likeliest but not necessary the correct key if the
      * method findKey has been run. If findKey has not been run then only an
      * empty String is returned.
      *

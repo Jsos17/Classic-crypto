@@ -457,12 +457,17 @@ public class CryptoUserInterface extends Application {
         NumberAxis yAxis = new NumberAxis();
         BarChart<String, Number> chart = new BarChart<>(xAxis, yAxis);
         chart.setTitle("Average index of coincidence values of the ciphertext for different key lengths");
-        XYChart.Series icsForKeyLens = new XYChart.Series<>();
         Scene barChartScene = new Scene(chart);
 
         findKeyLen.setOnMouseClicked((event) -> {
+            chart.getData().clear();
+            XYChart.Series icsForKeyLens = new XYChart.Series<>();
             double[] aggregateDeltaBarICs = ic.allAggregateDeltaBarICs(ciphertext.getText());
-            for (int i = 0; i < aggregateDeltaBarICs.length / 3; i++) {
+            int limit = aggregateDeltaBarICs.length;
+            if (limit > 50) {
+                limit = 50;
+            }
+            for (int i = 0; i < limit; i++) {
                 String len = "" + (i + 1);
                 icsForKeyLens.getData().add(new XYChart.Data(len, aggregateDeltaBarICs[i]));
             }
@@ -515,8 +520,8 @@ public class CryptoUserInterface extends Application {
         VBox cryptanalysisMenu = new VBox();
         Label cryptanalysis = new Label("Cryptanalysis:");
         cryptanalysis.setFont(new Font("Comic Sans MS", 16));
-        Button attackVigenere = new Button("Attack Vigenere cipher");
-        Button attackSingleTransposition = new Button("Attack single transposition cipher");
+        Button attackVigenere = new Button("Attack Vigenere encryption");
+        Button attackSingleTransposition = new Button("Attack single transposition encryption");
         cryptanalysisMenu.getChildren().addAll(cryptanalysis, attackVigenere, attackSingleTransposition);
         cryptanalysisMenu.setSpacing(20);
 
@@ -561,6 +566,8 @@ public class CryptoUserInterface extends Application {
         });
 
         backToMenu2.setOnMouseClicked((event) -> {
+            ciphertext.clear();
+            crackingResult.clear();
             stage.setScene(menuScene);
         });
 
