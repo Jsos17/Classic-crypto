@@ -8,6 +8,7 @@ package crypto.cryptanalysis;
 import crypto.ciphers.TranspositionCipher;
 import crypto.datastructures.HashedSet;
 import crypto.datastructures.LehmerRandomNumberGenerator;
+import java.util.Random;
 
 /**
  *
@@ -16,20 +17,20 @@ import crypto.datastructures.LehmerRandomNumberGenerator;
 public class HillClimber {
 
     private final LehmerRandomNumberGenerator generator;
+//    private final Random random;
     private final char[] alphabet;
     private final Ngrams ngrams;
     private final TranspositionCipher tCipher;
-    private HashedSet<String> hashedSet;
     private double[] fitnesses;
     private String[] maybeKeys;
 
     public HillClimber(Ngrams ngrams) {
         this.generator = new LehmerRandomNumberGenerator();
+//        this.random = new Random();
         this.alphabet = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
             'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
         this.ngrams = ngrams;
         this.tCipher = new TranspositionCipher();
-        this.hashedSet = new HashedSet<>(100_000);
     }
 
     /**
@@ -48,7 +49,7 @@ public class HillClimber {
      * @param keyLen The trial length of the key used in the Singular
      * Transposition encryption
      * @param ciphertext The text we are trying to crack
-     * @param algoRestarts How many the times the algorithm attempts to find the
+     * @param algoRuns How many the times the algorithm attempts to find the
      * local maximum. In other words how many times the climbARandomHill
      * algorithm is run. The more restarts the likelier the algorithm is to find
      * a true global maximum among all the local maximums.
@@ -58,13 +59,13 @@ public class HillClimber {
      * @return The likeliest key based on the highest encountered fitness value
      * from all trial decryptions with random keys.
      */
-    public String runToTheHills(int keyLen, String ciphertext, int algoRestarts, int iterations) {
-        this.fitnesses = new double[algoRestarts];
-        this.maybeKeys = new String[algoRestarts];
+    public String runToTheHills(int keyLen, String ciphertext, int algoRuns, int iterations) {
+        this.fitnesses = new double[algoRuns];
+        this.maybeKeys = new String[algoRuns];
         double best = Double.NEGATIVE_INFINITY;
         String bestGuess = "";
 
-        for (int i = 0; i < algoRestarts; i++) {
+        for (int i = 0; i < algoRuns; i++) {
             climbARandomHill(keyLen, ciphertext, iterations, i);
             if (fitnesses[i] > best) {
                 best = fitnesses[i];
@@ -95,18 +96,19 @@ public class HillClimber {
      * corresponding fitness values in two separate arrays.
      */
     protected void climbARandomHill(int keyLen, String ciphertext, int iterations, int index) {
+        HashedSet hashedSet = new HashedSet<>(2 * iterations);
         char[] maybeKeyChars = new char[keyLen];
         System.arraycopy(this.alphabet, 0, maybeKeyChars, 0, keyLen);
 
         this.randomizeInPlace(maybeKeyChars);
         String maybeKey = new String(maybeKeyChars);
         double best = this.ngrams.fitness(this.tCipher.decryptSingleTransposition(maybeKey, ciphertext));
-        this.hashedSet.insert(maybeKey);
+        hashedSet.insert(maybeKey);
 
         for (int i = 1; i <= iterations; i++) {
             maybeKey = swapRandomly(maybeKeyChars);
-            if (!this.hashedSet.contains(maybeKey)) {
-                this.hashedSet.insert(maybeKey);
+            if (!hashedSet.contains(maybeKey)) {
+                hashedSet.insert(maybeKey);
                 double value = this.ngrams.fitness(this.tCipher.decryptSingleTransposition(maybeKey, ciphertext));
 
                 if (value > best) {
@@ -122,7 +124,7 @@ public class HillClimber {
     }
 
     /**
-     * This method swaps to characters in a char array choosing the swapped
+     * This method swaps two characters in a char array choosing the swapped
      * characters randomly. It is possible that no swap is done if the random
      * number is the same for both sampling draws.
      *
@@ -134,6 +136,8 @@ public class HillClimber {
         System.arraycopy(keyChars, 0, copy, 0, keyChars.length);
         int idx1 = this.generator.nextInt(keyChars.length);
         int idx2 = this.generator.nextInt(keyChars.length);
+//        int idx1 = this.random.nextInt(keyChars.length);
+//        int idx2 = this.random.nextInt(keyChars.length);
         char temp = copy[idx1];
         copy[idx1] = copy[idx2];
         copy[idx2] = temp;
@@ -144,8 +148,8 @@ public class HillClimber {
     /**
      * Code based on the pseudocode for Randomize-In-Place(A) method found in
      * the book Introduction to Algorithms, 3rd edition. It is meant to produce
-     * a random permutation of the alphabet, so that it can used as the starting
-     * point in the climbARandomHill algorithm.
+     * a pseudo-random permutation of the alphabet, so that it can used as the
+     * starting point in the climbARandomHill algorithm.
      *
      * @param alphabet The alphabet that is pseudo-randomly permuted
      */
@@ -153,6 +157,7 @@ public class HillClimber {
         int n = alphabet.length;
         for (int i = 0; i < n; i++) {
             int rndNumber = this.generator.ints(i, n);
+//            int rndNumber = this.random.ints(i, n).findFirst().getAsInt();
             char temp = alphabet[i];
             alphabet[i] = alphabet[rndNumber];
             alphabet[rndNumber] = temp;

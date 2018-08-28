@@ -9,17 +9,30 @@ import crypto.ciphers.AutokeyVigenereCipher;
 import crypto.ciphers.KeyedVigenereCipher;
 import crypto.ciphers.TranspositionCipher;
 import crypto.ciphers.VigenereCipher;
+import crypto.cryptanalysis.FrequencyAnalysis;
 import crypto.cryptanalysis.HillClimber;
+import crypto.cryptanalysis.IndexOfCoincidence;
+import crypto.cryptanalysis.Ngrams;
 import crypto.cryptanalysis.Quadgrams;
+import crypto.helpers.CharacterValue;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -38,26 +51,37 @@ public class CryptoUserInterface extends Application {
     private KeyedVigenereCipher keyedVig;
     private AutokeyVigenereCipher autokeyVig;
     private TranspositionCipher transposition;
+    private Ngrams quadgrams;
+    private HillClimber hillClimber;
+    private FrequencyAnalysis freq;
+    private IndexOfCoincidence ic;
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Quadgrams quad = new Quadgrams("english_quadgrams.txt");
-        TranspositionCipher cipher = new TranspositionCipher();
-        HillClimber climber = new HillClimber(quad);
-        String ciphertext = "phinascpskrcepxtuctetustyrlllsireftaneiobeoistepnawyipohlileocmsctliarlaarrdletfoehrrlttiihhpttsruhlgdepyytaiaducnhinactotoeooetfnviefnepshtnbbtttessvihoafaknicaswiruiungoouueufesknksiboebhetoecamcotrlfeealyoihtpoaaakttcusnatiutneotcoavoihtnneeluekntestaheansdefkonsslkdoeneaeoawyfcacktwhoeebfoiimsaonehotrsoedegstuane";
-//        System.out.println(text.length());
-        String key = climber.runToTheHills(10, ciphertext.toUpperCase(), 20, 1000);
-        System.out.println(key);
-        System.out.println(cipher.decryptSingleTransposition(key, ciphertext));
+//        Quadgrams quad = new Quadgrams("english_quadgrams.txt");
+//        TranspositionCipher cipher = new TranspositionCipher();
+//        HillClimber climber = new HillClimber(quad);
+//        String ciphertext = "phinascpskrcepxtuctetustyrlllsireftaneiobeoistepnawyipohlileocmsctliarlaarrdletfoehrrlttiihhpttsruhlgdepyytaiaducnhinactotoeooetfnviefnepshtnbbtttessvihoafaknicaswiruiungoouueufesknksiboebhetoecamcotrlfeealyoihtpoaaakttcusnatiutneotcoavoihtnneeluekntestaheansdefkonsslkdoeneaeoawyfcacktwhoeebfoiimsaonehotrsoedegstuane";
+////        System.out.println(text.length());
+//        String key = climber.runToTheHills(10, ciphertext.toUpperCase(), 20, 1000);
+//        System.out.println(key);
+//        System.out.println(cipher.decryptSingleTransposition(key, ciphertext));
 
+//        FrequencyAnalysis freq1 = new FrequencyAnalysis();
+//        IndexOfCoincidence ic1 = new IndexOfCoincidence(freq1);
+//        String c = "vptnvffuntshtarptymjwzirappljmhhqvsubwlzzygvtyitarptyiougxiuydtgzhhvvmumshwkzgstfmekvmpkswdgbilvjljmglmjfqwioiivknulvvfemioiemojtywdsajtwmtcgluysdsumfbieugmvalvxkjduetukatymvkqzhvqvgvptytjwwldyeevquhlulwpkt";
+//        double[] ics = ic1.allAggregateDeltaBarICs(c);
+//        for (int i = 0; i < ics.length; i++) {
+//            System.out.println((i+1) + " | " + ics[i]);
+//        }
         launch(CryptoUserInterface.class);
     }
 
     /**
      * Very crude outline of the graphical user interface. Cryptanalysis
-     * functionality is missing
+     * functionality is currently missing.
      *
      * @param stage
      * @throws Exception
@@ -68,9 +92,13 @@ public class CryptoUserInterface extends Application {
         keyedVig = new KeyedVigenereCipher("");
         autokeyVig = new AutokeyVigenereCipher();
         transposition = new TranspositionCipher();
+        quadgrams = new Quadgrams("english_quadgrams.txt");
+        hillClimber = new HillClimber(quadgrams);
+        freq = new FrequencyAnalysis();
+        ic = new IndexOfCoincidence(freq);
 
-        int width = 1000;
-        int height = 640;
+        int width = 1200;
+        int height = 800;
         // Ciphers, general
         Label textLabel = new Label("Plaintex/Ciphertext:");
         TextArea text = new TextArea();
@@ -82,7 +110,7 @@ public class CryptoUserInterface extends Application {
         result.setWrapText(true);
         Button clearText = new Button("Clear text");
         Button clearResult = new Button("Clear result");
-        VBox ciphersLeft = createLeftBox(new Node[]{textLabel, text, resultLabel, result, clearResult});
+        VBox ciphersLeft = createVBox(new Node[]{textLabel, text, resultLabel, result, clearResult});
 
         // Vigenere
         Label vigLabel = new Label("Vigenere cipher");
@@ -109,7 +137,7 @@ public class CryptoUserInterface extends Application {
                 + "If the key is longer than the plaintext\n"
                 + "then cryptanalysis of the ciphertext is\n"
                 + "much more difficult.";
-        VBox vigR = createRightBox(new Node[]{vigKeyLabel, vigKey, new Text(vigInfo)});
+        VBox vigR = createVBox(new Node[]{vigKeyLabel, vigKey, new Text(vigInfo)});
         Button encrypt1 = new Button("Encrypt");
         Button decrypt1 = new Button("Decrypt");
 
@@ -152,7 +180,7 @@ public class CryptoUserInterface extends Application {
                 + "abcdefghijklmnopqrstuvwxyz";
         String keyInfo2 = "Instructions are the same\n"
                 + "as for the Vigenere cipher.";
-        VBox keyedR = createRightBox(new Node[]{alphabetKeyLabel, alphabetKey, new Text(alphabetKeyInfo), keyedVigKeyLabel, keyedVigKey, new Text(keyInfo2)});
+        VBox keyedR = createVBox(new Node[]{alphabetKeyLabel, alphabetKey, new Text(alphabetKeyInfo), keyedVigKeyLabel, keyedVigKey, new Text(keyInfo2)});
         Button encrypt2 = new Button("Encrypt");
         Button decrypt2 = new Button("Decrypt");
 
@@ -175,7 +203,7 @@ public class CryptoUserInterface extends Application {
                 + "\n"
                 + "If other characters are used then\n"
                 + "the results might be inconsistent";
-        VBox autokeyR = createRightBox(new Node[]{primerLabel, primer, new Text(primerInfo)});
+        VBox autokeyR = createVBox(new Node[]{primerLabel, primer, new Text(primerInfo)});
         Button encrypt3 = new Button("Encrypt");
         Button decrypt3 = new Button("Decrypt");
 
@@ -201,7 +229,7 @@ public class CryptoUserInterface extends Application {
                 + "single additional space,\n"
                 + "especially when decrypting\n"
                 + "a ciphertext.";
-        VBox transpR = createRightBox(new Node[]{new Text(info), transpositionKeyLabel, transpositionKey});
+        VBox transpR = createVBox(new Node[]{new Text(info), transpositionKeyLabel, transpositionKey});
         Button encrypt4 = new Button("Encrypt");
         Button decrypt4 = new Button("Decrypt");
 
@@ -228,7 +256,7 @@ public class CryptoUserInterface extends Application {
                 + "The program automatically applies the\n"
                 + "second key first in decryption and the\n"
                 + "first key last in decryption.";
-        VBox dTranspR = createRightBox(new Node[]{new Text(info), key1Label, transpositionKey1, key2Label, transpositionKey2, new Text(keyOrderInfo)});
+        VBox dTranspR = createVBox(new Node[]{new Text(info), key1Label, transpositionKey1, key2Label, transpositionKey2, new Text(keyOrderInfo)});
         Button encrypt5 = new Button("Encrypt");
         Button decrypt5 = new Button("Decrypt");
 
@@ -344,13 +372,144 @@ public class CryptoUserInterface extends Application {
         TextArea ciphertext = new TextArea();
         ciphertext.setPromptText("Enter ciphertext");
         ciphertext.setWrapText(true);
-        Button crack = new Button("Crack");
-        Button clearCracking = new Button("Clear");
+        Button clearCiphertext = new Button("Clear ciphertext");
         TextArea crackingResult = new TextArea();
         crackingResult.setPromptText("Ciphertext cracking result appears here");
         crackingResult.setWrapText(true);
-        HBox hbox2 = createButtonBox(new Node[]{crack, clearCracking});
-        VBox crackLeft = createLeftBox(new Node[]{ciphertext, hbox2, crackingResult});
+        Button clearCrackingResult = new Button("Clear cracking result");
+        VBox crackLeft = createVBox(new Node[]{ciphertext, clearCiphertext, crackingResult, clearCrackingResult});
+
+        clearCiphertext.setOnMouseClicked((event) -> {
+            ciphertext.clear();
+        });
+
+        clearCrackingResult.setOnMouseClicked((event) -> {
+            crackingResult.clear();
+        });
+
+        // Attacking the transposition cipher with HillClimber
+        Label keyLenLabel = new Label("Suspected key length:");
+        ObservableList<Integer> keyLens
+                = FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
+        ComboBox lenBox = new ComboBox(keyLens);
+        lenBox.getSelectionModel().selectFirst();
+        Label algoRunsLabel = new Label("Times the algorithm is run:");
+        ObservableList<Integer> algoRuns
+                = FXCollections.observableArrayList(10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200);
+        ComboBox algoRunBox = new ComboBox(algoRuns);
+        algoRunBox.getSelectionModel().selectFirst();
+        Label iterationsLabel = new Label("Number of iterations for each run of the algorithm:");
+        ObservableList<Integer> iterations
+                = FXCollections.observableArrayList(100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000);
+        ComboBox iterationsBox = new ComboBox(iterations);
+        iterationsBox.getSelectionModel().selectFirst();
+        Button runAlgoButton = new Button("Run the algorithm");
+        Label maybeKeyLabel = new Label("Possible key:");
+        Text maybeKey = new Text();
+        Button trialDecryption = new Button("Try decryption with this key");
+        Button keyClear = new Button("Clear key");
+        HBox keyButtons = createButtonBox(new Node[]{trialDecryption, keyClear});
+        VBox crackTransposition = createVBox(new Node[]{keyLenLabel, lenBox, algoRunsLabel,
+            algoRunBox, iterationsLabel, iterationsBox, runAlgoButton, maybeKeyLabel, maybeKey, keyButtons});
+
+        runAlgoButton.setOnMouseClicked((event) -> {
+            int keyLen = keyLens.get(lenBox.getSelectionModel().getSelectedIndex());
+            int runs = algoRuns.get(algoRunBox.getSelectionModel().getSelectedIndex());
+            int iters = iterations.get(iterationsBox.getSelectionModel().getSelectedIndex());
+//            System.out.println("Key len: " + keyLen);
+//            System.out.println("Runs: " + runs);
+//            System.out.println("Iterations: " + iters);
+            maybeKey.setText(hillClimber.runToTheHills(keyLen, ciphertext.getText().toUpperCase(), runs, iters));
+        });
+
+        trialDecryption.setOnMouseClicked((event) -> {
+            if (maybeKey.getText().length() > 0) {
+                crackingResult.setText(transposition.decryptSingleTransposition(maybeKey.getText(), ciphertext.getText()));
+            }
+        });
+
+        keyClear.setOnMouseClicked((event) -> {
+            maybeKey.setText("");
+        });
+
+        // Attacking the Vigenere cipher with frequency analysis and the index of coincidence
+        Button findKeyLen = new Button("Find possible key length");
+        Label possibleKeyLenLabel = new Label("Possible key length");
+        Text possibleKeyLen = new Text();
+        Button showValuesForKeyLens = new Button("Show associated values for key lengths");
+        Label keylensLabel = new Label("Key length to use in trial decryption");
+        ObservableList<Integer> keyLengths = FXCollections.observableArrayList();
+        for (int i = 1; i <= 100; i++) {
+            keyLengths.add(i);
+        }
+        ComboBox keyLengthsBox = new ComboBox(keyLengths);
+        keyLengthsBox.getSelectionModel().selectFirst();
+        Button findKey = new Button("Find key");
+        GridPane charValueGrid = new GridPane();
+        Button vigTrialdecrypt = new Button("Try decryption with this key");
+        VBox crackVigenere = createVBox(new Node[]{findKeyLen, possibleKeyLenLabel, possibleKeyLen,
+            showValuesForKeyLens, keylensLabel, keyLengthsBox, findKey, charValueGrid, vigTrialdecrypt});
+
+        Stage graphics = new Stage();
+        graphics.setTitle("Key data visualization");
+
+        CategoryAxis xAxis = new CategoryAxis();
+        NumberAxis yAxis = new NumberAxis();
+        BarChart<String, Number> chart = new BarChart<>(xAxis, yAxis);
+        chart.setTitle("Average index of coincidence values of the ciphertext for different key lengths");
+        XYChart.Series icsForKeyLens = new XYChart.Series<>();
+        Scene barChartScene = new Scene(chart);
+
+        findKeyLen.setOnMouseClicked((event) -> {
+            double[] aggregateDeltaBarICs = ic.allAggregateDeltaBarICs(ciphertext.getText());
+            for (int i = 0; i < aggregateDeltaBarICs.length / 3; i++) {
+                String len = "" + (i + 1);
+                icsForKeyLens.getData().add(new XYChart.Data(len, aggregateDeltaBarICs[i]));
+            }
+
+            chart.getData().add(icsForKeyLens);
+        });
+
+        showValuesForKeyLens.setOnMouseClicked((event) -> {
+            graphics.setScene(barChartScene);
+            graphics.show();
+        });
+
+        findKey.setOnMouseClicked((event) -> {
+            charValueGrid.getChildren().clear();
+
+            int keyLen = keyLengths.get(keyLengthsBox.getSelectionModel().getSelectedIndex());
+            CharacterValue[][] cvals = this.ic.findKey(ciphertext.getText(), keyLen);
+
+            for (int i = 0; i < cvals.length; i++) {
+                ObservableList<Character> keyChars = FXCollections.observableArrayList();
+                ObservableList<Integer> keyVals = FXCollections.observableArrayList();
+                for (int j = 0; j < cvals[i].length; j++) {
+                    keyChars.add(cvals[i][j].getCharacter());
+                    keyVals.add((int) cvals[i][j].getValue());
+                }
+
+                ComboBox charBox = new ComboBox(keyChars);
+                charBox.getSelectionModel().selectFirst();
+                charValueGrid.add(charBox, i, 0);
+                ComboBox valueBox = new ComboBox(keyVals);
+                valueBox.getSelectionModel().selectFirst();
+                charValueGrid.add(valueBox, i, 1);
+            }
+        });
+
+        vigTrialdecrypt.setOnMouseClicked((event) -> {
+            int size = charValueGrid.getChildren().size();
+//            System.out.println(size);
+            String key = "";
+            for (int i = 0; i < size; i += 2) {
+                ComboBox box = (ComboBox) charValueGrid.getChildren().get(i);
+                key += box.getSelectionModel().getSelectedItem();
+            }
+
+//            System.out.println(key);
+            crackingResult.setText(vigenere.decrypt(key, ciphertext.getText()));
+        });
 
         // Cryptanalysis menu
         VBox cryptanalysisMenu = new VBox();
@@ -364,7 +523,7 @@ public class CryptoUserInterface extends Application {
         // Cryptanalysis scene/window
         BorderPane cryptanalysisView = new BorderPane();
         Scene cryptanalysisScene = new Scene(cryptanalysisView, width, height);
-        Label cryptanalysisLabel = new Label("Cryptanalysis");
+        Label cryptanalysisLabel = new Label();
         styleLabels(cryptanalysisLabel, 15);
         cryptanalysisView.setTop(cryptanalysisLabel);
         cryptanalysisView.setLeft(crackLeft);
@@ -372,10 +531,14 @@ public class CryptoUserInterface extends Application {
         cryptanalysisView.setBottom(backToMenu2);
 
         attackVigenere.setOnMouseClicked((event) -> {
+            cryptanalysisLabel.setText("Attack Vigenere encryption");
+            cryptanalysisView.setRight(crackVigenere);
             stage.setScene(cryptanalysisScene);
         });
 
         attackSingleTransposition.setOnMouseClicked((event) -> {
+            cryptanalysisLabel.setText("Attack single columnar transposition encryption");
+            cryptanalysisView.setRight(crackTransposition);
             stage.setScene(cryptanalysisScene);
         });
 
@@ -388,6 +551,8 @@ public class CryptoUserInterface extends Application {
         menu.setRight(cryptanalysisMenu);
 
         Scene menuScene = new Scene(menu, width, height);
+
+        // Back to menu functionality
         backToMenu1.setOnMouseClicked((event) -> {
             ciphersLeft.getChildren().remove(2);
             text.clear();
@@ -414,25 +579,14 @@ public class CryptoUserInterface extends Application {
         label.setPadding(new Insets(10));
     }
 
-    private VBox createLeftBox(Node[] nodes) {
-        VBox vboxLeft = new VBox();
+    private VBox createVBox(Node[] nodes) {
+        VBox vbox = new VBox();
         for (Node node : nodes) {
-            vboxLeft.getChildren().add(node);
-
+            vbox.getChildren().add(node);
         }
 
-        vboxLeft.setSpacing(5);
-        return vboxLeft;
-    }
-
-    private VBox createRightBox(Node[] nodes) {
-        VBox vboxRight = new VBox();
-        for (Node node : nodes) {
-            vboxRight.getChildren().add(node);
-        }
-
-        vboxRight.setSpacing(5);
-        return vboxRight;
+        vbox.setSpacing(5);
+        return vbox;
     }
 
     private HBox createButtonBox(Node[] nodes) {

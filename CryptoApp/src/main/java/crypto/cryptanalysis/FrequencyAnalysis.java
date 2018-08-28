@@ -5,6 +5,7 @@
  */
 package crypto.cryptanalysis;
 
+import crypto.datastructures.HashTable;
 import crypto.helpers.AlphabetHelper;
 import java.util.HashMap;
 
@@ -17,6 +18,7 @@ public class FrequencyAnalysis {
 
     private String alphabet;
     private double[] expectedLetterFrequencies;
+//    private HashTable<Character, Integer> alphabetIndexes;;
     private HashMap<Character, Integer> alphabetIndexes;
 
     /**

@@ -43,7 +43,7 @@ public class IndexOfCoincidence {
     }
 
     /**
-     * The method return the likeliest but not necessary correct key if the
+     * The method returns the likeliest but not necessary correct key if the
      * method findKey has been run. If findKey has not been run then only an
      * empty String is returned.
      *

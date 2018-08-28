@@ -24,12 +24,14 @@ public class TranspositionAttack {
     private String alphabet;
     private TranspositionCipher ciph;
     private Quadgrams quad;
+    private HillClimber hillClimber;
 
     public TranspositionAttack() {
         this.combi = new Combinatorics();
         this.alphabet = "abcdefghijklmnopqrstuvwxyz";
         this.ciph = new TranspositionCipher();
         this.quad = new Quadgrams("english_quadgrams.txt");
+        this.hillClimber = new HillClimber(this.quad);
     }
 
     /**

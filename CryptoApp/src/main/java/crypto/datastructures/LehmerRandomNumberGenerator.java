@@ -11,18 +11,20 @@ package crypto.datastructures;
  *
  * The recurrence relation
  *
- * Z_n+1 = a * z_n (mod m)
+ * Z_n+1 = a * Z_n (mod m)
  *
  * is used to produce the pseudo-random numbers, where a belongs to {2,3,...,
- * m-1} and m is a large prime number, and z_0 belongs to {1,2,...,m-1}
+ * m-1} and m is a large prime number, and z_0 is initialized as a number
+ * belonging to {1,2,...,m-1} and the notations z_n and z_n+1 mean the subindex
+ * of the variable z.
  *
  * @author jpssilve
  */
 public class LehmerRandomNumberGenerator {
 
-    private final int multiplier;
-    private final int modulus;
-    private long seed;
+    private final int multiplier; // Not every value is appropriate, see the papers indicated below
+    private final int modulus; // Should be a large prime number
+    private long seed; // Should never be zero (or negative)
 
     /**
      * The modulus m is a (Mersenne) prime number, m = 2^31 - 1, which
@@ -33,12 +35,14 @@ public class LehmerRandomNumberGenerator {
      * Generators, and lastly the seed should be a value belonging to the set
      * {1, 2, ..., 2^31 - 2} (from 1 to m-1).
      *
-     * Long value is used of the seed to avoid integer overflow since 48271 *
+     * Long value is used as the seed to avoid integer overflow since 48271 *
      * (2^31 -2) is smaller than the maximum long value, and thus integer
      * overflow never occurs.
      *
      * See wikipedia for a short introduction
      * https://en.wikipedia.org/wiki/Lehmer_random_number_generator
+     *
+     * Sources:
      *
      * Stephen K. Park; Keith W. Miller (1988). Random Number Generators: Good
      * Ones Are Hard To Find. Communications of the ACM. Volume 31. pages
@@ -120,7 +124,7 @@ public class LehmerRandomNumberGenerator {
      * bound was acceptable, otherwise return the value produced by nextInt()
      */
     public int nextInt(int bound) {
-        if (bound > 0 && bound <= Integer.MAX_VALUE) {
+        if (bound > 0 && bound <= 2147483647) {
             return this.nextInt() % bound;
         }
 
@@ -128,9 +132,9 @@ public class LehmerRandomNumberGenerator {
     }
 
     /**
-     * This method returns a pseudo-random value from origin (inclusive) to
-     * bound (exclusive) i.e. the value is chosen pseudo-randomly from the set
-     * {origin, ..., bound-1}
+     * This method returns a pseudo-random integer value from the range origin
+     * (inclusive) to bound (exclusive) i.e. the value is chosen pseudo-randomly
+     * from the set {origin, ..., bound-1}
      *
      * @param origin The first value that is included among the sampling range,
      * shoud be smaller than bound and greater or equal to zero
