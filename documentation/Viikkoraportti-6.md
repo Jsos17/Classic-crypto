@@ -54,7 +54,7 @@ Lisäksi HillClimber luokassa Hajautustaulu muutettiin pois luokan sisäisestä 
 | 25.8. | 6 | Käyttöliittymään lisätty kaikkien salausten perustoiminnallisuus ilman syötteentarkistusta (ja ilman tekstin manipulointityökalua, joka tulossa), samalla KeyedVigenereCipher refaktoroitiin siten että aakkostoavaimen voi muuttaa set-metodilla |
 | 26.8. | 2 | Dokumentoinnin päivitys ja käyttöliittymässä alustavien ohjetekstien lisäys eri salauksille |
 | 27.8. | 6 | Lehmer random number generaattorin luonti ja testit |
-| 28.8. | 10 | Käyttöliittymään 1. versio murtamistoiminnallisuudesta, HillClimber luokan päivitys |
+| 28.8. | 11 | Käyttöliittymään 1. versio murtamistoiminnallisuudesta, HillClimber luokan päivitys |
 
 
 [Tuntikirjanpito](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/tuntikirjanpito.md)
