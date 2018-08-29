@@ -23,10 +23,6 @@ public class GreatestCommonDivisorTest {
         this.gcd = new GreatestCommonDivisor();
     }
 
-    @After
-    public void tearDown() {
-    }
-
     /*
     WolframAlpha provides a handy tool to produce test values
     http://www.wolframalpha.com/widgets/view.jsp?id=d269d2879d38da48991e43c3d3b66664
@@ -174,5 +170,35 @@ public class GreatestCommonDivisorTest {
     @Test
     public void longgcdIterativeLongCornerCase2() {
         assertEquals(-1, gcd.euclidIterative(462l, -1071l));
+    }
+
+    @Test
+    public void gcdForMultiplesCornerCase1() {
+        assertEquals(0, gcd.gcdForMultiples(new int[]{}));
+    }
+
+    @Test
+    public void gcdForMultiplesCornerCase2() {
+        assertEquals(-1, gcd.gcdForMultiples(new int[]{1078, 1654, 334, 116, 54, 22, -4, 56, 32}));
+    }
+
+    @Test
+    public void gcdForMultiplesTest1() {
+        assertEquals(3, gcd.gcdForMultiples(new int[]{42, 63, 30}));
+    }
+
+    @Test
+    public void gcdForMultiplesTest2() {
+        assertEquals(15, gcd.gcdForMultiples(new int[]{45, 1050, 270, 30, 75, 105}));
+    }
+
+    @Test
+    public void gcdForMultiplesTest3() {
+        assertEquals(2, gcd.gcdForMultiples(new int[]{1078, 1654, 334, 116, 54, 22}));
+    }
+
+    @Test
+    public void gcdForMultiplesTest4() {
+        assertEquals(21, gcd.gcdForMultiples(new int[]{462, 1071, 3738, 336, 9072, 5166, 588, 41370, 17073, 273, 4935, 21021}));
     }
 }

@@ -9,6 +9,7 @@ import crypto.ciphers.AutokeyVigenereCipher;
 import crypto.ciphers.KeyedVigenereCipher;
 import crypto.ciphers.TranspositionCipher;
 import crypto.ciphers.VigenereCipher;
+import crypto.cryptanalysis.AttackVigenereCipher;
 import crypto.cryptanalysis.FrequencyAnalysis;
 import crypto.cryptanalysis.HillClimber;
 import crypto.cryptanalysis.IndexOfCoincidence;
@@ -59,7 +60,7 @@ public class CryptoUserInterface extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-//        Quadgrams quad = new Quadgrams("english_quadgrams.txt");
+//        Quadgrams quad = new Quadgrams("src/main/resources/english_quadgrams.txt");
 //        TranspositionCipher cipher = new TranspositionCipher();
 //        HillClimber climber = new HillClimber(quad);
 //        String ciphertext = "phinascpskrcepxtuctetustyrlllsireftaneiobeoistepnawyipohlileocmsctliarlaarrdletfoehrrlttiihhpttsruhlgdepyytaiaducnhinactotoeooetfnviefnepshtnbbtttessvihoafaknicaswiruiungoouueufesknksiboebhetoecamcotrlfeealyoihtpoaaakttcusnatiutneotcoavoihtnneeluekntestaheansdefkonsslkdoeneaeoawyfcacktwhoeebfoiimsaonehotrsoedegstuane";
@@ -75,6 +76,24 @@ public class CryptoUserInterface extends Application {
 //        for (int i = 0; i < ics.length; i++) {
 //            System.out.println((i+1) + " | " + ics[i]);
 //        }
+        FrequencyAnalysis freq1 = new FrequencyAnalysis();
+        IndexOfCoincidence indexOfC = new IndexOfCoincidence(freq1);
+        AttackVigenereCipher attack = new AttackVigenereCipher();
+        String ctext1 = "krmdlcbtpyfjoqrrercskoxgwiqygaevqgmrrlgvpavmklmlqmqdlydsdktjkxckyyzpydiyemqorayyldipohurildlcciybgfctymigcjjkxmbwspjgmmcxxjijjkxrrerdlcfejeipoxsbrcnfwdlcdepqirpylmxgyrgcmlnmqdmlqygclylpcpvmwxfozyvycbirevlohdyvloeplcpokgyrqnycdsrrinbiaswgyrsciblcrrikkgfsrcdspotpowcxxgdwtkpsomlcyargyciqdlcrmjvgjsqzovkkclyxzoezviryhcdipwmlomlglgmlbsvcmxgyrgdwfyyjnwrotyxhkkcukrbovgxebsvcmxgyrrrerxitovjoebcxmsqnbstoqcxx";
+        String ctext2 = "vptnvffuntshtarptymjwzirappljmhhqvsubwlzzygvtyitarptyiougxiuydtgzhhvvmumshwkzgstfmekvmpkswdgbilvjljmglmjfqwioiivknulvvfemioiemojtywdsajtwmtcgluysdsumfbieugmvalvxkjduetukatymvkqzhvqvgvptytjwwldyeevquhlulwpkt";
+
+        double[] vals = indexOfC.allAggregateDeltaBarICs(ctext1);
+        int n = vals.length / 3;
+        double threshold = attack.calculateThreshold(vals, n);
+        System.out.println("Threshold: " + threshold);
+
+        for (int i = 0; i < n; i++) {
+            if (vals[i] > threshold) {
+                System.out.println("Key: " + (i + 1));
+            }
+        }
+
+        System.out.println("Key Length: " + attack.findKeyLengths(vals, threshold));
         launch(CryptoUserInterface.class);
     }
 
@@ -91,7 +110,7 @@ public class CryptoUserInterface extends Application {
         keyedVig = new KeyedVigenereCipher("");
         autokeyVig = new AutokeyVigenereCipher();
         transposition = new TranspositionCipher();
-        quadgrams = new Quadgrams("english_quadgrams.txt");
+        quadgrams = new Quadgrams("src/main/resources/english_quadgrams.txt");
         hillClimber = new HillClimber(quadgrams);
         freq = new FrequencyAnalysis();
         ic = new IndexOfCoincidence(freq);
@@ -462,10 +481,10 @@ public class CryptoUserInterface extends Application {
             chart.getData().clear();
             XYChart.Series icsForKeyLens = new XYChart.Series<>();
             double[] aggregateDeltaBarICs = ic.allAggregateDeltaBarICs(ciphertext.getText());
-            int limit = aggregateDeltaBarICs.length;
-            if (limit > 50) {
-                limit = 50;
-            }
+            int limit = aggregateDeltaBarICs.length / 3;
+//            if (limit > 50) {
+//                limit = 50;
+//            }
             for (int i = 0; i < limit; i++) {
                 String len = "" + (i + 1);
                 icsForKeyLens.getData().add(new XYChart.Data(len, aggregateDeltaBarICs[i]));
@@ -504,11 +523,13 @@ public class CryptoUserInterface extends Application {
 
         vigTrialdecrypt.setOnMouseClicked((event) -> {
             int size = charValueGrid.getChildren().size();
-//            System.out.println(size);
             String key = "";
-            for (int i = 0; i < size; i += 2) {
+            for (int i = 0; i < size; i++) {
                 ComboBox box = (ComboBox) charValueGrid.getChildren().get(i);
-                key += box.getSelectionModel().getSelectedItem();
+                int row = GridPane.getRowIndex(box);
+                if (row == 0) {
+                    key += box.getSelectionModel().getSelectedItem();
+                }
             }
 
 //            System.out.println(key);

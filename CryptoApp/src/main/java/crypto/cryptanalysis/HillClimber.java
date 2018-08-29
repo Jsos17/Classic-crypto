@@ -8,7 +8,6 @@ package crypto.cryptanalysis;
 import crypto.ciphers.TranspositionCipher;
 import crypto.datastructures.HashedSet;
 import crypto.datastructures.LehmerRandomNumberGenerator;
-//import java.util.Random;
 
 /**
  *
@@ -17,7 +16,6 @@ import crypto.datastructures.LehmerRandomNumberGenerator;
 public class HillClimber {
 
     private final LehmerRandomNumberGenerator generator;
-//    private final Random random;
     private final char[] alphabet;
     private final Ngrams ngrams;
     private final TranspositionCipher tCipher;
@@ -26,7 +24,6 @@ public class HillClimber {
 
     public HillClimber(Ngrams ngrams) {
         this.generator = new LehmerRandomNumberGenerator();
-//        this.random = new Random();
         this.alphabet = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
             'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
         this.ngrams = ngrams;
@@ -136,8 +133,6 @@ public class HillClimber {
         System.arraycopy(keyChars, 0, copy, 0, keyChars.length);
         int idx1 = this.generator.nextInt(keyChars.length);
         int idx2 = this.generator.nextInt(keyChars.length);
-//        int idx1 = this.random.nextInt(keyChars.length);
-//        int idx2 = this.random.nextInt(keyChars.length);
         char temp = copy[idx1];
         copy[idx1] = copy[idx2];
         copy[idx2] = temp;
@@ -157,7 +152,6 @@ public class HillClimber {
         int n = alphabet.length;
         for (int i = 0; i < n; i++) {
             int rndNumber = this.generator.ints(i, n);
-//            int rndNumber = this.random.ints(i, n).findFirst().getAsInt();
             char temp = alphabet[i];
             alphabet[i] = alphabet[rndNumber];
             alphabet[rndNumber] = temp;

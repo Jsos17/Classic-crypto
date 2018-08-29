@@ -38,11 +38,8 @@ public class GenericTypeSort {
      * This method implements a basic version of iterative merge-sort for
      * non-primitive types. It is a stable sorting algorithm. The basic version
      * is found in the lecture material of the course Data structures and
-     * algorithms (University of Helsinki) with one alteration: The infinite
-     * SENTINEL value is not used in the merge method, and instead the two
-     * smaller arrays are checked for valid indexing. This change was done
-     * because of the difficulty of determining an infinite value for unknown
-     * non-primitive types.
+     * algorithms (University of Helsinki) with alterations made to account for
+     * indexing starting from 0 instead of 1.
      *
      * @param <T> Any non-primitive type that implements the Comparable
      * interface
@@ -64,6 +61,20 @@ public class GenericTypeSort {
         }
     }
 
+    /**
+     * This is a very close replication of the pseudocode found in the book
+     * Introduction to Algorithms (3rd edition page 31) and also in the lecture
+     * material of the course Data structures and algorithms (University of
+     * Helsinki). The main difference is that an infinite valued SENTINEL is not
+     * used because of the difficulty of determining appropriate value.
+     *
+     * @param <T> Any non-primitive type that implements the Comparable
+     * interface
+     * @param array The sub-array to be sorted
+     * @param left The leftmost index of the current sub-array
+     * @param middle The approximate middle point of the sub-array
+     * @param right The rightmost index of the current sub-array
+     */
     protected static <T extends Comparable<? super T>> void merge(T[] array, int left, int middle, int right) {
         int n1 = middle - left + 1;
         int n2 = right - middle;

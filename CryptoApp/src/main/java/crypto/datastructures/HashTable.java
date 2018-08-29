@@ -49,7 +49,7 @@ public class HashTable<K, V> {
             786_433, 1_572_869, 3_145_721, 6_291_469, 12_582_917, 25_165_813,
             50_331_653, 100_663_291, 201_326_611, 402_653_189, 805_306_357, 1_610_612_741};
 
-        if (size >= this.middlePrimes[this.middlePrimes.length - 3]) {
+        if (size >= 100_663_291) {
             this.index = this.middlePrimes.length - 5; // the value at index: 100_663_291
         } else if (size > 0) {
             int i = 0;
@@ -73,7 +73,7 @@ public class HashTable<K, V> {
     }
 
     public int getCurrentSize() {
-        return currentSize;
+        return this.currentSize;
     }
 
     protected int hashFunction(K key) {
@@ -117,7 +117,7 @@ public class HashTable<K, V> {
 
         this.hashtable[hashFunction(key)].insert(key, value);
         this.currentSize++;
-        checkThreshold();
+        this.checkThreshold();
     }
 
     protected void hashDelete(ListNode node) {
@@ -129,7 +129,7 @@ public class HashTable<K, V> {
         if (this.hashtable[hashFunction(key)] != null) {
             this.hashtable[hashFunction(key)].delete(node);
             this.currentSize--;
-            checkThreshold();
+            this.checkThreshold();
         }
     }
 
@@ -141,7 +141,7 @@ public class HashTable<K, V> {
 
         this.hashtable[hashFunction(key)].delete(node);
         this.currentSize--;
-        checkThreshold();
+        this.checkThreshold();
 
         return (V) node.getValue();
     }
@@ -149,9 +149,9 @@ public class HashTable<K, V> {
     private void checkThreshold() {
         double loadFactor = (double) this.currentSize / this.hashtable.length;
         if (loadFactor > this.HIGH_THRESHOLD) {
-            grow();
+            this.grow();
         } else if (this.currentSize >= this.SHRINK_TRIGGER && loadFactor < this.LOW_THRESHOLD) {
-            shrink();
+            this.shrink();
         }
     }
 
@@ -161,13 +161,13 @@ public class HashTable<K, V> {
         }
 
         this.index++;
-        reHash(this.middlePrimes[this.index]);
+        this.reHash(this.middlePrimes[this.index]);
     }
 
     private void shrink() {
         this.index--;
         if (this.index >= 0) {
-            reHash(this.middlePrimes[this.index]);
+            this.reHash(this.middlePrimes[this.index]);
         }
     }
 

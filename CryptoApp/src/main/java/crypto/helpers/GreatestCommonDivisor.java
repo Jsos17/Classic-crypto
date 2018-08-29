@@ -86,4 +86,24 @@ public class GreatestCommonDivisor {
 
         return a;
     }
+
+    public int gcdForMultiples(int[] numbers) {
+        if (numbers.length == 0) {
+            return 0;
+        }
+
+        if (numbers.length == 1) {
+            return numbers[0];
+        } else {
+            int gcd = this.euclidIterative(numbers[0], numbers[1]);
+
+            int i = 2;
+            while (i < numbers.length && gcd > 1) {
+                gcd = this.euclidIterative(gcd, numbers[i]);
+                i++;
+            }
+
+            return gcd;
+        }
+    }
 }
