@@ -12,7 +12,7 @@ import crypto.ciphers.TranspositionCipher;
  *
  * @author jpssilve
  */
-public class TranspositionAttack {
+public class AttackTranspositionCipher {
 
     private byte[] nums;
     private boolean[] used;
@@ -26,11 +26,11 @@ public class TranspositionAttack {
     private Quadgrams quad;
     private HillClimber hillClimber;
 
-    public TranspositionAttack() {
+    public AttackTranspositionCipher() {
         this.combi = new Combinatorics();
         this.alphabet = "abcdefghijklmnopqrstuvwxyz";
         this.ciph = new TranspositionCipher();
-        this.quad = new Quadgrams("english_quadgrams.txt");
+        this.quad = new Quadgrams("src/main/resources/english_quadgrams.txt");
         this.hillClimber = new HillClimber(this.quad);
     }
 

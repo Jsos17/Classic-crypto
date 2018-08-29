@@ -21,7 +21,7 @@ public class HillClimberTest {
 
     @Before
     public void setUp() {
-        this.quad = new Quadgrams("english_quadgrams.txt");
+        this.quad = new Quadgrams("src/main/resources/english_quadgrams.txt");
         this.hc = new HillClimber(quad);
     }
 

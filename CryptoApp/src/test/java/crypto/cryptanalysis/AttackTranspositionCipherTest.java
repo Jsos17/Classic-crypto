@@ -16,13 +16,13 @@ import static org.junit.Assert.*;
  *
  * @author jpssilve
  */
-public class TranspositionAttackTest {
+public class AttackTranspositionCipherTest {
 
-    private TranspositionAttack attack;
+    private AttackTranspositionCipher attack;
 
     @Before
     public void setUp() {
-        attack = new TranspositionAttack();
+        attack = new AttackTranspositionCipher();
     }
 
     @After

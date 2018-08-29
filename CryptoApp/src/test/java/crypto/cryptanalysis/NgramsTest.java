@@ -142,9 +142,9 @@ public class NgramsTest {
 
     @Test
     public void monoBiTrigramsTest1() {
-        Monograms mono = new Monograms("english_monograms.txt");
-        Bigrams bi = new Bigrams("english_bigrams.txt");
-        Trigrams tri = new Trigrams("english_trigrams.txt");
+        Monograms mono = new Monograms("src/main/resources/english_monograms.txt");
+        Bigrams bi = new Bigrams("src/main/resources/english_bigrams.txt");
+        Trigrams tri = new Trigrams("src/main/resources/english_trigrams.txt");
 
         assertEquals(1, mono.getN());
         assertEquals(2, bi.getN());
