@@ -40,7 +40,11 @@ Työssä on käytetty erityisesti James Lyonsin sivustoa http://practicalcryptog
 
 [Määrittelydokumentti](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Maarittelydokumentti.md)
 
-[Testausdokumentti](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Testausdokumentti.md)
+[Käyttöohje](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Kaytto-ohje.md)
+
+[Oikeellisuuden testausdokumentti](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Oikeellisuus-testausdokumentti.md)
+
+[Suorituskyvyn testausdokumentti](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Suorituskyky-testausdokumentti.md)
 
 [Toteutusdokumentti](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Toteutusdokumentti.md)
 
