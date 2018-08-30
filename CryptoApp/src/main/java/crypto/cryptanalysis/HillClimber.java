@@ -38,19 +38,18 @@ public class HillClimber {
      * local maximum) produced by the climbARandomHill algorithm.
      *
      * This algorithm is not deterministic and no guarantees can be made that it
-     * finds the right key. Successive runs have shown to produce the right key
-     * and also a key that is close to the right one. However, the more times
-     * the algorithm is run and the more iterations each run consists of, the
-     * higher the chance that the right decryption is found or at least a
-     * decryption that is close to the right one.
+     * finds the right key. However, the more times the algorithm is run and the
+     * more iterations each run consists of, the higher the chance that the
+     * right decryption is found or at least a decryption that is close to the
+     * right one.
      *
      * @param keyLen The trial length of the key used in the Singular
      * Transposition encryption
      * @param ciphertext The text we are trying to crack
      * @param algoRuns How many the times the algorithm attempts to find the
      * local maximum. In other words how many times the climbARandomHill
-     * algorithm is run. The more restarts the likelier the algorithm is to find
-     * a true global maximum among all the local maximums.
+     * algorithm is run. The more restarts, the likelier the algorithm is to
+     * find a true global maximum among all the local (pseudo-)maximums.
      * @param iterations How many times we try to find a "higher point on the
      * hill" i.e. to find a more optimal key by swapping two pairs of characters
      * in the key randomly.
@@ -84,7 +83,7 @@ public class HillClimber {
      * the fitness value produced by this decryption is higher than the previous
      * one, then the new key becomes the basis for the next iteration.
      *
-     * @param keyLen
+     * @param keyLen The suspected key length
      * @param ciphertext The ciphertext should be in uppercase and should be a
      * single block of text with no spaces, commas, dots etc
      * @param iterations How many times we try to find a "higher point on the
@@ -144,8 +143,8 @@ public class HillClimber {
     /**
      * Code based on the pseudocode for Randomize-In-Place(A) method found in
      * the book Introduction to Algorithms, 3rd edition. It is meant to produce
-     * a pseudo-random permutation of the alphabet, so that it can used as the
-     * starting point in the climbARandomHill algorithm.
+     * a pseudo-random permutation of the alphabet, so that it can be used as
+     * the starting point in the climbARandomHill algorithm.
      *
      * @param alphabet The alphabet that is pseudo-randomly permuted
      */
