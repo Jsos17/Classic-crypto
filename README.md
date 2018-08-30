@@ -6,7 +6,7 @@ Harjoitustyö toteuttaa Java-kielellä klassisia (pre-1940-luku) kryptografisia 
 
 Salausalgoritmeista on toteutettu [Vigenère cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher), Keyed Vigenère cipher ja [Autokey Vigenère cipher](https://en.wikipedia.org/wiki/Autokey_cipher) sekä [yksinkertainen (Single)](https://en.wikipedia.org/wiki/Transposition_cipher#Columnar_transposition) ja [kaksinkertainen (Double) Columnar Transposition](https://en.wikipedia.org/wiki/Transposition_cipher#Double_transposition).
 
-Ohjelmassa on käyttöliittymä, jonka kautta salauksia voi tehdä (encrypt) ja avata (decrypt), ja lisäksi ohjelmassa on olemassa Vigenère cipheriin ja yksinkertaiseen transposition cipheriin liittyvää toiminnallisuutta (kesken).
+Ohjelmassa on käyttöliittymä, jonka kautta salauksia voi tehdä (encrypt) ja avata (decrypt), ja lisäksi ohjelmassa on olemassa Vigenère cipheriin ja yksinkertaiseen transposition cipherin murtamiseen liittyvää toiminnallisuutta (kesken).
 
 ### Vigenère cipher
 
@@ -27,6 +27,14 @@ Yksinkertaisessa (Single) columnar transposition cipherissa edellä kuvattu sala
 ### Salauksen murtaminen eli cryptanalysis (kesken)
 
 Työssä on toteutettu toiminnallisuutta (kesken) tavallisen Vigenère cipherin murtamiseen sekä yksinketaisen columnar transposition cipherin murtamiseen.
+
+## References / Keskeiset lähteet
+
+The website of James Lyons http://practicalcryptography.com/ is a central reference in this project, and he has been kind enough to provide extremely useful text files containing statistical data of the English language on his website http://practicalcryptography.com/cryptanalysis/text-characterisation/quadgrams/
+
+Without these text files some cryptanalysis of this project would be impossible.
+
+Työssä on käytetty erityisesti James Lyonsin sivustoa http://practicalcryptography.com/ lähteenä ja erityisesti sivun http://practicalcryptography.com/cryptanalysis/text-characterisation/quadgrams/ lopussa olevia tekstitiedostoja englannin kielessä esiintyvien mono-, bi-, tri-, ja quadgrammien esiintyvyyteen. Ilman näiden tiedostojen tarjoamaa tilastoaineistoa, tietyt osat kryptoanalyysistä eivät olisi ollenkaan mahdollisia.
 
 ## Keskeiset dokumentit
 
