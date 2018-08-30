@@ -28,7 +28,13 @@ Valitsin tämän generaattorin, koska se oli suhteellisen helppo ymmärtää ja 
 
 Käyttöliittymään lisättiin 1. versio murtamistoiminnalllisuudesta: Esimerkiksi IndexOfCoincidence-luokan findKey-metodin palauttaman kaksiulotteisen CharacterValue taulukon kaikki arvot ovat nähtävissä käyttöliittymässä erillisissä pudotusvalikoissa paremmuusjärjestyksessä ja näin käyttäjä voi helposti kokeilla muita avaimia, jos metodin palauttama ensimmäinen avain ei ollut täsmälleen oikea (tässä auttaa listattuna olevat chi-squared arvot jokaiselle merkille).
 
-Lisäksi HillClimber luokassa Hajautustaulu muutettiin pois luokan sisäisestä muuttujasta yksittäisen metodin muuttujaksi, sillä perkkäiset runToTheHills-metodin ajot aiheuttivat kummallisia (selkeästi vääriä) tuloksia (yhdelle kokeilusyötteelle), koska hajautustaulussa oli jo tavaraa, minkä vuoksi parempia vaihtoehtoja ei enää käyty läpi koska ne oli jo löydetty edellisillä ajoilla.
+Lisäksi HillClimber luokassa hajautustaulu muutettiin pois luokan sisäisestä muuttujasta yksittäisen metodin muuttujaksi, sillä perkkäiset runToTheHills-metodin ajot aiheuttivat kummallisia (selkeästi vääriä) tuloksia (yhdelle kokeilusyötteelle), koska hajautustaulussa oli jo tavaraa, minkä vuoksi parempia vaihtoehtoja ei enää käyty läpi koska ne oli jo löydetty edellisillä ajoilla.
+
+### Keskiviikko:
+
+Työskentelyä salauksen murtamisen algoritmistamiseksi, erityisesti yritin miettiä miten ohjelma osaisi valita oikean avaimen pituuden Vigenère cipherin murtamisessa. Tähän liittyen laajennos greatest common divisor-luokkaan (voi olla että koko luokka jää käyttämättä, sillä ajatus etsiä avaimen pituutta löytämällä suurin yhteinen tekijä  sillä perusteella että index of coincidence arvot ovat korkeita kaikille avaimen pituuden monikerroille, ei toimikaan koska myös satunnaisesti myös muut kuin avaimen monikertaa vastaavat index of coincidence arvot voivat tuottaa suuria arvoja, mikä johtaa helposti suurimmaksi yhteiseksi tekijäksi 1:sen.
+
+![Kuva]()
 
 ## Miten ohjelma on edistynyt
 
