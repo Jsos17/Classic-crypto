@@ -34,16 +34,19 @@ Vigenère cipherin perusversion murtamiseen on rakennettu työkaluja ja alustava
 ## Parannusehdotukset
 
 
-## Lähteet
+## References / Lähteet
 
+### General / Yleiset lähteet:
 
-### Yleisesti seuraavat sivustot:
+* James Lyons: http://practicalcryptography.com/ and the text files provided by him at http://practicalcryptography.com/cryptanalysis/text-characterisation/quadgrams/
 
-* http://rumkin.com/tools/cipher/
+* James Lyonsin tarjoamat tekstiedostot englannin kielen mono-, bi, tri- ja quadgrammeihin liittyvästä statistiikasta
 
-* http://practicalcryptography.com/
+* Englannin kielen kirjainten esiintymisfrekvenssit on otettu Pavel Mičkan sivulta http://en.algoritmy.net/article/40379/Letter-frequency-English jossa puolestaan viitataan alkuperäislähteeseen LEWAND, Robert. Cryptological mathematics. [s.l.] : The Mathematical Association of America, 2000. 199 p. ISBN 0-88385-719-7.
 
-### Spesifisesti seuraavat sivut ja niillä esitetyt yleiset menetelmät (vierailtu heinäkuu-elokuu 2018):
+* Erityisesti testauksessa apuna: http://rumkin.com/tools/cipher/
+
+### Spesifisesti seuraavat sivut ja niillä esitetyt yleiset menetelmät (vierailtu heinä-syyskuu 2018):
 
 * https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher
 
@@ -52,6 +55,8 @@ Vigenère cipherin perusversion murtamiseen on rakennettu työkaluja ja alustava
 * https://en.wikipedia.org/wiki/Frequency_analysis
 
 * https://en.wikipedia.org/wiki/Letter_frequency
+
+* https://en.wikipedia.org/wiki/Index_of_coincidence
 
 * http://practicalcryptography.com/cryptanalysis/stochastic-searching/cryptanalysis-vigenere-cipher/
 
