@@ -26,15 +26,21 @@ Valitsin tämän generaattorin, koska se oli suhteellisen helppo ymmärtää ja 
 
 ### Tiistai:
 
-Käyttöliittymään lisättiin 1. versio murtamistoiminnalllisuudesta: Esimerkiksi IndexOfCoincidence-luokan findKey-metodin palauttaman kaksiulotteisen CharacterValue taulukon kaikki arvot ovat nähtävissä käyttöliittymässä erillisissä pudotusvalikoissa paremmuusjärjestyksessä ja näin käyttäjä voi helposti kokeilla muita avaimia, jos metodin palauttama ensimmäinen avain ei ollut täsmälleen oikea (tässä auttaa listattuna olevat chi-squared arvot jokaiselle merkille).
+Käyttöliittymään lisättiin 1. versio murtamistoiminnalllisuudesta: Esimerkiksi IndexOfCoincidence-luokan findKey-metodin palauttaman kaksiulotteisen CharacterValue taulukon kaikki arvot ovat nähtävissä käyttöliittymässä erillisissä pudotusvalikoissa paremmuusjärjestyksessä ja näin käyttäjä voi helposti kokeilla muita avaimia, jos metodin palauttama ensimmäinen avain ei ollut täsmälleen oikea (tässä auttaa listattuna olevat chi-squared arvot jokaiselle merkille). Tässä on tietysti se ongelma, että jos avain on erityisen pitkä, eivät kaikki valikot enää näy käyttäjälle. Kuva selventää:
+
+![Key dropdown menu]()
 
 Lisäksi HillClimber luokassa hajautustaulu muutettiin pois luokan sisäisestä muuttujasta yksittäisen metodin muuttujaksi, sillä perkkäiset runToTheHills-metodin ajot aiheuttivat kummallisia (selkeästi vääriä) tuloksia (yhdelle kokeilusyötteelle), koska hajautustaulussa oli jo tavaraa, minkä vuoksi parempia vaihtoehtoja ei enää käyty läpi koska ne oli jo löydetty edellisillä ajoilla.
 
 ### Keskiviikko:
 
-Työskentelyä salauksen murtamisen algoritmistamiseksi, erityisesti yritin miettiä miten ohjelma osaisi valita oikean avaimen pituuden Vigenère cipherin murtamisessa. Tähän liittyen laajennos greatest common divisor-luokkaan (voi olla että koko luokka jää käyttämättä, sillä ajatus etsiä avaimen pituutta löytämällä suurin yhteinen tekijä  sillä perusteella että index of coincidence arvot ovat korkeita kaikille avaimen pituuden monikerroille, ei toimikaan koska myös satunnaisesti myös muut kuin avaimen monikertaa vastaavat index of coincidence arvot voivat tuottaa suuria arvoja, mikä johtaa helposti suurimmaksi yhteiseksi tekijäksi 1:sen.
+Työskentelyä salauksen murtamisen algoritmistamiseksi, erityisesti yritin miettiä miten ohjelma osaisi valita oikean avaimen pituuden Vigenère cipherin murtamisessa. Tähän liittyen laajennos greatest common divisor-luokkaan (voi olla että koko luokka jää käyttämättä, sillä ajatus etsiä avaimen pituutta löytämällä suurin yhteinen tekijä  sillä perusteella että index of coincidence arvot ovat korkeita kaikille avaimen pituuden monikerroille, ei toimikaan koska myös satunnaisesti myös muut kuin avaimen monikertaa vastaavat index of coincidence arvot voivat tuottaa suuria arvoja, mikä johtaa helposti suurimmaksi yhteiseksi tekijäksi 1:sen). 
 
-![Kuva]()
+Seuraava käyttöliittymän avulla tuotettu kuva toivottavasti selventää mitä yritän selittää: Eli tässä tapauksessa luku 7 ja sen monikerrat ovat selkeästi erotettavissa, mutta data voi helposti sisältää myös korkean index of coincidence arvon omaavan avainpituuden,joka ei ole jaollinen seitsemällä ja näin suurimman yhteisen tekijän käyttö kaatuu.
+
+![Key data visualisation](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/example_key_data_visualization.png)
+
+Tähän liittyen myös joitain yritelmiä ja tutkimusta siitä, miten monihuippuisesta datasta löydettäisiin kaikki relevantit huiput. Tässäkin ongelma on, että oikea avaimen pituus ei suinkaan anna suurinta index of coincidence arvoa, ja toisaalta sen antama arvo ei myöskään vaikuta olevan mitenkään erityisen sidottu tuon englannin kielen keskiarvon noin 1.70 ympäristöön luultavasti johtuen lyhyen tekstinpätkän poikkeamisesta suuurempien tekstien keskiarvoista. Esimerkiksi edellisen kuvan oikea avaimen pituus on 7, mutta kuten kuvasta huomataan muut seitsemän monikerrat tuottavat suurempia arvoja.
 
 ## Miten ohjelma on edistynyt
 
@@ -61,6 +67,8 @@ Työskentelyä salauksen murtamisen algoritmistamiseksi, erityisesti yritin miet
 | 26.8. | 2 | Dokumentoinnin päivitys ja käyttöliittymässä alustavien ohjetekstien lisäys eri salauksille |
 | 27.8. | 6 | Lehmer random number generaattorin luonti ja testit |
 | 28.8. | 11 | Käyttöliittymään 1. versio murtamistoiminnallisuudesta, HillClimber luokan päivitys |
+| 29.8. | ~ 5 | Vigenere cipherin murtamisen algoritmistamisten yritelmiä |
+| 30.8. | ? | |
 
 
 [Tuntikirjanpito](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/tuntikirjanpito.md)
