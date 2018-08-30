@@ -28,7 +28,9 @@ Valitsin tämän generaattorin, koska se oli suhteellisen helppo ymmärtää ja 
 
 Käyttöliittymään lisättiin 1. versio murtamistoiminnalllisuudesta: Esimerkiksi IndexOfCoincidence-luokan findKey-metodin palauttaman kaksiulotteisen CharacterValue taulukon kaikki arvot ovat nähtävissä käyttöliittymässä erillisissä pudotusvalikoissa paremmuusjärjestyksessä ja näin käyttäjä voi helposti kokeilla muita avaimia, jos metodin palauttama ensimmäinen avain ei ollut täsmälleen oikea (tässä auttaa listattuna olevat chi-squared arvot jokaiselle merkille). Tässä on tietysti se ongelma, että jos avain on erityisen pitkä, eivät kaikki valikot enää näy käyttäjälle. Kuva selventää:
 
+
 ![Key dropdown menu](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/attackvigenere_key_dropdown.png)
+
 
 Huomattavaa on, että löydetty salausavain on väärä (melkein oikein eli "ciahers" kun pitäisi olla "ciphers"), ja tässä käyttäjän pitäisi tehdä sitten itse päätelmiä mikä kirjain pitäisi muuttaa hänen englannin kielen tietämyksensä perusteella (oletuksena siis että alkuperäinen teksti on englanniksi ja näin ollen avainsana linee myös jokin tunnistettava sana).
 
@@ -40,7 +42,9 @@ Työskentelyä salauksen murtamisen algoritmistamiseksi, erityisesti yritin miet
 
 Seuraava käyttöliittymän avulla tuotettu kuva toivottavasti selventää mitä yritän selittää: Eli tässä tapauksessa luku 7 ja sen monikerrat ovat selkeästi erotettavissa, mutta data voi helposti sisältää myös korkean index of coincidence arvon omaavan avainpituuden,joka ei ole jaollinen seitsemällä ja näin suurimman yhteisen tekijän käyttö kaatuu.
 
+
 ![Key data visualisation](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/example_key_data_visualization.png)
+
 
 Tähän liittyen myös joitain yritelmiä ja tutkimusta siitä, miten monihuippuisesta datasta löydettäisiin kaikki relevantit huiput. Tässäkin ongelma on, että oikea avaimen pituus ei suinkaan anna suurinta index of coincidence arvoa, ja toisaalta sen antama arvo ei myöskään vaikuta olevan mitenkään erityisen sidottu tuon englannin kielen keskiarvon noin 1.70 ympäristöön luultavasti johtuen lyhyen tekstinpätkän poikkeamisesta suuurempien tekstien keskiarvoista. Esimerkiksi edellisen kuvan oikea avaimen pituus on 7, mutta kuten kuvasta huomataan muut seitsemän monikerrat tuottavat suurempia arvoja.
 
@@ -67,7 +71,7 @@ Eli kun tekstiin lisätään välit:
      
     mathematical finance also known as quantitative finance is a field of applied mathematics concerned with mathematical modeling of financial markets generally mathematical finance will derive and extend the mathematical or numerical models without necessarily establishing a link to financial theory taking observed market prices as input mathematical consistency is required not compatibility with economic theory thus for example while a financial economist might study the structural reasons why a company may havea certain share price a financial mathematician may take the share price as a given and attempt to use stochastic calculus to obtain the corresponding value of derivatives of the stock
     
-Tämän esimerkin tarkoitus on siis havainnollistaa miten Vigenere salauksia voi yrittää murtaa ohjelman kautta, eikä niinkään väittää että salaus löydetään yhtä helposti joka kerta.
+Tämän esimerkin tarkoitus on siis havainnollistaa miten Vigenere salauksia voi yrittää murtaa ohjelman kautta, eikä niinkään väittää että salaus löydetään yhtä helposti ja vaivattomasti joka kerta.
 
 ## Mitä opin tällä viikolla
 
@@ -93,6 +97,7 @@ Tämän esimerkin tarkoitus on siis havainnollistaa miten Vigenere salauksia voi
 | 28.8. | 11 | Käyttöliittymään 1. versio murtamistoiminnallisuudesta, HillClimber luokan päivitys |
 | 29.8. | ~ 5 | Vigenere cipherin murtamisen algoritmistamisten yritelmiä |
 | 30.8. | 2 | Kuvien ja ohjelman toimintaa kaappaavan gifin lisäys dokumentaatioon tukemaan kommentointia |
+| 31.8. | ? |  |
 
 
 [Tuntikirjanpito](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/tuntikirjanpito.md)
