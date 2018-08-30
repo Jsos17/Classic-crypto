@@ -28,7 +28,7 @@ Valitsin tämän generaattorin, koska se oli suhteellisen helppo ymmärtää ja 
 
 Käyttöliittymään lisättiin 1. versio murtamistoiminnalllisuudesta: Esimerkiksi IndexOfCoincidence-luokan findKey-metodin palauttaman kaksiulotteisen CharacterValue taulukon kaikki arvot ovat nähtävissä käyttöliittymässä erillisissä pudotusvalikoissa paremmuusjärjestyksessä ja näin käyttäjä voi helposti kokeilla muita avaimia, jos metodin palauttama ensimmäinen avain ei ollut täsmälleen oikea (tässä auttaa listattuna olevat chi-squared arvot jokaiselle merkille). Tässä on tietysti se ongelma, että jos avain on erityisen pitkä, eivät kaikki valikot enää näy käyttäjälle. Kuva selventää:
 
-![Key dropdown menu]()
+![Key dropdown menu](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/attackvigenere_key_dropdown.png)
 
 Lisäksi HillClimber luokassa hajautustaulu muutettiin pois luokan sisäisestä muuttujasta yksittäisen metodin muuttujaksi, sillä perkkäiset runToTheHills-metodin ajot aiheuttivat kummallisia (selkeästi vääriä) tuloksia (yhdelle kokeilusyötteelle), koska hajautustaulussa oli jo tavaraa, minkä vuoksi parempia vaihtoehtoja ei enää käyty läpi koska ne oli jo löydetty edellisillä ajoilla.
 
@@ -63,12 +63,12 @@ Tähän liittyen myös joitain yritelmiä ja tutkimusta siitä, miten monihuippu
 | päivä   | käytetty aika (h) | toimenpiteet |
 | :----:|:--------| :----------|
 | Viikko 6 |
-| 25.8. | 6 | Käyttöliittymään lisätty kaikkien salausten perustoiminnallisuus ilman syötteentarkistusta (ja ilman tekstin manipulointityökalua, joka tulossa), samalla KeyedVigenereCipher refaktoroitiin siten että aakkostoavaimen voi muuttaa set-metodilla |
+| 25.8. | 6 | Käyttöliittymään lisätty kaikkien salausten perustoiminnallisuus ilman syötteentarkistusta (ja ilman tekstin manipulointityökalua, joka toivotavasti tulossa), samalla KeyedVigenereCipher refaktoroitiin siten että aakkostoavaimen voi muuttaa set-metodilla |
 | 26.8. | 2 | Dokumentoinnin päivitys ja käyttöliittymässä alustavien ohjetekstien lisäys eri salauksille |
 | 27.8. | 6 | Lehmer random number generaattorin luonti ja testit |
 | 28.8. | 11 | Käyttöliittymään 1. versio murtamistoiminnallisuudesta, HillClimber luokan päivitys |
 | 29.8. | ~ 5 | Vigenere cipherin murtamisen algoritmistamisten yritelmiä |
-| 30.8. | ? | |
+| 30.8. | ? | Selityksiä selventävien kuvien lisäys dokumentaatioon |
 
 
 [Tuntikirjanpito](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/tuntikirjanpito.md)
