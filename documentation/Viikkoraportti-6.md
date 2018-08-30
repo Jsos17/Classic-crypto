@@ -48,6 +48,14 @@ Seuraava käyttöliittymän avulla tuotettu kuva toivottavasti selventää mitä
 
 Tähän liittyen myös joitain yritelmiä ja tutkimusta siitä, miten monihuippuisesta datasta löydettäisiin kaikki relevantit huiput. Tässäkin ongelma on, että oikea avaimen pituus ei suinkaan anna suurinta index of coincidence arvoa, ja toisaalta sen antama arvo ei myöskään vaikuta olevan mitenkään erityisen sidottu tuon englannin kielen keskiarvon noin 1.70 ympäristöön luultavasti johtuen lyhyen tekstinpätkän poikkeamisesta suuurempien tekstien keskiarvoista. Esimerkiksi edellisen kuvan oikea avaimen pituus on 7, mutta kuten kuvasta huomataan muut seitsemän monikerrat tuottavat suurempia arvoja.
 
+### Torstai:
+
+Lähinnä ruutukaappauksen luonti ohjelman Vigenere salauksen murtamistoiminnallisuudesta, sekä havainnollistavien kuvien lisäys dokumentointiin.
+
+### Perjantai:
+
+
+
 ## Miten ohjelma on edistynyt
 
 ### Salauksen murtamisen havainnollistus 
@@ -56,7 +64,7 @@ Sivulta https://en.wikipedia.org/wiki/Mathematical_finance otettiin tekstinpätk
     
      Mathematical finance, also known as quantitative finance, is a field of applied mathematics, concerned with mathematical modeling of financial markets. Generally, mathematical finance will derive and extend the mathematical or numerical models without necessarily establishing a link to financial theory, taking observed market prices as input. Mathematical consistency is required, not compatibility with economic theory. Thus, for example, while a financial economist might study the structural reasons why a company may have a certain share price, a financial mathematician may take the share price as a given, and attempt to use stochastic calculus to obtain the corresponding value of derivatives of the stock
 
-ja osin sivun http://rumkin.com/tools/cipher/manipulate.php työkalujen avulla poistettiin välit ja laitettiin kaikki lower caseksi (ja manuaalisesti pilkkujen poisto). Sitten edelleen sivun http://rumkin.com/tools/cipher/vigenere.php työkalun avulla se salattiin käyttäen avainsanaa "enigma" ja lopulta saatiing seuraava ciphertext:
+ja osin sivun http://rumkin.com/tools/cipher/manipulate.php työkalujen avulla poistettiin välit ja laitettiin kaikki lower caseksi (ja manuaalisesti pilkkujen poisto). Sitten edelleen sivun http://rumkin.com/tools/cipher/vigenere.php työkalun avulla se salattiin käyttäen avainsanaa "enigma" ja lopulta saatiin seuraava ciphertext:
 
     qnbnqmegqimljvvgzcintyakrbetmsuhitfixnbohejvvgzcivagriiyluratctoqdqnbnqmegqiecsakkdniqeofhqnbnqmegqimlqblkxirtwlrirnviuapzixwexfokzevntrkmegpkyaxvkgxfmaitoeavtrpevvdkmnhrfzqnhgpkyaxumsmtmpirarrhukdigntsadiyacutlbczzegraymrmygketeotoehmaogxirxburirnviuapgpkarcgiqunkbjyqrzrlsmrorbvdigrageircczyaxumsmtmpiroorfqyferpgoeridcodehawzooqcizubmyqzkwmgpkoorbuootlrwxktlhalarikisblijpoxeesqtmngvirqcsawsusxzqmttwgcjktlrazduggcxmlvriyanwjpemcszxgzyqngnmvinkkdtevvytavrxxucinnozarpqgxmegpkyaxvkomnqngzmkigpkeheemvdigriymgmimtmnhnbzqmtgbugsifbuohefbooceykaxuwgwuntevvztegbzxqstbvjunkiirgesslkdiznbohewbnztewgwiw
 
@@ -67,7 +75,7 @@ Seuraava gif havainnollistaa (osittain manuaalista) prosessia:
 
 Eli käyttäjä syöttää ciphertextin, painaa nappia *Find possible key length* ja sitten avaa visualisoinnin mahdollisista avainpituuksista *Show associated values for key lengths* napilla ja huomaa, että avaimen pituus 6 erottuu selkästi ja päättää kokeilla avaimen löytämistä tällä avaimen pituudella, ja painaa *Find key*, jonka jälkeen avainkandidaatti ilmestyy pudotusvalikoihin. Lopuksi käyttäjä painaa nappia *Try decryption with this key*, jonka jälkeen mahdollinen plaintext ilmestyy ruutuun.
 
-Tässä tapauksessa kryptoanalyysi onnistui täydellisesti, koska valittu avaimen pituus 6 nyt sattui olemaan oikea (koska se oli looginen ensimmäinen valinta ja toisaalta itse tietysti tiesin että se on oikea) ja jokainen avaimen merkki oli selvästi pienin chi-squared arvoltaan joten avainkin oli heti oikein. Lopulta saatiin siis selkoteksti:
+Tässä tapauksessa kryptoanalyysi onnistui täydellisesti, koska valittu avaimen pituus 6 nyt sattui olemaan oikea (koska itse tietysti tiesin että se on oikea, mutta lyhimmän sopivan avainpituuden valinta aluksi on myös looginen lähtökohta yleisessä tapauksessa) ja jokainen avaimen merkki oli selvästi pienin chi-squared arvoltaan joten avainkin oli heti oikein. Lopulta saatiin siis selkoteksti:
 
     mathematicalfinancealsoknownasquantitativefinanceisafieldofappliedmathematicsconcernedwithmathematicalmodelingoffinancialmarketsgenerallymathematicalfinancewillderiveandextendthemathematicalornumericalmodelswithoutnecessarilyestablishingalinktofinancialtheorytakingobservedmarketpricesasinputmathematicalconsistencyisrequirednotcompatibilitywitheconomictheorythusforexamplewhileafinancialeconomistmightstudythestructuralreasonswhyacompanymayhaveacertainsharepriceafinancialmathematicianmaytakethesharepriceasagivenandattempttousestochasticcalculustoobtainthecorrespondingvalueofderivativesofthestock
      
@@ -75,7 +83,7 @@ Eli kun tekstiin lisätään välit:
      
     mathematical finance also known as quantitative finance is a field of applied mathematics concerned with mathematical modeling of financial markets generally mathematical finance will derive and extend the mathematical or numerical models without necessarily establishing a link to financial theory taking observed market prices as input mathematical consistency is required not compatibility with economic theory thus for example while a financial economist might study the structural reasons why a company may havea certain share price a financial mathematician may take the share price as a given and attempt to use stochastic calculus to obtain the corresponding value of derivatives of the stock
     
-Tämän esimerkin tarkoitus on siis havainnollistaa miten Vigenere salauksia voi yrittää murtaa ohjelman kautta, eikä niinkään väittää että salaus löydetään yhtä helposti ja vaivattomasti joka kerta, (jos se ylipäätänsä edes löydetään).
+Tämän esimerkin tarkoitus on siis havainnollistaa miten Vigenere salauksia voi yrittää murtaa ohjelman kautta, eikä niinkään väittää että selkoteksti löydetään yhtä helposti ja vaivattomasti joka kerta (jos se ylipäätänsä edes löydetään).
 
 ## Mitä opin tällä viikolla
 
