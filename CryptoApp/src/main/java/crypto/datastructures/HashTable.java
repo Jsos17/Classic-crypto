@@ -18,10 +18,9 @@ public class HashTable<K, V> {
     private int currentSize;
     private final double HIGH_THRESHOLD;
     private final double LOW_THRESHOLD;
-    private final int SHRINK_TRIGGER;
 
     public HashTable() {
-        this.MAXIMUM_ARRAY_SIZE = 100_663_291;
+        this.MAXIMUM_ARRAY_SIZE = 50_331_653;
         this.middlePrimes = new int[]{11, 23, 47, 97, 193, 389, 769, 1543, 3079, 6143,
             12_289, 24_571, 49_157, 98_317, 196_613, 393_209,
             786_433, 1_572_869, 3_145_721, 6_291_469, 12_582_917, 25_165_813,
@@ -31,26 +30,25 @@ public class HashTable<K, V> {
         this.currentSize = 0;
         this.HIGH_THRESHOLD = 0.75;
         this.LOW_THRESHOLD = 0.25;
-        this.SHRINK_TRIGGER = 12_289;
     }
 
     /**
      * Large array sizes cause java.lang.OutOfMemoryError and thus there is an
      * attempt to mitigate this problem by restricting the maximum array size to
-     * 100_663_291, since on different machines different values cause problems,
+     * 50_331_653, since on different machines different values cause problems,
      * but there is no guarantee that this is a small enough value.
      *
      * @param size
      */
     public HashTable(int size) {
-        this.MAXIMUM_ARRAY_SIZE = 100_663_291;
+        this.MAXIMUM_ARRAY_SIZE = 50_331_653;
         this.middlePrimes = new int[]{11, 23, 47, 97, 193, 389, 769, 1543, 3079, 6143,
             12_289, 24_571, 49_157, 98_317, 196_613, 393_209,
             786_433, 1_572_869, 3_145_721, 6_291_469, 12_582_917, 25_165_813,
             50_331_653, 100_663_291, 201_326_611, 402_653_189, 805_306_357, 1_610_612_741};
 
-        if (size >= 100_663_291) {
-            this.index = this.middlePrimes.length - 5; // the value at index: 100_663_291
+        if (size >= 50_331_653) {
+            this.index = this.middlePrimes.length - 6; // the value at index: 50_331_653
         } else if (size > 0) {
             int i = 0;
             while (i < this.middlePrimes.length && size > this.middlePrimes[i]) {
@@ -65,7 +63,6 @@ public class HashTable<K, V> {
         this.hashtable = new DoublyLinkedList[this.middlePrimes[this.index]];
         this.HIGH_THRESHOLD = 0.75;
         this.LOW_THRESHOLD = 0.25;
-        this.SHRINK_TRIGGER = 12_289;
     }
 
     public int getTableCapacity() {
@@ -150,7 +147,7 @@ public class HashTable<K, V> {
         double loadFactor = (double) this.currentSize / this.hashtable.length;
         if (loadFactor > this.HIGH_THRESHOLD) {
             this.grow();
-        } else if (this.currentSize >= this.SHRINK_TRIGGER && loadFactor < this.LOW_THRESHOLD) {
+        } else if (loadFactor < this.LOW_THRESHOLD) {
             this.shrink();
         }
     }

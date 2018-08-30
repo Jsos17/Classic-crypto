@@ -482,9 +482,9 @@ public class CryptoUserInterface extends Application {
             XYChart.Series icsForKeyLens = new XYChart.Series<>();
             double[] aggregateDeltaBarICs = ic.allAggregateDeltaBarICs(ciphertext.getText());
             int limit = aggregateDeltaBarICs.length / 3;
-//            if (limit > 50) {
-//                limit = 50;
-//            }
+            if (limit > 70) {
+                limit = 70;
+            }
             for (int i = 0; i < limit; i++) {
                 String len = "" + (i + 1);
                 icsForKeyLens.getData().add(new XYChart.Data(len, aggregateDeltaBarICs[i]));

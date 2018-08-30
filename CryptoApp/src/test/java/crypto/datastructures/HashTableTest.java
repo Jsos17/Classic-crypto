@@ -38,7 +38,7 @@ public class HashTableTest {
     @Test
     public void initialTableSizeTest3() {
         HashTable ht2 = new HashTable(Integer.MAX_VALUE - 1000);
-        assertEquals(100_663_291, ht2.getTableCapacity());
+        assertEquals(50_331_653, ht2.getTableCapacity());
     }
 
     @Test
@@ -294,8 +294,8 @@ public class HashTableTest {
 
     @Test
     public void tableSizeTest1() {
-        HashTable<String, Integer> table = new HashTable<>(95_000_000);
-        assertEquals(100_663_291, table.getTableCapacity());
+        HashTable<String, Integer> table = new HashTable<>(45_000_000);
+        assertEquals(50_331_653, table.getTableCapacity());
     }
 
     @Test
@@ -313,9 +313,10 @@ public class HashTableTest {
     @Test
     public void deleteNonExistentListNodeTest1() {
         HashTable<Character, Integer> ht2 = new HashTable<>();
-        assertEquals(0, ht2.getCurrentSize());
+        ht2.hashInsert('T', 42);
+        assertEquals(1, ht2.getCurrentSize());
         ht2.hashDelete(null);
-        assertEquals(0, ht2.getCurrentSize());
+        assertEquals(1, ht2.getCurrentSize());
     }
 
     @Test

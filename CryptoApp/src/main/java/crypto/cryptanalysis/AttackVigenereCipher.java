@@ -6,6 +6,8 @@
 package crypto.cryptanalysis;
 
 import crypto.helpers.GreatestCommonDivisor;
+import crypto.helpers.ValueLengthPair;
+import crypto.sorting.GenericTypeSort;
 
 /**
  *
@@ -20,19 +22,29 @@ public class AttackVigenereCipher {
     }
 
     public double calculateThreshold(double[] icValues, int n) {
-        double max = 0;
+        ValueLengthPair[] valueLens = new ValueLengthPair[icValues.length];
         double sum = 0;
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < icValues.length; i++) {
             sum += icValues[i];
-            if (icValues[i] > max) {
-                max = icValues[i];
-            }
+            valueLens[i] = new ValueLengthPair(icValues[i], i + 1);
         }
 
-        double avg = sum / n;
+        GenericTypeSort.iterativeMergeSort(valueLens);
 
-        return ((max + avg) / 2);
+        double maxSum = 0;
+        int k = 20;
+        int i = valueLens.length - 1;
+        int end = valueLens.length - k;
+        while (i >= end) {
+            maxSum += valueLens[i].getValue();
+            i--;
+        }
+
+        double avg = sum / icValues.length;
+        double maxAvg = maxSum / k;
+
+        return ((maxAvg + avg) / 2);
     }
 
     public int findKeyLengths(double[] icValues, double threshold) {
