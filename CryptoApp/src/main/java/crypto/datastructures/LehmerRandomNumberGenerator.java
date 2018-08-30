@@ -15,8 +15,8 @@ package crypto.datastructures;
  *
  * is used to produce the pseudo-random numbers, where a belongs to {2,3,...,
  * m-1} and m is a large prime number, and z_0 is initialized as a number
- * belonging to {1,2,...,m-1} and the notations z_n and z_n+1 mean the subindex
- * of the variable z.
+ * belonging to {1,2,...,m-1} and the notations _n and _n+1 in z_n and z_n+1
+ * mean the subindex of the variable z.
  *
  * @author jpssilve
  */

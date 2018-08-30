@@ -31,10 +31,11 @@ public class HillClimber {
     }
 
     /**
-     * This method simply loops over a stochastic optimization algorithm
-     * climbARandomHill for the specified number of times trying to find the
-     * global maximum among all the local maximums (or close approximations of
-     * the local maximum) produced by the climbARandomHill algorithm.
+     * This method simply loops over the algorithm climbARandomHill (which
+     * probably could be classified as a type of stochastic optimization
+     * algorithm) for the specified number of times trying to find the global
+     * maximum among all the local maximums (or close approximations of the
+     * local maximum) produced by the climbARandomHill algorithm.
      *
      * This algorithm is not deterministic and no guarantees can be made that it
      * finds the right key. Successive runs have shown to produce the right key
@@ -74,14 +75,14 @@ public class HillClimber {
     }
 
     /**
-     * This is a stochastic optimization algorithm that tries to find a global
-     * maximum for the "fitness value" of a plaintext by starting with a
-     * randomly chosen key and then incrementally trying to find a key that
-     * produces a higher fitness value for the plaintext when the original
-     * ciphertext is decrypted with the key. The new keys are found by randomly
-     * swapping two characters in the key and then if the fitness value produced
-     * by this decryption is higher than the previous one, then the new key
-     * becomes the basis for the next iteration.
+     * This method could probably be classified as a stochastic optimization
+     * algorithm that tries to find a global maximum for the "fitness value" of
+     * a plaintext by starting with a randomly chosen key and then incrementally
+     * trying to find a key that produces a higher fitness value for the
+     * plaintext when the original ciphertext is decrypted with the key. The new
+     * keys are found by randomly swapping two characters in the key and then if
+     * the fitness value produced by this decryption is higher than the previous
+     * one, then the new key becomes the basis for the next iteration.
      *
      * @param keyLen
      * @param ciphertext The ciphertext should be in uppercase and should be a
