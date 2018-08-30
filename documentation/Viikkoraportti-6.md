@@ -30,6 +30,8 @@ Käyttöliittymään lisättiin 1. versio murtamistoiminnalllisuudesta: Esimerki
 
 ![Key dropdown menu](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/attackvigenere_key_dropdown.png)
 
+Huomattavaa on, että löydetty salausavain on väärä (melkein oikein eli "ciahers" kun pitäisi olla "ciphers"), ja tässä käyttäjän pitäisi tehdä sitten itse päätelmiä mikä kirjain pitäisi muuttaa hänen englannin kielen tietämyksensä perusteella (oletuksena siis että alkuperäinen teksti on englanniksi ja näin ollen avainsana linee myös jokin tunnistettava sana).
+
 Lisäksi HillClimber luokassa hajautustaulu muutettiin pois luokan sisäisestä muuttujasta yksittäisen metodin muuttujaksi, sillä perkkäiset runToTheHills-metodin ajot aiheuttivat kummallisia (selkeästi vääriä) tuloksia (yhdelle kokeilusyötteelle), koska hajautustaulussa oli jo tavaraa, minkä vuoksi parempia vaihtoehtoja ei enää käyty läpi koska ne oli jo löydetty edellisillä ajoilla.
 
 ### Keskiviikko:
@@ -44,6 +46,28 @@ Tähän liittyen myös joitain yritelmiä ja tutkimusta siitä, miten monihuippu
 
 ## Miten ohjelma on edistynyt
 
+### Salauksen murtamisen havainnollistus 
+
+Sivulta https://en.wikipedia.org/wiki/Mathematical_finance otettiin tekstinpätkä ja osin sivun http://rumkin.com/tools/cipher/manipulate.php työkalujen avulla poistettiin välit ja laitettiin kaikki lower caseksi (ja manuaalisesti pilkkujen poisto). Sitten edelleen sivun http://rumkin.com/tools/cipher/vigenere.php työkalun avulla se salattiin käyttäen avainsanaa "enigma" ja lopulta saatiing seuraava ciphertext:
+
+    qnbnqmegqimljvvgzcintyakrbetmsuhitfixnbohejvvgzcivagriiyluratctoqdqnbnqmegqiecsakkdniqeofhqnbnqmegqimlqblkxirtwlrirnviuapzixwexfokzevntrkmegpkyaxvkgxfmaitoeavtrpevvdkmnhrfzqnhgpkyaxumsmtmpirarrhukdigntsadiyacutlbczzegraymrmygketeotoehmaogxirxburirnviuapgpkarcgiqunkbjyqrzrlsmrorbvdigrageircczyaxumsmtmpiroorfqyferpgoeridcodehawzooqcizubmyqzkwmgpkoorbuootlrwxktlhalarikisblijpoxeesqtmngvirqcsawsusxzqmttwgcjktlrazduggcxmlvriyanwjpemcszxgzyqngnmvinkkdtevvytavrxxucinnozarpqgxmegpkyaxvkomnqngzmkigpkeheemvdigriymgmimtmnhnbzqmtgbugsifbuohefbooceykaxuwgwuntevvztegbzxqstbvjunkiirgesslkdiznbohewbnztewgwiw
+
+Seuraava gif havainnollistaa (osittain manuaalista) prosessia:
+
+![Vigenere gif](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/vigenere_cracking.gif)
+
+
+Eli käyttäjä syöttää ciphertextin, painaa nappia *Find possible key length* ja sitten avaa visualisoinnin mahdollisista avainpituuksista *Show associated values for key lengths* napilla ja huomaa, että avaimen pituus 6 erottuu selkästi ja päättää kokeilla avaimen löytämistä tällä avaimen pituudella, ja painaa *Find key*, jonka jälkeen avainkandidaatti ilmestyy pudotusvalikoihin. Lopuksi käyttäjä painaa nappia *Try decryption with this key*, jonka jälkeen mahdollinen plaintext ilmestyy ruutuun.
+
+Tässä tapauksessa dekryptaus onnistui täydellisesti, koska valittu avaimen pituus 6 nyt sattui olemaan oikea (koska se oli looginen ensimmäinen valinta ja toisaalta itse tietysti tiesin että se on oikea) ja jokainen avaimen merkki oli selvästi pienin chi-squared arvoltaan joten avainkin oli heti oikein. Lopulta saatiin siis selkoteksti:
+
+    mathematicalfinancealsoknownasquantitativefinanceisafieldofappliedmathematicsconcernedwithmathematicalmodelingoffinancialmarketsgenerallymathematicalfinancewillderiveandextendthemathematicalornumericalmodelswithoutnecessarilyestablishingalinktofinancialtheorytakingobservedmarketpricesasinputmathematicalconsistencyisrequirednotcompatibilitywitheconomictheorythusforexamplewhileafinancialeconomistmightstudythestructuralreasonswhyacompanymayhaveacertainsharepriceafinancialmathematicianmaytakethesharepriceasagivenandattempttousestochasticcalculustoobtainthecorrespondingvalueofderivativesofthestock
+     
+Eli kun tekstiin lisätään välit:
+     
+    mathematical finance also known as quantitative finance is a field of applied mathematics concerned with mathematical modeling of financial markets generally mathematical finance will derive and extend the mathematical or numerical models without necessarily establishing a link to financial theory taking observed market prices as input mathematical consistency is required not compatibility with economic theory thus for example while a financial economist might study the structural reasons why a company may havea certain share price a financial mathematician may take the share price as a given and attempt to use stochastic calculus to obtain the corresponding value of derivatives of the stock
+    
+Tämän esimerkin tarkoitus on siis havainnollistaa miten Vigenere salauksia voi yrittää murtaa ohjelman kautta, eikä niinkään väittää että salaus löydetään yhtä helposti joka kerta.
 
 ## Mitä opin tällä viikolla
 
@@ -68,7 +92,7 @@ Tähän liittyen myös joitain yritelmiä ja tutkimusta siitä, miten monihuippu
 | 27.8. | 6 | Lehmer random number generaattorin luonti ja testit |
 | 28.8. | 11 | Käyttöliittymään 1. versio murtamistoiminnallisuudesta, HillClimber luokan päivitys |
 | 29.8. | ~ 5 | Vigenere cipherin murtamisen algoritmistamisten yritelmiä |
-| 30.8. | ? | Selityksiä selventävien kuvien lisäys dokumentaatioon |
+| 30.8. | 2 | Kuvien ja ohjelman toimintaa kaappaavan gifin lisäys dokumentaatioon tukemaan kommentointia |
 
 
 [Tuntikirjanpito](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/tuntikirjanpito.md)
