@@ -58,6 +58,8 @@ Lähinnä ruutukaappauksen luonti ohjelman Vigenere salauksen murtamistoiminnall
 
 ## Miten ohjelma on edistynyt
 
+Kaikki tietorakenteet ja algoritmit on nyt toteutettu itse poislukien Stringien manipulointimetodit. Myös Javan omiin toteutuksiin viittaavia importteja ei pitäisi enää olla ohjelmassa, poislukien testiluoka ja käyttöliittymä, jossa on muun muassa käytety ObservableListiä.
+
 ### Salauksen murtamisen havainnollistus 
 
 Sivulta https://en.wikipedia.org/wiki/Mathematical_finance otettiin tekstinpätkä
@@ -87,15 +89,21 @@ Tämän esimerkin tarkoitus on siis havainnollistaa miten Vigenere salauksia voi
 
 ## Mitä opin tällä viikolla
 
+Satunnaislukujen generoinnista avautui jossain määrin.
 
 ## Vaikeudet
 
+Kaikkien murtamisen vaiheiden laittaminen yhdeksi algoritimiksi, jonka käyttäjä voisi suorittaa.
 
 ## Kysymykset/Mikä jäi epäselväksi
 
 
 
 ## Mitä teen seuraavaksi
+
+* Puhtaasti algoritmisen ratkaisun jatkokehittely salauksen murtamisessa
+
+* Suorituskykytestauksen kunnollinen toteutus
 
 
 ## Käytetty tuntimäärä
