@@ -27,8 +27,14 @@
 | 22.8. | ~ 8 | Hajautustaulun (HashTable luokka) sekä linkitetyn listan uudelleensuunnittelu ja toteutus, Vigenere cipherin ja sen varianttien refaktorointi siten että hajautustataulu on tarpeeton, Hill climbing algoritmin tutkimusta |
 | 23.8. | 8 | HashedSet luokan ja sille oman kahteen suuntaan linkitetyn listan luonti mallintamaan suurinpiirtein Javan HashSettiä, Hill climbing algoritmin aloittelu,  dokumentaation lisäys |
 | 24.8. | 7 | Graafisen käyttöliittymän hyvin karu ei-refaktoroitu luonnos, missä nyt olemassa toiminnallisuus siirtyä päävalikosta salaukseen ja takaisin, mutta ei vielä liitettyä algoritmillista toiminnallisuutta, testikattavuuden nosto, dokumentoinnin päivitys |
+| päivä   | käytetty aika (h) | toimenpiteet |
+| :----:|:--------| :----------|
 | Viikko 6 |
-| 25.8. | 6 | Käyttöliittymään lisätty kaikkien salausten perustoiminnallisuus ilman syötteentarkistusta (ja ilman tekstin manipulointityökalua, joka tulossa), samalla KeyedVigenereCipher refaktoroitiin siten että aakkostoavaimen voi muuttaa set-metodilla |
+| 25.8. | 6 | Käyttöliittymään lisätty kaikkien salausten perustoiminnallisuus ilman syötteentarkistusta (ja ilman tekstin manipulointityökalua, joka toivotavasti tulossa), samalla KeyedVigenereCipher refaktoroitiin siten että aakkostoavaimen voi muuttaa set-metodilla |
 | 26.8. | 2 | Dokumentoinnin päivitys ja käyttöliittymässä alustavien ohjetekstien lisäys eri salauksille |
 | 27.8. | 6 | Lehmer random number generaattorin luonti ja testit |
 | 28.8. | 11 | Käyttöliittymään 1. versio murtamistoiminnallisuudesta, HillClimber luokan päivitys |
+| 29.8. | ~ 5 | Vigenere cipherin murtamisen algoritmistamisten yritelmiä |
+| 30.8. | 2 | Kuvien ja ohjelman toimintaa kaappaavan gifin lisäys dokumentaatioon tukemaan kommentointia |
+| 31.8. | ~ 10 | Salauksen murtamisen suorituskykytestauksen suunnittelu ja ensimmäinen toteutus sekä testiaineiston luonti, yleistä dokumentaation päivitystä |
+
