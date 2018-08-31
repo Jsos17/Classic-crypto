@@ -56,9 +56,22 @@ Lähinnä ruutukaappauksen luonti ohjelman Vigenere salauksen murtamistoiminnall
 
 Vigenere cipherin kryptoanalyysin suorituskykytestauksen aloitus erityisesti testisyötteiden luonnilla.
 
+[Suorituskykytestaukseen](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Suorituskyky-testausdokumentti.md)
+
 ## Miten ohjelma on edistynyt
 
-Kaikki tietorakenteet ja algoritmit on nyt toteutettu itse poislukien Stringien manipulointimetodit. Myös Javan omiin toteutuksiin viittaavia importteja ei pitäisi enää olla ohjelmassa, poislukien testiluokat ja käyttöliittymä, jossa on muun muassa käytety ObservableListiä ja FXCollections luokkia graafisessa käyttöliittymässä.
+Kaikki tietorakenteet ja algoritmit on nyt toteutettu itse poislukien Stringien manipulointi. Myös Javan omiin toteutuksiin viittaavia importteja ei pitäisi enää olla ohjelmassa, poislukien testiluokat ja käyttöliittymä, jossa on muun muassa käytety ObservableListiä ja FXCollections luokkia graafisessa käyttöliittymässä. Liäksi Ngrams luokassa on importit java.io.File, java.io.FileNotFoundException ja java.util.Scanner tekstiedoston lukemiseen.
+
+Testikattavuus on käytännöllisesti katsoen samalla tasolla kuin viime viikolla. Edelleen HillClimber luokan kaksi ei-determinististä metodia ovat testaamatta ja lisäksi kaksi uutta luokkaa AttackVigenereCipher ja ValueLengthPair ovat testaamatta koska esimerkiksi AttackVigenereCipherin  metodien sisältöä ei ole edes lyöty lukkoon (pitäisi ensin päättää miten threshold arvo lasketaan jne) ja varsinkin tuo AttackVigenereCipher luokka on pelkkä aihio sekä lisäksi voi olla että nämä luokat deletoidaan kokonaan.
+
+Lisäksi satunnaislukgeneraattorin tiettyjä haaroja on vaikea (mahdoton?) testata, koska systeemin antamaa aikaa ei voi deterministisesti asettaa sellaiseksi että saataisiin arvo nolla this.seedille:
+
+```java
+this.seed = System.currentTimeMillis() % this.modulus;
+if (this.seed == 0) {
+    this.seed = 1;
+}
+```
 
 ### Salauksen murtamisen havainnollistus 
 
@@ -89,15 +102,15 @@ Tämän esimerkin tarkoitus on siis havainnollistaa miten Vigenere salauksia voi
 
 ## Mitä opin tällä viikolla
 
-Opin satunnaislukujen generoinnista jonkin verran.
+Opin satunnaislukujen generoinnista jonkin verran, ja lisää salauksen murtamisesta kun sen parissa pääsi vihdoin kunnolla työskentelemään.
 
 ## Vaikeudet
 
-Kaikkien murtamisen vaiheiden laittaminen yhdeksi algoritimiksi, jonka käyttäjä voisi vain suorittaa.
+Kaikkien murtamisen vaiheiden laittaminen yhdeksi algoritmiksi, jonka käyttäjä voisi vain suorittaa. erityisesti oikean avaimen pituuden valinta.
 
 ## Kysymykset/Mikä jäi epäselväksi
 
-* **Pitääkö kaikki käyttämättömät metodit poistaa ennen loppupalautusta?** Koska osittain tämän työn luonne on jossain määrin kirjaston kaltainen vaikka käyttöliitymä onkin luotu ja tällä hetkellä esimerkiksi tuo suurimman yhteisen tekijän löytäminen voi jäädä käyttämättä.
+* **Pitääkö kaikki käyttämättömät metodit/algoritmit poistaa ennen loppupalautusta?** Koska osittain tämän työn luonne on jossain määrin kirjaston kaltainen vaikka käyttöliitymä onkin luotu ja tällä hetkellä esimerkiksi tuo suurimman yhteisen tekijän löytäminen voi jäädä käyttämättä.
 
 * **Voiko testipakkaukseen laittaa jotain koodia joka littyy suorituskykytestaukseen mutta ei ole perinteistä yksikkötestausta?** 
 
@@ -122,7 +135,7 @@ Jos haluan luoda vähänkään kattavampaa testausta kryptoanalyysin toimivuudes
 | 28.8. | 11 | Käyttöliittymään 1. versio murtamistoiminnallisuudesta, HillClimber luokan päivitys |
 | 29.8. | ~ 5 | Vigenere cipherin murtamisen algoritmistamisten yritelmiä |
 | 30.8. | 2 | Kuvien ja ohjelman toimintaa kaappaavan gifin lisäys dokumentaatioon tukemaan kommentointia |
-| 31.8. | 6 | Salauksen murtamisen suorituskykytestauksen suunnittelua ja testiaineiston luontia, sekä yleistä dokumentaation päivitystä |
+| 31.8. | ~ 10 | Salauksen murtamisen suorituskykytestauksen suunnittelu ja ensimmäinen toteutus sekä testiaineiston luonti, yleistä dokumentaation päivitystä |
 
 
 [Tuntikirjanpito](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/tuntikirjanpito.md)
