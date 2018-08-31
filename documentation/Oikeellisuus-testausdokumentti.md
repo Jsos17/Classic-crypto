@@ -1,12 +1,14 @@
 # CryptoApp oikeellisuus testausdokumentti (kesken)
 
+Tämä dokumentti käsittelee ohjelman oikeellisuuden testausta eli että metodit ja algoritmit toimivat oikein. Suorituskykytestaus on eriytetty [erilliseen dokumenttiin](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Suorituskyky-testausdokumentti.md).
+
 ## Mitä on testattu
 
 Metodien oikeellisutta on pyritty testaamaan luomalla paljon erilaisia syötteitä ja paikoin satunnaistamalla näitä syötteitä. Osalla metodeista ei ole vielä kuin yksi suuri testi johtuen testisyötteiden luonnin työläydestä (lähinnä koskee IndexOfCoincidence luokkaa).
 
 ## Miten on testattu
 
-Pyrkimys on ollut testata omasta koodista/ohjelmoinnista riippumattomasti niin paljon kuin mahdollista, eli jos on helposti saatavilla esimerkiksi jokin webapp, joka tekee samanlaisia asioita niin tätä on pyritty hyödyntämään. Lisäksi taulukkolaskentaohjelma LibreOffice Calc nousi merkittäväksi apuvälineeksi IndexOfCoincidence -luokan testauksessa kun useat sen metodit tekivät raskaita mutta kuitenkin suhteellisen mekaanisia laskuoperaatioita ja lisäksi taulukkolaskentaohjelman avulla on helppo järjestää aineistoa.
+Pyrkimys on ollut testata omasta koodista/ohjelmoinnista riippumattomasti niin paljon kuin mahdollista, eli jos on helposti saatavilla esimerkiksi jokin web app, joka tekee samanlaisia asioita niin tätä on pyritty hyödyntämään. Lisäksi taulukkolaskentaohjelma LibreOffice Calc nousi merkittäväksi apuvälineeksi IndexOfCoincidence -luokan testauksessa kun useat sen metodit tekivät raskaita mutta kuitenkin suhteellisen mekaanisia laskuoperaatioita ja lisäksi taulukkolaskentaohjelman avulla on helppo järjestää aineistoa.
 
 Eritysesti tiedostoon [IC_test.xlsx](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/IC_test.xlsx) on dokumentoitu testidataa ja laskutoimituksia sekä niiden tuloksia moniin luokan IndexOfCoincidence metodeihin liittyen. Monet tiedoston välilehdistä (sheet) on nimetty siten mihin testiin ne liittyvät. Tiedoston välilehdet on suojatttu ilman salasanaa, jotta vältyttäisiin datan korruptoitumiselta, eli tarvittaessa salauksen poisto onnistuu valitsemalla Tools -> Protect sheet LibreOffice Calcista. Tämä ei kuitenkaan ole välttämättä tarpeen sillä kaikki formulat ovat näkyvissä.
 
