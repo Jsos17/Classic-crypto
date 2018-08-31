@@ -2,7 +2,7 @@
 
 ## Mitä on testattu
 
-Metodien oikeellisutta on pyritty testaamaan luomalla paljon erilaisia syötteitä ja paikoin satunnaistamalla näitä syötteitä. Osalla metodeista ei ole vielä kuin yksi suuri testi johtuen testisyötteiden luonnin työläydestä.
+Metodien oikeellisutta on pyritty testaamaan luomalla paljon erilaisia syötteitä ja paikoin satunnaistamalla näitä syötteitä. Osalla metodeista ei ole vielä kuin yksi suuri testi johtuen testisyötteiden luonnin työläydestä (lähinnä koskee IndexOfCoincidence luokkaa).
 
 ## Miten on testattu
 
