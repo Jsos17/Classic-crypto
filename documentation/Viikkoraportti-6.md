@@ -99,6 +99,10 @@ Kaikkien murtamisen vaiheiden laittaminen yhdeksi algoritimiksi, jonka käyttäj
 
 * **Pitääkö kaikki käyttämättömät metodit poistaa ennen loppupalautusta?** Koska osittain tämän työn luonne on jossain määrin kirjaston kaltainen vaikka käyttöliitymä onkin luotu ja tällä hetkellä esimerkiksi tuo suurimman yhteisen tekijän löytäminen voi jäädä käyttämättä.
 
+* **Voiko testipakkaukseen laittaa jotain koodia joka littyy suorituskykytestaukseen mutta ei ole perinteistä yksikkötestausta?** 
+
+Jos haluan luoda vähänkään kattavampaa testausta kryptoanalyysin toimivuudesta eri avaimien pituuksilla ja salatekstien pituuksilla niin tähän on pakko olla koodia, jonka avulla esimerkiksi tekstitiedostoon kerätyt testiaineistona toimivat selkotekstipätkät muunnetaan (eri avaimilla ja avaimien pituuksilla) normaalin salauksen avulla salateksteiksi ja sitten vertaillaan miten murtaminen löytää oikean avaimen (tai ainakin lähes oikean avaimen).
+
 ## Mitä teen seuraavaksi
 
 * Yritys jatkokehitellä vielä suoraviivaisempaa algoritmista ratkaisua salauksen murtamisessa. Kuitenkin manuaaliset murtamistoiminnot jätetään käyttöliittymään (ja niitä pyritään parantamman) joka tapauksessa koska se on hyvin havainnollistavaa ja sen kautta voi suhteellisen vaivattomasti kokeilla asioita.
