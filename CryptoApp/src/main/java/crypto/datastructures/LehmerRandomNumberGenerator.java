@@ -37,7 +37,7 @@ public class LehmerRandomNumberGenerator {
      *
      * Long value is used as the seed to avoid integer overflow since 48271 *
      * (2^31 -2) is smaller than the maximum long value, and thus integer
-     * overflow never occurs.
+     * overflow should never occur.
      *
      * See wikipedia for a short introduction
      * https://en.wikipedia.org/wiki/Lehmer_random_number_generator

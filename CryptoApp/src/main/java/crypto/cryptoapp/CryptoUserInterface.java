@@ -453,8 +453,8 @@ public class CryptoUserInterface extends Application {
 
         // Attacking the Vigenere cipher with frequency analysis and the index of coincidence
         Button findKeyLen = new Button("Find possible key length");
-        Label possibleKeyLenLabel = new Label("Possible key length");
-        Text possibleKeyLen = new Text();
+        Label possibleKeyLenLabel = new Label("Possible key length"); // not currently in gui because might cause confusion
+        Text possibleKeyLen = new Text(); // not currently in gui because might cause confusion
         Button showValuesForKeyLens = new Button("Show associated values for key lengths");
         Label keylensLabel = new Label("Key length to use in trial decryption");
         ObservableList<Integer> keyLengths = FXCollections.observableArrayList();
@@ -466,8 +466,8 @@ public class CryptoUserInterface extends Application {
         Button findKey = new Button("Find key");
         GridPane charValueGrid = new GridPane();
         Button vigTrialdecrypt = new Button("Try decryption with this key");
-        VBox crackVigenere = createVBox(new Node[]{findKeyLen, possibleKeyLenLabel, possibleKeyLen,
-            showValuesForKeyLens, keylensLabel, keyLengthsBox, findKey, charValueGrid, vigTrialdecrypt});
+        VBox crackVigenere = createVBox(new Node[]{findKeyLen, showValuesForKeyLens,
+            keylensLabel, keyLengthsBox, findKey, charValueGrid, vigTrialdecrypt});
 
         Stage graphics = new Stage();
         graphics.setTitle("Key data visualization");
