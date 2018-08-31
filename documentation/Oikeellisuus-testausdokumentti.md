@@ -1,4 +1,4 @@
-# CryptoApp oikeellisuus testausdokumentti (kesken)
+# CryptoApp oikeellisuuden testausdokumentti (kesken)
 
 Tämä dokumentti käsittelee ohjelman oikeellisuuden testausta eli että metodit ja algoritmit toimivat oikein. Suorituskykytestaus on eriytetty [erilliseen dokumenttiin](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Suorituskyky-testausdokumentti.md).
 
