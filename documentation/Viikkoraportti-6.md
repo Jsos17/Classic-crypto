@@ -54,11 +54,11 @@ Lähinnä ruutukaappauksen luonti ohjelman Vigenere salauksen murtamistoiminnall
 
 ### Perjantai:
 
-
+Vigenere cipherin kryptoanalyysin suorituskykytestauksen aloitus erityisesti testisyötteiden luonnilla.
 
 ## Miten ohjelma on edistynyt
 
-Kaikki tietorakenteet ja algoritmit on nyt toteutettu itse poislukien Stringien manipulointimetodit. Myös Javan omiin toteutuksiin viittaavia importteja ei pitäisi enää olla ohjelmassa, poislukien testiluoka ja käyttöliittymä, jossa on muun muassa käytety ObservableListiä.
+Kaikki tietorakenteet ja algoritmit on nyt toteutettu itse poislukien Stringien manipulointimetodit. Myös Javan omiin toteutuksiin viittaavia importteja ei pitäisi enää olla ohjelmassa, poislukien testiluokat ja käyttöliittymä, jossa on muun muassa käytety ObservableListiä ja FXCollections luokkia graafisessa käyttöliittymässä.
 
 ### Salauksen murtamisen havainnollistus 
 
@@ -89,23 +89,23 @@ Tämän esimerkin tarkoitus on siis havainnollistaa miten Vigenere salauksia voi
 
 ## Mitä opin tällä viikolla
 
-Satunnaislukujen generoinnista avautui jossain määrin.
+Opin satunnaislukujen generoinnista jonkin verran.
 
 ## Vaikeudet
 
-Kaikkien murtamisen vaiheiden laittaminen yhdeksi algoritimiksi, jonka käyttäjä voisi suorittaa.
+Kaikkien murtamisen vaiheiden laittaminen yhdeksi algoritimiksi, jonka käyttäjä voisi vain suorittaa.
 
 ## Kysymykset/Mikä jäi epäselväksi
 
-
+* **Pitääkö kaikki käyttämättömät metodit poistaa ennen loppupalautusta?** Koska osittain tämän työn luonne on jossain määrin kirjaston kaltainen vaikka käyttöliitymä onkin luotu ja tällä hetkellä esimerkiksi tuo suurimman yhteisen tekijän löytäminen voi jäädä käyttämättä.
 
 ## Mitä teen seuraavaksi
 
-* Yritys jatkokehitellä vielä suoraviivaisempaa algoritmista ratkaisua salauksen murtamisessa. Kuitenkin manuaaliset murtamistoiminnot jätetään käyttöliittymään joka tapauksessa koska se on hyvin havainnollistavaa ja sen kautta voi suhteellisen vaivattomasti kokeilla asioita.
+* Yritys jatkokehitellä vielä suoraviivaisempaa algoritmista ratkaisua salauksen murtamisessa. Kuitenkin manuaaliset murtamistoiminnot jätetään käyttöliittymään (ja niitä pyritään parantamman) joka tapauksessa koska se on hyvin havainnollistavaa ja sen kautta voi suhteellisen vaivattomasti kokeilla asioita.
 
-* Kryptoanalyysin testaus loppuun eli millä keskimääräisellä onnistumisprosentilla murretaan salaus (eli löydetään oikea salausavain) eri parametrien arvoilla (avaimen pituus VS ciphertextin pituus). 
+* Kryptoanalyysin testaus loppuun eli millä parametreilla (avaimen pituus VS ciphertextin pituus) saadaan minkälainen keskimääräinen onnistumisprosentti salauksen murtamiselle. 
 
-* Hajautustauluja olisi tarkoitus testata ylivuotoketjujen pituuksien suhteen mahdollisesti erilaisilla aineistoilla
+* Olisi hyvä jos saisin testattua hajautustaulutoteutuksen ylivuotoketjujen pituuksia erilaisilla aineistoilla
 
 ## Käytetty tuntimäärä
 
