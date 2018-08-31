@@ -8,13 +8,13 @@ Ohjelma jakaantuu salausalgoritmeihin eli ciphereihin ja salauksen murtamiseen e
 
 Ohjelman käyttöliittymän kautta ja salausalgoritmien avulla on mahdollista salata viestejä käyttäen Vigenère salausta ja sen variantteja sekä transposition tyyppisiä salauksia. Algoritmit ovat 100 % deterministisiä, ja jos salauksen molemmilla osapuolilla on tiedossa käytetty salausavain, niin ohjelman avulla viestejä voi salata ja avata automaattisesti salausavaimen avulla.
 
-Nämä salausalgoritmit löytyvät pakkauksesta *crypto.ciphers*.
+Nämä salausalgoritmit löytyvät pakkauksesta **crypto.ciphers**.
 
 ### Salauksen murtaminen
 
 Salauksen murtaminen perustuu seuraaviin oletuksiin: Salateksti (ciphertext) on tuotettu englanninkielisestä selkotekstistä (plaintext), missä esiintyy pelkästään kirjaimia abcdefghijklmnopqrstuvwxyz ja koko teksti on salattu yhtenä blokkina (eli ikäänkuin koko teksti olisi yksi pitkä sana). Koska käytössä on vain salateksti kuuluvat hyökkäykset luokkaan ciphertext-only attack, ja tavoitteena on aina selvittää se sekä käytetty salausavain että itse selkoteksti.
 
-Sekä Vigenère cipherin että yksinkertaisen transposition cipheriin liittyvä murtamistoiminnallisuus löytyy pakkauksesta *crypto.cryptanalysis*
+Sekä Vigenère cipherin että yksinkertaisen transposition cipheriin liittyvä murtamistoiminnallisuus löytyy pakkauksesta **crypto.cryptanalysis**
 
 Luokassa Ngrams on importit 
 
@@ -26,11 +26,11 @@ tekstitiedoston lukemista varten.
 
 ### Muut
 
-Pakkauksista *crypto.helpers* sisältää lähinnä apuluokkia, *crypto.sorting* järjestämisalgoritmeja, *crypto.datastructures* kaksi hajautustaulutoteutusta ja linkitettyjä listoja sekä pseudo-satunnaislukugeneraattorin. 
+Pakkauksista **crypto.helpers** sisältää lähinnä apuluokkia, **crypto.sorting** järjestämisalgoritmeja, **crypto.datastructures** kaksi hajautustaulutoteutusta ja linkitettyjä listoja sekä pseudo-satunnaislukugeneraattorin. 
 
 ### Käyttöliittymä
 
-Käyttöliittymä on pakkauksessa *crypto.cryptoapp*. Tämän pakkauksen ainoassa luokassa eli käyttöliittymäluokassa on Javan omia tietorakennetoteutuksia, joita on kuitenkin käytetty vain graafisen käyttöliittymän luomiseen ja ylläpitämiseen eli esimerkiki  FXCollections ja ObservableList sekä lukuisia graafisia komponentteja.
+Käyttöliittymä on pakkauksessa **crypto.cryptoapp**. Tämän pakkauksen ainoassa luokassa eli käyttöliittymäluokassa on Javan omia tietorakennetoteutuksia, joita on kuitenkin käytetty vain graafisen käyttöliittymän luomiseen ja ylläpitämiseen eli esimerkiki  FXCollections ja ObservableList sekä lukuisia graafisia komponentteja.
 
 ## Aika- ja tilavaativuudet
 
