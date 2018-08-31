@@ -117,6 +117,7 @@ public class CryptoUserInterface extends Application {
 
         int width = 1200;
         int height = 800;
+
         // Ciphers, general
         Label textLabel = new Label("Plaintex/Ciphertext:");
         TextArea text = new TextArea();

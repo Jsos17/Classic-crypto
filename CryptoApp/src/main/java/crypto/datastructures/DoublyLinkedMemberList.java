@@ -6,6 +6,8 @@
 package crypto.datastructures;
 
 /**
+ * All the methods follow closely the pseudo-code found in the lecture material
+ * of the course Data structures and algorithms (University of Helsinki).
  *
  * @author jpssilve
  */
@@ -38,9 +40,12 @@ public class DoublyLinkedMemberList<T> {
     }
 
     /**
-     * 
-     * @param obj
-     * @return True if an object was added, false otherwise 
+     * This method inserts an object to the list if it does not already contain
+     * it. Thus this list can not contain duplicate objects.
+     *
+     * @param obj The object to be added
+     * @return True if an object was added, and false if the object already
+     * existed in the list (and thus it was not added)
      */
     public boolean insert(T obj) {
         if (!this.contains(obj)) {
@@ -57,13 +62,15 @@ public class DoublyLinkedMemberList<T> {
             this.size++;
             return true;
         }
-        
+
         return false;
     }
 
     /**
-     * 
-     * @param obj
+     * A method for deleting objects from the list. The method first searches
+     * the object from the list and if found deletes it.
+     *
+     * @param obj The object to be deleted
      * @return True, if the object was found and thus deleted, false otherwise
      */
     public boolean delete(T obj) {
@@ -72,7 +79,7 @@ public class DoublyLinkedMemberList<T> {
             this.delete(member);
             return true;
         }
-        
+
         return false;
     }
 

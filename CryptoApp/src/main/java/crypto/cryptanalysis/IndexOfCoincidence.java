@@ -157,7 +157,7 @@ public class IndexOfCoincidence {
      * of the first alphabet is c, the first character of the second alphabet is
      * i etc for p, h, e, r and finally s, then the likeliest key is "ciphers".
      * It is possible that sometimes the first character of the alphabet is not
-     * the key, but instead the second one, or the 3rd etc.
+     * part of the key, but instead the second one, or the 3rd etc.
      */
     public CharacterValue[][] findKey(String ciphertext, int keyLen) {
         VigenereCipher vig = new VigenereCipher();

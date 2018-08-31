@@ -6,6 +6,8 @@
 package crypto.datastructures;
 
 /**
+ * All the methods follow closely the pseudo-code found in the lecture material
+ * of the course Data structures and algorithms (University of Helsinki)
  *
  * @author jpssilve
  */
