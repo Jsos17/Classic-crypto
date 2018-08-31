@@ -101,10 +101,11 @@ Kaikkien murtamisen vaiheiden laittaminen yhdeksi algoritimiksi, jonka käyttäj
 
 ## Mitä teen seuraavaksi
 
-* Puhtaasti algoritmisen ratkaisun jatkokehittely salauksen murtamisessa
+* Yritys jatkokehitellä vielä suoraviivaisempaa algoritmista ratkaisua salauksen murtamisessa. Kuitenkin manuaaliset murtamistoiminnot jätetään käyttöliittymään joka tapauksessa koska se on hyvin havainnollistavaa ja sen kautta voi suhteellisen vaivattomasti kokeilla asioita.
 
-* Suorituskykytestauksen kunnollinen toteutus
+* Kryptoanalyysin testaus loppuun eli millä keskimääräisellä onnistumisprosentilla murretaan salaus (eli löydetään oikea salausavain) eri parametrien arvoilla (avaimen pituus VS ciphertextin pituus). 
 
+* Hajautustauluja olisi tarkoitus testata ylivuotoketjujen pituuksien suhteen mahdollisesti erilaisilla aineistoilla
 
 ## Käytetty tuntimäärä
 
@@ -117,7 +118,7 @@ Kaikkien murtamisen vaiheiden laittaminen yhdeksi algoritimiksi, jonka käyttäj
 | 28.8. | 11 | Käyttöliittymään 1. versio murtamistoiminnallisuudesta, HillClimber luokan päivitys |
 | 29.8. | ~ 5 | Vigenere cipherin murtamisen algoritmistamisten yritelmiä |
 | 30.8. | 2 | Kuvien ja ohjelman toimintaa kaappaavan gifin lisäys dokumentaatioon tukemaan kommentointia |
-| 31.8. | ? |  |
+| 31.8. | 6 | Salauksen murtamisen suorituskykytestauksen suunnittelua ja testiaineiston luontia, sekä yleistä dokumentaation päivitystä |
 
 
 [Tuntikirjanpito](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/tuntikirjanpito.md)
