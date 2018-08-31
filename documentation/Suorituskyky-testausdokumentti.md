@@ -36,8 +36,7 @@ Eli edellisten tiedostojen perusteella luotiin salatekstejä Vigenere salauksell
 | a | 1 | 111 | (**2 !!!!**) | 113 |
 | l | 1 | 111 | (2) | 113 |
 
-Salatekstin keskimääräinen pituus: 65,9 merkkiä
-(Otos) keskihajonta: 82,1
+Salatekstin keskimääräinen pituus: 65,9 merkkiä, (otos) keskihajonta: 82,1
 
 Lyhin tekstin pituus oli 16 ja pisin 710 merkkiä eli testidata ei ollut kovin tasaista pituuksiltaan sillä se sisälsit muutamia suhteellisen pitkiä tekstejä ja toisaalta suhteellisen paljon melko lyhyehköjä salatekstejä. Tulevissa testeissä on tarkoitus luokitella tekstit suurinpiirtein samalla pituustasolla olevin luokkiin.
 
