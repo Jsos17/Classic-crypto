@@ -35,4 +35,6 @@
 | 29.8. | ~ 5 | Vigenere cipherin murtamisen algoritmistamisten yritelmiä |
 | 30.8. | 2 | Kuvien ja ohjelman toimintaa kaappaavan gifin lisäys dokumentaatioon tukemaan kommentointia |
 | 31.8. | ~ 10 | Salauksen murtamisen suorituskykytestauksen suunnittelu ja ensimmäinen toteutus sekä testiaineiston luonti, yleistä dokumentaation päivitystä |
+| Viikko 7 |
+| 3.9. | 6 | Plaintext-testiaineiston täydentämistä sopivan pituisilla teksteillä |
 
