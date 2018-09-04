@@ -12,7 +12,7 @@ Lisäksi yritys on vertailla hajautustaulun ylivuotolistojen pituuksia mieluiten
 
 ## Vigenere salauksen murtamisen tehokkuus tilastollisella chi-squared menetelmällä
 
-Toteutettua Vigenere salauksen murtamista testattiin keräämällä [501 eri pituista plaintextiä](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/unmanipulated_501_sample_plaintexts.txt)  ja sitten salaamalla ne eri avaimien pituuksilla. Testiaineistot luokiteltiin seuraavasti:
+Toteutettua Vigenere salauksen murtamista testattiin keräämällä [501 eri pituista plaintextiä](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/unmanipulated_501_sample_plaintexts.txt) mielivaltaisista Wikipedian artikkeleista ja [Project Gutenbergin](http://www.gutenberg.org/wiki/Category:Bookshelf) kirjoista ja lopulta salaamalla tekstit eri avaimien pituuksilla. Testiaineistot luokiteltiin seuraavasti:
 
 | Selkotekstin/salatatekstin pituusluokka | Pituuksien keskiarvo luokan sisällä | Määrä |
 | ----|-----|----------|
