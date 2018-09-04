@@ -30,38 +30,43 @@ Toteutettua Vigenere salauksen murtamista testattiin keräämällä 501 eri pitu
 Tämän jälkeen käsitellyt selkotekstit salattiin avainpituuksilla 1-14 ja joka kerralla testattiin kuinka monta oikeaa avainta menetelmä löytää, sillä oletuksella että avaimen pituus tiedetään jo. Avaimen pituuden tietämysolettama on vähintään kohtuullinen  sillä index of coincidence arvot paljastavat yleensä hyvin selkeästi avainkandidaatit, joista pienin on looginen aloituskohta.
 Tässä testatuksessa kerättiin vain täsmälleen oikeat vastaukset, eikä esimerkiksi yhdellä kirjaimella pielessä olevia avaimia otettu huomioon.
 
+[Lukumäärät](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/vigenere_krypto_avaimet.md)
+
 | Väli | | 1-50 | 51-100 | 101-150 | 151-200 | 201-250 | 251-300 | 301-350 | 351-400 | 401-500 |
 |----|----|----|----|----|----|----|----|----|----|----|
 | Salatekstejä | | 71 | 71 | 93 | 64 | 45 | 49 | 35 | 34 | 39 |
 | Avain | Pituus | Oikeita avaimia % |
-| datastructures | 14  | 0 | 0 | 0 | 5 | 10 | 16 | 10 | 26 | 28 |
-| footballplayer | 14  | 0 | 0 | 0 | 5 | 10 | 16 | 10 | 26 | 28 |
-| decompensated | 13  | 0 | 0 | 2 | 7 | 11 | 21 | 19 | 26 | 34 |
-| hazardousness | 13  | 0 | 0 | 2 | 7 | 11 | 21 | 19 | 26 | 34 |
-| eavesdropper | 12  | 0 | 1 | 2 | 12 | 17 | 24 | 24 | 33 | 35 |
-| magnetically | 12  | 0 | 1 | 2 | 12 | 17 | 24 | 24 | 33 | 35 |
-| unbreakable | 11  | 0 | 0 | 9 | 15 | 18 | 33 | 26 | 29 | 36 |
-| identically | 11  | 0 | 0 | 9 | 15 | 18 | 33 | 26 | 29 | 36 |
-| calculator | 10  | 0 | 1 | 13 | 24 | 22 | 39 | 31 | 32 | 38 |
-| academical | 10  | 0 | 1 | 13 | 24 | 22 | 39 | 31 | 32 | 38 |
-| pacifists | 9  | 0 | 4 | 32 | 31 | 30 | 38 | 30 | 34 | 39 |
-| waistcoat | 9  | 0 | 4 | 32 | 31 | 30 | 38 | 30 | 34 | 39 |
-| gangster | 8  | 0 | 7 | 37 | 43 | 33 | 43 | 33 | 34 | 39 |
-| radiance | 8  | 0 | 7 | 37 | 43 | 33 | 43 | 33 | 34 | 39 |
-| tactics | 7  | 0 | 13 | 52 | 46 | 42 | 47 | 32 | 34 | 39 |
-| factory | 7  |0 | 13 | 52 | 46 | 42 | 47 | 32 | 34 | 39 |
-| habits | 6  | 2 | 22 | 66 | 59 | 42 | 49 | 35 | 34 | 39 |
-| easily | 6  | 2 | 22 | 66 | 59 | 42 | 49 | 35 | 34 | 39 |
-| mafia | 5  | 7 | 34 | 79 | 60 | 44 | 49 | 35 | 34 | 39 |
-| toxic | 5  | 7 | 34 | 79 | 60 | 44 | 49 | 35 | 34 | 39 |
-| beef | 4  | 12 | 51 | 89 | 62 | 45 | 49 | 35 | 34 | 39 |
-| life | 4  | 12 | 51 | 89 | 62 | 45 | 49 | 35 | 34 | 39 |
-| six | 3  | 36 | 63 | 91 | 64 | 45 | 49 | 35 | 34 | 39 |
-| ego | 3  | 36 | 63 | 91 | 64 | 45 | 49 | 35 | 34 | 39 |
-| do | 2  | 56 | 70 | 93 | 64 | 45 | 49 | 35 | 34 | 39 |
-| my | 2  | 56 | 70 | 93 | 64 | 45 | 49 | 35 | 34 | 39 |
-| z | 1  | 69 | 71 | 93 | 64 | 45 | 49 | 35 | 34 | 39 |
-| a | 1  | 69 | 71 | 93 | 64 | 45 | 49 | 35 | 34 | 39 |
+| datastructures | 14  | 0.0 | 0.0 | 0.0 | 7.8 | 22.2 | 32.7 | 28.6 | 76.5 | 71.8 |
+| footballplayer | 14  | 0.0 | 0.0 | 0.0 | 7.8 | 22.2 | 32.7 | 28.6 | 76.5 | 71.8 |
+| decompensated | 13  | 0.0 | 0.0 | 2.2 | 10.9 | 24.4 | 42.9 | 54.3 | 76.5 | 87.2 |
+| hazardousness | 13  | 0.0 | 0.0 | 2.2 | 10.9 | 24.4 | 42.9 | 54.3 | 76.5 | 87.2 |
+| eavesdropper | 12  | 0.0 | 1.4 | 2.2 | 18.8 | 37.8 | 49.0 | 68.6 | 97.1 | 89.7 |
+| magnetically | 12  | 0.0 | 1.4 | 2.2 | 18.8 | 37.8 | 49.0 | 68.6 | 97.1 | 89.7 |
+| unbreakable | 11 | 0.0 | 0.0 | 9.7 | 23.4 | 40.0 | 67.3 | 74.3 | 85.3 | 92.3 |
+| identically | 11 | 0.0 | 0.0 | 9.7 | 23.4 | 40.0 | 67.3 | 74.3 | 85.3 | 92.3 |
+| calculator | 10  | 0.0 | 1.4 | 14.0 | 37.5 | 48.9 | 79.6 | 88.6 | 94.1 | 97.4 |
+| academical | 10  | 0.0 | 1.4 | 14.0 | 37.5 | 48.9 | 79.6 | 88.6 | 94.1 | 97.4 |
+| pacifists | 9 | 0.0 | 5.6 | 34.4 | 48.4 | 66.7 | 77.6 | 85.7 | 100.0 | 100.0 |
+| waistcoat | 9 | 0.0 | 5.6 | 34.4 | 48.4 | 66.7 | 77.6 | 85.7 | 100.0 | 100.0 |
+| gangster | 8 | 0.0 | 9.9 | 39.8 | 67.2 |73.3 | 87.8 | 94.3 | 100.0 | 100.0 |
+| radiance | 8  | 0.0 | 9.9 | 39.8 | 67.2 |73.3 | 87.8 | 94.3 | 100.0 | 100.0 |
+| tactics | 7 | 0.0 | 18.3 | 55.9 | 71.9 | 93.3 | 95.9 | 91.4 | 100.0 | 100.0 |
+| factory | 7 | 0.0 | 18.3 | 55.9 | 71.9 | 93.3 | 95.9 | 91.4 | 100.0 | 100.0 |
+| habits | 6 | 2.8 | 31.0 | 71.0 | 92.2 | 93.3 | 100.0 | 100.0 | 100.0 | 100.0 |
+| easily | 6 | 2.8 | 31.0 | 71.0 | 92.2 | 93.3 | 100.0 | 100.0 | 100.0 | 100.0 |
+| mafia | 5 | 9.9 | 47.9 | 84.9 | 93.8 | 97.8 | 100.0 | 100.0 | 100.0 | 100.0 |
+| toxic | 5 | 9.9 | 47.9 | 84.9 | 93.8 | 97.8 | 100.0 | 100.0 | 100.0 | 100.0 |
+| beef | 4 | 16.9 | 71.8 | 95.7 | 96.9 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 |
+| life | 4 | 16.9 | 71.8 | 95.7 | 96.9 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 |
+| six | 3 | 50.7 | 88.7 | 97.8 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 |
+| ego | 3 | 50.7 | 88.7 | 97.8 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 |
+| do | 2 | 78.9 | 98.6 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 |
+| my | 2 | 78.9 | 98.6 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 |
+| z | 1 | 97.2 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 |
+| a | 1 | 97.2 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 | 100.0 |
+
+**HUOM!** kirjain-a ei suorita salausta ollenkaan, mutta koska menetelmä on tilastollinen niin joillain hyvin lyhyillä avaimilla menetelmä löytää väärän salausavaimen, mikä kertoo tilastollisen lähestymistavan heikkoudesta kun salatekstiä on hyvin vähän.
+
 
 ## Alustavia testejä Vigenere salauksen murtamiseen
 
