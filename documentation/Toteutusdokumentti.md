@@ -4,7 +4,7 @@
 
 Ohjelma jakaantuu salausalgoritmeihin eli ciphereihin ja salauksen murtamiseen eli cryptanalysis osioon.
 
-## Erot määärittelydokumenttiin
+## Erot määrittelydokumenttiin
 
 VIC vipheria ei toteutettu johtuen hyvin epäselvistä menetelmää selittävistä lähteistä. One-time-pad ei välttämättä olisi tuonut erityistä lisäarvoa työlle varsinkaan kryptoanalyysin suhteen (koska on murtamaton oikein toteutettuna) ja näin myöskään kryptograafisesti turvalliselle satunnaislukugeneraattorille ei ollut enää tarvetta. Edellisestä johtuen tyydyttiin paljon yksinkertaisempaan Lehmer random number generaattoriin (joka siis ei ole kryptografisesti turvallinen).
 
@@ -94,10 +94,10 @@ Sekä salauksien että salauksen murtamismenetelmien laaajentaminen ja syventäm
 
 ### Kirjallisuus:
 
-Jyrki Kivinen sekä Matti Nykänen, Matti Luukkainen ja Patrik Floréen. Tietorakenteet ja algoritmit luentomateriaali, kevät 2018
+Jyrki Kivinen sekä Matti Nykänen, Matti Luukkainen ja Patrik Floréen. *Tietorakenteet ja algoritmit luentomateriaali*, kevät 2018
 
-Thomas Cormen, Charles Leiserson, Ronald Rivest, Clifford Stein. Introduction to Algorithms, 3rd. Edition
+Thomas Cormen, Charles Leiserson, Ronald Rivest, Clifford Stein. *Introduction to Algorithms, 3rd. Edition*
 
-Stephen K. Park; Keith W. Miller. Random Number Generators: Good Ones Are Hard To Find (1988). Communications of the ACM. Volume 31. pages 1192-1201
+Stephen K. Park; Keith W. Miller. *Random Number Generators: Good Ones Are Hard To Find* (1988). Communications of the ACM. Volume 31. pages 1192-1201
 
-George Marsaglia. Technical correspondence: Remarks on Choosing and Implementing Random Number Generators (1993). Communications of the ACM. Volume 36. pages 108-110
+George Marsaglia. *Technical correspondence: Remarks on Choosing and Implementing Random Number Generators* (1993). Communications of the ACM. Volume 36. pages 108-110
