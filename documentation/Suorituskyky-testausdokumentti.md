@@ -1,4 +1,4 @@
-# CryptoApp suorituskyky-testausdokumentti
+# CryptoApp suorituskyky-testausdokumentti (kesken)
 
 ## Vigenere salauksen murtamisen tehokkuus tilastollisella chi-squared menetelmällä
 
