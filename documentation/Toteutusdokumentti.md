@@ -37,6 +37,7 @@ Käyttöliittymä on pakkauksessa **crypto.cryptoapp**. Tämän pakkauksen ainoa
 
 ## Työn puutteet
 
+Salauksen murtaminen on lähinnä kokoelma jossain määrin irrallisia algoritmeja, ja itse murtamisprosessi vaatii käyttjältä manuaalisia toimia ja valistuneita päätelmiä. Esiemrkiksi Vigenere salauksen murtamisessa  käyttäjän on itse pääteltävä salausavaimen pituus pylväskaavion visualisoinnin avulla.
 
 ## Parannusehdotukset
 
