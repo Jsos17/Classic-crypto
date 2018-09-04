@@ -37,5 +37,6 @@
 | 31.8. | ~ 10 | Salauksen murtamisen suorituskykytestauksen suunnittelu ja ensimmäinen toteutus sekä testiaineiston luonti, yleistä dokumentaation päivitystä |
 | Viikko 7 |
 | 3.9. | 6 | Plaintext-testiaineiston täydentämistä sopivan pituisilla teksteillä |
-| 4.9. | 4 | Vignere-salauksen murtamisen suorituskykytestin luonti ja dokumentointi |
+| 4.9. | 5 | Vignere-salauksen murtamisen suorituskykytestin luonti ja dokumentointi, HashTable ylivuotolistojen pituuksien testauksen aloitus |
+| 5.9. | 1 | HashTable:n (ja sitä kautta HashedSetin) ylivuotolistojen pituuksien testaus |
 
