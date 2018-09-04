@@ -32,8 +32,8 @@ Tässä testatuksessa kerättiin vain täsmälleen oikeat vastaukset, eikä esim
 
 [Lukumäärät](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/vigenere_krypto_avaimet.md)
 
-| Väli | | 1-50 | 51-100 | 101-150 | 151-200 | 201-250 | 251-300 | 301-350 | 351-400 | 401-500 |
-|----|----|----|----|----|----|----|----|----|----|----|
+| Väli | 1-50 | 51-100 | 101-150 | 151-200 | 201-250 | 251-300 | 301-350 | 351-400 | 401-500 |
+|----|----|----|----|----|----|----|----|----|----|
 | Avain (Pituus) | Oikeita avaimia % |
 | datastructures (14) | 0.0 | 0.0 | 0.0 | 7.8 | 22.2 | 32.7 | 28.6 | 76.5 | 71.8 |
 | footballplayer (14) | 0.0 | 0.0 | 0.0 | 7.8 | 22.2 | 32.7 | 28.6 | 76.5 | 71.8 |
