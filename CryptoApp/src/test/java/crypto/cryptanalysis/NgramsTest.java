@@ -52,7 +52,7 @@ public class NgramsTest {
             file.write("THET 3597105\nHEIR 2630839\nTOBE 1850003\nTHRO 1239338");
 
         }
-        this.ngrams = new Quadgrams(this.testFile.getAbsolutePath());
+        this.ngrams = new Ngrams(4, this.testFile.getAbsolutePath());
     }
 
     @After
@@ -117,7 +117,7 @@ public class NgramsTest {
             file.write("THET TEST\n");
         }
 
-        Ngrams ngrams2 = new Quadgrams(testFile2.getAbsolutePath());
+        Ngrams ngrams2 = new Ngrams(4, testFile2.getAbsolutePath());
         assertEquals("The file is corrupted\n", errContent.toString());
         testFile2.delete();
     }
@@ -129,22 +129,22 @@ public class NgramsTest {
             file.write("THET\n");
         }
 
-        Ngrams ngrams2 = new Quadgrams(testFile2.getAbsolutePath());
+        Ngrams ngrams2 = new Ngrams(4, testFile2.getAbsolutePath());
         assertEquals(0, ngrams2.getSampleSize());
         testFile2.delete();
     }
 
     @Test
     public void nonExistentFileTest() {
-        Ngrams ngrams2 = new Quadgrams("test3.txt");
+        Ngrams ngrams2 = new Ngrams(4, "test3.txt");
         assertEquals("File not found\n", errContent.toString());
     }
 
     @Test
     public void monoBiTrigramsTest1() {
-        Monograms mono = new Monograms("src/main/resources/english_monograms.txt");
-        Bigrams bi = new Bigrams("src/main/resources/english_bigrams.txt");
-        Trigrams tri = new Trigrams("src/main/resources/english_trigrams.txt");
+        Ngrams mono = new Ngrams(1, "src/main/resources/english_monograms.txt");
+        Ngrams bi = new Ngrams(2, "src/main/resources/english_bigrams.txt");
+        Ngrams tri = new Ngrams(3, "src/main/resources/english_trigrams.txt");
 
         assertEquals(1, mono.getN());
         assertEquals(2, bi.getN());

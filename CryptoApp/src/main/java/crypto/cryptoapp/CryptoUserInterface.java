@@ -14,7 +14,8 @@ import crypto.cryptanalysis.FrequencyAnalysis;
 import crypto.cryptanalysis.HillClimber;
 import crypto.cryptanalysis.IndexOfCoincidence;
 import crypto.cryptanalysis.Ngrams;
-import crypto.cryptanalysis.Quadgrams;
+import crypto.datastructures.HashTable;
+import crypto.datastructures.LehmerRandomNumberGenerator;
 import crypto.helpers.CharacterValue;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -76,25 +77,74 @@ public class CryptoUserInterface extends Application {
 //        for (int i = 0; i < ics.length; i++) {
 //            System.out.println((i+1) + " | " + ics[i]);
 //        }
-        FrequencyAnalysis freq1 = new FrequencyAnalysis();
-        IndexOfCoincidence indexOfC = new IndexOfCoincidence(freq1);
-        AttackVigenereCipher attack = new AttackVigenereCipher();
-        String ctext1 = "krmdlcbtpyfjoqrrercskoxgwiqygaevqgmrrlgvpavmklmlqmqdlydsdktjkxckyyzpydiyemqorayyldipohurildlcciybgfctymigcjjkxmbwspjgmmcxxjijjkxrrerdlcfejeipoxsbrcnfwdlcdepqirpylmxgyrgcmlnmqdmlqygclylpcpvmwxfozyvycbirevlohdyvloeplcpokgyrqnycdsrrinbiaswgyrsciblcrrikkgfsrcdspotpowcxxgdwtkpsomlcyargyciqdlcrmjvgjsqzovkkclyxzoezviryhcdipwmlomlglgmlbsvcmxgyrgdwfyyjnwrotyxhkkcukrbovgxebsvcmxgyrrrerxitovjoebcxmsqnbstoqcxx";
-        String ctext2 = "vptnvffuntshtarptymjwzirappljmhhqvsubwlzzygvtyitarptyiougxiuydtgzhhvvmumshwkzgstfmekvmpkswdgbilvjljmglmjfqwioiivknulvvfemioiemojtywdsajtwmtcgluysdsumfbieugmvalvxkjduetukatymvkqzhvqvgvptytjwwldyeevquhlulwpkt";
+//        FrequencyAnalysis freq1 = new FrequencyAnalysis();
+//        IndexOfCoincidence indexOfC = new IndexOfCoincidence(freq1);
+//        AttackVigenereCipher attack = new AttackVigenereCipher();
+//        String ctext1 = "krmdlcbtpyfjoqrrercskoxgwiqygaevqgmrrlgvpavmklmlqmqdlydsdktjkxckyyzpydiyemqorayyldipohurildlcciybgfctymigcjjkxmbwspjgmmcxxjijjkxrrerdlcfejeipoxsbrcnfwdlcdepqirpylmxgyrgcmlnmqdmlqygclylpcpvmwxfozyvycbirevlohdyvloeplcpokgyrqnycdsrrinbiaswgyrsciblcrrikkgfsrcdspotpowcxxgdwtkpsomlcyargyciqdlcrmjvgjsqzovkkclyxzoezviryhcdipwmlomlglgmlbsvcmxgyrgdwfyyjnwrotyxhkkcukrbovgxebsvcmxgyrrrerxitovjoebcxmsqnbstoqcxx";
+//        String ctext2 = "vptnvffuntshtarptymjwzirappljmhhqvsubwlzzygvtyitarptyiougxiuydtgzhhvvmumshwkzgstfmekvmpkswdgbilvjljmglmjfqwioiivknulvvfemioiemojtywdsajtwmtcgluysdsumfbieugmvalvxkjduetukatymvkqzhvqvgvptytjwwldyeevquhlulwpkt";
+//
+//        double[] vals = indexOfC.allAggregateDeltaBarICs(ctext1);
+//        int n = vals.length / 3;
+//        double threshold = attack.calculateThreshold(vals, n);
+//        System.out.println("Threshold: " + threshold);
+//
+//        for (int i = 0; i < n; i++) {
+//            if (vals[i] > threshold) {
+//                System.out.println("Key: " + (i + 1));
+//            }
+//        }
+//
+//        System.out.println("Key Length: " + attack.findKeyLengths(vals, threshold));
+        LehmerRandomNumberGenerator generator = new LehmerRandomNumberGenerator();
+        HashTable<String, Long> hashTable = new HashTable<>();
+        char[] alphabet = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
+            'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
-        double[] vals = indexOfC.allAggregateDeltaBarICs(ctext1);
-        int n = vals.length / 3;
-        double threshold = attack.calculateThreshold(vals, n);
-        System.out.println("Threshold: " + threshold);
+        int sample = 1_000_000;
+        for (int i = 0; i < sample; i++) {
+            randomizeInPlace(alphabet, generator);
+            String abc = new String(alphabet);
 
-        for (int i = 0; i < n; i++) {
-            if (vals[i] > threshold) {
-                System.out.println("Key: " + (i + 1));
+            if (!hashTable.containsKey(abc)) {
+                hashTable.hashInsert(abc, 42l);
             }
         }
 
-        System.out.println("Key Length: " + attack.findKeyLengths(vals, threshold));
-        launch(CryptoUserInterface.class);
+        int len = hashTable.hashtable.length;
+        int lengths = 0;
+        int max = 0;
+        int count = 0;
+        int nils = 0;
+        for (int i = 0; i < len; i++) {
+            if (hashTable.hashtable[i] != null) {
+                if (hashTable.hashtable[i].getSize() > max) {
+                    max = hashTable.hashtable[i].getSize();
+                }
+                lengths += hashTable.hashtable[i].getSize();
+                count++;
+            } else {
+                nils++;
+            }
+        }
+
+        System.out.println("Max: " + max);
+        System.out.println("Lengths: " + lengths);
+        System.out.println("Count: " + count);
+        System.out.println("Nulls " + nils);
+        double avg = (double) lengths / count;
+        System.out.println("Avg: " + avg);
+
+//        launch(CryptoUserInterface.class);
+    }
+
+    protected static void randomizeInPlace(char[] alphabet, LehmerRandomNumberGenerator generator) {
+        int n = alphabet.length;
+        for (int i = 0; i < n; i++) {
+            int rndNumber = generator.ints(i, n);
+            char temp = alphabet[i];
+            alphabet[i] = alphabet[rndNumber];
+            alphabet[rndNumber] = temp;
+        }
     }
 
     /**
@@ -109,7 +159,7 @@ public class CryptoUserInterface extends Application {
         keyedVig = new KeyedVigenereCipher("");
         autokeyVig = new AutokeyVigenereCipher();
         transposition = new TranspositionCipher();
-        quadgrams = new Quadgrams("src/main/resources/english_quadgrams.txt");
+        quadgrams = new Ngrams(4, "src/main/resources/english_quadgrams.txt");
         hillClimber = new HillClimber(quadgrams);
         freq = new FrequencyAnalysis();
         ic = new IndexOfCoincidence(freq);

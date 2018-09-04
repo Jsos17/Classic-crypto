@@ -11,12 +11,12 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
- * This class is an abstract class to facilitate statistical calculations that
- * relate to n-grams i.e. to substrings of a piece of text that are of length n.
+ * This class facilitates statistical calculations that relate to n-grams i.e.
+ * to substrings of a piece of text that are of length n.
  *
  * @author jpssilve
  */
-public abstract class Ngrams {
+public class Ngrams {
 
     private final int n;
     private final String filename;
