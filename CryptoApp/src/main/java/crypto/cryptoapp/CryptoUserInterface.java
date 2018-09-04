@@ -98,8 +98,7 @@ public class CryptoUserInterface extends Application {
     }
 
     /**
-     * Very crude outline of the graphical user interface. Cryptanalysis
-     * functionality is currently missing.
+     * Very crude outline of the graphical user interface.
      *
      * @param stage
      * @throws Exception
