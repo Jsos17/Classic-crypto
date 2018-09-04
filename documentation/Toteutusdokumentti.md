@@ -4,6 +4,10 @@
 
 Ohjelma jakaantuu salausalgoritmeihin eli ciphereihin ja salauksen murtamiseen eli cryptanalysis osioon.
 
+## Erot määärittelydokumenttiin
+
+VIC vipheria ei toteutettu johtuen hyvin epäselvistä menetelmää selittävistä lähteistä. One-time-pad ei välttämättä olisi tuonut erityistä lisäarvoa työlle varsinkaan kryptoanalyysin suhteen (koska on murtamaton oikein toteutettuna) ja näin myöskään kryptograafisesti turvalliselle satunnaislukugeneraattorille ei ollut enää tarvetta. Edellisestä johtuen tyydyttiin paljon yksinkertaisempaan Lehmer random number generaattoriin (joka siis ei ole kryptografisesti turvallinen).
+
 ### Salausalgoritmit
 
 Ohjelman käyttöliittymän kautta ja salausalgoritmien avulla on mahdollista salata viestejä käyttäen Vigenère salausta ja sen variantteja sekä transposition tyyppisiä salauksia. Algoritmit ovat 100 % deterministisiä, ja jos salauksen molemmilla osapuolilla on tiedossa käytetty salausavain, niin ohjelman avulla viestejä voi salata ja avata automaattisesti salausavaimen avulla.
@@ -34,12 +38,26 @@ Käyttöliittymä on pakkauksessa **crypto.cryptoapp**. Tämän pakkauksen ainoa
 
 ## Aika- ja tilavaativuudet
 
+### Salaukset:
+
+Salausalgoritmien aikavaativuudet ovat kaikki O(n), missä n on selko- tai salatekstin pituus merkkeinä.
+
+
+## Salauksen murtaminen:
+
+
 
 ## Työn puutteet
 
 Salauksen murtaminen on lähinnä kokoelma jossain määrin irrallisia algoritmeja, ja itse murtamisprosessi vaatii käyttjältä manuaalisia toimia ja valistuneita päätelmiä. Esiemrkiksi Vigenere salauksen murtamisessa  käyttäjän on itse pääteltävä salausavaimen pituus pylväskaavion visualisoinnin avulla.
 
+Koodia pystyisi monin paikoin refaktoroimaan vieläkin enemmän, mutta tähän ei ole jäänyt aikaa, projektin ajankäytöllisen vaativuuden vuoksi.
+
 ## Parannusehdotukset
+
+Salauksen murtamista voisi sekä kehittää algoritmisempaan suuntaan, eli automatisoida miltei kaiken. Lisäksi tykalujen kehittäminen sen tunnistamiseen minkälaista salausta salatekstissä on todennäköisesti käytetty olisi hyödyllistä. Nyt ohjelma nimittäin, lähtee siitä oletuksesta, että käyttäjä joko tietää tai sitten vain arvaa onko salaus esimerkiksi Vigenere tai yksinkertainen Transposition cipher.
+
+Sekä salauksien että salauksen murtamismenetelmien laaajentaminen ja syventäminen. Työ on kuitenkin vasta pintaraapaisu edes klassisten salausmenetelmien suhteen, puhumattakaan vaikkapa Enigma-laitteen tyyppisistä salauksista.
 
 
 ## References / Lähteet
@@ -76,7 +94,10 @@ Salauksen murtaminen on lähinnä kokoelma jossain määrin irrallisia algoritme
 
 ### Kirjallisuus:
 
-Tietorakenteet ja algoritmit luentomateriaali, kevät 2018: Jyrki Kivinen sekä Matti Nykänen, Matti Luukkainen ja Patrik Floréen
+Jyrki Kivinen sekä Matti Nykänen, Matti Luukkainen ja Patrik Floréen. Tietorakenteet ja algoritmit luentomateriaali, kevät 2018
 
-Introduction to Algorithms, 3rd. Edition: Thomas Cormen, Charles Leiserson, Ronald Rivest, Clifford Stein 
+Thomas Cormen, Charles Leiserson, Ronald Rivest, Clifford Stein. Introduction to Algorithms, 3rd. Edition
 
+Stephen K. Park; Keith W. Miller. Random Number Generators: Good Ones Are Hard To Find (1988). Communications of the ACM. Volume 31. pages 1192-1201
+
+George Marsaglia. Technical correspondence: Remarks on Choosing and Implementing Random Number Generators (1993). Communications of the ACM. Volume 36. pages 108-110
