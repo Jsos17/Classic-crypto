@@ -15,7 +15,7 @@ Lisäksi yritys on vertailla hajautustaulun ylivuotolistojen pituuksia mieluiten
 Toteutettua Vigenere salauksen murtamista testattiin keräämällä 501 eri pituista plaintextiä ja sitten salaamalla ne eri avaimien pituuksilla. Testiaineistot luokiteltiin seuraavasti:
 
 | Selkotekstin/salatatekstin pituusluokka | Pituuksien keskiarvo luokan sisällä | Määrä |
-| :----:|:-----|:----------|
+| ----|-----|----------|
 | 1-50 | 37,1 | 71 |
 | 51-100 | 75,9 | 71 |
 | 101-150 | 124,2 | 93 |
@@ -30,38 +30,38 @@ Toteutettua Vigenere salauksen murtamista testattiin keräämällä 501 eri pitu
 Tämän jälkeen käsitellyt selkotekstit salattiin avainpituuksilla 1-14 ja joka kerralla testattiin kuinka monta oikeaa avainta menetelmä löytää, sillä oletuksella että avaimen pituus tiedetään jo. Avaimen pituuden tietämysolettama on vähintään kohtuullinen  sillä index of coincidence arvot paljastavat yleensä hyvin selkeästi avainkandidaatit, joista pienin on looginen aloituskohta.
 Tässä testatuksessa kerättiin vain täsmälleen oikeat vastaukset, eikä esimerkiksi yhdellä kirjaimella pielessä olevia avaimia otettu huomioon.
 
-| Luokitteluväli | | 1-50 | 51-100 | 101-150 | 151-200 | 201-250 | 251-300 | 301-350 | 351-400 | 401-500 |
-| :----:|:-----|:----------|:----------|:-------|:--------|:--------|:--------|:--------|:--------|:--------|
-| Salatekstejä luokassa | | 71 | 71 | 93 | 64 | 45 | 49 | 35 | 34 | 39 |
-| Avain | Avaimen pituus | Oikeita avaimia |
-| datastructures | 14  |  |  |  |  |  |  |  |  |  |
-| footballplayer | 14  |  |  |  |  |  |  |  |  |  |
-| decompensated | 13  |  |  |  |  |  |  |  |  |  |
-| hazardousness | 13  |  |  |  |  |  |  |  |  |  |
-| eavesdropper | 12  |  |  |  |  |  |  |  |  |  |
-| magnetically | 12  |  |  |  |  |  |  |  |  |  |
-| unbreakable | 11  |  |  |  |  |  |  |  |  |  |
-| identically | 11  |  |  |  |  |  |  |  |  |  |
-| calculator | 10  |  |  |  |  |  |  |  |  |  |
-| academical | 10  |  |  |  |  |  |  |  |  |  |
-| pacifists | 9  |  |  |  |  |  |  |  |  |  |
-| waistcoat | 9  |  |  |  |  |  |  |  |  |  |
-| gangster | 8  |  |  |  |  |  |  |  |  |  |
-| radiance | 8  |  |  |  |  |  |  |  |  |  |
-| tactics | 7  |  |  |  |  |  |  |  |  |  |
-| factory | 7  |  |  |  |  |  |  |  |  |  |
-| habits | 6  |  |  |  |  |  |  |  |  |  |
-| easily | 6  |  |  |  |  |  |  |  |  |  |
-| mafia | 5  |  |  |  |  |  |  |  |  |  |
-| toxic | 5  |  |  |  |  |  |  |  |  |  |
-| beef | 4  |  |  |  |  |  |  |  |  |  |
-| life | 4  |  |  |  |  |  |  |  |  |  |
-| six | 3  |  |  |  |  |  |  |  |  |  |
-| ego | 3  |  |  |  |  |  |  |  |  |  |
-| do | 2  |  |  |  |  |  |  |  |  |  |
-| my | 2  |  |  |  |  |  |  |  |  |  |
-| z | 1  |  |  |  |  |  |  |  |  |  |
-| a | 1  |  |  |  |  |  |  |  |  |  |
+| Väli | | 1-50 | 51-100 | 101-150 | 151-200 | 201-250 | 251-300 | 301-350 | 351-400 | 401-500 |
+|----|----|----|----|----|----|----|----|----|----|----|
+| Salatekstejä | | 71 | 71 | 93 | 64 | 45 | 49 | 35 | 34 | 39 |
+| Avain | Pituus | Oikeita avaimia % |
+| datastructures | 14  | 0 | 0 | 0 | 5 | 10 | 16 | 10 | 26 | 28 |
+| footballplayer | 14  | 0 | 0 | 0 | 5 | 10 | 16 | 10 | 26 | 28 |
+| decompensated | 13  | 0 | 0 | 2 | 7 | 11 | 21 | 19 | 26 | 34 |
+| hazardousness | 13  | 0 | 0 | 2 | 7 | 11 | 21 | 19 | 26 | 34 |
+| eavesdropper | 12  | 0 | 1 | 2 | 12 | 17 | 24 | 24 | 33 | 35 |
+| magnetically | 12  | 0 | 1 | 2 | 12 | 17 | 24 | 24 | 33 | 35 |
+| unbreakable | 11  | 0 | 0 | 9 | 15 | 18 | 33 | 26 | 29 | 36 |
+| identically | 11  | 0 | 0 | 9 | 15 | 18 | 33 | 26 | 29 | 36 |
+| calculator | 10  | 0 | 1 | 13 | 24 | 22 | 39 | 31 | 32 | 38 |
+| academical | 10  | 0 | 1 | 13 | 24 | 22 | 39 | 31 | 32 | 38 |
+| pacifists | 9  | 0 | 4 | 32 | 31 | 30 | 38 | 30 | 34 | 39 |
+| waistcoat | 9  | 0 | 4 | 32 | 31 | 30 | 38 | 30 | 34 | 39 |
+| gangster | 8  | 0 | 7 | 37 | 43 | 33 | 43 | 33 | 34 | 39 |
+| radiance | 8  | 0 | 7 | 37 | 43 | 33 | 43 | 33 | 34 | 39 |
+| tactics | 7  | 0 | 13 | 52 | 46 | 42 | 47 | 32 | 34 | 39 |
+| factory | 7  |0 | 13 | 52 | 46 | 42 | 47 | 32 | 34 | 39 |
+| habits | 6  | 2 | 22 | 66 | 59 | 42 | 49 | 35 | 34 | 39 |
+| easily | 6  | 2 | 22 | 66 | 59 | 42 | 49 | 35 | 34 | 39 |
+| mafia | 5  | 7 | 34 | 79 | 60 | 44 | 49 | 35 | 34 | 39 |
+| toxic | 5  | 7 | 34 | 79 | 60 | 44 | 49 | 35 | 34 | 39 |
+| beef | 4  | 12 | 51 | 89 | 62 | 45 | 49 | 35 | 34 | 39 |
+| life | 4  | 12 | 51 | 89 | 62 | 45 | 49 | 35 | 34 | 39 |
+| six | 3  | 36 | 63 | 91 | 64 | 45 | 49 | 35 | 34 | 39 |
+| ego | 3  | 36 | 63 | 91 | 64 | 45 | 49 | 35 | 34 | 39 |
+| do | 2  | 56 | 70 | 93 | 64 | 45 | 49 | 35 | 34 | 39 |
+| my | 2  | 56 | 70 | 93 | 64 | 45 | 49 | 35 | 34 | 39 |
+| z | 1  | 69 | 71 | 93 | 64 | 45 | 49 | 35 | 34 | 39 |
+| a | 1  | 69 | 71 | 93 | 64 | 45 | 49 | 35 | 34 | 39 |
 
 ## Alustavia testejä Vigenere salauksen murtamiseen
 
