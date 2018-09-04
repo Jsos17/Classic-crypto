@@ -4,7 +4,7 @@ Tämä dokumentti käsittelee ohjelman oikeellisuuden testausta eli että metodi
 
 ## Mitä on testattu
 
-Metodien oikeellisutta on pyritty testaamaan luomalla paljon erilaisia syötteitä ja paikoin satunnaistamalla näitä syötteitä. Osalla metodeista ei ole vielä kuin yksi suuri testi johtuen testisyötteiden luonnin työläydestä (lähinnä koskee IndexOfCoincidence luokkaa).
+Metodien oikeellisutta on pyritty testaamaan luomalla paljon erilaisia syötteitä ja paikoin satunnaistamalla näitä syötteitä. Osalla metodeista ei ole kuin yksi suuri testi johtuen testisyötteiden luonnin työläydestä (lähinnä koskee IndexOfCoincidence luokkaa).
 
 ## Miten on testattu
 
@@ -14,7 +14,7 @@ Eritysesti tiedostoon [IC_test.xlsx](https://github.com/Jsos17/Classic-crypto/bl
 
 Muutamassa tapauksessa testiluokkien sisällä on jokin apumetodi, joka auttaa luomaan testisyötteitä. Esimerkiksi VigenereCipherTest luokassa on randomizeInPlace, jonka avulla voidaan tuottaa pseudosatunnaisia salatekstejä.
 
-CombinatoricsTest luokassa taas on metodi joka on lähes sama kuin Tietorakenteet ja algoritmit luentomateriaalissa oleva generate(table, used, k) sillä erotuksella, että permutaatiota ei tulosteta vaan se tallennetaan taulukkoon. Tämän metodin tarkoitus on auttaa tuottamaan suurempi testisyöte hiukan paremmalle versiolle tästä metodista. 
+CombinatoricsTest luokassa taas on metodi joka on lähes sama kuin Tietorakenteet ja algoritmit luentomateriaalissa oleva generate(table, used, k) sillä erotuksella, että permutaatiota ei tulosteta vaan se tallennetaan taulukkoon. Tämän metodin tarkoitus on auttaa tuottamaan suurempi testisyöte erilaiselle versiolle tästä metodista. 
  
 ## Testien toistaminen
 
