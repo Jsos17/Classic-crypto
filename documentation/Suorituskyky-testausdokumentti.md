@@ -10,6 +10,59 @@ Tämän tekemiseksi tehokkaasti on luotava/luotu koodia jonka avulla voidaan sit
 
 Lisäksi yritys on vertailla hajautustaulun ylivuotolistojen pituuksia mieluiten hiukan erilaisilla aineistoilla (vaikka tässä työssä tosin hajautustaulujen input on melkeinpä muuttumaton).
 
+## Vigenere salauksen murtamisen tehokkuus tilastollisella chi-squared menetelmällä
+
+Toteutettua Vigenere salauksen murtamista testattiin keräämällä 501 eri pituista plaintextiä ja sitten salaamalla ne eri avaimien pituuksilla. Testiaineistot luokiteltiin seuraavasti:
+
+| Selkotekstin/salatatekstin pituusluokka | Pituuksien keskiarvo luokan sisällä | Määrä |
+| :----:|:-----|:----------|
+| 1-50 | 37,1 | 71 |
+| 51-100 | 75,9 | 71 |
+| 101-150 | 124,2 | 93 |
+| 151-200 | 173,1 | 64 |
+| 201-250 | 225,3 | 45 |
+| 251-300 | 274,9 | 49 |
+| 301-350 | 328,6 | 35 |
+| 351-400 | 379,3 | 34 |
+| 401-500 | 442,8 | 39 |
+| Yhteensä | | 501 |
+
+Tämän jälkeen käsitellyt selkotekstit salattiin avainpituuksilla 1-14 ja joka kerralla testattiin kuinka monta oikeaa avainta menetelmä löytää, sillä oletuksella että avaimen pituus tiedetään jo. Avaimen pituuden tietämysolettama on vähintään kohtuullinen  sillä index of coincidence arvot paljastavat yleensä hyvin selkeästi avainkandidaatit, joista pienin on looginen aloituskohta.
+Tässä testatuksessa kerättiin vain täsmälleen oikeat vastaukset, eikä esimerkiksi yhdellä kirjaimella pielessä olevia avaimia otettu huomioon.
+
+| Luokitteluväli | | 1-50 | 51-100 | 101-150 | 151-200 | 201-250 | 251-300 | 301-350 | 351-400 | 401-500 |
+| :----:|:-----|:----------|:----------|:-------|:--------|:--------|:--------|:--------|:--------|:--------|
+| Salatekstejä luokassa | | 71 | 71 | 93 | 64 | 45 | 49 | 35 | 34 | 39 |
+| Avain | Avaimen pituus | Oikeita avaimia |
+| datastructures | 14  |  |  |  |  |  |  |  |  |  |
+| footballplayer | 14  |  |  |  |  |  |  |  |  |  |
+| decompensated | 13  |  |  |  |  |  |  |  |  |  |
+| hazardousness | 13  |  |  |  |  |  |  |  |  |  |
+| eavesdropper | 12  |  |  |  |  |  |  |  |  |  |
+| magnetically | 12  |  |  |  |  |  |  |  |  |  |
+| unbreakable | 11  |  |  |  |  |  |  |  |  |  |
+| identically | 11  |  |  |  |  |  |  |  |  |  |
+| calculator | 10  |  |  |  |  |  |  |  |  |  |
+| academical | 10  |  |  |  |  |  |  |  |  |  |
+| pacifists | 9  |  |  |  |  |  |  |  |  |  |
+| waistcoat | 9  |  |  |  |  |  |  |  |  |  |
+| gangster | 8  |  |  |  |  |  |  |  |  |  |
+| radiance | 8  |  |  |  |  |  |  |  |  |  |
+| tactics | 7  |  |  |  |  |  |  |  |  |  |
+| factory | 7  |  |  |  |  |  |  |  |  |  |
+| habits | 6  |  |  |  |  |  |  |  |  |  |
+| easily | 6  |  |  |  |  |  |  |  |  |  |
+| mafia | 5  |  |  |  |  |  |  |  |  |  |
+| toxic | 5  |  |  |  |  |  |  |  |  |  |
+| beef | 4  |  |  |  |  |  |  |  |  |  |
+| life | 4  |  |  |  |  |  |  |  |  |  |
+| six | 3  |  |  |  |  |  |  |  |  |  |
+| ego | 3  |  |  |  |  |  |  |  |  |  |
+| do | 2  |  |  |  |  |  |  |  |  |  |
+| my | 2  |  |  |  |  |  |  |  |  |  |
+| z | 1  |  |  |  |  |  |  |  |  |  |
+| a | 1  |  |  |  |  |  |  |  |  |  |
+
 ## Alustavia testejä Vigenere salauksen murtamiseen
 
 [Alkuperäiset plaintextit](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/unmanipulated_sample_plaintexts.txt) ja [manipuloidut tekstinpätkät](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/sample_plaintexts.txt)
