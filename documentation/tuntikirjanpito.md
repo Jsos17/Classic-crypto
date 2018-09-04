@@ -37,5 +37,5 @@
 | 31.8. | ~ 10 | Salauksen murtamisen suorituskykytestauksen suunnittelu ja ensimmäinen toteutus sekä testiaineiston luonti, yleistä dokumentaation päivitystä |
 | Viikko 7 |
 | 3.9. | 6 | Plaintext-testiaineiston täydentämistä sopivan pituisilla teksteillä |
-| 4.9. | 4 | Vignere-salauksen murtamisesn suorituskykytestin luonti ja dokumentointi |
+| 4.9. | 4 | Vignere-salauksen murtamisen suorituskykytestin luonti ja dokumentointi |
 
