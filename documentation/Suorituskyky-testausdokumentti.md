@@ -12,19 +12,19 @@ Lisäksi yritys on vertailla hajautustaulun ylivuotolistojen pituuksia mieluiten
 
 ## Vigenere salauksen murtamisen tehokkuus tilastollisella chi-squared menetelmällä
 
-Toteutettua Vigenere salauksen murtamista testattiin keräämällä 501 eri pituista plaintextiä ja sitten salaamalla ne eri avaimien pituuksilla. Testiaineistot luokiteltiin seuraavasti:
+Toteutettua Vigenere salauksen murtamista testattiin keräämällä [501 eri pituista plaintextiä](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/unmanipulated_501_sample_plaintexts.txt)  ja sitten salaamalla ne eri avaimien pituuksilla. Testiaineistot luokiteltiin seuraavasti:
 
 | Selkotekstin/salatatekstin pituusluokka | Pituuksien keskiarvo luokan sisällä | Määrä |
 | ----|-----|----------|
-| 1-50 | 37,1 | 71 |
-| 51-100 | 75,9 | 71 |
-| 101-150 | 124,2 | 93 |
-| 151-200 | 173,1 | 64 |
-| 201-250 | 225,3 | 45 |
-| 251-300 | 274,9 | 49 |
-| 301-350 | 328,6 | 35 |
-| 351-400 | 379,3 | 34 |
-| 401-500 | 442,8 | 39 |
+| [1-50](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/plaintexts1-50.txt) | 37,1 | 71 |
+| [51-100](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/plaintexts51-100.txt) | 75,9 | 71 |
+| [101-150](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/plaintexts101-150.txt) | 124,2 | 93 |
+| [151-200](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/plaintexts151-200.txt) | 173,1 | 64 |
+| [201-250](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/plaintexts201-250.txt) | 225,3 | 45 |
+| [251-300](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/plaintexts251-300.txt) | 274,9 | 49 |
+| [301-350](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/plaintexts301-350.txt) | 328,6 | 35 |
+| [351-400](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/plaintexts351-400.txt) | 379,3 | 34 |
+| [401-500](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/plaintexts401-500.txt) | 442,8 | 39 |
 | Yhteensä | | 501 |
 
 Tämän jälkeen käsitellyt selkotekstit salattiin avainpituuksilla 1-14 ja joka kerralla testattiin kuinka monta oikeaa avainta menetelmä löytää, sillä oletuksella että avaimen pituus tiedetään jo. Avaimen pituuden tietämysolettama on vähintään kohtuullinen  sillä index of coincidence arvot paljastavat yleensä hyvin selkeästi avainkandidaatit, joista pienin on looginen aloituskohta.
@@ -66,6 +66,13 @@ Tässä testatuksessa kerättiin vain täsmälleen oikeat vastaukset, eikä esim
 
 **HUOM!** kirjain-a ei suorita salausta ollenkaan, mutta koska menetelmä on tilastollinen niin joillain hyvin lyhyillä avaimilla menetelmä löytää väärän salausavaimen, mikä kertoo tilastollisen lähestymistavan heikkoudesta kun salatekstiä on hyvin vähän.
 
+### Huomioita tuloksista:
+
+* Huomataan, että sama avaimenpituus näyttää tuottavan saman tuloksen riippumatta avaimen sisällöstä.
+
+* Lisäksi kun salatekstin pituus kasvaa, niin onnistuneiden murtamisyritysten määrä kasvaa, ja toisaalta avaimen pituuden pienentyessä onnistumisten määrä kasvaa myös. 
+
+* Huomionarvoista on myös se seikka, että esimerkiksi salateksti, jonka pituus on 40 merkkkiä ja joka on salattua avaimella, jonka pituus on 5, tuottaa viisi 8 merkin pituista salateksti pätkää, joista jokainen on salattu samalla aakkostolla (ja samalla kirjaimella siis). Kuitenkin 8 merkkiä on hyvin lyhyt tekstinpätkä kunnollisen tilastollisten tunnuslukujen saamiseksi ja tämä yleinen havainto selittänee lyhyiden tekstien alhaisia murtamisprosentteja kaikilla paitsi aivan lyhimmillä avaimilla.
 
 ## Alustavia testejä Vigenere salauksen murtamiseen
 
