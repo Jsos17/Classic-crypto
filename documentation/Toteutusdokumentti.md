@@ -6,7 +6,7 @@ Ohjelma jakaantuu salausalgoritmeihin eli ciphereihin ja salauksen murtamiseen e
 
 ## Erot määrittelydokumenttiin
 
-VIC vipheria ei toteutettu johtuen hyvin epäselvistä menetelmää selittävistä lähteistä. One-time-pad ei välttämättä olisi tuonut erityistä lisäarvoa työlle varsinkaan kryptoanalyysin suhteen (koska on murtamaton oikein toteutettuna) ja näin myöskään kryptograafisesti turvalliselle satunnaislukugeneraattorille ei ollut enää tarvetta. Edellisestä johtuen tyydyttiin paljon yksinkertaisempaan Lehmer random number generaattoriin (joka siis ei ole kryptografisesti turvallinen).
+VIC vipheria ei toteutettu johtuen hyvin epäselvistä menetelmää selittävistä lähteistä. One-time-pad ei välttämättä olisi tuonut erityistä lisäarvoa työlle varsinkaan kryptoanalyysin suhteen (koska on murtamaton oikein toteutettuna) ja näin myöskään kryptografisesti turvalliselle satunnaislukugeneraattorille ei ollut enää tarvetta. Edellisestä johtuen tyydyttiin paljon yksinkertaisempaan Lehmer random number generaattoriin (joka siis ei ole kryptografisesti turvallinen).
 
 ### Salausalgoritmit
 
