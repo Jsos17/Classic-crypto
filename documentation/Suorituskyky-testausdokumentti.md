@@ -62,7 +62,7 @@ Tässä testatuksessa kerättiin vain täsmälleen oikeat vastaukset, eikä esim
 
 * Lisäksi kun salatekstin pituus kasvaa, niin onnistuneiden murtamisyritysten määrä kasvaa, ja toisaalta avaimen pituuden pienentyessä onnistumisten määrä kasvaa myös. 
 
-* Huomionarvoista on myös se seikka, että esimerkiksi salateksti, jonka pituus on 40 merkkkiä ja joka on salattua avaimella, jonka pituus on 5, tuottaa viisi 8 merkin pituista salateksti pätkää, joista jokainen on salattu samalla aakkostolla (ja samalla kirjaimella siis). Kuitenkin 8 merkkiä on hyvin lyhyt tekstinpätkä kunnollisen tilastollisten tunnuslukujen saamiseksi ja tämä yleinen havainto selittänee lyhyiden tekstien alhaisia murtamisprosentteja kaikilla paitsi aivan lyhimmillä avaimilla.
+* Huomionarvoista on myös se seikka, että esimerkiksi salateksti, jonka pituus on 40 merkkkiä ja joka on salattua avaimella, jonka pituus on 5, tuottaa viisi 8 merkin pituista salatekstipätkää, joista jokainen on salattu samalla aakkostolla (ja siis samalla kirjaimella). Kuitenkin 8 merkkiä on hyvin lyhyt tekstinpätkä kunnollisten tilastollisten tunnuslukujen saamiseksi ja tämä yleinen havainto selittänee lyhyiden tekstien alhaisia murtamisprosentteja kaikilla paitsi aivan lyhimmillä avaimilla.
 
 ### Alustavia testejä Vigenere salauksen murtamiseen
 
