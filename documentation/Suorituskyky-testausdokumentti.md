@@ -24,7 +24,7 @@ Tässä testatuksessa kerättiin vain täsmälleen oikeat vastaukset, eikä esim
 
 | Väli | 1-50 | 51-100 | 101-150 | 151-200 | 201-250 | 251-300 | 301-350 | 351-400 | 401-500 |
 |----|----|----|----|----|----|----|----|----|----|
-| Avain (Pituus) | Oikeita avaimia % |
+| Avain (Pituus) | Oikeita avaimia **%** |
 | datastructures (14) | 0.0 | 0.0 | 0.0 | 7.8 | 22.2 | 32.7 | 28.6 | 76.5 | 71.8 |
 | footballplayer (14) | 0.0 | 0.0 | 0.0 | 7.8 | 22.2 | 32.7 | 28.6 | 76.5 | 71.8 |
 | decompensated (13) | 0.0 | 0.0 | 2.2 | 10.9 | 24.4 | 42.9 | 54.3 | 76.5 | 87.2 |
