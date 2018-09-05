@@ -84,7 +84,7 @@ public class Ngrams {
      * So the frequency of the n-gram is used as a substitute for a real
      * probability
      *
-     * @param ngram A substring of a text that has a length of n
+     * @param ngram A substring of a text that has a length of n and is in upper case
      * @return The base 10 logarithm of the "probability" as a double
      */
     public double logProbability(String ngram) {
@@ -111,7 +111,7 @@ public class Ngrams {
      * Retrieves the particular count of occurrences of the n-gram in the
      * sample.
      *
-     * @param ngram A substring of a text that has a length of n
+     * @param ngram A substring of a text that has a length of n and is in upper case
      * @return The count of occurrences of this n-gram in the sample
      */
     public long getNgramCount(String ngram) {
@@ -126,7 +126,7 @@ public class Ngrams {
      * text sample. Since probabilities are smaller than zero the fitness value
      * is always smaller or equal to zero
      *
-     * @param text The text that is to be assessed
+     * @param text The text (in upper case) that is to be assessed
      * @return The "fitness" of the text as a double value, the higher the value
      * the better.
      */

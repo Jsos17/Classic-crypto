@@ -205,7 +205,6 @@ public class CombinatoricsTest {
         expected2[5] = new byte[]{2, 1, 0};
 
         byte[][] actuals2 = this.combi.permutations(3);
-        System.out.println("Len: " + actuals2.length);
         for (int i = 0; i < actuals2.length; i++) {
             for (int j = 0; j < actuals2[i].length; j++) {
                 assertEquals(expected2[i][j], actuals2[i][j]);

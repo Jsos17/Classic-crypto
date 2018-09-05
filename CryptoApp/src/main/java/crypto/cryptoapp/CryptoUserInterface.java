@@ -9,13 +9,10 @@ import crypto.ciphers.AutokeyVigenereCipher;
 import crypto.ciphers.KeyedVigenereCipher;
 import crypto.ciphers.TranspositionCipher;
 import crypto.ciphers.VigenereCipher;
-import crypto.cryptanalysis.AttackVigenereCipher;
 import crypto.cryptanalysis.FrequencyAnalysis;
 import crypto.cryptanalysis.HillClimber;
 import crypto.cryptanalysis.IndexOfCoincidence;
 import crypto.cryptanalysis.Ngrams;
-import crypto.datastructures.HashTable;
-import crypto.datastructures.LehmerRandomNumberGenerator;
 import crypto.helpers.CharacterValue;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -438,13 +435,11 @@ public class CryptoUserInterface extends Application {
 //            System.out.println("Key len: " + keyLen);
 //            System.out.println("Runs: " + runs);
 //            System.out.println("Iterations: " + iters);
-            maybeKey.setText(hillClimber.runToTheHills(keyLen, ciphertext.getText().toUpperCase(), runs, iters));
+            maybeKey.setText(hillClimber.runToTheHills(keyLen, ciphertext.getText(), runs, iters));
         });
 
         trialDecryption.setOnMouseClicked((event) -> {
-            if (maybeKey.getText().length() > 0) {
-                crackingResult.setText(transposition.decryptSingleTransposition(maybeKey.getText(), ciphertext.getText()));
-            }
+            crackingResult.setText(transposition.decryptSingleTransposition(maybeKey.getText(), ciphertext.getText()));
         });
 
         keyClear.setOnMouseClicked((event) -> {
@@ -453,6 +448,14 @@ public class CryptoUserInterface extends Application {
 
         // Attacking the Vigenere cipher with frequency analysis and the index of coincidence
         Button findKeyLen = new Button("Find possible key length");
+        ObservableList<Integer> keyVisuals = FXCollections.observableArrayList();
+        for (int i = 1; i <= 200; i++) {
+            keyVisuals.add(i);
+        }
+        Label useKeyLimit = new Label("Use limit in visualization");
+        ComboBox keyVisualsBox = new ComboBox(keyVisuals);
+        keyVisualsBox.getSelectionModel().select(70);
+        HBox keyBox = createButtonBox(new Node[]{findKeyLen, useKeyLimit, keyVisualsBox});
         Label possibleKeyLenLabel = new Label("Possible key length"); // not currently in gui because might cause confusion
         Text possibleKeyLen = new Text(); // not currently in gui because might cause confusion
         Button showValuesForKeyLens = new Button("Show associated values for key lengths");
@@ -466,7 +469,7 @@ public class CryptoUserInterface extends Application {
         Button findKey = new Button("Find key");
         GridPane charValueGrid = new GridPane();
         Button vigTrialdecrypt = new Button("Try decryption with this key");
-        VBox crackVigenere = createVBox(new Node[]{findKeyLen, showValuesForKeyLens,
+        VBox crackVigenere = createVBox(new Node[]{keyBox, showValuesForKeyLens,
             keylensLabel, keyLengthsBox, findKey, charValueGrid, vigTrialdecrypt});
 
         Stage graphics = new Stage();
@@ -482,10 +485,11 @@ public class CryptoUserInterface extends Application {
             chart.getData().clear();
             XYChart.Series icsForKeyLens = new XYChart.Series<>();
             double[] aggregateDeltaBarICs = ic.allAggregateDeltaBarICs(ciphertext.getText());
-            int limit = aggregateDeltaBarICs.length / 3;
-            if (limit > 70) {
-                limit = 70;
+            int limit = keyVisuals.get(keyVisualsBox.getSelectionModel().getSelectedIndex());
+            if (limit > ciphertext.getText().length()) {
+                limit = ciphertext.getText().length();
             }
+
             for (int i = 0; i < limit; i++) {
                 String len = "" + (i + 1);
                 icsForKeyLens.getData().add(new XYChart.Data(len, aggregateDeltaBarICs[i]));
@@ -533,7 +537,6 @@ public class CryptoUserInterface extends Application {
                 }
             }
 
-//            System.out.println(key);
             crackingResult.setText(vigenere.decrypt(key, ciphertext.getText()));
         });
 

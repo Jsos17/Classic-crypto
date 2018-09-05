@@ -62,8 +62,9 @@ public class HillClimber {
         double best = Double.NEGATIVE_INFINITY;
         String bestGuess = "";
 
+        String ciphertTextUpperCase = ciphertext.toUpperCase();
         for (int i = 0; i < algoRuns; i++) {
-            climbARandomHill(keyLen, ciphertext, iterations, i);
+            climbARandomHill(keyLen, ciphertTextUpperCase, iterations, i);
             if (fitnesses[i] > best) {
                 best = fitnesses[i];
                 bestGuess = maybeKeys[i];
@@ -84,29 +85,29 @@ public class HillClimber {
      * one, then the new key becomes the basis for the next iteration.
      *
      * @param keyLen The suspected key length
-     * @param ciphertext The ciphertext should be in uppercase and should be a
-     * single block of text with no spaces, commas, dots etc
+     * @param ciphertextUppercase The ciphertext should be in uppercase and
+     * should be a single block of text with no spaces, commas, dots etc
      * @param iterations How many times we try to find a "higher point on the
      * hill" i.e. to find a more optimal key by swapping two pairs of characters
      * in the key randomly.
      * @param index Allows the storing of all produced key candidates and their
      * corresponding fitness values in two separate arrays.
      */
-    protected void climbARandomHill(int keyLen, String ciphertext, int iterations, int index) {
+    protected void climbARandomHill(int keyLen, String ciphertextUppercase, int iterations, int index) {
         HashedSet hashedSet = new HashedSet<>(2 * iterations);
         char[] maybeKeyChars = new char[keyLen];
         System.arraycopy(this.alphabet, 0, maybeKeyChars, 0, keyLen);
 
         this.randomizeInPlace(maybeKeyChars);
         String maybeKey = new String(maybeKeyChars);
-        double best = this.ngrams.fitness(this.tCipher.decryptSingleTransposition(maybeKey, ciphertext));
+        double best = this.ngrams.fitness(this.tCipher.decryptSingleTransposition(maybeKey, ciphertextUppercase));
         hashedSet.insert(maybeKey);
 
         for (int i = 1; i <= iterations; i++) {
             maybeKey = swapRandomly(maybeKeyChars);
             if (!hashedSet.contains(maybeKey)) {
                 hashedSet.insert(maybeKey);
-                double value = this.ngrams.fitness(this.tCipher.decryptSingleTransposition(maybeKey, ciphertext));
+                double value = this.ngrams.fitness(this.tCipher.decryptSingleTransposition(maybeKey, ciphertextUppercase));
 
                 if (value > best) {
                     best = value;
@@ -117,7 +118,6 @@ public class HillClimber {
 
         this.fitnesses[index] = best;
         this.maybeKeys[index] = new String(maybeKeyChars);
-//        System.out.println("Current best: " + best + " current key: " + new String(maybeKeyChars));
     }
 
     /**
