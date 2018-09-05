@@ -5,6 +5,7 @@
  */
 package crypto.cryptanalysis;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import org.junit.Before;
 import org.junit.Test;
@@ -58,6 +59,25 @@ public class HillClimberTest {
 
         for (int i = 0; i < comparison.length; i++) {
             assertTrue(set.contains(comparison[i]));
+        }
+    }
+
+    @Test
+    public void runToTheHillsRetursnStringWtihOnlyValidCharacters() {
+        String ciphertext = "oarhmcofokmuttfteraelodsfwatortaltnicawwr";
+        String alphabet = "abcdefghij";
+        HashMap<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < alphabet.length(); i++) {
+            map.put(alphabet.charAt(i), 0);
+        }
+
+        String key = this.hc.runToTheHills(10, ciphertext, 20, 1000);
+        for (int i = 0; i < key.length(); i++) {
+            map.put(key.charAt(i), 1);
+        }
+
+        for (int i = 0; i < alphabet.length(); i++) {
+            assertEquals(1, (int) map.get(alphabet.charAt(i)));
         }
     }
 }
