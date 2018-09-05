@@ -91,6 +91,21 @@ HashTablen:n sisäinen taulukko ja Ngrams-luokan HashTble oli asetettu public-m�
 
 Aakkostoa abcdefghijklmnopqrstuvwxyz permutoitiin randomizeInPlace-algoritmilla tuottaen mielivaltaisia Stringejä, ja jos HashTable ei vielä sisältänyt tätä Stringiä niin se tallennettiin sinne. Samalla kerättiin tilastoaineistoa ylivuotoketjuista.
 
+Siis 1 000 000 kertaa aakkosto permutoitiin satunnaisesti ja tallennettiin HashTableen, jos tuotettua Stringiä ei vielä ollut siellä, ja kirjattiin pisin ylivuotoketju, listojen yhteispituus ja listapituuksien keskiarvo (listojen määrä ja listojen yhteispituus jaettuna listojen määrällä). Tämä operaatio toistettiin 20 kertaa ja saatiin seuraavat keskiarvoiset datat:
+
+[Tilastot tiedostossa](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/hashtable_collision_tests/random_permutations_collisions.xlsx)
+
+| | Pisin ylivuotoketju | Listojen yhteispituus | Listojen määrä |  Listapituuksien keskiarvo |
+|----|----|----|----|----|
+| **Keskiarvo:** | 7.40 | 1000000 | 740081.15 | 1.35 |
+
+* Huomionarvoista on, että jokaisella kerralla kaikki permutaatiot päätyivät hajautustauluun eli duplikaatteja ei tuotettu satunnaisesti johtuen permutaatioiden määrästä suhteutettuna otoskokoon: 26! = 4.03 * 10^26 >> 10^6 = 1 000 000 
+
+Seuraavaa koodia käytettiin:
+
+![Käytetty koodi](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/hashtable_collision_tests/random_permutations_hashing_code.png) 
+
+
 ## Testiaineiston luonti
 
 Testiaineistoa on kerätty kopioimalla mielivaltaisia tekstinpätkiä wikipediasta ja  [Project Gutenbergin](http://www.gutenberg.org/wiki/Harvard_Classics_(Bookshelf)) tarjoamista kirjoista. On myös yritetty ottaa tekstiä eri tyyppisiltä alueilta: Esim Crime and Punishment, Meditations, Prince jne ja wikipediasta tiede-, urheilu ja historiatekstinpätkiä. Kuitenkin tämä on yllättävä hidasta, ellen sitten päätä vain kopioida suurta tekstinpätkää ja sitten katkaise sitä pienemmiksi paloiksi. Yksi mahdollisuus olisi löytää jotain valmiita aineistoja, mutta tämä voi olla vaikeaa.  
