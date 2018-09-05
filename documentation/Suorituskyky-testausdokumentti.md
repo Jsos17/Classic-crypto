@@ -60,7 +60,7 @@ Tässä testatuksessa kerättiin vain täsmälleen oikeat vastaukset, eikä esim
 
 * Huomataan, että sama avaimenpituus näyttää tuottavan saman tuloksen riippumatta avaimen sisällöstä.
 
-* Lisäksi kun salatekstin pituus kasvaa, niin onnistuneiden murtamisyritysten määrä kasvaa, ja toisaalta avaimen pituuden pienentyessä onnistumisten määrä kasvaa myös. 
+* Lisäksi kun salatekstin pituus kasvaa, niin onnistuneiden murtamisyritysten määrä kasvaa yleisessä tapauksessa, ja toisaalta avaimen pituuden pienentyessä onnistumisten määrä kasvaa myös. Tiettyjä poikkeuksia datassa on, eli esimerkiksi salatekstin pituudella 51-100 siirtyessä avaimen pituudesta 12 avaimen pituuteen 11 onnistumisprosentti putoaa hetkellisesti. Tämä luultavasti ja mahdollisesti liittynee näyteaineiston kirjainjakauman tilastollisiin ominaisuuksiin.
 
 * Huomionarvoista on myös se seikka, että esimerkiksi salateksti, jonka pituus on 40 merkkkiä ja joka on salattua avaimella, jonka pituus on 5, tuottaa viisi 8 merkin pituista salatekstipätkää, joista jokainen on salattu samalla aakkostolla (ja siis samalla kirjaimella). Kuitenkin 8 merkkiä on hyvin lyhyt tekstinpätkä kunnollisten tilastollisten tunnuslukujen saamiseksi ja tämä yleinen havainto selittänee lyhyiden tekstien alhaisia murtamisprosentteja kaikilla paitsi aivan lyhimmillä avaimilla.
 
