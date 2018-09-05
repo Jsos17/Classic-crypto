@@ -98,6 +98,7 @@ Siis 1 000 000 kertaa aakkosto permutoitiin satunnaisesti ja tallennettiin HashT
 | | Pisin ylivuotoketju | Listojen yhteispituus | Listojen määrä |  Listapituuksien keskiarvo |
 |----|----|----|----|----|
 | **Keskiarvo:** | 7.40 | 1000000 | 740081.15 | 1.35 |
+| **Pisin ylivuotoketju yli kaikkien testien:** | 9 |
 
 * Huomionarvoista on, että jokaisella kerralla kaikki permutaatiot päätyivät hajautustauluun eli duplikaatteja ei tuotettu satunnaisesti johtuen permutaatioiden määrästä suhteutettuna otoskokoon: 26! = 4.03 * 10^26 >> 10^6 = 1 000 000 
 
