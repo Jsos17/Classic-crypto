@@ -64,12 +64,13 @@ Tässä testatuksessa kerättiin vain täsmälleen oikeat vastaukset, eikä esim
 
 * Huomionarvoista on myös se seikka, että esimerkiksi salateksti, jonka pituus on 40 merkkkiä ja joka on salattua avaimella, jonka pituus on 5, tuottaa viisi 8 merkin pituista salatekstipätkää, joista jokainen on salattu samalla aakkostolla (ja siis samalla kirjaimella). Kuitenkin 8 merkkiä on hyvin lyhyt tekstinpätkä kunnollisten tilastollisten tunnuslukujen saamiseksi ja tämä yleinen havainto selittänee lyhyiden tekstien alhaisia murtamisprosentteja kaikilla paitsi aivan lyhimmillä avaimilla.
 
-### Muita testejä
+### Muita Vigenere salauksen murtamisen testejä
 
 [Aiempi testiasetelmaltaan huonompi suorituskykytesti Vigenere salauksen murtamiselle](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Vigenere_cryptanalysis_test_old.md)
 
 ## Transposition salauksen murtamisen tehokkuus Hill climbing/Random search/Stcohastic optimization menetelmän avulla
 
+(kesken)
 
 ## Hajautustaulutoteutusten ylivuotoketjujen pituuksien tarkastelu
 
