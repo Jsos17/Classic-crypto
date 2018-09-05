@@ -78,7 +78,7 @@ Testaus tehtiin pelkästään HashTable-luokalle, sillä HashedSet on hajautusfu
 
 Vain english_trigrams.txt tiedoston siältö aiheuttaa ylivuotoja, eli kahteen suuntaan linkitettyjä listoja joiden pituus on suurempi kuin yksi. Kaikki kolmen muun tiedoston sisältävät stringit hashautuvat uniikkeihin kohtiin hajautustaulua. Muistettavaa on, että HashTable:n suurin mahdollinen täyttöaste on 0,75 ennenkuin sen koko suurin piirtein kaksinkertaistetaan.
 
-HashTablen:n sisäinen taulukko oli asetettu public määreellä, jotta siihen päätiin käsiksi, ja myös hajautustaulun kohdat jotka eivät sisällä listaaa ovat null ja ne on myös laskettu. Tässä keskiarvoinen listanpituus on listojen yhteispituus jaettuna listojen määrällä, ja siis null listoja ei oteta huomioon.
+HashTablen:n sisäinen taulukko ja Ngrams-luokan HashTble oli asetettu public-määreellä, jotta niihin päästiin käsiksi. Hajautustaulun kohdat jotka eivät sisällä listaa ovat null ja ne on myös laskettu. Tässä keskiarvoinen listanpituus on listojen yhteispituus jaettuna listojen määrällä, ja siis null listoja ei oteta huomioon.
 
 | Aineisto | Aineiston koko | Pisin lista | Listojen yhteenlasketut pituudet | Listojen määrä | Listan pituus keskiarvo | Nulleja | Hajautustaulun koko |
 |----|----|----|----|----|----|----|----|
