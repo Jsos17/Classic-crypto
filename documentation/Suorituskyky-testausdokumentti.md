@@ -101,6 +101,26 @@ Ensimmäiseksi, huomataan että sama avainpituus tuottaa täsämälleen samanlai
 ## Transposition salauksen murtamisen tehokkuus Hill climbing/Random search/Stcohastic optimization menetelmän avulla
 
 
+## Hajautustaulutoteutusten ylivuotoketjujen pituuksien tarkastelu
+
+Testaus tehtiin pelkästään HashTable-luokalle, sillä HashedSet on hajautusfunktion toiminnan suhteen identtinen.
+
+### Ohjelman (mahdollisesti) käyttämien english_quadgrams.txt, english_trigrams.txt, english_bigrams.txt ja english_monograms.txt sisällön hajautus
+
+Vain english_trigrams.txt tiedoston siältö aiheuttaa ylivuotoja, eli kahteen suuntaan linkitettyjä listoja joiden pituus on surempi kuin yksi. Kaikki kolmen muun tiedoston sisältävät stringit hashautuvat uniikkeihin kohtiin hajautustaulua. Muistettavaa on, että HashTable:n suurin mahdollinen täyttöaste on 0,75 ennenkuin sen koko suurin piirtein kaksinkertaistetaan.
+
+HashTablen:n sisäinen taulukko oli asetettu public määreellä, jotta siihen päätiin käsiksi, ja myös hajautustaulun kohdat jotka eivät sisällä listaaa ovat null ja ne on myös laskettu. Tässä keskiarvoinen listanpituus on listojen yhteispituus jaettuna listojen määrällä, ja siis null listoja ei oteta huomioon.
+
+| Aineisto | Aineiston koko | Pisin lista | Listojen yhteenlasketut pituudet | Listojen määrä | Listan pituus keskiarvo | Nulleja | Hajautustaulun koko |
+|----|----|----|----|----|----|----|----|
+| [english_quadgrams](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/hashtable_collision_tests/quadgrams_overflow.png) | 389373 | 1 | 389373 | 389373 | 1.0 | 397060 | 786433 |
+| [english_trigrams](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/hashtable_collision_tests/trigrams_overflow.png) | 17556 | 2 | 17556 | 17381 | 1.01 | 7190 |  24571 |
+| [english_bigrams](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/hashtable_collision_tests/bigrams_overflow.png) | 676 | 1 | 676 | 676 | 1.0 | 867 | 1543 |
+| [english_monograms](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/hashtable_collision_tests/monograms_overflow.png) | 26 | 1 | 26 | 26 | 1.0 | 21 |  47 |
+
+### HashTable:n ylivuotolistat, kun tallennetaan random permutaatioita aakkostosta
+
+Aakkostoa abcdefghijklmnopqrstuvwxyz permutoitiin randomizeInPlace-algoritmilla tuottaen mielivaltaisia Stringejä, ja jos HashTable ei vielä sisältänyt tätä Stringiä niin se tallennetteiin sinne. Samalla kerättiin tilastoaineistoa ylivuotoketjuista.
 
 ## Testiaineiston luonti
 
