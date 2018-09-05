@@ -107,6 +107,6 @@ Seuraavaa koodia käytettiin:
 ![Käytetty koodi](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/hashtable_collision_tests/random_permutations_hashing_code.png) 
 
 
-## Testiaineiston luonti
+## Plaintext-testiaineiston luonti
 
-Testiaineistoa on kerätty kopioimalla mielivaltaisia tekstinpätkiä wikipediasta ja  [Project Gutenbergin](http://www.gutenberg.org/wiki/Harvard_Classics_(Bookshelf)) tarjoamista kirjoista. On myös yritetty ottaa tekstiä eri tyyppisiltä alueilta: Esim Crime and Punishment, Meditations, Prince jne ja wikipediasta tiede-, urheilu ja historiatekstinpätkiä. Kuitenkin tämä on yllättävä hidasta, ellen sitten päätä vain kopioida suurta tekstinpätkää ja sitten katkaise sitä pienemmiksi paloiksi. Yksi mahdollisuus olisi löytää jotain valmiita aineistoja, mutta tämä voi olla vaikeaa.  
+Testiaineistoa on kerätty kopioimalla mielivaltaisia tekstinpätkiä wikipediasta ja  [Project Gutenbergin](http://www.gutenberg.org/wiki/Harvard_Classics_(Bookshelf)) tarjoamista kirjoista. On myös yritetty ottaa tekstiä eri tyyppisiltä alueilta: Prject Gutenebrgista fiktiota ja faktaa sekä wikipediasta tiede-, urheilu-, filosofia- ja historiatekstinpätkiä. 
