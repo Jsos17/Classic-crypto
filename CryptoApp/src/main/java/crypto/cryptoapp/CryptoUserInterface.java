@@ -95,56 +95,7 @@ public class CryptoUserInterface extends Application {
 //        }
 //
 //        System.out.println("Key Length: " + attack.findKeyLengths(vals, threshold));
-        LehmerRandomNumberGenerator generator = new LehmerRandomNumberGenerator();
-        HashTable<String, Long> hashTable = new HashTable<>();
-        char[] alphabet = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
-            'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
-
-        int sample = 1_000_000;
-        for (int i = 0; i < sample; i++) {
-            randomizeInPlace(alphabet, generator);
-            String abc = new String(alphabet);
-
-            if (!hashTable.containsKey(abc)) {
-                hashTable.hashInsert(abc, 42l);
-            }
-        }
-
-        int len = hashTable.hashtable.length;
-        int lengths = 0;
-        int max = 0;
-        int count = 0;
-        int nils = 0;
-        for (int i = 0; i < len; i++) {
-            if (hashTable.hashtable[i] != null) {
-                if (hashTable.hashtable[i].getSize() > max) {
-                    max = hashTable.hashtable[i].getSize();
-                }
-                lengths += hashTable.hashtable[i].getSize();
-                count++;
-            } else {
-                nils++;
-            }
-        }
-
-        System.out.println("Max: " + max);
-        System.out.println("Lengths: " + lengths);
-        System.out.println("Count: " + count);
-        System.out.println("Nulls " + nils);
-        double avg = (double) lengths / count;
-        System.out.println("Avg: " + avg);
-
-//        launch(CryptoUserInterface.class);
-    }
-
-    protected static void randomizeInPlace(char[] alphabet, LehmerRandomNumberGenerator generator) {
-        int n = alphabet.length;
-        for (int i = 0; i < n; i++) {
-            int rndNumber = generator.ints(i, n);
-            char temp = alphabet[i];
-            alphabet[i] = alphabet[rndNumber];
-            alphabet[rndNumber] = temp;
-        }
+        launch(CryptoUserInterface.class);
     }
 
     /**
