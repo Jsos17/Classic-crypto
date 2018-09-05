@@ -76,7 +76,7 @@ Testaus tehtiin pelkästään HashTable-luokalle, sillä HashedSet on hajautusfu
 
 ### Ohjelman (mahdollisesti) käyttämien english_quadgrams.txt, english_trigrams.txt, english_bigrams.txt ja english_monograms.txt sisällön hajautus
 
-Vain english_trigrams.txt tiedoston siältö aiheuttaa ylivuotoja, eli kahteen suuntaan linkitettyjä listoja joiden pituus on surempi kuin yksi. Kaikki kolmen muun tiedoston sisältävät stringit hashautuvat uniikkeihin kohtiin hajautustaulua. Muistettavaa on, että HashTable:n suurin mahdollinen täyttöaste on 0,75 ennenkuin sen koko suurin piirtein kaksinkertaistetaan.
+Vain english_trigrams.txt tiedoston siältö aiheuttaa ylivuotoja, eli kahteen suuntaan linkitettyjä listoja joiden pituus on suurempi kuin yksi. Kaikki kolmen muun tiedoston sisältävät stringit hashautuvat uniikkeihin kohtiin hajautustaulua. Muistettavaa on, että HashTable:n suurin mahdollinen täyttöaste on 0,75 ennenkuin sen koko suurin piirtein kaksinkertaistetaan.
 
 HashTablen:n sisäinen taulukko oli asetettu public määreellä, jotta siihen päätiin käsiksi, ja myös hajautustaulun kohdat jotka eivät sisällä listaaa ovat null ja ne on myös laskettu. Tässä keskiarvoinen listanpituus on listojen yhteispituus jaettuna listojen määrällä, ja siis null listoja ei oteta huomioon.
 
@@ -89,7 +89,7 @@ HashTablen:n sisäinen taulukko oli asetettu public määreellä, jotta siihen p
 
 ### HashTable:n ylivuotolistat, kun tallennetaan random permutaatioita aakkostosta
 
-Aakkostoa abcdefghijklmnopqrstuvwxyz permutoitiin randomizeInPlace-algoritmilla tuottaen mielivaltaisia Stringejä, ja jos HashTable ei vielä sisältänyt tätä Stringiä niin se tallennetteiin sinne. Samalla kerättiin tilastoaineistoa ylivuotoketjuista.
+Aakkostoa abcdefghijklmnopqrstuvwxyz permutoitiin randomizeInPlace-algoritmilla tuottaen mielivaltaisia Stringejä, ja jos HashTable ei vielä sisältänyt tätä Stringiä niin se tallennettiin sinne. Samalla kerättiin tilastoaineistoa ylivuotoketjuista.
 
 ## Testiaineiston luonti
 
