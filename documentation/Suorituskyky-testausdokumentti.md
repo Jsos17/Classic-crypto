@@ -66,10 +66,6 @@ Tässä testatuksessa kerättiin vain täsmälleen oikeat vastaukset, eikä esim
 
 * Avaimia, jotka poikkeavat oikeasta avaimesta vain yhdellä kirjaimella ei laskettu, ja [aiemman testin perusteella](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Vigenere_cryptanalysis_test_old.md) tällaisia tapauksia on runsaasti. Ihmissilmä pystyisi tietysti suhteellisen helposti tunnistamaan, mikä kirjain pitäisi muuttaa, jotta salausavain olisi täsmälleen oikea.
 
-### Muita Vigenere salauksen murtamisen testejä
-
-[Aiempi testiasetelmaltaan huonompi suorituskykytesti Vigenere salauksen murtamiselle](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Vigenere_cryptanalysis_test_old.md)
-
 ## Transposition salauksen murtamisen tehokkuus Hill climbing/Random search/Stcohastic optimization menetelmän avulla
 
 (kesken)
