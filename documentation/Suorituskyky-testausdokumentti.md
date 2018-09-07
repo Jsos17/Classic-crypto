@@ -1,4 +1,4 @@
-# CryptoApp suorituskyky-testausdokumentti (kesken)
+# CryptoApp suorituskyky-testausdokumentti
 
 ## Vigenere salauksen murtamisen tehokkuus tilastollisella chi-squared menetelmällä
 
@@ -68,7 +68,11 @@ Tässä testauksessa kerättiin vain täsmälleen oikeat vastaukset, eikä esime
 
 ## Transposition salauksen murtamisen tehokkuus Hill climbing/Random search/Stcohastic optimization menetelmän avulla
 
-Samaa plaintext-ainestoa kuin yllä käytettiin hill climbing menetelmän testaamiseen yksinkertaisen transposition cipherin murtamisessa. Tulokset ovat yllättävän hyviä olettaen että testauksessa ei tehty systemaattisia virheitä (testaus tapahtui osittain ohjelmallisesti, ja testin suorittavai ohjelman pätkiä ei ole testattu, ja muutenkin testauksen pohjana oleva koodi oli hyvin nopeasti ja rumasti kasattu). Lisäksi huomionarvoista on, että HillClimber-luokan runToTheHill ja climbARandomHill eivät pohjaudu mihinkään pseudokoodiin tai edes yksityiskohtaiseen selostukseen, vaan ovat käytäännössä täysin oma toteutus pohjautuen hyvin yleispiirteisiin ideoihin seuraavilla sivuilla:
+Samaa plaintext-ainestoa kuin yllä käytettiin hill climbing menetelmän testaamiseen yksinkertaisen transposition cipherin murtamisessa. Eli plaintext aineisto salattiin valitulla salausavaimella, joka oli tarkoituksella valittu sisältämään vain aakkoston n ensimmäistä kirjainta, ja sitten tämän salausavaimen pituus annettiin HillClimber luokan runTotTheHills-metodille, jota ajettiin useammalla eri algoRuns ja iterations parametrilla. 
+
+Tulokset ovat yllättävän hyviä olettaen että testauksessa ei tehty systemaattisia virheitä (testaus tapahtui osittain ohjelmallisesti, ja testin suorittavan ohjelman pätkiä ei ole testattu, ja muutenkin testauksen pohjana oleva koodi oli hyvin nopeasti ja rumasti kasattu). Testauksessa käytetty koodi on lisätty testipkakkaukseen crypto.cryptanalysis, mutta sitä ei ole refaktoiroitu mitenkäään (ja varoituksena koodi on myös sen näköistä), sitä käytettiin alunperin osana erillisesti luotua ohjelmaa, ja dokumentoinnin vuoksi luokka (ja sen tarvitsemat tiedostot) siirrettiin src/main/resources kansioon. Siirrosta huolimatta koodin pitäisi kuitenkin lytää oikeat tiedostot jos sen ajaa. [Koodi]()
+
+Lisäksi huomionarvoista on, että HillClimber-luokan runToTheHill ja climbARandomHill eivät pohjaudu mihinkään pseudokoodiin tai edes yksityiskohtaiseen selostukseen, vaan ovat käytäännössä täysin oma toteutus pohjautuen hyvin yleispiirteisiin ideoihin seuraavilla sivuilla:
 
 https://en.wikipedia.org/wiki/Stochastic_hill_climbing
 https://crypto.stackexchange.com/questions/19439/generating-child-keys-for-a-hill-climb-algorithm
@@ -114,6 +118,10 @@ Kuitenkin selkeää dataa saatiin menetelmän toiminnasta [Raakadata](https://gi
 
 ![11](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/transposition_cipher_cryptanalysis_performance/kjabehcgfdi.png)
 
+
+### Tulosten kommentointi
+
+Stokastisen hill climbingin avulla avaimien generointi näyttää yllättävän hyvältä menetelmältä, ja on jopa hiukan uskomatonta että algoritmi (tai minun implementaationi siitä) edes toimii. Tämän tyylinen (mutta varioitu) menetelmä olisi varmasti toiminut myös Vigenere Cipherin lyhyisiin avaimiin paremmin kuin index of coincidence ja chi quared arvojen laskeminen.
 
 ## Hajautustaulutoteutusten ylivuotoketjujen pituuksien tarkastelu
 
