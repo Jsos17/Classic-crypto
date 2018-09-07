@@ -454,7 +454,7 @@ public class CryptoUserInterface extends Application {
         }
         Label useKeyLimit = new Label("Use limit in visualization");
         ComboBox keyVisualsBox = new ComboBox(keyVisuals);
-        keyVisualsBox.getSelectionModel().select(70);
+        keyVisualsBox.getSelectionModel().select(49);
         HBox keyBox = createButtonBox(new Node[]{findKeyLen, useKeyLimit, keyVisualsBox});
         Label possibleKeyLenLabel = new Label("Possible key length"); // not currently in gui because might cause confusion
         Text possibleKeyLen = new Text(); // not currently in gui because might cause confusion
@@ -496,6 +496,8 @@ public class CryptoUserInterface extends Application {
             }
 
             chart.getData().add(icsForKeyLens);
+            graphics.setScene(barChartScene);
+            graphics.show();
         });
 
         showValuesForKeyLens.setOnMouseClicked((event) -> {

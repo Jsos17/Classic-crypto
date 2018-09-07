@@ -21,7 +21,7 @@ public class Ngrams {
     private final int n;
     private final String filename;
     private long sampleSize;
-    public final HashTable<String, Long> ngramStats;
+    private HashTable<String, Long> ngramStats;
 
     /**
      *

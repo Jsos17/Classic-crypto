@@ -17,7 +17,7 @@ public class HashTable<K, V> {
     private final int MAXIMUM_ARRAY_SIZE;
     private final int[] middlePrimes;
     private int index;
-    public DoublyLinkedList<K, V>[] hashtable;
+    private DoublyLinkedList<K, V>[] hashtable;
     private int currentSize;
     private final double HIGH_THRESHOLD;
     private final double LOW_THRESHOLD;

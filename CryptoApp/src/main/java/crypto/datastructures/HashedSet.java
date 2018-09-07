@@ -17,7 +17,7 @@ public class HashedSet<T> {
     private final int MAXIMUM_ARRAY_SIZE;
     private final int[] middlePrimes;
     private int index;
-    public DoublyLinkedMemberList<T>[] hashedSet;
+    private DoublyLinkedMemberList<T>[] hashedSet;
     private int currentSize;
     private final double HIGH_THRESHOLD;
     private final double LOW_THRESHOLD;
