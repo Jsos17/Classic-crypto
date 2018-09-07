@@ -2,6 +2,12 @@
 
 Tämä dokumentti käsittelee ohjelman oikeellisuuden testausta eli että metodit ja algoritmit toimivat oikein. Suorituskykytestaus on eriytetty [erilliseen dokumenttiin](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Suorituskyky-testausdokumentti.md).
 
+## Testikattavuus
+
+![Testikattavuus](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/testikattavuus_final.png)
+
+Testikattavuus on hyvin lähelle 100 % joitain rajatapauksia lähinnä Hajautustaulutoteutuksiin liittyen. Lisäksi kuten aiemmin on todettu, LehmerRandomNumberGeneratorissa on hyvin vaikea testata tilannetta, että koneen kello antaa ajaksi sellaisen luvun joka on jaollinen moduluksella, ja tällöin seed asetetaan erikseen luvuksi 1.
+
 ## Mitä on testattu
 
 Metodien oikeellisutta on pyritty testaamaan luomalla paljon erilaisia syötteitä ja paikoin satunnaistamalla näitä syötteitä. Osalla metodeista ei ole kuin yksi suuri testi johtuen testisyötteiden luonnin työläydestä (lähinnä koskee IndexOfCoincidence luokkaa).
