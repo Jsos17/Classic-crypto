@@ -18,7 +18,7 @@ Toteutettua Vigenere salauksen murtamista testattiin keräämällä [501 eri pit
 | Yhteensä | | 501 |
 
 Tämän jälkeen käsitellyt selkotekstit salattiin avainpituuksilla 1-14 ja joka kerralla testattiin kuinka monta oikeaa avainta menetelmä löytää, sillä oletuksella että avaimen pituus tiedetään jo. Avaimen pituuden tietämysolettama on vähintään kohtuullinen  sillä index of coincidence arvot paljastavat yleensä hyvin selkeästi avainkandidaatit, joista pienin avaimenpituus on looginen aloituskohta.
-Tässä testatuksessa kerättiin vain täsmälleen oikeat vastaukset, eikä esimerkiksi yhdellä kirjaimella pielessä olevia avaimia otettu huomioon.
+Tässä testauksessa kerättiin vain täsmälleen oikeat vastaukset, eikä esimerkiksi yhdellä kirjaimella pielessä olevia avaimia otettu huomioon.
 
 [Lukumäärät](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/vigenere_krypto_avaimet.md)
 
@@ -68,7 +68,18 @@ Tässä testatuksessa kerättiin vain täsmälleen oikeat vastaukset, eikä esim
 
 ## Transposition salauksen murtamisen tehokkuus Hill climbing/Random search/Stcohastic optimization menetelmän avulla
 
-(kesken)
+Samaa plaintext-ainestoa kuin yllä käytettiin hill climbing menetelmän testaamiseen yksinkertaisen transposition cipherin murtamisessa. Tulokset ovat yllättävän hyviä olettaen että testauksessa ei tehty systemaattisia virheitä (testaus tapahtui osittain ohjelmallisesti, ja testin suorittavai ohjelman pätkiä ei ole testattu, ja muutenkin testauksen pohjana oleva koodi oli hyvin nopeasti ja rumasti kasattu). Lisäksi huomionarvoista on, että HillClimber-luokan runToTheHill ja climbARandomHill eivät pohjaudu mihinkään pseudokoodiin tai edes yksityiskohtaiseen selostukseen, vaan ovat käytäännössä täysin oma toteutus pohjautuen hyvin yleispiirteisiin ideoihin seuraavilla sivuilla:
+
+https://en.wikipedia.org/wiki/Stochastic_hill_climbing
+https://crypto.stackexchange.com/questions/19439/generating-child-keys-for-a-hill-climb-algorithm
+http://practicalcryptography.com/cryptanalysis/stochastic-searching/cryptanalysis-columnar-transposition-cipher/
+
+Testeissä tehtiin **epärealistinen** oletus että salausavaimen pituus tiedetään, sen vuoksi että saataisiin edes jotain dataa menetelmän tehokkuudesta, jos avaimen pituus tiedetään/arvataan. 
+
+| Avain (pituus) | Salatekstin pituusluokka | Salatekstien määrä | Algon ajoja | Iteraatioita | Testin toistoja | Keskiarvo oikein yli testien | Prosenttia oikein |
+|----|----|----|----|----|----|----|----|
+| cab (3) | 1-50 | 71 | 30 | 500 | 5 | 55.2 |	77.7% |
+
 
 ## Hajautustaulutoteutusten ylivuotoketjujen pituuksien tarkastelu
 
