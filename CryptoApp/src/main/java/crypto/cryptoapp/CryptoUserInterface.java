@@ -58,40 +58,6 @@ public class CryptoUserInterface extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-//        Quadgrams quad = new Quadgrams("src/main/resources/english_quadgrams.txt");
-//        TranspositionCipher cipher = new TranspositionCipher();
-//        HillClimber climber = new HillClimber(quad);
-//        String ciphertext = "phinascpskrcepxtuctetustyrlllsireftaneiobeoistepnawyipohlileocmsctliarlaarrdletfoehrrlttiihhpttsruhlgdepyytaiaducnhinactotoeooetfnviefnepshtnbbtttessvihoafaknicaswiruiungoouueufesknksiboebhetoecamcotrlfeealyoihtpoaaakttcusnatiutneotcoavoihtnneeluekntestaheansdefkonsslkdoeneaeoawyfcacktwhoeebfoiimsaonehotrsoedegstuane";
-////        System.out.println(text.length());
-//        String key = climber.runToTheHills(10, ciphertext.toUpperCase(), 20, 1000);
-//        System.out.println(key);
-//        System.out.println(cipher.decryptSingleTransposition(key, ciphertext));
-
-//        FrequencyAnalysis freq1 = new FrequencyAnalysis();
-//        IndexOfCoincidence ic1 = new IndexOfCoincidence(freq1);
-//        String c = "vptnvffuntshtarptymjwzirappljmhhqvsubwlzzygvtyitarptyiougxiuydtgzhhvvmumshwkzgstfmekvmpkswdgbilvjljmglmjfqwioiivknulvvfemioiemojtywdsajtwmtcgluysdsumfbieugmvalvxkjduetukatymvkqzhvqvgvptytjwwldyeevquhlulwpkt";
-//        double[] ics = ic1.allAggregateDeltaBarICs(c);
-//        for (int i = 0; i < ics.length; i++) {
-//            System.out.println((i+1) + " | " + ics[i]);
-//        }
-//        FrequencyAnalysis freq1 = new FrequencyAnalysis();
-//        IndexOfCoincidence indexOfC = new IndexOfCoincidence(freq1);
-//        AttackVigenereCipher attack = new AttackVigenereCipher();
-//        String ctext1 = "krmdlcbtpyfjoqrrercskoxgwiqygaevqgmrrlgvpavmklmlqmqdlydsdktjkxckyyzpydiyemqorayyldipohurildlcciybgfctymigcjjkxmbwspjgmmcxxjijjkxrrerdlcfejeipoxsbrcnfwdlcdepqirpylmxgyrgcmlnmqdmlqygclylpcpvmwxfozyvycbirevlohdyvloeplcpokgyrqnycdsrrinbiaswgyrsciblcrrikkgfsrcdspotpowcxxgdwtkpsomlcyargyciqdlcrmjvgjsqzovkkclyxzoezviryhcdipwmlomlglgmlbsvcmxgyrgdwfyyjnwrotyxhkkcukrbovgxebsvcmxgyrrrerxitovjoebcxmsqnbstoqcxx";
-//        String ctext2 = "vptnvffuntshtarptymjwzirappljmhhqvsubwlzzygvtyitarptyiougxiuydtgzhhvvmumshwkzgstfmekvmpkswdgbilvjljmglmjfqwioiivknulvvfemioiemojtywdsajtwmtcgluysdsumfbieugmvalvxkjduetukatymvkqzhvqvgvptytjwwldyeevquhlulwpkt";
-//
-//        double[] vals = indexOfC.allAggregateDeltaBarICs(ctext1);
-//        int n = vals.length / 3;
-//        double threshold = attack.calculateThreshold(vals, n);
-//        System.out.println("Threshold: " + threshold);
-//
-//        for (int i = 0; i < n; i++) {
-//            if (vals[i] > threshold) {
-//                System.out.println("Key: " + (i + 1));
-//            }
-//        }
-//
-//        System.out.println("Key Length: " + attack.findKeyLengths(vals, threshold));
         launch(CryptoUserInterface.class);
     }
 
