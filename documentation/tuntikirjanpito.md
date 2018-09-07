@@ -39,4 +39,5 @@
 | 3.9. | 6 | Plaintext-testiaineiston täydentämistä sopivan pituisilla teksteillä |
 | 4.9. | 5 | Vigenere-salauksen murtamisen suorituskykytestin luonti ja dokumentointi, HashTable ylivuotolistojen pituuksien testauksen aloitus |
 | 5.9. | 4 | HashTable:n (ja sitä kautta HashedSetin) ylivuotolistojen pituuksien testaus |
+| 7.9. | 7 | Suortiuskykytestauksen viimeistely, dokumentoinnnin täydentäminen |
 
