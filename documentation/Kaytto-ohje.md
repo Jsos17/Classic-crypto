@@ -10,7 +10,7 @@ Lataa jar ja anna kansiossa jossa jar sijaitsee komentoriviltä komento (tai lef
 
 Kaikille Vigenere ciphereille pitää syöttää lowercase tekstiä joka sisältää vain standardi latinankielisen aakkoston 26 kirjainta abcdefghijklmnopqrstuvwxyz. Jos teksti sisältää väleja, erikoismerkkejä jne niin salauksen tulos ei välttämättä ole onnistunut. Transposition cipher salauksille voi syöttää vapaamuotoista tekstiä joka sisältää myös isoja kirjaimai, välejä jne.
 
-Salauksen murtamistoiminnallisuudessa syötetyn tekstin pitää olla yhdessä pötkössä käyttäen vain standardi latinankielisen aakkoston 26 kirjainta abcdefghijklmnopqrstuvwxyz. Tämä pätee sekä Vigenere cipherin murtamistoiminnallisuudessa eetä Transpositions cipherin murtamistoiminnallisuudessa.
+Salauksen murtamistoiminnallisuudessa syötetyn tekstin pitää olla yhdessä pötkössä käyttäen vain standardi latinankielisen aakkoston 26 kirjainta abcdefghijklmnopqrstuvwxyz. Tämä pätee sekä Vigenere cipherin murtamistoiminnallisuudessa että Transpositions cipherin murtamistoiminnallisuudessa.
 
 Salauksen murtamiseen ohjeistava gif löytyyy [viikon 6 raportista](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Viikkoraportti-6.md) (ulkoasu on hiukan muuttunut mutta ei paljon).
 
