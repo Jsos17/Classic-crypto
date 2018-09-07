@@ -4,7 +4,7 @@
 
 Lataa jar ja anna kansiossa jossa jar sijaitsee komentoriviltä komento (tai left-click):
 
-    java -jar CryptoApp-1.0.jar
+    java -jar CryptoApp-1.1.jar
 
 ## Ohjelman hyväksymät syötteet
 
@@ -28,4 +28,4 @@ josta valitaan halutun pakkauksen testit.
 
 ## Jar
 
-Jar löytyy CryptoApp/target kansiosta tai [releases osiosta](https://github.com/Jsos17/Classic-crypto/releases/tag/cryptoapp).
+Jar löytyy CryptoApp/target kansiosta tai [releases osiosta](https://github.com/Jsos17/Classic-crypto/releases/tag/crypto1.1).
