@@ -74,11 +74,45 @@ https://en.wikipedia.org/wiki/Stochastic_hill_climbing
 https://crypto.stackexchange.com/questions/19439/generating-child-keys-for-a-hill-climb-algorithm
 http://practicalcryptography.com/cryptanalysis/stochastic-searching/cryptanalysis-columnar-transposition-cipher/
 
-Testeissä tehtiin **epärealistinen** oletus että salausavaimen pituus tiedetään, sen vuoksi että saataisiin edes jotain dataa menetelmän tehokkuudesta, jos avaimen pituus tiedetään/arvataan. 
+Testeissä tehtiin **epärealistinen** oletus että salausavaimen pituus tiedetään, sen vuoksi että saataisiin edes jotain dataa menetelmän tehokkuudesta, jos avaimen pituus tiedetään/arvataan. Lisäksi testit ovat siltä osin puutteellisia, että vain avaimia joiden pituus on 3-11 testattiin ja isommilla avaimilla on vain yksi yksittäinen testiajo useamman sijaan.
 
-| Avain (pituus) | Salatekstin pituusluokka | Salatekstien määrä | Algon ajoja | Iteraatioita | Testin toistoja | Keskiarvo oikein yli testien | Prosenttia oikein |
-|----|----|----|----|----|----|----|----|
-| cab (3) | 1-50 | 71 | 30 | 500 | 5 | 55.2 |	77.7% |
+Kuitenkin selkeää dataa saatiin menetelmän toiminnasta:
+
+#### Avaimen pituus 3
+
+![3](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/transposition_cipher_cryptanalysis_performance/cab.png)
+
+####  Avaimen pituus 4
+
+![4](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/transposition_cipher_cryptanalysis_performance/dacb.png)
+
+#### Avaimen pituus 5
+
+![5](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/transposition_cipher_cryptanalysis_performance/cebda.png)
+
+#### Avaimen pituus 6
+
+![6](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/transposition_cipher_cryptanalysis_performance/febdac.png)
+
+#### Avaimen pituus 7
+
+![7](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/transposition_cipher_cryptanalysis_performance/gadfecb.png)
+
+#### Avaimen pituus 8
+
+![8](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/transposition_cipher_cryptanalysis_performance/hdegfacb.png)
+
+#### Avaimen pituus 9
+
+![9](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/transposition_cipher_cryptanalysis_performance/ibadfechg.png)
+
+#### Avaimen pituus 10
+
+![10](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/transposition_cipher_cryptanalysis_performance/ciajhgefbd.png)
+
+#### Avaimen pituus 11
+
+![11](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/transposition_cipher_cryptanalysis_performance/kjabehcgfdi.png)
 
 
 ## Hajautustaulutoteutusten ylivuotoketjujen pituuksien tarkastelu
