@@ -19,7 +19,3 @@ Testit löytyvät kansiosta
     CryptoApp/rc/test/java/crypto
     
 josta valitaan halutun pakkauksen testit.
-
-## Jar
-
-Jar löytyy CryptoApp/target kansiosta.
