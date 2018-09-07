@@ -2,11 +2,9 @@
 
 ## Ohjelman suorittaminen
 
-Lataa jar ja anna kansiossa jossa jar sijaitsee komentoriviltä komento:
+Lataa jar ja anna kansiossa jossa jar sijaitsee komentoriviltä komento (tai left-click):
 
-    java -jar ?????.jar
-
-
+    java -jar CryptoApp-1.0.jar
 
 ## Ohjelman hyväksymät syötteet
 
@@ -16,7 +14,7 @@ Salauksen murtamistoiminnallisuudessa syötetyn tekstin pitää olla yhdessä p�
 
 Salauksen murtamiseen ohjeistava gif löytyyy [viikon 6 raportista](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Viikkoraportti-6.md) (ulkoasu on hiukan muuttunut mutta ei paljon).
 
-Avaimien siältöön on ohjelmassa erittäin hyvä ohje.
+Avaimien sisältöön on ohjelmassa erittäin hyvä ohje ohjelmassa.
 
 Jos tekstiä copypastetaan, niin kannattaa kiinnittää huomiota että rivinvaihtoja ei copypastea mukana tai lisävälilyöntejä sillä tällöin eri toiminnallisuudet eivät luultavasti toimi oikein.
 
@@ -30,4 +28,4 @@ josta valitaan halutun pakkauksen testit.
 
 ## Jar
 
-Jar löytyy CryptoApp/target kansiosta tai releases osiosta.
+Jar löytyy CryptoApp/target kansiosta tai [releases osiosta](https://github.com/Jsos17/Classic-crypto/releases/tag/cryptoapp).
