@@ -1,11 +1,5 @@
 # Käyttöohje
 
-## Ohjelman suorittaminen
-
-Lataa jar ja anna kansiossa jossa jar sijaitsee komentoriviltä komento (tai left-click):
-
-    java -jar CryptoApp-1.1.jar
-
 ## Ohjelman hyväksymät syötteet
 
 Kaikille Vigenere ciphereille pitää syöttää lowercase tekstiä joka sisältää vain standardi latinankielisen aakkoston 26 kirjainta abcdefghijklmnopqrstuvwxyz. Jos teksti sisältää väleja, erikoismerkkejä jne niin salauksen tulos ei välttämättä ole onnistunut. Transposition cipher salauksille voi syöttää vapaamuotoista tekstiä joka sisältää myös isoja kirjaimai, välejä jne.
@@ -28,4 +22,4 @@ josta valitaan halutun pakkauksen testit.
 
 ## Jar
 
-Jar löytyy CryptoApp/target kansiosta tai [releases osiosta](https://github.com/Jsos17/Classic-crypto/releases/tag/crypto1.1).
+Jar löytyy CryptoApp/target kansiosta.
