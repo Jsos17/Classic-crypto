@@ -6,7 +6,7 @@ Harjoitustyö toteuttaa Java-kielellä klassisia (pre-1940-luku) kryptografisia 
 
 Salausalgoritmeista on toteutettu [Vigenère cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher), Keyed Vigenère cipher ja [Autokey Vigenère cipher](https://en.wikipedia.org/wiki/Autokey_cipher) sekä [yksinkertainen (Single)](https://en.wikipedia.org/wiki/Transposition_cipher#Columnar_transposition) ja [kaksinkertainen (Double) Columnar Transposition](https://en.wikipedia.org/wiki/Transposition_cipher#Double_transposition).
 
-Ohjelmassa on käyttöliittymä, jonka kautta salauksia voi tehdä (encrypt) ja avata (decrypt), ja lisäksi ohjelmassa on olemassa Vigenère cipheriin ja yksinkertaiseen transposition cipherin murtamiseen liittyvää toiminnallisuutta (kesken).
+Ohjelmassa on käyttöliittymä, jonka kautta salauksia voi tehdä (encrypt) ja avata (decrypt), ja lisäksi ohjelmassa on olemassa Vigenère cipheriin ja yksinkertaiseen transposition cipherin murtamiseen liittyvää toiminnallisuutta.
 
 ### Vigenère cipher
 
@@ -24,9 +24,9 @@ Yksinkertaisessa (Single) columnar transposition cipherissa edellä kuvattu sala
 
 [Vigenère cipheriin](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher) ja sen variantteihin viitataan tässä työssä usein pelkästään sanoilla "Vigenere cipher" kirjoittamisen helpottamiseksi, vaikka oikeaan kirjoitusasuun siis kuuluu tuo è-merkki.
 
-### Salauksen murtaminen eli cryptanalysis (kesken)
+### Salauksen murtaminen eli cryptanalysis
 
-Työssä on toteutettu toiminnallisuutta (kesken) tavallisen Vigenère cipherin murtamiseen sekä yksinketaisen columnar transposition cipherin murtamiseen.
+Työssä on toteutettu toiminnallisuuttav tavallisen Vigenère cipherin murtamiseen sekä yksinketaisen columnar transposition cipherin murtamiseen.
 
 ## References / Keskeiset lähteet
 
