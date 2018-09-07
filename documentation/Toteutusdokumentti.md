@@ -6,7 +6,7 @@ Ohjelma jakaantuu salausalgoritmeihin eli ciphereihin ja salauksen murtamiseen e
 
 ## Erot määrittelydokumenttiin
 
-VIC vipheria ei toteutettu johtuen hyvin epäselvistä menetelmää selittävistä lähteistä. One-time-pad ei välttämättä olisi tuonut erityistä lisäarvoa työlle varsinkaan kryptoanalyysin suhteen (koska on murtamaton oikein toteutettuna) ja näin myöskään kryptografisesti turvalliselle satunnaislukugeneraattorille ei ollut enää tarvetta. Edellisestä johtuen tyydyttiin paljon yksinkertaisempaan Lehmer random number generaattoriin (joka siis ei ole kryptografisesti turvallinen).
+VIC vipheria ei toteutettu johtuen hyvin epäselvistä menetelmää selittävistä lähteistä. One-time-pad ei välttämättä olisi tuonut erityistä lisäarvoa työlle varsinkaan kryptoanalyysin suhteen (koska on murtamaton oikein toteutettuna) ja näin myöskään kryptografisesti turvalliselle satunnaislukugeneraattorille ei ollut enää tarvetta. Edellisestä johtuen tyydyttiin paljon yksinkertaisempaan Lehmer random number generaattoriin (joka siis ei ole kryptografisesti turvallinen). Lisäksi Kasiskin testin implementaatiosta luovuttiin index of coincidence ja chi-squared menetelmien hyväksi.
 
 ### Salausalgoritmit
 
@@ -80,20 +80,21 @@ Ainoa asia joka on testattu on hajautustaulun ylivuotolistojen pituus, ja testau
 
 ## Työn puutteet
 
-Vaikka tähän työhön on käytetty huomattavasti aikaa (kokonaistuntimäärä lähestyy 200), niin aika ei silti riittänyt tehdä kaikkea, ja moni asia jäi jossain määrin keskeneräiseksi
+Vaikka tähän työhön on käytetty huomattavasti aikaa (kokonaistuntimäärä lähestyy 200), niin aika ei silti riittänyt tehdä kaikkea, ja moni asia jäi jossain määrin keskeneräiseksi. Erityisesti tässä työssä aikaa vievää oli testiaineistojen kerääminen/luonti ja toisaalta tutkimukseen kulunut aika.
 
-Salauksen murtaminen on lähinnä kokoelma jossain määrin irrallisia algoritmeja, ja itse murtamisprosessi vaatii käyttjältä manuaalisia toimia ja valistuneita päätelmiä. Esiemrkiksi Vigenere salauksen murtamisessa  käyttäjän on itse pääteltävä salausavaimen pituus pylväskaavion visualisoinnin avulla. Lisäksi ajanpuutteen vuoksi jotkut toiminnallisuudet jäivät puuttumaan käyttöliittymästä, kuten brute-force permutaatioiden generointi ja tekstin manipulointityökalu.
+Salauksen murtaminen on lähinnä kokoelma jossain määrin irrallisia algoritmeja, ja itse murtamisprosessi vaatii käyttjältä manuaalisia toimia ja valistuneita päätelmiä. Esiemrkiksi Vigenere salauksen murtamisessa  käyttäjän on itse pääteltävä salausavaimen pituus pylväskaavion visualisoinnin avulla. Lisäksi ajanpuutteen vuoksi jotkut toiminnallisuudet jäivät puuttumaan käyttöliittymästä, kuten brute-force permutaatioiden generointi ja tekstin manipulointityökalu. Transposition cipherin murtamisessa ei ole mitään keinoa löytää avaimen pituutta, vaan sen löytämiseksi olisi vain kokeiltava avaimen pituuksia läpi ja katsottava milloin dekryptaus näyttää järkevältä. Tässä tietysti tekstin oleminen yhdessä pötkössä vaikeuttaa asian toteamista.
 
-Lisäksi käyttöliittymässä Vigenere salauksen murtamisessa pitkillä avaimilla kaikki mahdolliset kirjaimet eivät enää näy käyttjälle johtuen pudotusvalikoista. Tätä ei kuitenkaan ole ehditty muuttaa paremmaksi ajanpuutteen vuoksi, ja koska käyttöliittymä on kuitenkin vain lisänä tälle työlle ja itse toiminnallisuus on kuitenkin olemassa.
+Lisäksi käyttöliittymässä Vigenere salauksen murtamisessa pitkillä avaimilla kaikki mahdolliset kirjaimet eivät enää näy käyttäjälle johtuen pudotusvalikoista. Tätä ei kuitenkaan ole ehditty muuttaa paremmaksi ajanpuutteen vuoksi, ja koska käyttöliittymä on kuitenkin vain lisänä tälle työlle ja itse toiminnallisuus on kuitenkin olemassa.
 
 Koodia pystyisi monin paikoin refaktoroimaan vieläkin enemmän, mutta tähän ei ole jäänyt aikaa, projektin ajankäytöllisen vaativuuden vuoksi.
 
 ## Parannusehdotukset
 
-Salauksen murtamista voisi sekä kehittää algoritmisempaan suuntaan, eli automatisoida miltei kaiken. Lisäksi tykalujen kehittäminen sen tunnistamiseen minkälaista salausta salatekstissä on todennäköisesti käytetty olisi hyödyllistä. Nyt ohjelma nimittäin, lähtee siitä oletuksesta, että käyttäjä joko tietää tai sitten vain arvaa onko salaus esimerkiksi Vigenere tai yksinkertainen Transposition cipher.
+Salauksen murtamista voisi sekä kehittää algoritmisempaan suuntaan, eli automatisoida miltei kaiken. Lisäksi työkalujen kehittäminen sen tunnistamiseen minkälaista salausta salatekstissä todennäköisesti on käytetty, olisi hyödyllistä. Nyt ohjelma nimittäin lähtee siitä oletuksesta, että käyttäjä joko tietää tai sitten vain arvaa onko salaus esimerkiksi Vigenere tai yksinkertainen Transposition cipher.
+
+Vigenere salauksen murtamisessa stochastic hill climbing/random local search menetelmän hyödyntäminen (siis eri versio nykyisestä mutta samoja perusperiaatteita hyödyntävä). Nimittäin, epäilen että tämä menetelmä olisi toiminut paremmin kuin chi-squared arvojen perusteella tehtävä kryptoanalyysi varsinkin lyhyiden tekstien salaamisessa käytettyjen avaimien selvittämisessä.
 
 Sekä salauksien että salauksen murtamismenetelmien laaajentaminen ja syventäminen. Työ on kuitenkin vasta pintaraapaisu edes klassisten salausmenetelmien suhteen, puhumattakaan vaikkapa Enigma-laitteen tyyppisistä salauksista.
-
 
 ## References / Lähteet
 
