@@ -1,4 +1,4 @@
-# CryptoApp toteutusdokumentti (kesken)
+# CryptoApp toteutusdokumentti
 
 ## Ohjelman yleisrakenne
 
@@ -36,20 +36,55 @@ Pakkauksista **crypto.helpers** sisältää lähinnä apuluokkia, **crypto.sorti
 
 Käyttöliittymä on pakkauksessa **crypto.cryptoapp**. Tämän pakkauksen ainoassa luokassa eli käyttöliittymäluokassa on Javan omia tietorakennetoteutuksia, joita on kuitenkin käytetty vain graafisen käyttöliittymän luomiseen ja ylläpitämiseen eli esimerkiki  FXCollections ja ObservableList sekä lukuisia graafisia komponentteja.
 
-## Aika- ja tilavaativuudet
+## Aika- ja tilavaativuudet (teoreettiset)
+
+Työ painottui testaamaan sitä minkälaisia salatekstejä voidaan murtaa, ja siksi aikavaatimuksia ei ole empiirisesti testattu, koska salausalgoritmeilla se olisi luultavasti triviaalia niiden lineaarisuuden (tekstin pituuden suhteen) vuoksi ja toisaalta salauksen murtamisessa on lähinnä keskitytty siihen, että edes joitain salatekstejä saatataisiin murrettua joissain olosuhteissa. Lisäksi klassisissa salausalgoritmeissa salauksen murtaminen muuttuu sitä todennäköisemmäksi mitä enemmän salatekstiä on suhteessa avaimeen (ja myös absoluuttisesti tekstin pituutena). 
+
+Sen sijaan pitkät avaimet olisivat varmasti tehokkudelle kova testi varsinkin transposition salauksissa, mutta tässä projektissa juuri ja juuri saatiin jotain alustavaa salauksen murtamistoiminnallisuutta aikaan, ja aikaa ei oikeastaan jäänyt isoihin testeihin pitkille avaimille transposition cipherissa.
+
+### Oletusmerkinnät:
+
+Ellei erikseen muuta mainita, n = selko-/salatekstin pituus merkkeinä
 
 ### Salaukset:
 
-Salausalgoritmien aikavaativuudet ovat kaikki O(n), missä n on selko- tai salatekstin pituus merkkeinä.
+Salausalgoritmien (sekä encrypt että decrypt) aikavaativuudet ovat kaikki O(n). Salausalgoritmi-luokkien kaikki metodit ovat tilavaativuudeltaan joko O(1) tai O(n), sillä esimerkiksi transposition salauksessa käytetään kaksiulotteista taulukkoa hyväksi, mutta senkin koko on O(n), ja lisäksi usein salateksti tai selkoteksti joko kopioidaan Stringinä tai sitten char-arraynä.
 
+Yleisesti siis aikavaativuuksien suhteen salauksessa ei tapahdu mitään ihmeellistä.
 
 ## Salauksen murtaminen:
 
+Transposition cipherin murtamisen päämenetelmässä runToTheHills, algoritmin rungossa aikaa vievin operaatio on varmasti fitness-arvon laskeminen joka vie ajan O(n) koska esimerkikis quadgrammeja on n-pituisessa tekstissä n-3 kappaletta ja muut operaatiot ovat O-analyysin mielessä vakiaikaisia. 
 
+Siis runToTheHills aikavaativuus on luokkaa O(algoRuns * iterations * n), sillä jokaisessa for-loopin rungossa suoritetaan fitness-arvon lasku. Parametrit algoRuns ja iterations eivät suinkaan ole vakioita sillä, niiden kokoa pitää kasvattaa jos salausavaimen koko kasvaa, koska muuten ohjelma ei (hyvin-alustavan) empiirisen testauksen perusteella löydä oikeita avaimia.
+
+Vigenere cipherin murtamisessa aikaa vievimmät algoritmit löytyvät luokasta IndexOfCoincidence, sillä eri tilastollisten tunnuslukujen lasku vaati käytännössä aina koko syötteenä saatavan tekstin läpikäynnin ja siitä tunnusluujen laskemisen.
+
+(Joitain teoreettisia) aikavaativuuksia IndexOfCoincidence luokasta: 
+
+* subSequences(ciphertext, keyLen): O(n)
+
+* chiSquared(occurrences, frequencies, textLen): O(o), missä o = occurrences.length
+
+* deltaBarIC(String ciphertext): O(n)
+
+* aggregateDeltaBarIC(ciphertext, keyLen): O(n), koska deltaBarIc saa parametriksi subseuquencen ja täm toistetaan subsequencien määrän verran ja näin subsequences.length * subesequences = n
+
+* allAggregateDeltaBarICs(ciphertext): O(n^2), koska aggregateDeltaBarIC suoritetaan n kertaa
+
+# Omat tietorakenteet ja (perus)algoritmit
+
+Järjestysalgoritmit, hajautustaulutoteutus, permutaatioiden generointi ja suurimman yhteisen tekijän löytäminen noudattavat pitkälti Tietorakenteiden ja algoritmien kevään 2018 luentomateriaalin ja kirjan Introduction to Algorithms 3rd. edition pseudokoodia ja näin on luotettu niiden tehokkuuteen. 
+
+Ainoa asia joka on testattu on hajautustaulun ylivuotolistojen pituus, ja testaus paljasti että ohjelman tyypillisesti käyttämällä aineistolla (josta suuri osa on staattisissa tekstitiedostoissa tai kuuluu standardi latinalaisen aakkostooon) ylivuotolistojen koko pysyy kurissa. Tämä testaus löytyy [suorituskykytestatuksesta](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Suorituskyky-testausdokumentti.md).
 
 ## Työn puutteet
 
-Salauksen murtaminen on lähinnä kokoelma jossain määrin irrallisia algoritmeja, ja itse murtamisprosessi vaatii käyttjältä manuaalisia toimia ja valistuneita päätelmiä. Esiemrkiksi Vigenere salauksen murtamisessa  käyttäjän on itse pääteltävä salausavaimen pituus pylväskaavion visualisoinnin avulla.
+Vaikka tähän työhön on käytetty huomattavasti aikaa (kokonaistuntimäärä lähestyy 200), niin aika ei silti riittänyt tehdä kaikkea, ja moni asia jäi jossain määrin keskeneräiseksi
+
+Salauksen murtaminen on lähinnä kokoelma jossain määrin irrallisia algoritmeja, ja itse murtamisprosessi vaatii käyttjältä manuaalisia toimia ja valistuneita päätelmiä. Esiemrkiksi Vigenere salauksen murtamisessa  käyttäjän on itse pääteltävä salausavaimen pituus pylväskaavion visualisoinnin avulla. Lisäksi ajanpuutteen vuoksi jotkut toiminnallisuudet jäivät puuttumaan käyttöliittymästä, kuten brute-force permutaatioiden generointi ja tekstin manipulointityökalu.
+
+Lisäksi käyttöliittymässä Vigenere salauksen murtamisessa pitkillä avaimilla kaikki mahdolliset kirjaimet eivät enää näy käyttjälle johtuen pudotusvalikoista. Tätä ei kuitenkaan ole ehditty muuttaa paremmaksi ajanpuutteen vuoksi, ja koska käyttöliittymä on kuitenkin vain lisänä tälle työlle ja itse toiminnallisuus on kuitenkin olemassa.
 
 Koodia pystyisi monin paikoin refaktoroimaan vieläkin enemmän, mutta tähän ei ole jäänyt aikaa, projektin ajankäytöllisen vaativuuden vuoksi.
 
