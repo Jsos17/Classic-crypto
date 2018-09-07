@@ -76,7 +76,7 @@ http://practicalcryptography.com/cryptanalysis/stochastic-searching/cryptanalysi
 
 Testeissä tehtiin **epärealistinen** oletus että salausavaimen pituus tiedetään, sen vuoksi että saataisiin edes jotain dataa menetelmän tehokkuudesta, jos avaimen pituus tiedetään/arvataan. Lisäksi testit ovat siltä osin puutteellisia, että vain avaimia joiden pituus on 3-11 testattiin ja isommilla avaimilla on vain yksi yksittäinen testiajo useamman sijaan.
 
-Kuitenkin selkeää dataa saatiin menetelmän toiminnasta:
+Kuitenkin selkeää dataa saatiin menetelmän toiminnasta [Raakadata](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/transposition_cipher_cryptanalysis_performance/HillClimber_data.xlsx):
 
 #### Avaimen pituus 3
 
