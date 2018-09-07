@@ -1,4 +1,4 @@
-# CryptoApp oikeellisuuden testausdokumentti (kesken)
+# CryptoApp oikeellisuuden testausdokumentti
 
 Tämä dokumentti käsittelee ohjelman oikeellisuuden testausta eli että metodit ja algoritmit toimivat oikein. Suorituskykytestaus on eriytetty [erilliseen dokumenttiin](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/Suorituskyky-testausdokumentti.md).
 
@@ -18,7 +18,10 @@ CombinatoricsTest luokassa taas on metodi joka on lähes sama kuin Tietorakentee
  
 ## Testien toistaminen
 
+Testit voi ajaa CryptoApp kansiossa ollessa kometoriviltä komennolla:
+
+    mvn test
 
 ## Erityisen raskaat testit
 
-TranspositionAttackTest luokassa on tällä hetkellä vain neljä testiä, mutta silti tämä testi vie noin 3-4 kertaa pitempään kuin muut 163 testiä yhteensä. Tämä johtuu siitä, että jokainen testin metodi generoi permutaatioita.
+TranspositionAttackTest luokan testit vievät huomattavasti enemmän aikaa kuin valtaosa muista testeistä yhteensä. Tämä johtuu siitä, että jokainen testin metodi generoi permutaatioita
