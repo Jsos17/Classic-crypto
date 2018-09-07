@@ -45,12 +45,12 @@ public class TextProcessor {
 
 //        ArrayList<String> plaintexts = read("src/main/resources/unmanipulated_501_sample_plaintexts.txt", set, map);
 //        write("src/main/resources/501_sample_plaintexts.txt", plaintexts, false);
-        String key = "becad";
+        String key = "cab";
         ArrayList<String> ciphertexts = encryptTransposition("src/main/resources/501_sample_ciphertexts.txt", read("src/main/resources/501_sample_plaintexts.txt", set, map), false, trans, key);
 
 //        FrequencyAnalysis freq = new FrequencyAnalysis();
 //        IndexOfCoincidence ic = new IndexOfCoincidence(freq);
-        int algoRuns = 20;
+        int algoRuns = 10;
         int iterations = 500;
         System.out.println("Encryption done");
         Ngrams ngrams = new Ngrams(4, "src/main/resources/english_quadgrams.txt");
@@ -115,6 +115,7 @@ public class TextProcessor {
                 }
 //                System.out.println("Correct | Length: " + plaintexts.get(i).length() + " | " + plaintexts.get(i));
             } else {
+                System.out.println(foundKeys.get(i));
 //                int sames = 0;
 //                for (int j = 0; j < foundKeys.get(i).length(); j++) {
 //                    if (foundKeys.get(i).charAt(j) == key.charAt(j)) {
