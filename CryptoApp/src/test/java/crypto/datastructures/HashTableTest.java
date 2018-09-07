@@ -327,4 +327,19 @@ public class HashTableTest {
         ht2.hashDelete(x);
         assertEquals(0, ht2.getCurrentSize());
     }
+
+    @Test
+    public void cornerCaseTest() {
+        HashTable<String, Integer> table = new HashTable<>(50_331_650);
+        assertEquals(50_331_653, table.getTableCapacity());
+        table.hashInsert("key1", 42);
+        table.hashInsert("key2", 42);
+        table.hashInsert("key3", 42);
+        table.hashInsert("key4", 42);
+        table.hashInsert("key5", 42);
+        table.hashInsert("key6", 42);
+        table.hashInsert("key7", 42);
+        table.hashInsert("key8", 42);
+        assertEquals(50_331_653, table.getTableCapacity());
+    }
 }

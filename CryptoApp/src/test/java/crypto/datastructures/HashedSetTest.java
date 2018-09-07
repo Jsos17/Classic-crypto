@@ -115,13 +115,14 @@ public class HashedSetTest {
 
     @Test
     public void reSizingWorksTest2() {
-        HashedSet<Integer> set2 = new HashedSet<>(30000);
-        assertEquals(49_157, set2.getTableCapacity());
+        HashedSet<Integer> set2 = new HashedSet<>();
+        assertEquals(47, set2.getTableCapacity());
         int n = 20000;
         for (int i = 1; i <= n; i++) {
             set2.insert(i);
         }
 
+        assertEquals(49_157, set2.getTableCapacity());
         for (int i = 1; i <= 15000; i++) {
             set2.delete(i);
         }
@@ -185,6 +186,21 @@ public class HashedSetTest {
     @Test
     public void tableSizeTest4() {
         HashedSet<String> set = new HashedSet<>(500_000_000);
+        assertEquals(50_331_653, set.getTableCapacity());
+    }
+
+    @Test
+    public void cornerCaseTest() {
+        HashedSet<String> set = new HashedSet<>(50_331_650);
+        assertEquals(50_331_653, set.getTableCapacity());
+        set.insert("key1");
+        set.insert("key2");
+        set.insert("key3");
+        set.insert("key4");
+        set.insert("key5");
+        set.insert("key6");
+        set.insert("key7");
+        set.insert("key8");
         assertEquals(50_331_653, set.getTableCapacity());
     }
 }

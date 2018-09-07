@@ -5,7 +5,6 @@
  */
 package crypto.helpers;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -200,5 +199,10 @@ public class GreatestCommonDivisorTest {
     @Test
     public void gcdForMultiplesTest4() {
         assertEquals(21, gcd.gcdForMultiples(new int[]{462, 1071, 3738, 336, 9072, 5166, 588, 41370, 17073, 273, 4935, 21021}));
+    }
+
+    @Test
+    public void cornerCaseTest() {
+        assertEquals(57, gcd.gcdForMultiples(new int[]{57}));
     }
 }

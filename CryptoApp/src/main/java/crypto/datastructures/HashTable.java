@@ -21,6 +21,7 @@ public class HashTable<K, V> {
     private int currentSize;
     private final double HIGH_THRESHOLD;
     private final double LOW_THRESHOLD;
+    private final boolean sizeSetted;
 
     public HashTable() {
         this.MAXIMUM_ARRAY_SIZE = 50_331_653;
@@ -33,6 +34,7 @@ public class HashTable<K, V> {
         this.currentSize = 0;
         this.HIGH_THRESHOLD = 0.75;
         this.LOW_THRESHOLD = 0.25;
+        this.sizeSetted = false;
     }
 
     /**
@@ -52,7 +54,10 @@ public class HashTable<K, V> {
 
         if (size >= 50_331_653) {
             this.index = this.middlePrimes.length - 6; // the value at index: 50_331_653
+            this.sizeSetted = true;
         } else if (size > 0) {
+            this.sizeSetted = true;
+
             int i = 0;
             while (i < this.middlePrimes.length && size > this.middlePrimes[i]) {
                 i++;
@@ -61,6 +66,7 @@ public class HashTable<K, V> {
             this.index = i;
         } else {
             this.index = 2;
+            this.sizeSetted = false;
         }
 
         this.hashtable = new DoublyLinkedList[this.middlePrimes[this.index]];
@@ -150,7 +156,7 @@ public class HashTable<K, V> {
         double loadFactor = (double) this.currentSize / this.hashtable.length;
         if (loadFactor > this.HIGH_THRESHOLD) {
             this.grow();
-        } else if (loadFactor < this.LOW_THRESHOLD) {
+        } else if (this.sizeSetted == false && loadFactor < this.LOW_THRESHOLD) {
             this.shrink();
         }
     }

@@ -456,8 +456,6 @@ public class CryptoUserInterface extends Application {
         ComboBox keyVisualsBox = new ComboBox(keyVisuals);
         keyVisualsBox.getSelectionModel().select(49);
         HBox keyBox = createButtonBox(new Node[]{findKeyLen, useKeyLimit, keyVisualsBox});
-        Label possibleKeyLenLabel = new Label("Possible key length"); // not currently in gui because might cause confusion
-        Text possibleKeyLen = new Text(); // not currently in gui because might cause confusion
         Button showValuesForKeyLens = new Button("Show associated values for key lengths");
         Label keylensLabel = new Label("Key length to use in trial decryption");
         ObservableList<Integer> keyLengths = FXCollections.observableArrayList();

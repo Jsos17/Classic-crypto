@@ -17,7 +17,6 @@ public class FrequencyAnalysis {
 
     private String alphabet;
     private double[] expectedLetterFrequencies;
-//    private HashTable<Character, Integer> alphabetIndexes;;
     private HashTable<Character, Integer> alphabetIndexes;
 
     /**
