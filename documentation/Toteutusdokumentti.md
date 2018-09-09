@@ -80,7 +80,7 @@ Ainoa asia joka on testattu on hajautustaulun ylivuotolistojen pituus, ja testau
 
 ## Työn puutteet
 
-**HUOM jar-tiedostoon liittyy se ongelma että quadgrams.txt tiedosto ei löydy (vaikka se on mukana jarissa), minkä vuoksi transposition cipherin murtamistoiminnallisuus ei toimi jos ohjelma suoritetaan jarin kautta** 
+**HUOM jar-tiedostoon liittyy se ongelma että english_quadgrams.txt tiedosto ei löydy (vaikka se on mukana jarissa), minkä vuoksi transposition cipherin murtamistoiminnallisuus ei toimi jos ohjelma suoritetaan jarin kautta** 
 
 Vaikka tähän työhön on käytetty huomattavasti aikaa (kokonaistuntimäärä lähestyy 200), niin aika ei silti riittänyt tehdä kaikkea, ja moni asia jäi jossain määrin keskeneräiseksi. Erityisesti tässä työssä aikaa vievää oli testiaineistojen kerääminen/luonti ja toisaalta tutkimukseen kulunut aika.
 
