@@ -80,6 +80,8 @@ Ainoa asia joka on testattu on hajautustaulun ylivuotolistojen pituus, ja testau
 
 ## Työn puutteet
 
+**HUOM jar-tiedostoon liittyy se ongelma että quadgrams.txt tiedosto ei löydy (vaikka se on mukana jarissa), minkä vuoksi transposition cipherin murtamistoiminnallisuus ei toimi jos ohjelma suoritetaan jarin kautta** 
+
 Vaikka tähän työhön on käytetty huomattavasti aikaa (kokonaistuntimäärä lähestyy 200), niin aika ei silti riittänyt tehdä kaikkea, ja moni asia jäi jossain määrin keskeneräiseksi. Erityisesti tässä työssä aikaa vievää oli testiaineistojen kerääminen/luonti ja toisaalta tutkimukseen kulunut aika.
 
 Salauksen murtaminen on lähinnä kokoelma jossain määrin irrallisia algoritmeja, ja itse murtamisprosessi vaatii käyttjältä manuaalisia toimia ja valistuneita päätelmiä. Esiemrkiksi Vigenere salauksen murtamisessa  käyttäjän on itse pääteltävä salausavaimen pituus pylväskaavion visualisoinnin avulla. Lisäksi ajanpuutteen vuoksi jotkut toiminnallisuudet jäivät puuttumaan käyttöliittymästä, kuten brute-force permutaatioiden generointi ja tekstin manipulointityökalu. Transposition cipherin murtamisessa ei ole mitään keinoa löytää avaimen pituutta, vaan sen löytämiseksi olisi vain kokeiltava avaimen pituuksia läpi ja katsottava milloin dekryptaus näyttää järkevältä. Tässä tietysti tekstin oleminen yhdessä pötkössä vaikeuttaa asian toteamista.
