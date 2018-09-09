@@ -80,7 +80,11 @@ Ainoa asia joka on testattu on hajautustaulun ylivuotolistojen pituus, ja testau
 
 ## Työn puutteet
 
-**HUOM jar-tiedostoon liittyy se ongelma että english_quadgrams.txt tiedosto ei löydy (vaikka se on mukana jarissa), minkä vuoksi transposition cipherin murtamistoiminnallisuus ei toimi jos ohjelma suoritetaan jarin kautta** 
+**HUOM jar-tiedostoon liittyy se ongelma että english_quadgrams.txt tiedosto ei löydy (väärä polku, tiedosto on olemassa jarissa) kun start-metodissa kutsutaan**
+
+    quadgrams = new Ngrams(4, "src/main/resources/english_quadgrams.txt");
+
+**minkä vuoksi transposition cipherin murtamistoiminnallisuus ei toimi jos ohjelma suoritetaan jarin kautta (ohjelma ei voi laskea fitness-arvoja olemattomasta aineistosta). Lisäksi AttackTranspositionCipher luokassa on sama ongelma konstruktorissa mutta tämä ei vaikuta ohjelman toimintaan sillä kyseistä luokkaa ei käytetä ohjelmalogiikassa vaan ainoastaan testeissä (jossa voi myös esiintyä samasta syystä tämä ongelma). Erityisesti koska deadline on jo mennyt, tätä ei korjata, ja toisaalta minulla ei olisi edes suoralta kädeltä ratkaisua sihen miten tiedostoihin pitäisi viitata niin että tiedosto löytyisi sekä kehitysympäristössä että jarissa.**
 
 Vaikka tähän työhön on käytetty huomattavasti aikaa (kokonaistuntimäärä lähestyy 200), niin aika ei silti riittänyt tehdä kaikkea, ja moni asia jäi jossain määrin keskeneräiseksi. Erityisesti tässä työssä aikaa vievää oli testiaineistojen kerääminen/luonti ja toisaalta tutkimukseen kulunut aika.
 
