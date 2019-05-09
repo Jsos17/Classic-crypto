@@ -14,6 +14,9 @@ import crypto.cryptanalysis.HillClimber;
 import crypto.cryptanalysis.IndexOfCoincidence;
 import crypto.cryptanalysis.Ngrams;
 import crypto.helpers.CharacterValue;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -73,7 +76,9 @@ public class CryptoUserInterface extends Application {
         keyedVig = new KeyedVigenereCipher("");
         autokeyVig = new AutokeyVigenereCipher();
         transposition = new TranspositionCipher();
-        quadgrams = new Ngrams(4, "src/main/resources/english_quadgrams.txt");
+
+        quadgrams = new Ngrams(4);
+        quadgrams.readInputStream(getClass().getResourceAsStream("/english_quadgrams.txt"));
         hillClimber = new HillClimber(quadgrams);
         freq = new FrequencyAnalysis();
         ic = new IndexOfCoincidence(freq);

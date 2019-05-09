@@ -5,16 +5,13 @@
  */
 package crypto.cryptanalysis;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.PrintStream;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Rule;
-import org.junit.rules.TemporaryFolder;
 
 /**
  *
@@ -39,25 +36,14 @@ public class NgramsTest {
         System.setErr(originalErr);
     }
 
-    @Rule
-    public TemporaryFolder testFolder = new TemporaryFolder();
-
-    private File testFile;
     private Ngrams ngrams;
 
     @Before
     public void setUp() throws Exception {
-        this.testFile = testFolder.newFile("test_ngram.txt");
-        try (FileWriter file = new FileWriter(this.testFile.getAbsolutePath())) {
-            file.write("THET 3597105\nHEIR 2630839\nTOBE 1850003\nTHRO 1239338");
-
-        }
-        this.ngrams = new Ngrams(4, this.testFile.getAbsolutePath());
-    }
-
-    @After
-    public void tearDown() {
-        testFile.delete();
+        String str = "THET 3597105\nHEIR 2630839\nTOBE 1850003\nTHRO 1239338";
+        byte[] bytes = str.getBytes("UTF-8");
+        this.ngrams = new Ngrams(4);
+        this.ngrams.readInputStream(new ByteArrayInputStream(bytes));
     }
 
     @Test
@@ -112,39 +98,32 @@ public class NgramsTest {
 
     @Test
     public void corruptedFileTest1() throws Exception {
-        File testFile2 = testFolder.newFile("test_2.txt");
-        try (FileWriter file = new FileWriter(testFile2.getAbsolutePath())) {
-            file.write("THET TEST\n");
-        }
+        String str = "THET TEST\n";
+        byte[] bytes = str.getBytes("UTF-8");
 
-        Ngrams ngrams2 = new Ngrams(4, testFile2.getAbsolutePath());
+        Ngrams ngrams2 = new Ngrams(4);
+        ngrams2.readInputStream(new ByteArrayInputStream(bytes));
         assertEquals("The file is corrupted\n", errContent.toString());
-        testFile2.delete();
     }
 
     @Test
     public void corruptedFileTest2() throws Exception {
-        File testFile2 = testFolder.newFile("test_2.txt");
-        try (FileWriter file = new FileWriter(testFile2.getAbsolutePath())) {
-            file.write("THET\n");
-        }
+        String str = "THET TEST\n";
+        byte[] bytes = str.getBytes("UTF-8");
 
-        Ngrams ngrams2 = new Ngrams(4, testFile2.getAbsolutePath());
+        Ngrams ngrams2 = new Ngrams(4);
+        ngrams2.readInputStream(new ByteArrayInputStream(bytes));
         assertEquals(0, ngrams2.getSampleSize());
-        testFile2.delete();
-    }
-
-    @Test
-    public void nonExistentFileTest() {
-        Ngrams ngrams2 = new Ngrams(4, "test3.txt");
-        assertEquals("File not found\n", errContent.toString());
     }
 
     @Test
     public void monoBiTrigramsTest1() {
-        Ngrams mono = new Ngrams(1, "src/main/resources/english_monograms.txt");
-        Ngrams bi = new Ngrams(2, "src/main/resources/english_bigrams.txt");
-        Ngrams tri = new Ngrams(3, "src/main/resources/english_trigrams.txt");
+        Ngrams mono = new Ngrams(1);
+        mono.readInputStream(getClass().getResourceAsStream("/english_monograms.txt"));
+        Ngrams bi = new Ngrams(2);
+        bi.readInputStream(getClass().getResourceAsStream("/english_bigrams.txt"));
+        Ngrams tri = new Ngrams(3);
+        tri.readInputStream(getClass().getResourceAsStream("/english_trigrams.txt"));
 
         assertEquals(1, mono.getN());
         assertEquals(2, bi.getN());

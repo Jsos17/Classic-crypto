@@ -30,7 +30,8 @@ public class AttackTranspositionCipher {
         this.combi = new Combinatorics();
         this.alphabet = "abcdefghijklmnopqrstuvwxyz";
         this.ciph = new TranspositionCipher();
-        this.quad = new Ngrams(4, "src/main/resources/english_quadgrams.txt");
+        this.quad = new Ngrams(4);
+        this.quad.readInputStream(getClass().getResourceAsStream("/english_quadgrams.txt"));
         this.hillClimber = new HillClimber(this.quad);
     }
 

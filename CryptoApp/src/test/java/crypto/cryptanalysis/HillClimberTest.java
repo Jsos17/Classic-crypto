@@ -22,7 +22,8 @@ public class HillClimberTest {
 
     @Before
     public void setUp() {
-        this.quad = new Ngrams(4, "src/main/resources/english_quadgrams.txt");
+        this.quad = new Ngrams(4);
+        this.quad.readInputStream(getClass().getResourceAsStream("/english_quadgrams.txt"));
         this.hc = new HillClimber(quad);
     }
 

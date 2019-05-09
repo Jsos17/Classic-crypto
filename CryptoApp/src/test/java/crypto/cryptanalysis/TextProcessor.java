@@ -15,8 +15,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;
-import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -53,7 +51,8 @@ public class TextProcessor {
         int algoRuns = 10;
         int iterations = 500;
         System.out.println("Encryption done");
-        Ngrams ngrams = new Ngrams(4, "src/main/resources/english_quadgrams.txt");
+        Ngrams ngrams = new Ngrams(4);
+        ngrams.readInputStream(TextProcessor.class.getResourceAsStream("/english_quadgrams.txt"));
         HillClimber hill = new HillClimber(ngrams);
         ArrayList<String> foundKeys = cryptanalysisTransposition("src/main/resources/501_sample_ciphertexts.txt", key.length(), hill, algoRuns, iterations);
 
@@ -165,7 +164,7 @@ public class TextProcessor {
             } else {
 //                System.out.println("Len " + (i * 50 + 1) + "-" + ((i + 2) * 50) + " Correct: " + counts[i] + "/" + samples[i].size());
             }
-            
+
 //            System.out.println(counts[i] + " " + samples[i].size());
             System.out.println(counts[i]);
 //            System.out.printf("%.1f", avgs[i]);

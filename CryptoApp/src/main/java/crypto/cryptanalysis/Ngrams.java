@@ -6,8 +6,12 @@
 package crypto.cryptanalysis;
 
 import crypto.datastructures.HashTable;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /**
@@ -19,7 +23,6 @@ import java.util.Scanner;
 public class Ngrams {
 
     private final int n;
-    private final String filename;
     private long sampleSize;
     private HashTable<String, Long> ngramStats;
 
@@ -28,35 +31,25 @@ public class Ngrams {
      * @param n The desired n-gram substring length i.e. monogram is 1-gram and
      * is related to frequencies of single letter in a text, bigram (2-gram) is
      * related to frequencies of letter pairs in a text etc.
-     * @param filename A text file which contains data related to the specified
-     * n-gram. For each row the file should have the n-gram string, then a
-     * single space and finally the count of said n-grams in sample text. If the
-     * file violates this rule, then the results most likely will not be
-     * accurate.
      */
-    public Ngrams(int n, String filename) {
+    public Ngrams(int n) {
         this.n = n;
-        this.filename = filename;
         this.sampleSize = 0;
         this.ngramStats = new HashTable<>();
-        readFile();
     }
 
     public int getN() {
         return n;
     }
 
-    /**
-     * Reads the n-gram statistical data from a text file and then stores it in
-     * a hash table. The text file is provided as a constructor parameter.
-     *
-     * @return The sample size of the statistical data contained in the text
-     * file
-     */
-    private long readFile() {
-        try (Scanner scanner = new Scanner(new File(this.filename))) {
-            while (scanner.hasNextLine()) {
-                String[] line = scanner.nextLine().split(" ");
+    public void readInputStream(InputStream stream) {
+        InputStreamReader isr = new InputStreamReader(stream);
+        BufferedReader br = new BufferedReader(isr);
+
+        try {
+            String lineString = br.readLine();
+            while (lineString != null) {
+                String[] line = lineString.split(" ");
                 if (line.length >= 2) {
                     long frequency = 0;
                     try {
@@ -67,12 +60,13 @@ public class Ngrams {
                         System.err.println("The file is corrupted");
                     }
                 }
+
+                lineString = br.readLine();
             }
-        } catch (FileNotFoundException exc) {
+            System.out.println("File read successfully");
+        } catch (IOException exc) {
             System.err.println("File not found");
         }
-
-        return this.sampleSize;
     }
 
     /**
