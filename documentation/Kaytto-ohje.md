@@ -2,7 +2,7 @@
 
 ## Ohjelman hyväksymät syötteet
 
-Kaikille Vigenere ciphereille pitää syöttää lowercase tekstiä joka sisältää vain standardi latinankielisen aakkoston 26 kirjainta abcdefghijklmnopqrstuvwxyz. Jos teksti sisältää väleja, erikoismerkkejä jne niin salauksen tulos ei välttämättä ole onnistunut. Transposition cipher salauksille voi syöttää vapaamuotoista tekstiä joka sisältää myös isoja kirjaimai, välejä jne.
+Kaikille Vigenere ciphereille pitää syöttää lowercase tekstiä joka sisältää vain standardi latinankielisen aakkoston 26 kirjainta abcdefghijklmnopqrstuvwxyz. Jos teksti sisältää väleja, erikoismerkkejä jne niin salauksen tulos ei välttämättä ole onnistunut. Transposition cipher salauksille voi syöttää vapaamuotoista tekstiä joka sisältää myös isoja kirjaimia, välejä jne.
 
 Salauksen murtamistoiminnallisuudessa syötetyn tekstin pitää olla yhdessä pötkössä käyttäen vain standardi latinankielisen aakkoston 26 kirjainta abcdefghijklmnopqrstuvwxyz. Tämä pätee sekä Vigenere cipherin murtamistoiminnallisuudessa että Transpositions cipherin murtamistoiminnallisuudessa.
 
