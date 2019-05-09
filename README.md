@@ -8,7 +8,7 @@ Harjoitustyö toteuttaa Java-kielellä klassisia (pre-1940-luku) kryptografisia 
 
     quadgrams = new Ngrams(4, "src/main/resources/english_quadgrams.txt");
 
-**minkä vuoksi transposition cipherin murtamistoiminnallisuus ei toimi jos ohjelma suoritetaan jarin kautta (ohjelma ei voi laskea fitness-arvoja olemattomasta aineistosta). Lisäksi AttackTranspositionCipher luokassa on sama ongelma konstruktorissa mutta tämä ei vaikuta ohjelman toimintaan sillä kyseistä luokkaa ei käytetä ohjelmalogiikassa vaan ainoastaan testeissä (jossa voi myös esiintyä samasta syystä tämä ongelma). Kurssi suoritettu ongelma saatetaan korjata tulevaisuudessa** 
+**minkä vuoksi transposition cipherin murtamistoiminnallisuus ei toimi jos ohjelma suoritetaan jarin kautta (ohjelma ei voi laskea fitness-arvoja olemattomasta aineistosta). Lisäksi AttackTranspositionCipher luokassa on sama ongelma konstruktorissa mutta tämä ei vaikuta ohjelman toimintaan sillä kyseistä luokkaa ei käytetä ohjelmalogiikassa vaan ainoastaan testeissä (jossa voi myös esiintyä samasta syystä tämä ongelma). Kurssi loppunut, ongelma saatetaan korjata tulevaisuudessa** 
 
 Salausalgoritmeista on toteutettu [Vigenère cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher), Keyed Vigenère cipher ja [Autokey Vigenère cipher](https://en.wikipedia.org/wiki/Autokey_cipher) sekä [yksinkertainen (Single)](https://en.wikipedia.org/wiki/Transposition_cipher#Columnar_transposition) ja [kaksinkertainen (Double) Columnar Transposition](https://en.wikipedia.org/wiki/Transposition_cipher#Double_transposition).
 
