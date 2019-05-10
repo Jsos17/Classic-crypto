@@ -26,7 +26,7 @@ Yksinkertaisessa (Single) columnar transposition cipherissa edellä kuvattu sala
 
 ### Salauksen murtaminen eli cryptanalysis
 
-Työssä on toteutettu toiminnallisuuttav tavallisen Vigenère cipherin murtamiseen sekä yksinketaisen columnar transposition cipherin murtamiseen.
+Työssä on toteutettu toiminnallisuutta tavallisen Vigenère cipherin murtamiseen sekä yksinketaisen columnar transposition cipherin murtamiseen.
 
 ## References / Keskeiset lähteet
 
