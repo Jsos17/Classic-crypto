@@ -1,5 +1,7 @@
 # Classic-crypto
 
+[![Build Status](https://travis-ci.com/Jsos17/Classic-crypto.svg?branch=master)](https://travis-ci.com/Jsos17/Classic-crypto)
+
 ## Tietorakenteet ja algoritmit aineopintojen harjoitustyö
 
 Harjoitustyö toteuttaa Java-kielellä klassisia (pre-1940-luku) kryptografisia algoritmeja ja kryptoanalyysiä näihin liittyen.
