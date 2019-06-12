@@ -1,6 +1,6 @@
 # Classic-crypto
 
-[![Build Status](https://travis-ci.com/Jsos17/Classic-crypto.svg?branch=master)](https://travis-ci.com/Jsos17/Classic-crypto) [![codecov](https://codecov.io/gh/Jsos17/Classic-crypto/branch/master/graph/badge.svg)](https://codecov.io/gh/Jsos17/Classic-crypto)
+[![Build Status](https://travis-ci.com/Jsos17/Classic-crypto.svg?branch=master)](https://travis-ci.com/Jsos17/Classic-crypto) [![codecov](https://codecov.io/gh/Jsos17/Classic-crypto/branch/master/graph/badge.svg)](https://codecov.io/gh/Jsos17/Classic-crypto) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8cb108b3e6294ef58af41c669d1539b7)](https://www.codacy.com/app/Jsos17/Classic-crypto?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Jsos17/Classic-crypto&amp;utm_campaign=Badge_Grade)
 
 ## Tietorakenteet ja algoritmit aineopintojen harjoitustyö
 
