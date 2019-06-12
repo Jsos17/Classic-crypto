@@ -1,6 +1,6 @@
 language: java
 script:
   - mvn -f CryptoApp/pom.xml clean verify
-  - mvn cobertura:cobertura
+  - mvn -f CryptoApp/pom.xml cobertura:cobertura
 after_success:
   - bash <(curl -s https://codecov.io/bash)
