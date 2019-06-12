@@ -89,7 +89,7 @@ public class Combinatorics {
             this.index++;
         } else {
             for (byte i = 0; i < this.nums.length; i++) {
-                if (this.used[i] == false) {
+                if (!this.used[i]) {
                     this.used[i] = true;
                     this.nums[k] = i;
                     generatePermutations(k + 1);

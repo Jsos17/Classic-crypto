@@ -13,10 +13,6 @@ package crypto.helpers;
  */
 public class GreatestCommonDivisor {
 
-    public GreatestCommonDivisor() {
-
-    }
-
     /**
      * This method is found in the book Introduction to Algorithms 3rd edition
      * and is a recursive form of Euclid's algorithm

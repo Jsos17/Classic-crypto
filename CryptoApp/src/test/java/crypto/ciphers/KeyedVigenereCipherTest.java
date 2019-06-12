@@ -5,7 +5,6 @@
  */
 package crypto.ciphers;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -24,10 +23,6 @@ public class KeyedVigenereCipherTest {
         this.kvig = new KeyedVigenereCipher("kryptos");
         this.kvig2 = new KeyedVigenereCipher("");
         this.kvig2.setAlphabet("ciakgb");
-    }
-
-    @After
-    public void tearDown() {
     }
 
     @Test

@@ -156,7 +156,7 @@ public class HashTable<K, V> {
         double loadFactor = (double) this.currentSize / this.hashtable.length;
         if (loadFactor > this.HIGH_THRESHOLD) {
             this.grow();
-        } else if (this.sizeSetted == false && loadFactor < this.LOW_THRESHOLD) {
+        } else if (!this.sizeSetted && loadFactor < this.LOW_THRESHOLD) {
             this.shrink();
         }
     }

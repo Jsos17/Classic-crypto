@@ -5,8 +5,6 @@
  */
 package crypto.helpers;
 
-import crypto.helpers.CharacterValue;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -103,7 +101,7 @@ public class CharacterValueTest {
     @Test
     public void equalsTest7() {
         CharacterValue cval1 = new CharacterValue('A', 0.4201);
-        assertEquals(false, cval1.equals(null));
+        assertEquals(false, cval1 == null);
     }
 
     @Test

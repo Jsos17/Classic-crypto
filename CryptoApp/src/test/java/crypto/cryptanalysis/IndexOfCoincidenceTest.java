@@ -7,7 +7,6 @@ package crypto.cryptanalysis;
 
 import crypto.helpers.CharacterValue;
 import java.util.Arrays;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -25,10 +24,6 @@ public class IndexOfCoincidenceTest {
     public void setUp() {
         this.freq = new FrequencyAnalysis();
         this.ic = new IndexOfCoincidence(this.freq);
-    }
-
-    @After
-    public void tearDown() {
     }
 
     /*

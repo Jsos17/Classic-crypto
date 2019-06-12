@@ -6,7 +6,6 @@
 package crypto.datastructures;
 
 import crypto.helpers.CharIndexPair;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -22,10 +21,6 @@ public class DoublyLinkedListTest {
     @Before
     public void setUp() {
         this.list = new DoublyLinkedList();
-    }
-
-    @After
-    public void tearDown() {
     }
 
     @Test

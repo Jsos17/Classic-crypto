@@ -16,13 +16,6 @@ package crypto.ciphers;
 public class AutokeyVigenereCipher extends VigenereCipher {
 
     /**
-     * No parameters
-     */
-    public AutokeyVigenereCipher() {
-        super();
-    }
-
-    /**
      * In Autokey Vigenere cipher the key is formed by using a primer key once
      * and then appending it with the plaintext, and thus the resulting
      * encryption key will not form any cycles making the work of the
