@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package crypto.cryptanalysis;
 
 import org.junit.After;
@@ -55,7 +50,7 @@ public class AttackTranspositionCipherTest {
     public void crackWithKeyTest2() {
         String ciphertext = "NSTLEICYEMPMHELGOAAHVCOTBYAAAESEAWAMNERTATHOPFTMZDHAISAALITSUOOAZNSREMSEAVTLETYGUAEGREERNIUAKRNRPSMS";
         String keycandidate = attack.attackShortKeyWordsDynamic(ciphertext);
-        assertEquals("ANAGRAMSAREINTHEMSELVESARECREATIONALACTIVITYBUTTHEYALSOMAKEUPPARTOFMANYOTHERGAMESPUZZLESANDGAMESHOWS", 
+        assertEquals("ANAGRAMSAREINTHEMSELVESARECREATIONALACTIVITYBUTTHEYALSOMAKEUPPARTOFMANYOTHERGAMESPUZZLESANDGAMESHOWS",
                 attack.crackWithKey(keycandidate, ciphertext));
     }
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package crypto.cryptoapp;
 
 import crypto.ciphers.AutokeyVigenereCipher;
@@ -14,9 +9,6 @@ import crypto.cryptanalysis.HillClimber;
 import crypto.cryptanalysis.IndexOfCoincidence;
 import crypto.cryptanalysis.Ngrams;
 import crypto.helpers.CharacterValue;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

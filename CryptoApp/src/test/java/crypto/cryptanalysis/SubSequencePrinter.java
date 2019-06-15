@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package crypto.cryptanalysis;
 
 import java.util.ArrayList;
@@ -12,7 +7,7 @@ import java.util.ArrayList;
  * @author jpssilve
  */
 public class SubSequencePrinter {
-    
+
     public static void printSubSequences(String text) {
         ArrayList<String[]> subSeqs = new ArrayList<>();
         for (int keyLen = 1; keyLen <= text.length(); keyLen++) {
@@ -26,14 +21,14 @@ public class SubSequencePrinter {
             }
         }
     }
-    
+
     public static void printSubSequences(String text, int keyLen) {
-            String[] s = subSequences(text, keyLen);
-            System.out.println("KeyLen: " + keyLen);
-            for (int j = 0; j < s.length; j++) {
-                System.out.println(s[j]);
-            }
-      
+        String[] s = subSequences(text, keyLen);
+        System.out.println("KeyLen: " + keyLen);
+        for (int j = 0; j < s.length; j++) {
+            System.out.println(s[j]);
+        }
+
     }
 
     private static String[] subSequencesWithSpace(String ciphertext, int keyLen) {
@@ -49,7 +44,7 @@ public class SubSequencePrinter {
 
         return subsequences;
     }
-    
+
     private static String[] subSequences(String ciphertext, int keyLen) {
         String[] subsequences = new String[keyLen];
         for (int k = 0; k < keyLen; k++) {
