@@ -2,4 +2,4 @@ language: java
 script:
   - mvn -f CryptoApp/pom.xml clean verify
 after_success:
-  - codecov
+  - bash <(curl -s https://codecov.io/bash)
