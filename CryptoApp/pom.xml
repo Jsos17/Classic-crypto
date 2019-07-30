@@ -17,6 +17,11 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>12.0.1</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -82,6 +87,14 @@
                         <format>xml</format>
                     </formats>
                     <check />
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.2</version>
+                <configuration>
+                    <mainClass>crypto.cryptoapp.CryptoUserInterface</mainClass>
                 </configuration>
             </plugin>
         </plugins>
