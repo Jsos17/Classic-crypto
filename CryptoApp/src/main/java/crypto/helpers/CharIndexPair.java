@@ -45,11 +45,7 @@ public class CharIndexPair implements Comparable<CharIndexPair> {
 
         CharIndexPair comparison = (CharIndexPair) obj;
 
-        if (this.c == comparison.c && this.index == comparison.index) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.c == comparison.c && this.index == comparison.index;
     }
 
     @Override
