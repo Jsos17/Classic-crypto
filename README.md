@@ -4,7 +4,7 @@
 
 ## Tietorakenteet ja algoritmit aineopintojen harjoitustyö
 
-Harjoitustyö toteuttaa Java-kielellä klassisia (pre-1940-luku) kryptografisia algoritmeja ja kryptoanalyysiä näihin liittyen.
+Harjoitustyö toteuttaa Java-kielellä klassisia kryptografisia algoritmeja ja kryptoanalyysiä näihin liittyen.
 
 Salausalgoritmeista on toteutettu [Vigenère cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher), Keyed Vigenère cipher ja [Autokey Vigenère cipher](https://en.wikipedia.org/wiki/Autokey_cipher) sekä [yksinkertainen (Single)](https://en.wikipedia.org/wiki/Transposition_cipher#Columnar_transposition) ja [kaksinkertainen (Double) Columnar Transposition](https://en.wikipedia.org/wiki/Transposition_cipher#Double_transposition).
 
@@ -24,11 +24,11 @@ Yksinkertaisessa (Single) columnar transposition cipherissa edellä kuvattu sala
 
 ### Lisähuomautus
 
-[Vigenère cipheriin](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher) ja sen variantteihin viitataan tässä työssä usein pelkästään sanoilla "Vigenere cipher" kirjoittamisen helpottamiseksi, vaikka oikeaan kirjoitusasuun siis kuuluu tuo è-merkki.
+[Vigenère cipheriin](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher) ja sen variantteihin viitataan tässä työssä usein pelkästään sanoilla "Vigenere cipher" kirjoittamisen helpottamiseksi, vaikka oikeaan kirjoitusasuun kuuluu tuo è-merkki.
 
 ### Salauksen murtaminen eli cryptanalysis
 
-Työssä on toteutettu toiminnallisuutta tavallisen Vigenère cipherin murtamiseen sekä yksinketaisen columnar transposition cipherin murtamiseen.
+Työssä on toteutettu toiminnallisuutta tavallisen Vigenère cipherin murtamiseen.
 
 ## References / Keskeiset lähteet
 
@@ -70,6 +70,6 @@ Työssä on käytetty erityisesti James Lyonsin sivustoa http://practicalcryptog
 
 ## Muuta
 
-Tiedosto, jota käytetty ja johon dokumentoitu osa testausprosessista liittyen erityisesti paljon laskentaa vaativien metodien testaukseen IndexOfCoincidence luokassa. LibreOffice Calcin avulla pystyi semi-automatisoimaan laskentaa ja tekemään sen monelta osin täysin riippumattomasti omasta koodista. 
+Tiedosto, jota käytetty ja johon dokumentoitu osa testausprosessista liittyen erityisesti paljon laskentaa vaativien metodien testaukseen IndexOfCoincidence luokassa. LibreOffice Calcin avulla on semi-automatisoitu laskentaa monelta osin täysin riippumattomasti omasta koodista. 
 
 [IC_test.xlxs](https://github.com/Jsos17/Classic-crypto/blob/master/documentation/IC_test.xlsx)
