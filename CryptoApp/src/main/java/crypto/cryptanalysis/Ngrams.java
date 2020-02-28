@@ -111,7 +111,7 @@ public class Ngrams {
      * "probabilities" in a given text.
      *
      * The higher the value the more likely it is to be a valid English language
-     * text sample. Since probabilities are smaller than zero the fitness value
+     * text sample. Since probabilities are between zero and one, the fitness value
      * is always smaller or equal to zero
      *
      * @param text The text (in upper case) that is to be assessed
