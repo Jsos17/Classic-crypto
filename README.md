@@ -12,6 +12,8 @@ The original project was done between late July 2018 and early September 2018. S
 
 Other small changes and modifications have also been made after the completion of the original project.
 
+After studying the theory of Markov chains on the University of Helsinki course Probability theory II, and Markov chain Monte Carlo (MCMC) methods for my Bachelor's thesis, I have since discovered that classical ciphers could be attacked with MCMC methods. This woud be an interesting exercise in the future.
+
 ## Tietorakenteet ja algoritmit aineopintojen harjoitustyö
 
 Harjoitustyö toteuttaa Java-kielellä klassisia kryptografisia algoritmeja ja kryptoanalyysiä näihin liittyen.
