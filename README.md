@@ -6,13 +6,13 @@
 
 Originally this project was done for the University of Helsinki course *Laboratory work: Data Structures and Algorithms*. My choice of topic was classical cryptography. The project consisted of implementing the encryption and decryption algorithms for [Vigenère cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher), Keyed Vigenère cipher and [Autokey Vigenère cipher](https://en.wikipedia.org/wiki/Autokey_cipher) along with both [Single](https://en.wikipedia.org/wiki/Transposition_cipher#Columnar_transposition) and [Double Columnar Transposition](https://en.wikipedia.org/wiki/Transposition_cipher#Double_transposition) ciphers. Additionally, I produced functionality related to cryptanalysis of Vigenère cipher.
 
-An integral part of the course was to implement all algorithms and data sructures from scratch. In my project, I needed  stable sorting algorithms, hash tables, hash sets, doubly linked lists and a random number generator. [The Lehmer random number generator](https://en.wikipedia.org/wiki/Lehmer_random_number_generator) was chosen for its simplicity, and because the quality of the generator did not matter much.
+An integral part of the course was to implement all algorithms and data structures from scratch. In my project, I needed  stable sorting algorithms, hash tables, hash sets, doubly linked lists and a random number generator. [The Lehmer random number generator](https://en.wikipedia.org/wiki/Lehmer_random_number_generator) was chosen for its simplicity, and because the quality of the generator did not matter much.
 
 The original project was done between late July 2018 and early September 2018. Since then, refactoring of the graphical user interface (gui) has been started, but it has not been completed, and the original gui code is still used. The code for the gui was not in the assessment criteria for the project. Hence heavy technical debt was taken intentionally when the gui was written.
 
 Other small changes and modifications have also been made after the completion of the original project.
 
-After studying the theory of Markov chains on the University of Helsinki course Probability theory II, and Markov chain Monte Carlo (MCMC) methods for my Bachelor's thesis, I have since discovered that classical ciphers could be attacked with MCMC methods. This woud be an interesting exercise in the future.
+After studying Markov chain Monte Carlo (MCMC) methods and the underlying theory behind them at University of Helsinki, I have since discovered literature which says that classical ciphers could be attacked with MCMC methods. This woud be an interesting way to expand the project in the future.
 
 ## Tietorakenteet ja algoritmit aineopintojen harjoitustyö
 
