@@ -2,6 +2,16 @@
 
 [![Build Status](https://travis-ci.com/Jsos17/Classic-crypto.svg?branch=master)](https://travis-ci.com/Jsos17/Classic-crypto) [![codecov](https://codecov.io/gh/Jsos17/Classic-crypto/branch/master/graph/badge.svg)](https://codecov.io/gh/Jsos17/Classic-crypto) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8cb108b3e6294ef58af41c669d1539b7)](https://www.codacy.com/app/Jsos17/Classic-crypto?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Jsos17/Classic-crypto&amp;utm_campaign=Badge_Grade)
 
+## Laboratory work: Data Structures and Algorithms
+
+Originally this project was done for the University of Helsinki course *Laboratory work: Data Structures and Algorithms*. My choice of topic was classical cryptography. The project consisted of implementing the encryption and decryption algorithms for [Vigenère cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher), Keyed Vigenère cipher, [Autokey Vigenère cipher](https://en.wikipedia.org/wiki/Autokey_cipher) along with both [Single](https://en.wikipedia.org/wiki/Transposition_cipher#Columnar_transposition) and [Double Columnar Transposition](https://en.wikipedia.org/wiki/Transposition_cipher#Double_transposition) ciphers. Additionally, cryptanalysis of Vigenère cipher was performed and the related functionality was implemented.
+
+An integral part of the course was to implement all algorithms and data sructures from scratch. In my project, I needed  stable sorting algorithms, hash tables, hash sets, doubly linked lists and a random number generator. [The Lehmer random number generator](https://en.wikipedia.org/wiki/Lehmer_random_number_generator) was chosen for its simplicity, and because the quality of the generator did not matter much.
+
+The original project was done between late July 2018 and early September 2018. Since then, refactoring of the graphical user interface (gui) has been started, but it has not been completed, and the original gui code is still used. The code for the gui was not in the assessment criteria for the project. Hence heavy technical debt was taken intentionally when the gui was written.
+
+Other small changes and modifications have also been made after the completion of the original project.
+
 ## Tietorakenteet ja algoritmit aineopintojen harjoitustyö
 
 Harjoitustyö toteuttaa Java-kielellä klassisia kryptografisia algoritmeja ja kryptoanalyysiä näihin liittyen.
