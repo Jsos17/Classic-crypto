@@ -8,7 +8,7 @@ Originally this project was done for the University of Helsinki course *Laborato
 
 An integral part of the course was to implement all algorithms and data structures from scratch. In my project, I needed  stable sorting algorithms, hash tables, hash sets, doubly linked lists and a random number generator. I chose [The Lehmer random number generator](https://en.wikipedia.org/wiki/Lehmer_random_number_generator) for its simplicity, and because the quality of the generator did not matter much.
 
-The original project was done between late July 2018 and early September 2018. Since then, refactoring of the graphical user interface (gui) has been started, but it has not been completed, and the original gui code is still used. The code for the gui was not in the assessment criteria for the project. Hence heavy technical debt was taken intentionally when the gui was written.
+The original project was done between late July 2018 and early September 2018. Since then, refactoring of the graphical user interface (gui) has been started, but it has not been completed, and the original messy gui code is still used. The code for the gui was not in the assessment criteria for the project. Hence heavy technical debt was taken intentionally when the gui was written.
 
 Other small changes and modifications have also been made after the completion of the original project.
 
