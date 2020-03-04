@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/Jsos17/Classic-crypto.svg?branch=master)](https://travis-ci.com/Jsos17/Classic-crypto) [![codecov](https://codecov.io/gh/Jsos17/Classic-crypto/branch/master/graph/badge.svg)](https://codecov.io/gh/Jsos17/Classic-crypto) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8cb108b3e6294ef58af41c669d1539b7)](https://www.codacy.com/app/Jsos17/Classic-crypto?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Jsos17/Classic-crypto&amp;utm_campaign=Badge_Grade)
 
-## Laboratory work: Data Structures and Algorithms
+## Laboratory Work: Data Structures and Algorithms
 
 Originally this project was done for the University of Helsinki course *Laboratory work: Data Structures and Algorithms*. My choice of topic was classical cryptography. The project consisted of implementing the encryption and decryption algorithms for [Vigenère cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher), Keyed Vigenère cipher and [Autokey Vigenère cipher](https://en.wikipedia.org/wiki/Autokey_cipher) along with both [Single](https://en.wikipedia.org/wiki/Transposition_cipher#Columnar_transposition) and [Double Columnar Transposition](https://en.wikipedia.org/wiki/Transposition_cipher#Double_transposition) ciphers. Additionally, I produced functionality related to cryptanalysis of Vigenère cipher.
 
