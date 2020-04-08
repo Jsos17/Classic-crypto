@@ -8,11 +8,11 @@ Originally this project was done for the University of Helsinki course *Laborato
 
 An integral part of the course was to implement all algorithms and data structures from scratch. In my project, I needed  stable sorting algorithms, hash tables, hash sets, doubly linked lists and a random number generator. I chose [The Lehmer random number generator](https://en.wikipedia.org/wiki/Lehmer_random_number_generator) for its simplicity, and because the quality of the generator did not matter much.
 
-The original project was done between late July 2018 and early September 2018. Since then, refactoring of the graphical user interface (gui) has been started, but it has not been completed, and the original messy gui code is still used. **The code for the gui was not in the assessment criteria for the project, and it was mainly provided for the convenience of the course inspector**. Hence, [prudent and deliberate](https://martinfowler.com/bliki/TechnicalDebtQuadrant.html) technical debt was taken, when the gui was written. Additionally, the gui code is ignored in the Codecov and Codacy analysis for the aforementioned reasons.
+The original project was done between late July 2018 and early September 2018. At the start of this project, I had no previous knowledge  of classical or modern cryptography. Thus, I had to learn on the go, implementing cipher algorithms as soon as I understood their basic principles. All of the cryptography related work was done during that short period of time.
 
-Other small changes and modifications have also been made after the completion of the original project.
+Since the end of the course, refactoring of the graphical user interface (gui) has been started, but it has not been completed, and the original messy gui code is still used. **The code for the gui was not in the assessment criteria for the course, and it was mainly provided for the convenience of the course inspector**. Hence, [prudent and deliberate](https://martinfowler.com/bliki/TechnicalDebtQuadrant.html) technical debt was taken, when the gui was written. Additionally, the gui code is ignored in the Codecov and Codacy analysis for the aforementioned reasons.
 
-After studying Markov chain Monte Carlo (MCMC) methods and the underlying theory behind them at University of Helsinki, I have since discovered literature which says that classical ciphers could be attacked with MCMC methods. This woud be an interesting way to expand the project in the future.
+After studying Markov chain Monte Carlo (MCMC) methods and the underlying theory behind them at University of Helsinki, I have since discovered literature which says that classical ciphers could be attacked with MCMC methods. This would be an interesting way to expand the cryptanalysis part of the project.
 
 ## Tietorakenteet ja algoritmit aineopintojen harjoitustyö
 
