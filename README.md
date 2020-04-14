@@ -6,13 +6,15 @@
 
 Originally this project was done for the University of Helsinki course *Laboratory work: Data Structures and Algorithms*. My choice of topic was classical cryptography. The project consisted of implementing the encryption and decryption algorithms for [Vigenère cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher), Keyed Vigenère cipher and [Autokey Vigenère cipher](https://en.wikipedia.org/wiki/Autokey_cipher) along with both [Single](https://en.wikipedia.org/wiki/Transposition_cipher#Columnar_transposition) and [Double Columnar Transposition](https://en.wikipedia.org/wiki/Transposition_cipher#Double_transposition) ciphers. Additionally, I produced functionality related to cryptanalysis of Vigenère cipher.
 
-An integral part of the course was to implement all algorithms and data structures from scratch. In my project, I needed  stable sorting algorithms, hash tables, hash sets, doubly linked lists and a random number generator. I chose [The Lehmer random number generator](https://en.wikipedia.org/wiki/Lehmer_random_number_generator) for its simplicity, and because the quality of the generator did not matter much.
+An integral part of the course was to implement all algorithms and data structures from scratch. Naturally, the cipher algorithms were the central aspect of the project. Additionally, basic algorithms, such as iterative merge sort, insertion sort and Euclid's algorithm, were implemented as well. However, Euclid's algorithm was never used in the actual project. 
+
+A hash table, a hash set, a doubly linked list and a random number generator were among the implemented data structures. I chose [The Lehmer random number generator](https://en.wikipedia.org/wiki/Lehmer_random_number_generator) mainly because it was simple to implement. Furthermore, an article by Park and Miller showed how to test the correctness of the random number generator implementation [[1]](#1).
 
 The original project was done between late July 2018 and early September 2018. At the start of this project, I had no previous knowledge  of classical or modern cryptography. Thus, I had to learn on the go, implementing cipher algorithms as soon as I understood their basic principles. All of the cryptography related work was done during that short period of time.
 
 Since the end of the course, refactoring of the graphical user interface (gui) has been started, but it has not been completed, and the original messy gui code is still used. **The code for the gui was not in the assessment criteria for the course, and it was mainly provided for the convenience of the course inspector**. Hence, [prudent and deliberate](https://martinfowler.com/bliki/TechnicalDebtQuadrant.html) technical debt was taken, when the gui was written. Additionally, the gui code is ignored in the Codecov and Codacy analysis for the aforementioned reasons.
 
-After studying Markov chain Monte Carlo (MCMC) methods and the underlying theory behind them at University of Helsinki, I have since discovered literature which says that classical ciphers could be attacked with MCMC methods. This would be an interesting way to expand the cryptanalysis part of the project.
+After studying Markov chain Monte Carlo (MCMC) methods, I have since discovered literature which says that classical ciphers could be attacked with MCMC methods. This provides a way to extend the cryptanalysis part of this project.
 
 ## Tietorakenteet ja algoritmit aineopintojen harjoitustyö
 
@@ -43,6 +45,9 @@ Yksinkertaisessa (Single) columnar transposition cipherissa edellä kuvattu sala
 Työssä on toteutettu toiminnallisuutta tavallisen Vigenère cipherin murtamiseen.
 
 ## References / Keskeiset lähteet
+
+<a id="1">[1]</a> 
+Stephen K. Park; Keith W. Miller (1988). Random Number Generators: Good Ones Are Hard To Find. Communications of the ACM. Volume 31. pages 1192-1201
 
 The website of James Lyons http://practicalcryptography.com/ is a central reference in this project, and he has been kind enough to provide extremely useful text files containing statistical data of the English language on his website http://practicalcryptography.com/cryptanalysis/text-characterisation/quadgrams/
 
