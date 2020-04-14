@@ -14,7 +14,7 @@ The original project was done between late July 2018 and early September 2018. A
 
 Since the end of the course, refactoring of the graphical user interface (gui) has been started, but it has not been completed, and the original messy gui code is still used. **The code for the gui was not in the assessment criteria for the course, and it was mainly provided for the convenience of the course inspector**. Hence, [prudent and deliberate](https://martinfowler.com/bliki/TechnicalDebtQuadrant.html) technical debt was taken, when the gui was written. Additionally, the gui code is ignored in the Codecov and Codacy analysis for the aforementioned reasons.
 
-After studying Markov chain Monte Carlo (MCMC) methods, I have since discovered literature which says that classical ciphers could be attacked with MCMC methods. Therefore, the cryptanalysis part of this project could be further extended.
+After studying Markov chain Monte Carlo (MCMC) methods, I have since discovered literature which says that classical ciphers could be attacked with MCMC methods. Therefore, the cryptanalysis part of this project could be further extended by employing MCMC methods.
 
 ## Tietorakenteet ja algoritmit aineopintojen harjoitustyö
 
